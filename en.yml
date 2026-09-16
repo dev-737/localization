@@ -162,10 +162,10 @@ botLanding:
     ## 🏡 Hubs
     Hubs are persistent, **cross-server** communities. Connect several servers to one shared space that stays open between conversations.
 
-    - 📌 **Create:** `/hub create` — make your own hub
-    - 🧭 **Explore:** `/hub directory` — find public hubs
-    - 🔗 **Connect:** `/hub connect` — join an existing hub
-    - ⚙️ **Manage:** `/hub manage` — open your hub settings
+    - 📌 **Create:** `/hub create` - make your own hub
+    - 🧭 **Explore:** `/hub directory` - find public hubs
+    - 🔗 **Connect:** `/hub connect` - join an existing hub
+    - ⚙️ **Manage:** `/hub manage` - open your hub settings
     > Use `/help` to see every command.
 
   closing: |
@@ -1058,7 +1058,7 @@ staff:
 
 hub:
   directory:
-    title: "## {globe} Discover Hubs — {sortEmoji} {sort}"
+    title: "## {globe} Discover Hubs - {sortEmoji} {sort}"
     page: "Page {current} of {total} • {count} public hubs"
     searching: 'Searching: "{query}"'
     connectHint: "Choose Connect, or use `/hub connect hub:<name>`."
@@ -1202,7 +1202,7 @@ hub:
     errors:
       noPermission: You must be a hub admin to view this.
   history:
-    title: "History — {hubName}"
+    title: "History - {hubName}"
     subtitle: Choose what to review
     view: View
     retry: Retry
@@ -1222,7 +1222,7 @@ hub:
       manageConnections: Requires Manage Connections
       viewLogs: Requires View Logs
     activity:
-      title: "Server activity — {hubName}"
+      title: "Server activity - {hubName}"
       empty: No server activity yet. Joins, leaves and renames for this hub's servers will show up here.
       error: Server activity is temporarily unavailable.
       renamed: Renamed
@@ -1263,7 +1263,7 @@ hub:
       Let's get started!
 
   home:
-    title: "{hubName} — Hub Home"
+    title: "{hubName} - Hub Home"
     nextSteps: Your next steps
     status:
       noChannels: "Your hub is created. Connect its first channel to give it a home."
@@ -2068,6 +2068,6 @@ server:
       selectPlaceholder: Select text channels
       currentlyAllowed: Commands currently allowed in
       everywhere: Lobby commands work in every text channel when no channels are selected.
-      unsaved: Unsaved changes — press Save Changes to apply them.
+      unsaved: Unsaved changes - press Save Changes to apply them.
       saved: Lobby channel restrictions saved.
       manageChannelsRequired: You need the Manage Channels permission to edit lobby channels.
