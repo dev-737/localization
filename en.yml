@@ -434,6 +434,20 @@ automod:
   actionsTitle: What happens?
   addWords: Add words
   applyDraft: Apply my draft
+  changeApplied: ✅ Your change was applied.
+  changeApplying: ⏳ Applying your change…
+  changeBlocked: ⚠️ An earlier change is waiting for a review, so new changes are paused for now.
+  changeFailedConflict: Automod was changed by someone else while your change was being applied, so it was not applied. Use Compare my changes to apply your draft on top of the latest version.
+  changeFailedGeneric: This change was not confirmed. Check the rules shown here, then try again.
+  changeFailedGone: This Automod is no longer available, so the change was not applied.
+  changeFailedNotSent: The change never reached the safety service, so nothing was applied. Try again.
+  changeFailedPermission: Your permission to change this Automod was removed before it was applied, so nothing was saved.
+  changeFailedRefused: 'Automod refused this change, so it was not applied: {reason}'
+  changeFailedRejected: The safety service rejected this change, so it was not applied.
+  changeFailedService: The safety service refused this change, which looks like a service problem. Nothing was applied; please report it.
+  changeFailedUnknown: We could not confirm whether this change was applied, so it needs a review. Check the rules shown here, then save again if needed.
+  changeFailedUnreadable: The saved change could not be read back, so it was never sent. Save it again.
+  changeStillApplying: ⏳ Still applying. Press Refresh in a moment to see the result.
   confirmChange: Confirm change
   confirmEffect: This takes effect immediately for everyone in {scope}.
   confirmOff: Keep it off for now
@@ -470,6 +484,10 @@ automod:
   enabled: Enabled
   errorTitle: ⚠️ Automod could not be loaded.
   keepEditing: Keep editing
+  loadDenied: You do not have permission to view Automod here.
+  loadFailed: Automod could not be loaded right now. {reason}
+  loadGone: This Automod could not be found.
+  loadUnavailable: The safety service could not be reached. Press Refresh to try again.
   newRule: New rule
   newRuleModalTitle: New rule
   newRuleName: Name
@@ -492,6 +510,11 @@ automod:
   ruleDescription: '{status} · {count} words'
   ruleTitle: ✍️ {name} · {status}
   rulesOn: '{enabled} of {total} rules on'
+  saveBusy: Another Automod change is already being applied. Wait for it to finish, then save again.
+  saveDenied: You no longer have permission to change this Automod.
+  saveFailed: 'This change could not be saved: {reason}'
+  saveGone: This Automod is no longer available, so nothing was changed.
+  saveUnavailable: The safety service could not be reached, so nothing was changed. Try again in a moment.
   serverNote: Warns, mutes and bans are hub tools. They apply when this server joins a hub.
   statusOff: 'Off'
   statusOn: 'On'
