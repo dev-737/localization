@@ -435,7 +435,7 @@ automod:
   addWords: Add words
   applyDraft: Apply my draft
   changeApplied: ✅ Your change was applied.
-  changeApplying: ⏳ Applying your change…
+  changeApplying: ⏳ Saving…
   changeBlocked: ⚠️ An earlier change is waiting for a review, so new changes are paused for now.
   changeFailedConflict: Automod was changed by someone else while your change was being applied, so it was not applied. Use Compare my changes to apply your draft on top of the latest version.
   changeFailedGeneric: This change was not confirmed. Check the rules shown here, then try again.
