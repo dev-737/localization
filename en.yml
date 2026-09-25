@@ -92,7 +92,7 @@ common:
     notImplemented: Not implemented yet.
     defaultSuccess: Action completed successfully.
     actionCancelled: &msg_cancelled Action cancelled.
-    hubNotFound: "Hub not found. Use `/hub directory` to find a hub, or `/hub create` to start your own."
+    hubNotFound: "Hub not found. Use `/hub browse` to find a hub, or `/hub create` to start your own."
     serverNotFound: Server not found.
     userNotFound: User not found.
     notSpecified: Not specified
@@ -163,7 +163,7 @@ botLanding:
     Hubs are persistent, **cross-server** communities. Connect several servers to one shared space that stays open between conversations.
 
     - 📌 **Create:** `/hub create` - make your own hub
-    - 🧭 **Explore:** `/hub directory` - find public hubs
+    - 🧭 **Explore:** `/hub browse` - find public hubs
     - 🔗 **Connect:** `/hub connect` - join an existing hub
     - ⚙️ **Manage:** `/hub manage` - open your hub settings
     > Use `/help` to see every command.
@@ -172,6 +172,35 @@ botLanding:
     **Ready to meet another server? Try a call, discover a hub, or create your own below.**
 
     -# Made with ❤️ by InterChat Development
+
+onboarding:
+  start:
+    title: "Welcome to InterChat"
+    description: "Connect **{server}** to people beyond your server."
+    callTitle: Temporary cross-server text chat
+    callDescription: Meet someone new now. Calls are text conversations, not voice calls.
+    callButton: Meet someone now
+    serverButton: Set up this server
+    browseButton: Browse Hubs
+    rulesButton: Read the rules
+  call:
+    title: Meet someone now
+    description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
+    channelPlaceholder: Choose a text channel
+    startButton: Start matching
+    errors:
+      botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
+      accountAge: Your Discord account must be at least 30 days old to use Calls.
+      webhook: "I could not create the call webhook in {channel}."
+      busy: The lines are busy right now. Please try again in a few seconds.
+      channelConfiguration: I could not save this channel for Calls, so the Call was safely cancelled.
+  channel:
+    createButton: Create a channel
+    auditReason: Created by an InterChat moderator during setup
+    errors:
+      manageChannels: You need Manage Server and Manage Channels to create an InterChat channel.
+      botManageChannels: I need Manage Channels at the server level to create a channel.
+      createFailed: Discord would not let me create the channel. Check the channel settings and try again.
 
 setup:
   welcome:
@@ -251,7 +280,7 @@ setup:
     discoverHubs: Discover Public Hubs
     useDefault: Use Default
     skipForNow: Skip for Now
-  skipped: No problem. You can start any time with `/call` or `/hub directory`.
+  skipped: No problem. You can start any time with `/call` or `/hub browse`.
 
 help:
   title: Help
@@ -361,16 +390,16 @@ preferences:
     hidden: hidden
   voteReminders:
     title: "Preferences: Vote Reminders"
-    description: Toggle vote reminder notifications from InterChat.
+    description: Toggle vote reminders. Voting also unlocks personal auto-match after your partner skips or hangs up for 12 hours.
     enabled: enabled
     disabled: disabled
     dm:
       title: Time to Vote for InterChat!
-      description: Your support helps InterChat grow! Vote on top.gg to help us out!
-      reminderInfo: You receive this reminder because you've voted before.
+      description: Your support helps InterChat grow! Vote on top.gg to help us out. You can also choose whether to re-match after a partner skips or hangs up.
+      reminderInfo: Your auto-match choices stay active for 12 hours after a vote. Manage them in `/my settings`.
       disableConfirm:
         title: Vote Reminders Disabled
-        description: You will no longer receive vote reminder DMs.
+        description: You will no longer receive vote reminder DMs. Voting still unlocks personal auto-match after a partner skips or hangs up for 12 hours.
   errors:
     noPreferences: You don't have any preferences set yet.
 
@@ -1148,8 +1177,8 @@ hub:
         refreshError: An error occurred while refreshing.
         deletionCancelled: Cancelled
         deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: "This command needs a connected channel or a hub name. Browse with `/hub directory`, or create your own with `/hub create`."
-        notConnected: "This channel is not connected to a hub yet. Browse with `/hub directory`, or create your own with `/hub create`."
+        noHub: "This command needs a connected channel or a hub name. Browse with `/hub browse`, or create your own with `/hub create`."
+        notConnected: "This channel is not connected to a hub yet. Browse with `/hub browse`, or create your own with `/hub create`."
       warnings:
         deleteWarning: Warning
         deleteWarningDescription: This action cannot be undone.
@@ -1291,6 +1320,7 @@ hub:
     status:
       noChannels: "Your hub is created. Connect its first channel to give it a home."
       oneChannel: "One server is connected. Your hub is ready for another community to join."
+      readyToTest: "{count} servers are connected. Send a message to test the bridge; your hub becomes live after it is delivered."
       live: "Your hub is live with {count} connected servers. Messages can now travel between communities."
     tasks:
       channel:
@@ -1452,7 +1482,7 @@ hub:
         description: "Provide a hub name or an invite code.\n\nTry: `/hub connect hub:MyHub` or `/hub connect invite:abc123`. Want to start your own? Use `/hub create`."
       hubNotFound:
         title: Hub Not Found
-        description: "I couldn't find that hub. Check the name, or use `/hub directory` to browse public hubs."
+        description: "I couldn't find that hub. Check the name, or use `/hub browse` to browse public hubs."
       invalidInvite:
         title: Invalid Invite
         description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
@@ -1817,7 +1847,7 @@ startHere:
     dashboard: Open the web dashboard.
     leaderboard: See the top callers and servers.
     prefix: Change this server's command prefix.
-    vote: Vote for InterChat and earn a badge.
+    vote: Vote for InterChat, earn a badge, and choose whether to re-match after a skip or hangup.
 
 dashboard:
   description: Manage your hubs, servers and calls from your browser. No commands needed.
@@ -1838,12 +1868,14 @@ vote:
     ## What you get for 12 hours
     > **Server emojis**: use any emoji in your messages
     > **Voter badge**: shown on your InterChat profile
+    > **Personal auto-match**: choose whether you re-match after your partner skips or hangs up
   alreadyVoted: |-
     ## 🎉 Thanks for voting!
     You can vote again **{next}**.
+    Set your personal auto-match choices for when your partner skips or hangs up in `/my settings`.
   thanks:
     title: Thank you for voting!
-    intro: Your vote is how more servers find InterChat. Genuinely, thanks for taking the 10 seconds.
+    intro: Your vote helps more servers find InterChat. Thanks for taking the 10 seconds. It also lets you choose whether to re-match after your partner skips or hangs up for 12 hours; set it in `/my settings`.
     activeHeading: Active for the next 12 hours
     emojiTitle: Server emojis
     emojiBody: Use emoji from any server in your messages.
