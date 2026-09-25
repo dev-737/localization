@@ -587,6 +587,25 @@ report:
     context:
       label: Context (Entire call history is sent)
       placeholder: Add any additional context or details for staff...
+    reasons:
+      nsfwImages: NSFW Images
+      gore: Gore
+      childSexualization: Pedophilic Behavior / Child Sexualization
+      sexualThreats: Rape Threats / Sexual Threats
+      doxxing: Doxxing
+      hardRuleName: Hard-R in Username / Server Name
+      spam: Spam
+      suggestiveMessages: Suggestive Messages
+      nsfwMessages: NSFW Messages
+      casualSlurs: Casual Slurs
+      targetedSlurs: Targeted Slurs / Extreme Slurs
+      mildToxicity: Mild Toxicity
+      moderateToxicity: Moderate Toxicity
+      severeToxicity: Severe Toxicity
+      harassment: Harassment
+      mildHateSpeech: Mild Hate Speech
+      severeHateSpeech: Severe Hate Speech
+      other: Other
   success:
     title: Report Submitted
     toStaff: "{tick} Your report has been sent to InterChat staff."
