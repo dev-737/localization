@@ -26,6 +26,8 @@ common:
       owner: Owner
       member: Member
       moderator: Moderator
+      manager: Manager
+      staff: Staff
     note: Note
     never: ไม่เคย
     lastUpdated: Last Updated
@@ -92,7 +94,7 @@ common:
     notImplemented: ยังไม่เปิดใช้งาน
     defaultSuccess: Action completed successfully.
     actionCancelled: Action cancelled.
-    hubNotFound: "ไม่พบ Hub โปรดลองใหม่ภายหลัง"
+    hubNotFound: "Hub not found. Use `/hub browse` to find a hub, or `/hub create` to start your own."
     serverNotFound: ไม่พบเซิร์ฟเวอร์
     userNotFound: ไม่พบผู้ใช้
     notSpecified: ไม่ได้ระบุ
@@ -156,18 +158,46 @@ botLanding:
 
     Use `/call`, `/skip`, `/hangup`. And rank higher in `/leaderboard` :sunglasses:
   hubs: |
-    ## 🏡 Hubs (where we stand out the most! ✨)
-    So you've seen calls, but *what if* you could make **cross-server** communities? It works by connecting multiple servers into one space!
+    ## 🏡 Hubs
+    Hubs are persistent, **cross-server** communities. Connect several servers to one shared space that stays open between conversations.
 
-    - 📌 **Create:** `/hub create` (Make your own hub)
-    - 🧭 **Explore:** `/hub directory` (Find public hubs)
-    - 🔗 **Connect:** `/hub connect` (Join an existing hub)
-    - ⚙️ **Manage:** `/hub manage` (Admin settings)
-    > Use `/help` for the full list.
+    - 📌 **Create:** `/hub create` - make your own hub
+    - 🧭 **Explore:** `/hub browse` - find public hubs
+    - 🔗 **Connect:** `/hub connect` - join an existing hub
+    - ⚙️ **Manage:** `/hub manage` - open your hub settings
+    > Use `/help` to see every command.
   closing: |
     **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
 
     -# Made with ❤️ by InterChat Development
+onboarding:
+  start:
+    title: "Welcome to InterChat"
+    description: "Connect **{server}** to people beyond your server."
+    callTitle: Temporary cross-server text chat
+    callDescription: Meet someone new now. Calls are text conversations, not voice calls.
+    callButton: Meet someone now
+    serverButton: Set up this server
+    browseButton: Browse Hubs
+    rulesButton: Read the rules
+  call:
+    title: Meet someone now
+    description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
+    channelPlaceholder: Choose a text channel
+    startButton: Start matching
+    errors:
+      botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
+      accountAge: Your Discord account must be at least 30 days old to use Calls.
+      webhook: "I could not create the call webhook in {channel}."
+      busy: The lines are busy right now. Please try again in a few seconds.
+      channelConfiguration: I could not save this channel for Calls, so the Call was safely cancelled.
+  channel:
+    createButton: Create a channel
+    auditReason: Created by an InterChat moderator during setup
+    errors:
+      manageChannels: You need Manage Server and Manage Channels to create an InterChat channel.
+      botManageChannels: I need Manage Channels at the server level to create a channel.
+      createFailed: Discord would not let me create the channel. Check the channel settings and try again.
 setup:
   welcome:
     title: Welcome to InterChat 👋
@@ -246,7 +276,7 @@ setup:
     discoverHubs: ค้นหา Hub สาธารณะ
     useDefault: ใช้ค่าเริ่มต้น
     skipForNow: ข้ามไปก่อน
-  skipped: No problem. You can start any time with `/call` or `/hub directory`.
+  skipped: No problem. You can start any time with `/call` or `/hub browse`.
 help:
   title: Help
   description: Explore every command InterChat has.
@@ -354,16 +384,16 @@ preferences:
     hidden: ซ่อนอยู่
   voteReminders:
     title: "การตั้งค่า: เตือนความจำการโหวต"
-    description: เปิด/ปิด การแจ้งเตือนให้โหวตจาก InterChat
+    description: Toggle vote reminders. Voting also unlocks personal auto-match after your partner skips or hangs up for 12 hours.
     enabled: เปิดใช้งาน
     disabled: ปิดใช้งาน
     dm:
       title: ได้เวลาโหวตให้ InterChat แล้ว!
-      description: การสนับสนุนของคุณช่วยให้ InterChat เติบโต! โหวตบน top.gg เพื่อช่วยเราหน่อยนะ!
-      reminderInfo: You receive this reminder because you've voted before.
+      description: Your support helps InterChat grow! Vote on top.gg to help us out. You can also choose whether to re-match after a partner skips or hangs up.
+      reminderInfo: Your auto-match choices stay active for 12 hours after a vote. Manage them in `/my settings`.
       disableConfirm:
         title: ปิดการเตือนให้โหวตแล้ว
-        description: You will no longer receive vote reminder DMs.
+        description: You will no longer receive vote reminder DMs. Voting still unlocks personal auto-match after a partner skips or hangs up for 12 hours.
   errors:
     noPreferences: คุณยังไม่มีการตั้งค่าใดๆ
 appeal:
@@ -425,6 +455,20 @@ automod:
   actionsTitle: What happens?
   addWords: Add words
   applyDraft: Apply my draft
+  changeApplied: '✅ Your change was applied.'
+  changeApplying: '⏳ Saving…'
+  changeBlocked: '⚠️ An earlier change is waiting for a review, so new changes are paused for now.'
+  changeFailedConflict: Automod was changed by someone else while your change was being applied, so it was not applied. Use Compare my changes to apply your draft on top of the latest version.
+  changeFailedGeneric: This change was not confirmed. Check the rules shown here, then try again.
+  changeFailedGone: This Automod is no longer available, so the change was not applied.
+  changeFailedNotSent: The change never reached the safety service, so nothing was applied. Try again.
+  changeFailedPermission: Your permission to change this Automod was removed before it was applied, so nothing was saved.
+  changeFailedRefused: 'Automod refused this change, so it was not applied: {reason}'
+  changeFailedRejected: The safety service rejected this change, so it was not applied.
+  changeFailedService: The safety service refused this change, which looks like a service problem. Nothing was applied; please report it.
+  changeFailedUnknown: We could not confirm whether this change was applied, so it needs a review. Check the rules shown here, then save again if needed.
+  changeFailedUnreadable: The saved change could not be read back, so it was never sent. Save it again.
+  changeStillApplying: '⏳ Still applying. Press Refresh in a moment to see the result.'
   confirmChange: Confirm change
   confirmEffect: This takes effect immediately for everyone in {scope}.
   confirmOff: Keep it off for now
@@ -461,6 +505,10 @@ automod:
   enabled: Enabled
   errorTitle: '⚠️ Automod could not be loaded.'
   keepEditing: Keep editing
+  loadDenied: You do not have permission to view Automod here.
+  loadFailed: Automod could not be loaded right now. {reason}
+  loadGone: This Automod could not be found.
+  loadUnavailable: The safety service could not be reached. Press Refresh to try again.
   newRule: New rule
   newRuleModalTitle: New rule
   newRuleName: ชื่อ
@@ -483,6 +531,11 @@ automod:
   ruleDescription: '{status} · {count} words'
   ruleTitle: '✍️ {name} · {status}'
   rulesOn: '{enabled} of {total} rules on'
+  saveBusy: Another Automod change is already being applied. Wait for it to finish, then save again.
+  saveDenied: You no longer have permission to change this Automod.
+  saveFailed: 'This change could not be saved: {reason}'
+  saveGone: This Automod is no longer available, so nothing was changed.
+  saveUnavailable: The safety service could not be reached, so nothing was changed. Try again in a moment.
   serverNote: Warns, mutes and bans are hub tools. They apply when this server joins a hub.
   statusOff: 'Off'
   statusOn: 'On'
@@ -526,6 +579,25 @@ report:
     context:
       label: Context (Entire call history is sent)
       placeholder: Add any additional context or details for staff...
+    reasons:
+      nsfwImages: NSFW Images
+      gore: Gore
+      childSexualization: Pedophilic Behavior / Child Sexualization
+      sexualThreats: Rape Threats / Sexual Threats
+      doxxing: Doxxing
+      hardRuleName: Hard-R in Username / Server Name
+      spam: Spam
+      suggestiveMessages: Suggestive Messages
+      nsfwMessages: NSFW Messages
+      casualSlurs: Casual Slurs
+      targetedSlurs: Targeted Slurs / Extreme Slurs
+      mildToxicity: Mild Toxicity
+      moderateToxicity: Moderate Toxicity
+      severeToxicity: Severe Toxicity
+      harassment: Harassment
+      mildHateSpeech: Mild Hate Speech
+      severeHateSpeech: Severe Hate Speech
+      other: Other
   success:
     title: ส่งรายงานแล้ว
     toStaff: "{tick} Your report has been sent to InterChat staff."
@@ -1044,7 +1116,7 @@ staff:
     removed: ลบรายการ Blacklist แล้ว
 hub:
   directory:
-    title: "## {globe} Discover Hubs — {sortEmoji} {sort}"
+    title: "## {globe} Discover Hubs - {sortEmoji} {sort}"
     page: "Page {current} of {total} • {count} public hubs"
     searching: 'Searching: "{query}"'
     connectHint: "Choose Connect, or use `/hub connect hub:<name>`."
@@ -1111,8 +1183,8 @@ hub:
         refreshError: An error occurred while refreshing.
         deletionCancelled: Cancelled
         deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: "This command must be used in a connected channel or specify a hub name."
-        notConnected: "This channel is not connected to any hub."
+        noHub: "This command needs a connected channel or a hub name. Browse with `/hub browse`, or create your own with `/hub create`."
+        notConnected: "This channel is not connected to a hub yet. Browse with `/hub browse`, or create your own with `/hub create`."
       warnings:
         deleteWarning: Warning
         deleteWarningDescription: This action cannot be undone.
@@ -1188,7 +1260,7 @@ hub:
     errors:
       noPermission: You must be a hub admin to view this.
   history:
-    title: "History — {hubName}"
+    title: "History - {hubName}"
     subtitle: Choose what to review
     view: View
     retry: Retry
@@ -1208,7 +1280,7 @@ hub:
       manageConnections: Requires Manage Connections
       viewLogs: Requires View Logs
     activity:
-      title: "Server activity — {hubName}"
+      title: "Server activity - {hubName}"
       empty: No server activity yet. Joins, leaves and renames for this hub's servers will show up here.
       error: Server activity is temporarily unavailable.
       renamed: Renamed
@@ -1247,11 +1319,12 @@ hub:
 
       Let's get started!
   home:
-    title: "{hubName} — Hub Home"
+    title: "{hubName} - Hub Home"
     nextSteps: Your next steps
     status:
       noChannels: "Your hub is created. Connect its first channel to give it a home."
       oneChannel: "One server is connected. Your hub is ready for another community to join."
+      readyToTest: "{count} servers are connected. Send a message to test the bridge; your hub becomes live after it is delivered."
       live: "Your hub is live with {count} connected servers. Messages can now travel between communities."
     tasks:
       channel:
@@ -1412,7 +1485,7 @@ hub:
         description: "Provide a hub name or an invite code.\n\nTry: `/hub connect hub:MyHub` or `/hub connect invite:abc123`"
       hubNotFound:
         title: Hub Not Found
-        description: "I couldn't find that hub. Check the name, or use `/hub directory` to browse public hubs."
+        description: "I couldn't find that hub. Check the name, or use `/hub browse` to browse public hubs."
       invalidInvite:
         title: Invalid Invite
         description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
@@ -1606,6 +1679,30 @@ my:
   hubs:
     title: Hub ของคุณ
     description: "นี่คือ Hub ที่คุณเป็นเจ้าของหรือดูแลอยู่:"
+    serverOne: server
+    servers: servers
+    messagesOne: message
+    messages: messages
+    visibility:
+      public: สาธารณะ
+      private: ส่วนตัว
+      unlisted: ไม่แสดงในรายการ
+    locked: ล็อค
+    nsfw: NSFW
+    unavailable: This hub is no longer available.
+    filters:
+      all: All
+      owned: Owned
+      staff: Staff
+    picker:
+      placeholder: Select a hub to manage...
+    empty:
+      title: No Hubs Yet
+      description: "You don't own or moderate any hubs. Use `/hub create` to start one, or `/hub browse` to find a community to help."
+    filtered:
+      title: No {filter} Hubs
+      description: "None of your hubs match this filter. Try **All** to see everything you own and moderate."
+    loading: Loading your hubs...
   activity:
     day: "{count} day"
     days: "{count} days"
@@ -1767,7 +1864,7 @@ startHere:
     dashboard: Open the web dashboard.
     leaderboard: See the top callers and servers.
     prefix: Change this server's command prefix.
-    vote: Vote for InterChat and earn a badge.
+    vote: Vote for InterChat, earn a badge, and choose whether to re-match after a skip or hangup.
 dashboard:
   description: Manage your hubs, servers and calls from your browser. No commands needed.
 prefix:
@@ -1785,12 +1882,14 @@ vote:
     ## What you get for 12 hours
     > **Server emojis**: use any emoji in your messages
     > **Voter badge**: shown on your InterChat profile
+    > **Personal auto-match**: choose whether you re-match after your partner skips or hangs up
   alreadyVoted: |-
     ## 🎉 Thanks for voting!
     You can vote again **{next}**.
+    Set your personal auto-match choices for when your partner skips or hangs up in `/my settings`.
   thanks:
     title: Thank you for voting!
-    intro: Your vote is how more servers find InterChat. Genuinely, thanks for taking the 10 seconds.
+    intro: Your vote helps more servers find InterChat. Thanks for taking the 10 seconds. It also lets you choose whether to re-match after your partner skips or hangs up for 12 hours; set it in `/my settings`.
     activeHeading: Active for the next 12 hours
     emojiTitle: Server emojis
     emojiBody: Use emoji from any server in your messages.
@@ -2030,6 +2129,6 @@ server:
       selectPlaceholder: Select text channels
       currentlyAllowed: Commands currently allowed in
       everywhere: Lobby commands work in every text channel when no channels are selected.
-      unsaved: Unsaved changes — press Save Changes to apply them.
+      unsaved: Unsaved changes - press Save Changes to apply them.
       saved: Lobby channel restrictions saved.
       manageChannelsRequired: You need the Manage Channels permission to edit lobby channels.
