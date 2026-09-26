@@ -26,6 +26,8 @@ common:
       owner: Owner
       member: Member
       moderator: Moderator
+      manager: Manager
+      staff: Staff
     note: Note
     never: Never
     lastUpdated: Last Updated
@@ -1700,6 +1702,30 @@ my:
   hubs:
     title: Your Hubs
     description: "Here are the hubs you own or moderate:"
+    serverOne: server
+    servers: servers
+    messagesOne: message
+    messages: messages
+    visibility:
+      public: Public
+      private: Private
+      unlisted: Unlisted
+    locked: Locked
+    nsfw: NSFW
+    unavailable: This hub is no longer available.
+    filters:
+      all: All
+      owned: Owned
+      staff: Staff
+    picker:
+      placeholder: Select a hub to manage...
+    empty:
+      title: No Hubs Yet
+      description: "You don't own or moderate any hubs. Use `/hub create` to start one, or `/hub browse` to find a community to help."
+    filtered:
+      title: No {filter} Hubs
+      description: "None of your hubs match this filter. Try **All** to see everything you own and moderate."
+    loading: Loading your hubs...
   activity:
     day: "{count} day"
     days: "{count} days"
