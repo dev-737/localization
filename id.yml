@@ -154,7 +154,7 @@ about:
   buttons:
     shardInfo: Shard info
 botLanding:
-  title: Your server, connected. 🌐 Let's go cross-server!
+  title: 'Your server, connected. :globe_icon: Let''s go cross-server!'
   description: |
     Hi, I'm InterChat. With me, you can have conversations with people all around discord, all from the comfort of this server. Cool? Wait until you hear what I do:
 
@@ -486,8 +486,8 @@ appeal:
       title: Bersih!
       description: Tidak ditemukan pelanggaran yang dapat dibanding.
     footer:
-      canAppeal: '💡 Anda dapat mengajukan banding atas {count} pelanggaran. Gunakan menu pilihan di bawah.'
-      checkLater: '💡 Periksa kembali nanti saat cooldown berakhir atau banding ditinjau.'
+      canAppeal: ':lightbulb_icon: You can appeal {count} infraction(s). Use the select menu below.'
+      checkLater: ':lightbulb_icon: Check back later when cooldowns expire or appeals are reviewed.'
   errors:
     nothingSelected: Tidak ada yang dipilih.
     modalError: Gagal membuka modal banding.
@@ -501,9 +501,9 @@ automod:
   actionsTitle: What happens?
   addWords: Add words
   applyDraft: Apply my draft
-  changeApplied: '✅ Your change was applied.'
+  changeApplied: ':tick_icon: Your change was applied.'
   changeApplying: '⏳ Saving…'
-  changeBlocked: '⚠️ An earlier change is waiting for a review, so new changes are paused for now.'
+  changeBlocked: ':alert_icon: An earlier change is waiting for a review, so new changes are paused for now.'
   changeFailedConflict: Automod was changed by someone else while your change was being applied, so it was not applied. Use Compare my changes to apply your draft on top of the latest version.
   changeFailedGeneric: This change was not confirmed. Check the rules shown here, then try again.
   changeFailedGone: This Automod is no longer available, so the change was not applied.
@@ -520,7 +520,7 @@ automod:
   confirmOff: Keep it off for now
   confirmOn: Turn on now
   confirmTitle: Turn on "{name}"?
-  conflictBanner: '⚠️ Someone else edited Automod while you were working. Your change was kept as a draft.'
+  conflictBanner: ':alert_icon: Someone else edited Automod while you were working. Your change was kept as a draft.'
   conflictCurrent: 'Latest version: {rules} rules, {patterns} words'
   conflictDraft: 'Your draft: {rules} rules, {patterns} words'
   conflictNote: Applying replaces all rules with your draft.
@@ -549,7 +549,7 @@ automod:
   editSurfaces: Where to check
   enableRule: Turn on "{name}"?
   enabled: Enabled
-  errorTitle: '⚠️ Automod could not be loaded.'
+  errorTitle: ':alert_icon: Automod could not be loaded.'
   keepEditing: Keep editing
   loadDenied: You do not have permission to view Automod here.
   loadFailed: Automod could not be loaded right now. {reason}
@@ -588,8 +588,8 @@ automod:
   surfacesLabel: Where should these be checked?
   surfacesTitle: Where to check
   test: Test
-  testCaught: '⚠️ Would be caught by "{rule}". Consequence: {actions}.'
-  testClean: '✅ Nothing would be caught.'
+  testCaught: ':alert_icon: Would be caught by "{rule}". Consequence: {actions}.'
+  testClean: ':tick_icon: Nothing would be caught.'
   testDisclaimer: Preview only. The final decision is made by the enforcement service.
   testEmpty: No rules are on yet, so nothing would be caught.
   testFor: '🧪 Test result for "{message}"'
@@ -597,10 +597,10 @@ automod:
   testModalTitle: Test Automod
   testNoSurface: This rule does not check message content, so a message test has nothing to look at.
   testRule: Test this rule
-  title: '🛡️ Automod · {scope}'
+  title: ':shield_alert_icon: Automod · {scope}'
   turnOff: Turn off
   turnOn: Turn on
-  unsaved: '⚠️ Unsaved changes'
+  unsaved: ':alert_icon: Unsaved changes'
   wordSlots: '{used} of {limit} word slots used'
   wordsCount: '{count} words'
   wordsHint: Use * at the start or end to match partly. Phrases go in "double quotes". Maximum 4000 characters.
@@ -667,28 +667,28 @@ hubConfig:
     noDescription: "*No description set.*"
     properties: Properties
     nsfw: '🔞 NSFW'
-    familyFriendly: '✅ Family Friendly'
+    familyFriendly: ':tick_icon: Family Friendly'
     lastUpdated: "Last Updated:"
     descriptionUpdated: Description Updated!
     descriptionSuccess: Your hub description has been successfully updated.
     nameUpdated: Name Updated!
     nameSuccess: Your hub has been renamed to **{name}**.
-    nameCooldownNote: '⚠️ Hub names can only be changed once every 10 days.'
+    nameCooldownNote: ':alert_icon: Hub names can only be changed once every 10 days.'
     welcomeUpdated: Welcome Message Updated!
     welcomeSuccess: Your hub welcome message has been successfully updated.
     nsfwUpdated: NSFW Setting Updated!
-    nsfwWarning: '⚠️ Important'
+    nsfwWarning: ':alert_icon: Important'
     nsfwWarningDesc: Your hub is now marked as NSFW and may be filtered from searches.
     sfwConfirmDesc: Your hub is now marked as safe for work.
     visibilityUpdated: Visibility Updated!
     visibilitySuccess: "Your hub is now: **{status}**"
     visibilityMeaning: ℹ️ What this means
     visibility:
-      public: '🌐 Publik'
+      public: ':globe_icon: Public'
       publicDesc: Discoverable on the hub directory.
       unlisted: '👁️ Tidak Terdaftar'
       unlistedDesc: Not in directory but anyone can join via ID/link.
-      private: '🔒 Pribadi'
+      private: ':lock_icon: Private'
       privateDesc: Invite-only, not listed publicly.
     editDescription:
       label: Edit Deskripsi
@@ -869,11 +869,11 @@ moderation:
   notifications:
     title: "Moderation Notice"
     description: "You have received a moderation action in the hub **{hubName}**."
-    warnTitle: "⚠️ You have been Warned"
-    muteTitle: "🔇 You have been Muted"
-    banTitle: "🔨 You have been Banned"
-    unmuteTitle: "🔊 You have been Unmuted"
-    unbanTitle: "🔊 You have been Unbanned"
+    warnTitle: ':alert_icon: You have been Warned'
+    muteTitle: ':volume_off: You have been Muted'
+    banTitle: ':hammer_icon: You have been Banned'
+    unmuteTitle: ':volume_2: You have been Unmuted'
+    unbanTitle: ':volume_2: You have been Unbanned'
     fieldAction: "Action"
     fieldReason: "Alasan"
     fieldDuration: "Durasi"
@@ -1013,7 +1013,7 @@ welcomeMessage:
     support: Bantuan
     disconnect: Putuskan
   hubInfo:
-    connections: '🔗 Koneksi'
+    connections: ':link_icon: Connections'
     hubPageLabel: "{link_icon} Hub Page"
     hubPageValue: "[View on InterChat]({hubUrl})"
     createHint: "Want to start your own? Use `/hub create`."
@@ -1194,7 +1194,7 @@ hub:
         description: Recently created public communities
     metrics:
       servers: "{activity} {count} servers"
-      messages: "💬 {count}/week"
+      messages: ":chat_icon: {count}/week"
       people: "👥 {count}/day"
       growth: "+{count} this week"
   rules:
@@ -1246,7 +1246,7 @@ hub:
       titles:
         accepted: Rules Accepted
         declined: Rules Not Accepted
-        changedMind: '💡 Changed your mind?'
+        changedMind: ':lightbulb_icon: Changed your mind?'
       messages:
         accepted: "Thank you for accepting the rules for **{hubName}**!"
         declined: "You have chosen not to accept the rules for **{hubName}** at this time."
@@ -1449,7 +1449,7 @@ hub:
         description: "Choose your hub's visibility:\n\n🔓 **Public**: Discoverable.\n👁️ **Unlisted**: Not in directory.\n🔒 **Private**: Invite-only.\n\n-# 💡 *Tip: You can change this later in hub settings.*"
         requiredPublic: "**Required for public hubs**"
         optional: (Optional)
-        tip: "-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*"
+        tip: '-# :lightbulb_icon: *Tip: Add one rule per line. You can add up to 25 rules.*'
         modalTitle: "Step 3/6: Rules"
         rulesLabel: Hub Rules
         rulesPlaceholder: |
@@ -1459,16 +1459,16 @@ hub:
         addRulesButton: Add Rules
       step4:
         title: Aturan Komunitas
-        description: "Tetapkan pedoman komunitas untuk hub Anda."
+        description: 'Create a welcome message for new members! -# :lightbulb_icon: *Tip: Keep it friendly and informative. Max 500 characters.*'
         modalTitle: "Langkah 4/7: Aturan"
         welcomePlaceholder: Welcome to {hubName} or our hub!
         customMessageButton: Custom Message
       step5:
         title: Pesan Selamat Datang
-        description: "Create a welcome message for new members!\n-# 💡 *Tip: Keep it friendly and informative. Max 500 characters.*"
+        description: 'Select features to enable for your hub! :tick_icon: **Pre-selected**: Reactions, Spam Filter (recommended) -# :lightbulb_icon: *Tip: You can adjust these anytime.*'
         modulesPlaceholder: Select modules to enable...
       step6:
-        description: "Select features to enable for your hub!\n✅ **Pre-selected**: Reactions, Spam Filter (recommended)\n\n-# 💡 *Tip: You can adjust these anytime.*"
+        description: 'Optionally select a channel for moderation logs. Logs include: bans, warnings, reports, and other mod actions. -# :lightbulb_icon: *Tip: Choose a private staff channel.*'
         selectChannelButton: Select Channel
         channelSelectTitle: Select Logging Channel
         channelSelectDescription: "Choose a channel for moderation logs:"
@@ -1794,7 +1794,7 @@ my:
       freezeSummary: "Your {streak} streak can still be saved. Qualify today to use one freeze."
       inactiveSummary: "Your previous streak was {streak}. Qualify today to start again."
       newSummary: One active day starts your first InterChat streak.
-      stats: "❄️ {freezes} freezes · Best streak: {best}\n🏆 Streak rank: {rank}"
+      stats: '❄️ {freezes} freezes · Best streak: {best} :trophy_icon: Streak rank: {rank}'
     path:
       title: TODAY'S PATH
       hubs: "Send Hub messages  **{current}/{threshold}**"
@@ -1814,7 +1814,7 @@ my:
       homeStats: "{count} messages · {share}% of this month"
       otherPlaces: OTHER PLACES
       empty: Send accepted Hub messages and the places you visit will appear here.
-      summary: "{count} active Hubs this month\n🏆 Global message rank: {rank}"
+      summary: '{count} active Hubs this month :trophy_icon: Global message rank: {rank}'
       delay: Counts may be delayed by about 30 seconds.
     calls:
       title: KEEP THE CONVERSATION GOING
@@ -1823,7 +1823,7 @@ my:
       qualifies: One qualifying Call secures today's streak.
       currentStreak: Current streak
       previousStreak: Previous streak
-      stats: "🏆 Call rank: {rank}\n🔥 {streakLabel}: {streak}\n❄️ Freezes available: {freezes}"
+      stats: ':trophy_icon: Call rank: {rank} :fire_icon: {streakLabel}: {streak} ❄️ Freezes available: {freezes}'
       shared: Calls and Hub messages share one streak.
 stats:
   title: InterChat
@@ -2003,7 +2003,7 @@ badges:
 broadcast:
   spam:
     mutedMessage: You have been temporarily muted for {minutes} minutes due to spam.
-    warningMessage: '⚠️ You are sending messages too quickly!'
+    warningMessage: ':alert_icon: You are sending messages too quickly!'
     autoMuteReason: "Auto-Mute: Spam detected"
     autoWarnReason: "Auto-Warn: Spam detected"
   validation:
@@ -2014,14 +2014,14 @@ broadcast:
       message: This hub is currently locked.
       reason: Hub is currently locked
     invites:
-      message: "🚫 Discord invite links are not allowed in this hub."
+      message: ':ban: Discord invite links are not allowed in this hub.'
     nsfw:
-      message: "🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)"
+      message: ':ban: Your message was blocked by InterChat filters (Reason: NSFW detection)'
     profanity:
-      message: '🚫 Your message was blocked by the hub''s profanity filter.'
+      message: ':ban: Your message was blocked by the hub''s profanity filter.'
       reason: Profanity filter blocked message
     videos:
-      message: '🚫 Video attachments are not allowed in this hub.'
+      message: ':ban: Video attachments are not allowed in this hub.'
     messageLength:
       reason: Message Length
       message: Your message length is too long. Please shorten it.
