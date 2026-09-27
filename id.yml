@@ -5,6 +5,7 @@ common:
     cancelled: Dibatalkan!
     feedback: Feedback Received
     validationError: Validation Error
+    slowDown: Slow down!
   labels:
     date: Tanggal
     loading: Memuat...
@@ -47,6 +48,8 @@ common:
     invite: Undang InterChat
     dashboard: Buka Dasbor
     support: Gabung Support
+    discord: Join Discord
+    kofi: Ko-fi
     edit: Edit
     save: Save
     apply: Apply Changes
@@ -95,6 +98,7 @@ common:
     defaultSuccess: Action completed successfully.
     actionCancelled: Action cancelled.
     hubNotFound: "Hub not found. Use `/hub browse` to find a hub, or `/hub create` to start your own."
+    hubNotFoundNamed: 'No hub named **{hub}** is visible to you. Check the spelling, or use `/hub browse` to find one.'
     serverNotFound: Server tidak ditemukan.
     userNotFound: Pengguna tidak ditemukan.
     notSpecified: Tidak ditentukan
@@ -129,6 +133,7 @@ common:
     notConnected: Saya tidak dapat menemukan hub yang terhubung di channel ini.
     notConnectedServer: "{cross} Saya tidak dapat menemukan koneksi apa pun untuk server ini."
     noInteraction: Perintah ini hanya mendukung slash command.
+    checkFailed: You do not meet the requirements to use this command here.
     missingAppealReference: Referensi banding hilang.
     missingArgument: "Argumen hilang: `{param}`."
     accessDenied: Akses Ditolak
@@ -212,8 +217,15 @@ setup:
     instructions: Open the server, let InterChat **View Channel** and **Send Messages** somewhere, then run `/setup`.
   home:
     title: "Let’s get {server} talking"
-    description: Choose the result you want. I’ll walk you through the rest and check everything before making changes.
+    description: Set up this server by choosing a temporary call, joining an ongoing Hub, or starting one for your community.
     resume: You can reopen this guide any time with `/setup`.
+    permissionsNote: Connecting a Hub to a server channel requires Manage Server and Manage Channels.
+  status:
+    title: Current Hub connections
+    empty: No Hub channel is connected in this server yet.
+    unavailable: I couldn’t check Hub connections right now. You can still explore setup and try again later.
+    connected: "{channel} is connected to **{hub}**."
+    paused: "{channel} is connected to **{hub}**, but the connection is paused."
   goals:
     call:
       title: Meet another server now
@@ -221,12 +233,29 @@ setup:
       button: Start a call
     join:
       title: Join a community
-      description: Connect one channel to a Hub that stays open.
+      description: A Hub is an ongoing conversation shared across servers. Choose one, then connect a channel; messages there are shared with that Hub.
       button: Find a Hub
     create:
       title: Build your own community
       description: Create a Hub, choose who can find it, and connect a channel.
       button: Create a Hub
+  hub:
+    channelTitle: Connect to {hub}
+    channelDescription: Choose an existing text channel or create a dedicated one. Use the Hub’s Details button to review its description and rules before connecting.
+    sharingNoticeTitle: What will be shared
+    sharingNotice: Messages sent in the channel you choose will be shared with the Hub’s other connected servers. Messages from them will appear in this channel with sender and server labels. Choose a channel your members expect to use for cross-server conversation.
+    channelPlaceholder: Choose the channel to connect
+    noChannelSelected: Select a channel to continue.
+    selectedChannel: "Selected channel: {channel}"
+    connectButton: "Connect #{channel}"
+    connectDisabled: Choose a channel
+    backToHubs: Back to Hubs
+    newChannelName: interchat-hub
+    newChannelTopic: Messages here are shared with the {hub} Hub through InterChat.
+    connectedTitle: Connected to the Hub
+    connectedDescription: "{channel} is connected to **{hub}**. Messages sent in this channel are shared with other servers in the Hub."
+    connectedNextStep: Say hello in the channel to start the conversation. Use `/hub disconnect` if you want to leave later.
+    openChannelButton: Open channel
   channel:
     placeholder: Choose a text channel
     createPlaceholder: Choose a channel to connect
@@ -258,6 +287,8 @@ setup:
     taglinePlaceholder: A relaxed place to meet other gaming servers
   directory:
     connecting: "Choose a Hub below. I’ll connect it to {channel}."
+    chooseHubFirst: Choose a Hub first. You’ll choose the channel for it next.
+    chooseHubButton: Choose Hub
   errors:
     serverOnly: Setup only works inside a server.
     managerRequired: You need **Manage Server** or **Manage Channels** to set up InterChat here.
@@ -280,8 +311,12 @@ setup:
 help:
   title: Help
   description: Explore every command InterChat has.
-  browserDescription: Start here if you're new. Everything below works in servers and DMs.
+  browserDescription: Pick a starting point below, or browse every command by category. Type / in the box to search all commands instantly.
   gettingStarted: Getting started
+  home:
+    moreAvailable: "+{count} more starting point(s) available in the category list."
+  category:
+    moreOnThisPage: "+{count} more command(s) on this page are hidden to fit Discord's limit."
   categorySummary: "{count} command(s) · page {page}/{pages}"
   select:
     category: Choose a command category
@@ -294,13 +329,24 @@ help:
     button: Expired
   categories:
     startHere: Start Here
-    calls: Calls & Social
+    calls: Calls
+    social: Social
     hubs: Hubs
     account: Account
     server: Server Setup
     moderation: Moderasi
     safety: Safety
     other: Other
+  categoryBlurbs:
+    startHere: "First steps and everyday basics · {count} command(s)"
+    calls: "Start, join, and leave calls · {count} command(s)"
+    social: "Send fun actions to your call · {count} command(s)"
+    hubs: "Connect servers and relay messages · {count} command(s)"
+    account: "Profile, settings, and preferences · {count} command(s)"
+    server: "Set up InterChat in a server · {count} command(s)"
+    moderation: "Moderate users and messages · {count} command(s)"
+    safety: "Reports, blocking, and trust and safety · {count} command(s)"
+    other: "Everything else · {count} command(s)"
   commandTypes:
     hybrid: Hybrid
     prefix: Prefix
@@ -1112,7 +1158,7 @@ staff:
   blacklist:
     fields:
       expires: Kedaluwarsa
-    notFound: Tidak ditemukan entri daftar hitam yang cocok.
+    notFound: "No matching {type} blacklist entry was found."
     removed: Entri daftar hitam dihapus.
 hub:
   directory:
@@ -1137,9 +1183,9 @@ hub:
       active:
         label: Active now
         description: Most conversation and people in the last 24 hours
-      growing:
-        label: Growing
-        description: Most new server connections this week
+      upvoted:
+        label: Most upvoted
+        description: Hubs with the most community upvotes
       big:
         label: Biggest
         description: Most currently connected servers
@@ -1378,7 +1424,7 @@ hub:
         desc: Invite-only.
     connection:
       title: Give your hub a home
-      description: Connect this channel now, or finish that step from Hub Home later.
+      description: If you connect a channel, messages there are shared with Hub servers. Choose a channel meant for cross-server conversation, or create the Hub without connecting and do this later.
     steps:
       progress: Langkah {current}/{total}
       basics: Step 1 of 3 · Start with the basics
@@ -1471,6 +1517,26 @@ hub:
       hubLimitReached: You have reached the maximum number of hubs allowed for your current plan.
   delete:
     description: Hub Anda telah dihapus.
+  moved:
+    title: This Command Moved
+    description: "`{old}` now lives in `{new}` ({section})."
+    button: Run it now
+  manage:
+    sections:
+      delete: Delete hub
+      invites: Invites
+  mod:
+    sections:
+      ban: Ban
+      mute: Mute
+      warn: Peringatkan
+      pardon: Pardon
+  picker:
+    title: Hub Not Found
+    unresolved: 'I couldn''t find a hub called **{hub}** that you can access.'
+    choose: "Here are the {count} hub(s) you can use instead:"
+    placeholder: Pick a hub
+    empty: "You don't manage any hubs yet. Use `/hub create` to start one, or `/hub browse` to find a public hub."
   connect:
     success:
       title: Terhubung!
@@ -1491,7 +1557,7 @@ hub:
         description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
       channelNotSupported:
         title: Unsupported Channel
-        description: "Choose a text channel, thread, or forum channel."
+        description: "Choose a text channel or a thread."
       webhookPerms:
         title: Missing Permissions
         description: "I couldn't create webhooks in that channel. I need **Manage Webhooks** and **Send Messages** there."
@@ -1501,6 +1567,9 @@ hub:
       missingPermissions:
         title: Missing Permissions
         description: "You need the **Manage Messages** permission in this server to connect a channel to a hub."
+      channelAccessDenied:
+        title: Missing Permissions
+        description: "You need the **View Channel** and **Manage Channels** permissions in {channel} to connect it to a hub."
   announcements:
     title: Pengumuman Hub
     description: "Create a **one time** announcement that sends in all connected channels."
@@ -2073,6 +2142,14 @@ userphone:
     totalCalls: Total Calls
     totalTalkTime: Total Talk Time
     averageCall: Average Call Length
+  errors:
+    wrongChannel:
+      title: Use a designated channel
+      intro: Lobby commands like `/call`, `/skip`, and `/hangup` only work in this server's lobby channels.
+      hereLabel: You are here
+      allowedLabel: "**Use one of these instead:**"
+      moreChannels: "-# …and {count} more."
+      modHint: "Moderators: change this in `/server manage` → Userphone Settings → Allowed Lobby Channels."
   block:
     selfBlock: "{cross} You cannot block yourself."
     alreadyBlocked: "{cross} You have already blocked {user}."
