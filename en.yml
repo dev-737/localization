@@ -1209,7 +1209,7 @@ hub:
         description: Recently created public communities
     metrics:
       servers: "{activity} {count} servers"
-      messages: "💬 {count}/week"
+      messages: ":chat_icon: {count}/week"
       people: "👥 {count}/day"
       growth: "+{count} this week"
   rules:
