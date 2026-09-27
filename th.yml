@@ -163,18 +163,18 @@ botLanding:
 
     Use `/call`, `/skip`, `/hangup`. And rank higher in `/leaderboard` :sunglasses:
   hubs: |
-    ## 🏡 Hubs
+    ## :house_icon: Hubs
     Hubs are persistent, **cross-server** communities. Connect several servers to one shared space that stays open between conversations.
 
-    - 📌 **Create:** `/hub create` - make your own hub
-    - 🧭 **Explore:** `/hub browse` - find public hubs
-    - 🔗 **Connect:** `/hub connect` - join an existing hub
+    - :pin: **Create:** `/hub create` - make your own hub
+    - :compass: **Explore:** `/hub browse` - find public hubs
+    - :link_icon: **Connect:** `/hub connect` - join an existing hub
     - ⚙️ **Manage:** `/hub manage` - open your hub settings
     > Use `/help` to see every command.
   closing: |
-    **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
+    **Ready to meet another server? Try a call, discover a hub, or create your own below.**
 
-    -# Made with ❤️ by InterChat Development
+    -# Made with :heart: by InterChat Development
 onboarding:
   start:
     title: "Welcome to InterChat"
@@ -575,7 +575,7 @@ automod:
   resumeConfirm: Turn Automod back on?
   reviewDraft: Compare my changes
   ruleDescription: '{status} · {count} words'
-  ruleTitle: '✍️ {name} · {status}'
+  ruleTitle: ':pencil_line: {name} · {status}'
   rulesOn: '{enabled} of {total} rules on'
   saveBusy: Another Automod change is already being applied. Wait for it to finish, then save again.
   saveDenied: You no longer have permission to change this Automod.
@@ -666,7 +666,7 @@ hubConfig:
     editOnDashboard: Edit on Dashboard
     noDescription: "*No description set.*"
     properties: Properties
-    nsfw: '🔞 NSFW'
+    nsfw: ':eye_off: NSFW'
     familyFriendly: ':tick_icon: Family Friendly'
     lastUpdated: "Last Updated:"
     descriptionUpdated: Description Updated!
@@ -1195,7 +1195,7 @@ hub:
     metrics:
       servers: "{activity} {count} servers"
       messages: ":chat_icon: {count}/week"
-      people: "👥 {count}/day"
+      people: ':users: {count}/day'
       growth: "+{count} this week"
   rules:
     manage:
@@ -1340,7 +1340,7 @@ hub:
       notConnected: This channel isn't connected to any hub.
   events:
     serverJoined:
-      title: '🎉 เซิร์ฟเวอร์ใหม่เข้าร่วม!'
+      title: ':party_popper: New Server Joined!'
       description: "**{serverName}** has joined the hub!"
       footer: ยินดีต้อนรับสู่ {hubName}!
   create:
@@ -1348,11 +1348,11 @@ hub:
     description: Pick a name, short-description, description & visibility for your hub.
     nextStep: You can connect this channel now or finish setup later.
     whatsAHub: |
-      ## ❓ What's a Hub, anyway?
+      ## :question_icon: What's a Hub, anyway?
       Think of a Hub as a **room** created by someone.
       ## 🤨 Okay... how does this "room" work?
       In real life, a room needs people. In InterChat, multiple servers join the same Hub through a channel in each server.
-      ## 🤔 "Joined"? What's actually connected?
+      ## :brain: "Joined"? What's actually connected?
       Let's zoom in.
 
       Imagine you're in **Server A**, and there's a channel called **#global** that's connected to a Hub.
@@ -1438,7 +1438,7 @@ hub:
         description: |
           Add a logo for your hub!
 
-          -# 💡 *Tip: Use an image URL or choose the default bot avatar.*
+          -# :lightbulb_icon: *Tip: Use an image URL or choose the default bot avatar.*
         modalTitle: "ขั้นตอนที่ 2/7: โลโก้"
         logoUrlLabel: URL โลโก้
         logoUrlPlaceholder: https://example.com/logo.png
@@ -1490,7 +1490,7 @@ hub:
       loading: กำลังสร้าง Hub ของคุณ...
       loadingDescription: โปรดรอสักครู่ขณะที่เราตั้งค่าทุกอย่าง...
       success: สร้าง Hub สำเร็จแล้ว!
-      successDescription: "{hubName} เปิดใช้งานแล้ว! 🎉"
+      successDescription: '{hubName} is now live! :party_popper:'
       nextStepsTitle: ทำอะไรต่อดี?
       nextStepsDescription: Add rules, a welcome message, modules, and moderation logging whenever you're ready.
       connectNowHint: This channel is being connected now. Messages sent here will be visible to everyone in the hub.
@@ -1953,7 +1953,7 @@ vote:
     > **Voter badge**: shown on your InterChat profile
     > **Personal auto-match**: choose whether you re-match after your partner skips or hangs up
   alreadyVoted: |-
-    ## 🎉 Thanks for voting!
+    ## :party_popper: Thanks for voting!
     You can vote again **{next}**.
     Set your personal auto-match choices for when your partner skips or hangs up in `/my settings`.
   thanks:
