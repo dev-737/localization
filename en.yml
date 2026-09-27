@@ -5,6 +5,7 @@ common:
     cancelled: Cancelled!
     feedback: Feedback Received
     validationError: Validation Error
+    slowDown: Slow down!
   labels:
     date: Date
     loading: Loading...
