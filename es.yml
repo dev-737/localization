@@ -1576,6 +1576,24 @@ hub:
   config:
     title: Configuración del Hub
     description: Customize your InterChat hub for your community.
+    more:
+      title: "### Everything else"
+      placeholder: "Open any of the other {count}…"
+    footer: "-# Live rows read state already fetched by `/hub manage`. `manage` · `configure` · `edit`"
+    state:
+      on: on
+      set: set
+      missing: missing
+      modules:
+        empty: "-# Nothing enabled · members get plain text only"
+      rules:
+        set: "-# {count} rules published · visible to everyone"
+        empty: "-# No rules yet · guests see none on join"
+      identity:
+        icon: Icon set
+        noIcon: No icon
+      visibility:
+        public: Público
     catalog:
       editInfo: Edit Info
       appearance: Appearance
