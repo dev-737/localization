@@ -74,7 +74,6 @@ common:
   placeholders:
     select: Selecciona una opción
     type: Escribe aquí...
-    selectModule: Selecciona los módulos a modificar...
   visibility:
     public: Público
     publicDesc: Descubrible en el directorio de los hubs.
@@ -424,9 +423,7 @@ hubConfig:
     disabled: '**{module}** deshabilitado'
     success:
       title: '¡Módulos actualizados!'
-      details: "Se han actualizado {count} ajuste(s) del módulo:"
     errors:
-      noneSelected: No se ha seleccionado ningún módulo.
       updateFailed: "Ha ocurrido un error: {error}"
   badges:
     owner:

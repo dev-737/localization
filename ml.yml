@@ -74,7 +74,6 @@ common:
   placeholders:
     select: ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക
     type: ഇവിടെ ടൈപ്പ് ചെയ്യുക...
-    selectModule: Select modules to toggle...
   visibility:
     public: പബ്ലിക്
     publicDesc: Discoverable on the hub directory.
@@ -424,9 +423,7 @@ hubConfig:
     disabled: Disabled **{module}**
     success:
       title: Modules Updated!
-      details: "Successfully updated {count} module setting(s):"
     errors:
-      noneSelected: No modules selected.
       updateFailed: "An error occurred: {error}"
   badges:
     owner:

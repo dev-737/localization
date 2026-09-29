@@ -81,7 +81,6 @@ common:
   placeholders:
     select: Select an option
     type: Type here...
-    selectModule: Select modules to toggle...
   visibility:
     public: &vis_public Public
     publicDesc: &vis_public_desc Discoverable on the hub directory.
@@ -729,6 +728,61 @@ hubConfig:
       description: Switch between Public, Unlisted, or Private
       title: 🔐 Change Hub Visibility
       desc: "Select the visibility level for your hub:"
+    console:
+      brandingTab: Branding
+      settingsTab: Settings
+      identityGroup: "-# **Identity**"
+      artworkGroup: "-# **Artwork**"
+      discoveryGroup: "-# **Discovery**"
+      contentGroup: "-# **Content**"
+      moderationGroup: "-# **Moderation**"
+      brandingSummary: "-# How this hub looks to the people who find it."
+      settingsSummary: "-# How this hub behaves: discovery, content, and appeals."
+      preview:
+        defaultName: Unnamed Hub
+        noTagline: No tagline set
+        noDescription: No description set
+        noWelcome: No welcome message set
+        stats: "{connections} servers · {messages} msgs/wk · {upvotes} upvotes"
+      fields:
+        name: Name
+        tagline: Short tagline
+        description: Description
+        welcome: Welcome message
+        icon: Hub icon
+        banner: Hub banner
+        visibility: Visibility
+        nsfw: Content rating
+        cooldown: Appeal cooldown
+        rules: Hub rules
+      hints:
+        tagline: One line shown under the hub name in listings
+        taglineEmpty: Not set, so listings show only the hub name
+        description: The long copy members read when they open the hub
+        descriptionEmpty: Not set, so members see nothing when they open the hub
+        welcome: Custom greeting shown when a server connects
+        welcomeEmpty: No custom greeting is set for new connections
+        icon: The square avatar members see everywhere
+        banner: The wide image behind your hub's header
+        visibility: Who can find and join this hub
+        nsfw: Mark this hub as NSFW or family friendly
+        cooldown: How long to wait before appealing an infraction
+      values:
+        servers: servers
+        notSet: "Not set"
+        unlisted: Unlisted
+        private: Private
+        iconCustom: "Custom"
+        iconDefault: "Default"
+        bannerSet: "Set"
+        bannerUnset: "Not set"
+        cooldown: "{hours} hours"
+        cooldownWithDays: "{hours} hours · {days} days"
+        rulesConfigured: "{count} configured"
+        rulesEmpty: "None yet"
+      manage:
+        rulesAdd: Add rules
+        rulesEdit: Edit
     errors:
       nameCooldown: Name Change on Cooldown
       nameCooldownDesc: You can change your hub name again in **{days} days**.
@@ -778,9 +832,7 @@ hubConfig:
     disabled: Disabled **{module}**
     success:
       title: Modules Updated!
-      details: "Successfully updated {count} module setting(s):"
     errors:
-      noneSelected: No modules selected.
       updateFailed: "An error occurred: {error}"
   badges:
     owner:

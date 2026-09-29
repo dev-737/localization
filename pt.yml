@@ -74,7 +74,6 @@ common:
   placeholders:
     select: Selecione uma opção
     type: Digite aqui...
-    selectModule: Select modules to toggle...
   visibility:
     public: Público
     publicDesc: Discoverable on the hub directory.
@@ -424,9 +423,7 @@ hubConfig:
     disabled: Disabled **{module}**
     success:
       title: Modules Updated!
-      details: "Successfully updated {count} module setting(s):"
     errors:
-      noneSelected: No modules selected.
       updateFailed: "An error occurred: {error}"
   badges:
     owner:
