@@ -44,6 +44,8 @@ common:
     refresh: Refresh
     delete: Delete
     open: Open
+    edit: Edit
+    add: Add
     vote: Vote on top.gg
     invite: Invite InterChat
     dashboard: Open Dashboard
@@ -1605,6 +1607,24 @@ hub:
   config:
     title: Hub Configuration
     description: Customize your InterChat hub for your community.
+    more:
+      title: "### Everything else"
+      placeholder: "Open any of the other {count}…"
+    footer: "-# Live rows read state already fetched by `/hub manage`. `manage` · `configure` · `edit`"
+    state:
+      enabled: "on"
+      set: "set"
+      missing: "missing"
+      modules:
+        empty: "Nothing enabled · members get plain text only"
+      rules:
+        set: "{count} rules published · visible to everyone"
+        empty: "No rules yet · guests see none on join"
+      identity:
+        icon: Icon set
+        noIcon: No icon
+      visibility:
+        public: Public
     catalog:
       editInfo: Edit Info
       appearance: Appearance
@@ -1643,6 +1663,9 @@ hub:
       announcements:
         label: Scheduled Announcements
         description: Configure automatic scheduled announcements for your hub
+      servers:
+        label: Connected servers
+        description: View and manage active Discord server bridges
     announce:
       errors:
         invalidDuration: Invalid duration format.
