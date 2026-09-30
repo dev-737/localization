@@ -1069,10 +1069,24 @@ moderation:
     noHubsAvailable: "No hubs are available for moderation."
     webhooks:
       noPermission: "You do not have permission to moderate this hub."
+conversationIdeas:
+  title: Conversation idea
+  description: Get a private conversation idea for a Hub or text call
+  another: Another idea
+  hint: "Only you can see this. Ask it in the chat or share your own answer. Nothing is sent for you."
+  callHint: "This is a text chat. Use `/topic` for a private conversation idea, `/skip` to find another chat, or `/hangup` to leave."
+  prompts:
+    games: "What's a game you can always come back to?"
+    music: "What's a song you've had on repeat lately?"
+    hobbies: "What's a hobby you'd like to try?"
+    skills: "If you could learn one skill instantly, what would you pick?"
+    fiction: "Which fictional world would you like to visit, and why?"
+    smallJoys: "What's a small thing that made you smile this week?"
 welcomeMessage:
   title: Selamat datang di hub InterChat bernama **{hubName}**!
   errorDm: Failed to send welcome message.
   introText: Anda sekarang terhubung ke jaringan server. Pesan yang Anda kirim di sini akan terlihat oleh semua orang di hub ini.
+  startChatting: "Say hi, share what you're into, or reply to someone already chatting. Need a starting point? Try a conversation idea below or use `/topic` anytime."
   quickActions: Tindakan Cepat
   buttons:
     rules: Aturan
@@ -1367,6 +1381,52 @@ hub:
     stats: Stats
     connect: Connect
     report: Report
+  staff:
+    title: Staf
+    assignTitle: Add or move staff
+    empty: No staff assigned to this hub yet. Add someone below to give them access to this hub.
+    loadError: The staff roster could not be loaded. Try again in a moment.
+    errors:
+      unavailable: Staff management is temporarily unavailable.
+      selectFirst: Select users and a role first.
+      roleGone: That role is no longer available.
+      numericId: Enter a numeric user ID.
+      selfMove: "You cannot move yourself to a role without 'Manage Staff'."
+      noUsers: Select at least one user to remove.
+      manageStaffProtected: Roles that can manage staff cannot be deleted.
+      assignFailed: Staff could not be updated. The Control Plane is unavailable.
+      removeFailed: Staff could not be removed. The Control Plane is unavailable.
+      roleCreateFailed: The role could not be created. The Control Plane is unavailable.
+      roleEditFailed: The role could not be updated. The Control Plane is unavailable.
+      roleDeleteFailed: The role could not be deleted. The Control Plane is unavailable.
+      staleRole: This role was deleted while you were viewing it.
+    buttons:
+      enterId: Enter User ID
+      userPlaceholder: Select users to manage
+      rolePlaceholder: Choose a role to assign
+      manageRoles: Manage Roles
+      createRole: Create Role
+      backToStaff: Back to staff
+      allRoles: All roles
+      editDetails: Edit details
+      deleteRole: Delete role
+      assign: Assign to {count}
+      remove: Remove {count} from staff
+      keepStaff: Keep staff
+      confirmRemove: Remove from staff
+    confirm:
+      removeTitle: Remove {count} from staff?
+      removeWarning: They lose every hub role immediately and cannot be restored from here.
+    roles:
+      title: Roles - {hub}
+      none: No roles defined for this hub yet.
+      noPermissions: '-# no permissions'
+      assigned: Assigned staff
+      assignedNone: Tidak ada
+      morePermissions: +{count} more
+    results:
+      assigned: Assigned {role} to {count} user(s).
+      removed: Removed {count} user(s) from staff.
   servers:
     title: Connected Servers
     empty: No servers are connected to this hub.
