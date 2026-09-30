@@ -1894,6 +1894,36 @@ leaderboard:
 profile:
   achievements:
     placeholder: ഇവിടെ നേട്ടങ്ങൾ
+passportCard:
+  suspended: Passport suspended
+  active: Active today
+  inactive: Not active today
+  traveler: Traveler {traveler}
+  remembered: remembered by {count} people
+  milesTravelled: "{miles} miles travelled"
+  breakdown: "{stamps} stamps \u00b7 {gold} gold \u00b7 {silver} silver \u00b7 {bronze} bronze"
+  recent: "{shown} most recent of {total}"
+  noneTitle: No stamps collected yet
+  noneBody: Complete a cross-server call to be remembered.
+  nextAt: next title at {count} stamps
+  ladder: Campaign ladder
+  tiers: Tier distribution
+  total: "{count} total"
+  moreTo: "{count} more to {title}"
+  topReached: top title reached
+  calls: "{count} calls"
+  lastCall: "last call {when}"
+  tier:
+    gold: Gold
+    silver: Silver
+    bronze: Bronze
+  field:
+    stamps: Stamps
+    miles: Miles
+    calls: calls
+    gold: Gold
+    silver: Silver
+    bronze: Bronze
 my:
   hubs:
     title: നിങ്ങളുടെ ഹബുകൾ
