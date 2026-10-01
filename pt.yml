@@ -2387,3 +2387,30 @@ server:
       unsaved: Unsaved changes - press Save Changes to apply them.
       saved: Lobby channel restrictions saved.
       manageChannelsRequired: You need the Manage Channels permission to edit lobby channels.
+achievementsCard:
+  title: Traveler Achievements
+  handle: "@{name}"
+  summary: "{unlocked} of {total} unlocked"
+  page: "Page {page} of {total}"
+  unlocked: Unlocked
+  progress: "{current} of {threshold} {unit}"
+  closest: Closest milestone
+  toGo: "{name} \u2014 {n} {unit} to go"
+  allDone: Every milestone earned
+  noneTitle: No milestones yet
+  noneBody: Complete a cross-server call to earn the first one.
+  track:
+    calls: calls
+    messages: Mensagens
+    hubs: Hubs
+    stamps: Stamps
+  unit:
+    calls: calls
+    messages: messages
+    hubs: hubs
+    stamps: stamps
+  one:
+    calls: call
+    messages: message
+    hubs: hub
+    stamps: stamp
