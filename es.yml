@@ -2414,3 +2414,26 @@ achievementsCard:
     messages: message
     hubs: hub
     stamps: stamp
+profileCard:
+  messages: Messages sent across hubs
+  calls: In calls
+  hubs: Hubs joined
+  rank: Leaderboard
+  votes: Total votes
+  streak: Longest streak
+  achievements: Achievements
+  days: "{count} days"
+  achievementsDone: "{done} / {total} completed"
+  memberSince: "Member since {when}"
+  voter: Voter
+  role:
+    hubOwner: Hub owner
+    hubModerator: Hub moderator
+    hubManager: Hub manager
+    staff: Equipo
+    developer: Developer
+    betaTester: Beta tester
+    topChatter: Top chatter
+    translator: Translator
+    voter: Voter
+    supporter: Supporter
