@@ -5,6 +5,7 @@ common:
     cancelled: Dibatalkan!
     feedback: Feedback Received
     validationError: Validation Error
+    slowDown: Slow down!
   labels:
     date: Tanggal
     loading: Memuat...
@@ -26,6 +27,8 @@ common:
       owner: Owner
       member: Anggota
       moderator: Moderator
+      manager: Manajer
+      staff: Staf
     note: Note
     never: Tidak pernah
     lastUpdated: Last Updated
@@ -41,11 +44,14 @@ common:
     refresh: Segarkan
     delete: Hapus
     open: Open
+    edit: Edit
+    add: Add
     vote: Vote di top.gg
     invite: Undang InterChat
     dashboard: Buka Dasbor
     support: Gabung Support
-    edit: Edit
+    discord: Join Discord
+    kofi: Ko-fi
     save: Save
     apply: Apply Changes
     close: Close
@@ -91,7 +97,8 @@ common:
     notImplemented: Belum diimplementasikan.
     defaultSuccess: Action completed successfully.
     actionCancelled: Action cancelled.
-    hubNotFound: Hub tidak ditemukan. Silakan coba lagi nanti.
+    hubNotFound: "Hub tidak ditemukan. Silakan coba lagi nanti."
+    hubNotFoundNamed: 'No hub named **{hub}** is visible to you. Check the spelling, or use `/hub browse` to find one.'
     serverNotFound: Server tidak ditemukan.
     userNotFound: Pengguna tidak ditemukan.
     notSpecified: Tidak ditentukan
@@ -126,13 +133,15 @@ common:
     notConnected: Saya tidak dapat menemukan hub yang terhubung di channel ini.
     notConnectedServer: "{cross} Saya tidak dapat menemukan koneksi apa pun untuk server ini."
     noInteraction: Perintah ini hanya mendukung slash command.
+    checkFailed: You do not meet the requirements to use this command here.
     missingAppealReference: Referensi banding hilang.
     missingArgument: "Argumen hilang: `{param}`."
     accessDenied: Akses Ditolak
     invalidId: "{cross} Please provide a valid User ID or Server ID."
 about:
   title: Tentang InterChat
-  description: |
+  tagline: Servers, connected.
+  description: |-
     InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
 
     ## What do we offer?
@@ -154,11 +163,14 @@ about:
     3. Click **Join**, you're now connected to all servers in that hub.
       Already know the hub? Use `/hub connect` with its name or invite code.
     ## Useful Links
+  examples: |-
+    > **/call**: talk to someone new right now
+    > **/hub directory**: join a hub and chat with many servers
   closingText: '-# Made with ❤️ by InterChat Development'
   buttons:
     shardInfo: Info Shard
 botLanding:
-  title: Your server, connected. 🌐 Let's go cross-server!
+  title: 'Your server, connected. 🌐 Let''s go cross-server!'
   description: |
     Hi, I'm InterChat. With me, you can have conversations with people all around discord, all from the comfort of this server. Cool? Wait until you hear what I do:
 
@@ -179,22 +191,236 @@ botLanding:
     **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
 
     -# Made with ❤️ by InterChat Development
+onboarding:
+  start:
+    title: "Welcome to InterChat"
+    description: "Connect **{server}** to people beyond your server."
+    callTitle: Temporary cross-server text chat
+    callDescription: Meet someone new now. Calls are text conversations, not voice calls.
+    callButton: Meet someone now
+    serverButton: Set up this server
+    browseButton: Browse Hubs
+    rulesButton: Read the rules
+  call:
+    title: Meet someone now
+    description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
+    channelPlaceholder: Choose a text channel
+    startButton: Start matching
+    errors:
+      botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
+      accountAge: Your Discord account must be at least 30 days old to use Calls.
+      webhook: "I could not create the call webhook in {channel}."
+      busy: The lines are busy right now. Please try again in a few seconds.
+      channelConfiguration: I could not save this channel for Calls, so the Call was safely cancelled.
+  channel:
+    createButton: Create a channel
+    auditReason: Created by an InterChat moderator during setup
+    errors:
+      manageChannels: You need Manage Server and Manage Channels to create an InterChat channel.
+      botManageChannels: I need Manage Channels at the server level to create a channel.
+      createFailed: Discord would not let me create the channel. Check the channel settings and try again.
 setup:
+  welcome:
+    title: Welcome to InterChat 👋
+    description: |
+      I connect this server to people and communities across Discord.
+
+      A server manager can choose a channel and get the first conversation running in a few clicks.
+    promise: "**No command list. No webhook setup. I’ll handle the technical work.**"
+  dm:
+    title: InterChat needs a channel
+    description: "I joined **{server}**, but I couldn’t find a channel where I can post the setup guide."
+    instructions: Open the server, let InterChat **View Channel** and **Send Messages** somewhere, then run `/setup`.
+  home:
+    title: "Let’s get {server} talking"
+    description: Set up this server by choosing a temporary call, joining an ongoing Hub, or starting one for your community.
+    resume: You can reopen this guide any time with `/setup`.
+    permissionsNote: Connecting a Hub to a server channel requires Manage Server and Manage Channels.
+  status:
+    title: Current Hub connections
+    empty: No Hub channel is connected in this server yet.
+    unavailable: I couldn’t check Hub connections right now. You can still explore setup and try again later.
+    connected: "{channel} is connected to **{hub}**."
+    paused: "{channel} is connected to **{hub}**, but the connection is paused."
+  goals:
+    call:
+      title: Meet another server now
+      description: Start a temporary, private 1-on-1 text chat.
+      button: Start a call
+    join:
+      title: Join a community
+      description: A Hub is an ongoing conversation shared across servers. Choose one, then connect a channel; messages there are shared with that Hub.
+      button: Find a Hub
+    create:
+      title: Build your own community
+      description: Create a Hub, choose who can find it, and connect a channel.
+      button: Create a Hub
+  hub:
+    channelTitle: Connect to {hub}
+    channelDescription: Choose an existing text channel or create a dedicated one. Use the Hub’s Details button to review its description and rules before connecting.
+    sharingNoticeTitle: What will be shared
+    sharingNotice: Messages sent in the channel you choose will be shared with the Hub’s other connected servers. Messages from them will appear in this channel with sender and server labels. Choose a channel your members expect to use for cross-server conversation.
+    channelPlaceholder: Choose the channel to connect
+    noChannelSelected: Select a channel to continue.
+    selectedChannel: "Selected channel: {channel}"
+    connectButton: "Connect #{channel}"
+    connectDisabled: Choose a channel
+    backToHubs: Back to Hubs
+    newChannelName: interchat-hub
+    newChannelTopic: Messages here are shared with the {hub} Hub through InterChat.
+    connectedTitle: Connected to the Hub
+    connectedDescription: "{channel} is connected to **{hub}**. Messages sent in this channel are shared with other servers in the Hub."
+    connectedNextStep: Say hello in the channel to start the conversation. Use `/hub disconnect` if you want to leave later.
+    openChannelButton: Open channel
+  channel:
+    placeholder: Choose a text channel
+    createPlaceholder: Choose a channel to connect
+    callTitle: Where should the call happen?
+    callDescription: Pick the channel where people will chat. I’ll create and manage the webhook automatically.
+    joinTitle: Which channel should join the Hub?
+    joinDescription: Messages in this channel will be shared with the Hub you choose next.
+    selected: "I’ll connect {channel} when the Hub is ready."
+  permissions:
+    title: One permission fix needed
+    description: "I’m missing these permissions in {channel}:"
+    instructions: Open the channel settings, grant these permissions to InterChat, then press **Check again**.
+    recheck: Check again
+    chooseAnother: Choose another channel
+  call:
+    readyTitle: Ready to meet another server
+    readyDescription: "{channel} passed every check. Nothing will be posted elsewhere."
+    whatHappens: I’ll start matchmaking and post the call controls in that channel. You can leave any time with `/hangup`.
+    start: Start matching
+    startedTitle: Your call is live
+    startedDescription: "I started matchmaking in {channel}. Head there and say hello when another server joins."
+  create:
+    title: Name your new Hub
+    nameLabel: Hub name
+    nameDescription: Pick a short, unique name people will recognize.
+    namePlaceholder: Gaming Lounge
+    taglineLabel: One-line description
+    taglineDescription: Tell people what this community is for.
+    taglinePlaceholder: A relaxed place to meet other gaming servers
+  directory:
+    connecting: "Choose a Hub below. I’ll connect it to {channel}."
+    chooseHubFirst: Choose a Hub first. You’ll choose the channel for it next.
+    chooseHubButton: Choose Hub
+  errors:
+    serverOnly: Setup only works inside a server.
+    managerRequired: You need **Manage Server** or **Manage Channels** to set up InterChat here.
+    manageChannelsRequired: You need **Manage Channels** to connect or create a Hub. You can still start a Call.
+    textChannelRequired: Choose a standard server text channel.
+    callsUnavailable: Calls are still starting up. Try again in a few seconds.
   select:
     placeholder: Pilih bahasa
   locale:
     successDescription: "{tick} Bahasa Anda telah diatur ke **{locale_name}**"
   buttons:
+    tryCallNow: Try a Call Now
     getStarted: Mulai Panduan Pengaturan
     connectHere: Connect Here
     createHub: Buat Hub
     discoverHubs: Temukan Hub Publik
     useDefault: Gunakan Default
     skipForNow: Lewati Sekarang
+  skipped: No problem. You can start any time with `/call` or `/hub browse`.
 help:
   title: Perintah InterChat
   description: Explore our wide range of commands to help you connect with others.
-  name: Bantuan
+  browserDescription: Pick a starting point below, or browse every command by category. Type / in the box to search all commands instantly.
+  gettingStarted: Getting started
+  home:
+    moreAvailable: "+{count} more starting point(s) available in the category list."
+  category:
+    moreOnThisPage: "+{count} more command(s) on this page are hidden to fit Discord's limit."
+  categorySummary: "{count} command(s) · page {page}/{pages}"
+  select:
+    category: Choose a command category
+  buttons:
+    view: Open
+    home: Home
+  expired:
+    title: Help session expired
+    description: Run {command} again to open a fresh command guide.
+    button: Expired
+  categories:
+    startHere: Start Here
+    calls: calls
+    social: Social
+    hubs: Hubs
+    account: Account
+    server: Server Setup
+    moderation: Moderasi
+    safety: Safety
+    other: Other
+  categoryBlurbs:
+    startHere: "First steps and everyday basics · {count} command(s)"
+    calls: "Start, join, and leave calls · {count} command(s)"
+    social: "Send fun actions to your call · {count} command(s)"
+    hubs: "Connect servers and relay messages · {count} command(s)"
+    account: "Profile, settings, and preferences · {count} command(s)"
+    server: "Set up InterChat in a server · {count} command(s)"
+    moderation: "Moderate users and messages · {count} command(s)"
+    safety: "Reports, blocking, and trust and safety · {count} command(s)"
+    other: "Everything else · {count} command(s)"
+  commandTypes:
+    hybrid: Hybrid
+    prefix: Prefix
+    slash: Slash
+  fields:
+    slashUsage: Slash usage
+    prefixUsage: Prefix usage
+    commandType: Command type
+    aliases: Aliases
+    userPermissions: User permissions
+    botPermissions: Bot permissions
+    hubPermission: Hub permission
+    availability: Availability
+    subcommands: Subcommands
+    options: Options
+    examples: Examples
+  availability:
+    serverOnly: Server channels only
+    nsfwOnly: NSFW channels only
+  option:
+    required: required
+    optional: optional
+    default: Default
+    choices: Choices
+    range: Range
+    length: Length
+    channels: Channels
+    autocomplete: "Autocomplete: enabled"
+    to: to
+  types:
+    subcommand: Subcommand
+    subcommandGroup: Subcommand group
+    string: String
+    integer: Integer
+    boolean: Boolean
+    user: Pengguna
+    member: Anggota
+    channel: Channel
+    textChannel: Text channel
+    voiceChannel: Voice channel
+    role: Role
+    mentionable: Mentionable
+    number: Number
+    attachment: Attachment
+  recovery:
+    tooManyArguments: Too many arguments were provided. Remove the extra values and try again.
+    badArgument: One of the arguments could not be understood. Check its type and try again.
+    parsingError: The command arguments could not be parsed. Check the usage below and try again.
+    userPermissions: You need {permissions} permission(s) to run this command.
+    botPermissions: I need {permissions} permission(s) to run this command.
+    serverOnly: This command can only be used inside a server.
+    missingRole: You do not have the role required to run this command.
+    missingSubcommand: Choose one of the subcommands listed below.
+    unknownSubcommand: "Unknown subcommand: `{subcommand}`. Choose one of the available subcommands below."
+    hubPermission: "{error} Check the hub permission listed below."
+    invalidInput: "{error} Check the accepted argument types and choices below."
+    commandNotFound: That command or subcommand was not found. Here is the closest available help page.
+    generic: The command could not be used. Check the usage and requirements below.
 preferences:
   title: Preferensi Pengguna
   description: Edit your personal global settings.
@@ -284,10 +510,123 @@ appeal:
     recordFailed: "Gagal mencatat keputusan: {error}"
     notFoundOrDeleted: Banding tidak ditemukan atau telah dihapus.
     updateFailed: Gagal memperbarui banding. Silakan coba lagi nanti.
+automod:
+  actionsDefault: Use the Automod default
+  actionsDefaultHint: Set on the Automod page
+  actionsLabel: What should happen on a match?
+  actionsTitle: What happens?
+  addWords: Add words
+  applyDraft: Apply my draft
+  changeApplied: ':tick_icon: Your change was applied.'
+  changeApplying: '⏳ Saving…'
+  changeBlocked: ':alert_icon: An earlier change is waiting for a review, so new changes are paused for now.'
+  changeFailedConflict: Automod was changed by someone else while your change was being applied, so it was not applied. Use Compare my changes to apply your draft on top of the latest version.
+  changeFailedGeneric: This change was not confirmed. Check the rules shown here, then try again.
+  changeFailedGone: This Automod is no longer available, so the change was not applied.
+  changeFailedNotSent: The change never reached the safety service, so nothing was applied. Try again.
+  changeFailedPermission: Your permission to change this Automod was removed before it was applied, so nothing was saved.
+  changeFailedRefused: 'Automod refused this change, so it was not applied: {reason}'
+  changeFailedRejected: The safety service rejected this change, so it was not applied.
+  changeFailedService: The safety service refused this change, which looks like a service problem. Nothing was applied; please report it.
+  changeFailedUnknown: We could not confirm whether this change was applied, so it needs a review. Check the rules shown here, then save again if needed.
+  changeFailedUnreadable: The saved change could not be read back, so it was never sent. Save it again.
+  changeStillApplying: '⏳ Still applying. Press Refresh in a moment to see the result.'
+  confirmChange: Confirm change
+  confirmEffect: This takes effect immediately for everyone in {scope}.
+  confirmOff: Keep it off for now
+  confirmOn: Turn on now
+  confirmTitle: Turn on "{name}"?
+  conflictBanner: ':alert_icon: Someone else edited Automod while you were working. Your change was kept as a draft.'
+  conflictCurrent: 'Latest version: {rules} rules, {patterns} words'
+  conflictDraft: 'Your draft: {rules} rules, {patterns} words'
+  conflictNote: Applying replaces all rules with your draft.
+  conflictReviewTitle: Compare my changes
+  conflictToast: Someone else edited Automod just now. The latest version was loaded, your change was not applied. Review and try again.
+  deleteConfirm: Delete "{name}"?
+  detailsDescription: Deskripsi
+  detailsName: Nama
+  detailsReason: Message shown when caught
+  detailsReasonHint: Shown to the user when this rule catches them.
+  detailsTitle: Name and reason
+  dialLabel: When a rule catches something…
+  dialMixed: Mixed (set per rule)
+  disableRule: Turn off "{name}"?
+  disabled: Disabled
+  discard: Discard
+  discardBanner: Your edits are not applied yet.
+  discardConfirm: Discard changes
+  discardDraft: Discard my draft
+  discardTitle: Discard unsaved changes?
+  durationError: Use a duration like 30m, 1h or 2d.
+  durationLabel: '{action} duration'
+  durationPlaceholder: e.g. 30m, 1h, 2d
+  editActions: What happens
+  editDetails: Name & reason
+  editSurfaces: Where to check
+  enableRule: Turn on "{name}"?
+  enabled: Enabled
+  errorTitle: ':alert_icon: Automod could not be loaded.'
+  keepEditing: Keep editing
+  loadDenied: You do not have permission to view Automod here.
+  loadFailed: Automod could not be loaded right now. {reason}
+  loadGone: This Automod could not be found.
+  loadUnavailable: The safety service could not be reached. Press Refresh to try again.
+  newRule: New rule
+  newRuleModalTitle: New rule
+  newRuleName: Nama
+  noRules: No rules yet. Create the first rule to begin.
+  page: Halaman {current}/{total}
+  parameters: Action settings
+  pause: Pause Automod
+  pauseConfirm: Pause Automod? Rules stop being enforced until you resume.
+  pickRule: Pick a rule to change…
+  rejected: 'Automod rejected this change: {error}'
+  removeSelect: Select words to remove…
+  removeTitle: Remove words
+  removeWords: Remove words
+  replaceAll: Replace all
+  replacementLabel: Safe replacement name
+  replacesNote: This replaces the whole Automod configuration.
+  resume: Resume Automod
+  resumeConfirm: Turn Automod back on?
+  reviewDraft: Compare my changes
+  ruleDescription: '{status} · {count} words'
+  ruleTitle: ':pencil_line: {name} · {status}'
+  rulesOn: '{enabled} of {total} rules on'
+  saveBusy: Another Automod change is already being applied. Wait for it to finish, then save again.
+  saveDenied: You no longer have permission to change this Automod.
+  saveFailed: 'This change could not be saved: {reason}'
+  saveGone: This Automod is no longer available, so nothing was changed.
+  saveUnavailable: The safety service could not be reached, so nothing was changed. Try again in a moment.
+  serverNote: Warns, mutes and bans are hub tools. They apply when this server joins a hub.
+  statusOff: 'Off'
+  statusOn: 'On'
+  surfacesLabel: Where should these be checked?
+  surfacesTitle: Where to check
+  test: Test
+  testCaught: ':alert_icon: Would be caught by "{rule}". Consequence: {actions}.'
+  testClean: ':tick_icon: Nothing would be caught.'
+  testDisclaimer: Preview only. The final decision is made by the enforcement service.
+  testEmpty: No rules are on yet, so nothing would be caught.
+  testFor: '🧪 Test result for "{message}"'
+  testLabel: Type a message like a user would send
+  testModalTitle: Test Automod
+  testNoSurface: This rule does not check message content, so a message test has nothing to look at.
+  testRule: Test this rule
+  title: ':shield_alert_icon: Automod · {scope}'
+  turnOff: Turn off
+  turnOn: Turn on
+  unsaved: ':alert_icon: Unsaved changes'
+  wordSlots: '{used} of {limit} word slots used'
+  wordsCount: '{count} words'
+  wordsHint: Use * at the start or end to match partly. Phrases go in "double quotes". Maximum 4000 characters.
+  wordsLabel: Words to catch, one per line
+  wordsReplaceTitle: Replace all words
+  wordsTitle: Add words
 report:
   title: Lapor Pesan
   footer: Laporan membantu menjaga InterChat aman bagi semua orang
-  description: Report {user} to Hub Staff or InterChat Staff.
+  prompt: Report this message to our moderation team.
   buttons:
     toStaff: Lapor ke Staf
     toHub: Lapor ke Hub
@@ -302,6 +641,25 @@ report:
     context:
       label: Context (Entire call history is sent)
       placeholder: Add any additional context or details for staff...
+    reasons:
+      nsfwImages: NSFW Images
+      gore: Gore
+      childSexualization: Pedophilic Behavior / Child Sexualization
+      sexualThreats: Rape Threats / Sexual Threats
+      doxxing: Doxxing
+      hardRuleName: Hard-R in Username / Server Name
+      spam: Spam
+      suggestiveMessages: Suggestive Messages
+      nsfwMessages: NSFW Messages
+      casualSlurs: Casual Slurs
+      targetedSlurs: Targeted Slurs / Extreme Slurs
+      mildToxicity: Mild Toxicity
+      moderateToxicity: Moderate Toxicity
+      severeToxicity: Severe Toxicity
+      harassment: Harassment
+      mildHateSpeech: Mild Hate Speech
+      severeHateSpeech: Severe Hate Speech
+      other: Other
   success:
     title: Laporan Dikirim
     toStaff: "{tick} Your report has been sent to InterChat staff."
@@ -374,6 +732,61 @@ hubConfig:
       description: Beralih antara Publik, Tidak Terdaftar, atau Pribadi
       title: '🔐 Change Hub Visibility'
       desc: "Select the visibility level for your hub:"
+    console:
+      brandingTab: Branding
+      settingsTab: Settings
+      identityGroup: "-# **Identity**"
+      artworkGroup: "-# **Artwork**"
+      discoveryGroup: "-# **Discovery**"
+      contentGroup: "-# **Content**"
+      moderationGroup: "-# **Moderation**"
+      brandingSummary: "-# How this hub looks to the people who find it."
+      settingsSummary: "-# How this hub behaves: discovery, content, and appeals."
+      preview:
+        defaultName: Unnamed Hub
+        noTagline: No tagline set
+        noDescription: No description set
+        noWelcome: No welcome message set
+        stats: "{connections} servers · {messages} msgs/wk · {upvotes} upvotes"
+      fields:
+        name: Nama
+        tagline: Short tagline
+        description: Deskripsi
+        welcome: Welcome message
+        icon: Hub icon
+        banner: Hub banner
+        visibility: Visibility
+        nsfw: Content rating
+        cooldown: Appeal cooldown
+        rules: Hub rules
+      hints:
+        tagline: One line shown under the hub name in listings
+        taglineEmpty: Not set, so listings show only the hub name
+        description: The long copy members read when they open the hub
+        descriptionEmpty: Not set, so members see nothing when they open the hub
+        welcome: Custom greeting shown when a server connects
+        welcomeEmpty: No custom greeting is set for new connections
+        icon: The square avatar members see everywhere
+        banner: The wide image behind your hub's header
+        visibility: Who can find and join this hub
+        nsfw: Mark this hub as NSFW or family friendly
+        cooldown: How long to wait before appealing an infraction
+      values:
+        servers: servers
+        notSet: "Belum diatur"
+        unlisted: Tidak Terdaftar
+        private: Pribadi
+        iconCustom: "Custom"
+        iconDefault: "Default"
+        bannerSet: "Set"
+        bannerUnset: "Belum diatur"
+        cooldown: "{hours} hours"
+        cooldownWithDays: "{hours} hours · {days} days"
+        rulesConfigured: "{count} configured"
+        rulesEmpty: "None yet"
+      manage:
+        rulesAdd: Add rules
+        rulesEdit: Edit
     errors:
       nameCooldown: Name Change on Cooldown
       nameCooldownDesc: You can change your hub name again in **{days} days**.
@@ -525,11 +938,11 @@ moderation:
   notifications:
     title: "Moderation Notice"
     description: "You have received a moderation action in the hub **{hubName}**."
-    warnTitle: "⚠️ You have been Warned"
-    muteTitle: "🔇 You have been Muted"
-    banTitle: "🔨 You have been Banned"
-    unmuteTitle: "🔊 You have been Unmuted"
-    unbanTitle: "🔊 You have been Unbanned"
+    warnTitle: '⚠️ You have been Warned'
+    muteTitle: '🔇 You have been Muted'
+    banTitle: '🔨 You have been Banned'
+    unmuteTitle: '🔊 You have been Unmuted'
+    unbanTitle: '🔊 You have been Unbanned'
     fieldAction: "Action"
     fieldReason: "Alasan"
     fieldDuration: "Durasi"
@@ -656,10 +1069,24 @@ moderation:
     noHubsAvailable: "No hubs are available for moderation."
     webhooks:
       noPermission: "You do not have permission to moderate this hub."
+conversationIdeas:
+  title: Conversation idea
+  description: Get a private conversation idea for a Hub or text call
+  another: Another idea
+  hint: "Only you can see this. Ask it in the chat or share your own answer. Nothing is sent for you."
+  callHint: "This is a text chat. Use `/topic` for a private conversation idea, `/skip` to find another chat, or `/hangup` to leave."
+  prompts:
+    games: "What's a game you can always come back to?"
+    music: "What's a song you've had on repeat lately?"
+    hobbies: "What's a hobby you'd like to try?"
+    skills: "If you could learn one skill instantly, what would you pick?"
+    fiction: "Which fictional world would you like to visit, and why?"
+    smallJoys: "What's a small thing that made you smile this week?"
 welcomeMessage:
   title: Selamat datang di hub InterChat bernama **{hubName}**!
   errorDm: Failed to send welcome message.
   introText: Anda sekarang terhubung ke jaringan server. Pesan yang Anda kirim di sini akan terlihat oleh semua orang di hub ini.
+  startChatting: "Say hi, share what you're into, or reply to someone already chatting. Need a starting point? Try a conversation idea below or use `/topic` anytime."
   quickActions: Tindakan Cepat
   buttons:
     rules: Aturan
@@ -672,6 +1099,7 @@ welcomeMessage:
     connections: '🔗 Koneksi'
     hubPageLabel: "{link_icon} Hub Page"
     hubPageValue: "[View on InterChat]({hubUrl})"
+    createHint: "Want to start your own? Use `/hub create`."
   rules:
     title: "{rules_icon} {hubName} - Rules"
     guidelines: "Please adhere to the guidelines @ {guidelinesUrl}"
@@ -688,8 +1116,10 @@ welcomeMessage:
 infractions:
   description: Lihat pelanggaran di hub, difilter berdasarkan pengguna atau server.
   buttons:
+    allInfractions: All
     userInfractions: Pelanggaran Pengguna
     serverInfractions: Pelanggaran Server
+    clearFilter: Clear filter
   titles:
     base: Pelanggaran · {hubName}
     userList: Pelanggaran Pengguna · {hubName}
@@ -698,6 +1128,7 @@ infractions:
     serverSpecific: Pelanggaran untuk Server {serverId} · {hubName}
   descriptions:
     base: Pilih pelanggaran mana yang akan dilihat untuk hub ini.
+    empty: No moderation records found.
     userListEmpty: Tidak ditemukan pelanggaran pengguna untuk hub ini.
     serverListEmpty: Tidak ditemukan pelanggaran server untuk hub ini.
   labels:
@@ -810,9 +1241,45 @@ staff:
   blacklist:
     fields:
       expires: Kedaluwarsa
-    notFound: Tidak ditemukan entri daftar hitam yang cocok.
+    notFound: "Tidak ditemukan entri daftar hitam yang cocok."
     removed: Entri daftar hitam dihapus.
 hub:
+  directory:
+    title: "## {globe} Discover Hubs - {sortEmoji} {sort}"
+    page: "Page {current} of {total} • {count} public hubs"
+    searching: 'Searching: "{query}"'
+    connectHint: "Choose Connect, or use `/hub connect hub:<name>`."
+    connect: Connect
+    details: Details
+    serverOnly: Open this directory inside a server to connect a channel.
+    sortPlaceholder: Sort public hubs
+    empty: No public hubs are available yet. Create the first one with `/hub create`.
+    emptySearch: 'No public hubs match "{query}". Try a broader search.'
+    search:
+      title: Search public Hubs
+      label: Search
+      placeholder: Search names and descriptions
+    sorts:
+      alive:
+        label: Recommended
+        description: Healthy conversation, people, and recent growth
+      active:
+        label: Active now
+        description: Most conversation and people in the last 24 hours
+      upvoted:
+        label: Most upvoted
+        description: Hubs with the most community upvotes
+      big:
+        label: Biggest
+        description: Most currently connected servers
+      new:
+        label: New
+        description: Recently created public communities
+    metrics:
+      servers: "{activity} {count} servers"
+      messages: ":chat_icon: {count}/week"
+      people: ':users: {count}/day'
+      growth: "+{count} this week"
   rules:
     manage:
       description: Manage your hub's community rules and guidelines below.
@@ -845,8 +1312,8 @@ hub:
         refreshError: An error occurred while refreshing.
         deletionCancelled: Cancelled
         deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: This command must be used in a connected channel or specify a hub name.
-        notConnected: This channel is not connected to any hub.
+        noHub: "This command must be used in a connected channel or specify a hub name."
+        notConnected: "This channel is not connected to any hub."
       warnings:
         deleteWarning: Warning
         deleteWarningDescription: This action cannot be undone.
@@ -874,9 +1341,12 @@ hub:
   lock:
     announceTitle: Hub Terkunci
     announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    successTitle: Hub Terkunci
+    successDescription: "**{hub}** has been locked. New members cannot join and messages are paused."
   unlock:
     announceTitle: Hub Terbuka
     announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
+    successTitle: Hub Terbuka
     successDescription: "**{hub}** has been unlocked. New members can now join."
   announcement:
     webhookUsername: "{hubName} | Hub Announcement"
@@ -911,6 +1381,52 @@ hub:
     stats: Stats
     connect: Connect
     report: Report
+  staff:
+    title: Staf
+    assignTitle: Add or move staff
+    empty: No staff assigned to this hub yet. Add someone below to give them access to this hub.
+    loadError: The staff roster could not be loaded. Try again in a moment.
+    errors:
+      unavailable: Staff management is temporarily unavailable.
+      selectFirst: Select users and a role first.
+      roleGone: That role is no longer available.
+      numericId: Enter a numeric user ID.
+      selfMove: "You cannot move yourself to a role without 'Manage Staff'."
+      noUsers: Select at least one user to remove.
+      manageStaffProtected: Roles that can manage staff cannot be deleted.
+      assignFailed: Staff could not be updated. The Control Plane is unavailable.
+      removeFailed: Staff could not be removed. The Control Plane is unavailable.
+      roleCreateFailed: The role could not be created. The Control Plane is unavailable.
+      roleEditFailed: The role could not be updated. The Control Plane is unavailable.
+      roleDeleteFailed: The role could not be deleted. The Control Plane is unavailable.
+      staleRole: This role was deleted while you were viewing it.
+    buttons:
+      enterId: Enter User ID
+      userPlaceholder: Select users to manage
+      rolePlaceholder: Choose a role to assign
+      manageRoles: Manage Roles
+      createRole: Create Role
+      backToStaff: Back to staff
+      allRoles: All roles
+      editDetails: Edit details
+      deleteRole: Delete role
+      assign: Assign to {count}
+      remove: Remove {count} from staff
+      keepStaff: Keep staff
+      confirmRemove: Remove from staff
+    confirm:
+      removeTitle: Remove {count} from staff?
+      removeWarning: They lose every hub role immediately and cannot be restored from here.
+    roles:
+      title: Roles - {hub}
+      none: No roles defined for this hub yet.
+      noPermissions: '-# no permissions'
+      assigned: Assigned staff
+      assignedNone: Tidak ada
+      morePermissions: +{count} more
+    results:
+      assigned: Assigned {role} to {count} user(s).
+      removed: Removed {count} user(s) from staff.
   servers:
     title: Connected Servers
     empty: No servers are connected to this hub.
@@ -918,6 +1434,33 @@ hub:
       title: Disconnect Server
     errors:
       noPermission: You must be a hub admin to view this.
+  history:
+    title: "History - {hubName}"
+    subtitle: Choose what to review
+    view: View
+    retry: Retry
+    tabs:
+      servers: Servers
+      config: Config
+      activity: Aktivitas
+    cards:
+      servers: Servers
+      config: Config changes
+      activity: Aktivitas
+    descriptions:
+      servers: Connected servers and health
+      config: Settings, staff and rules
+      activity: Joins, leaves and renames
+    requires:
+      manageConnections: Requires Manage Connections
+      viewLogs: Requires View Logs
+    activity:
+      title: "Server activity - {hubName}"
+      empty: No server activity yet. Joins, leaves and renames for this hub's servers will show up here.
+      error: Server activity is temporarily unavailable.
+      renamed: Renamed
+      newOwner: New owner
+      left: Left InterChat
   disconnect:
     title: Terputus!
     description: Terputus dari hub.
@@ -932,6 +1475,7 @@ hub:
   create:
     title: Let's Get You Started!
     description: Pick a name, short-description, description & visibility for your hub.
+    nextStep: You can connect this channel now or finish setup later.
     whatsAHub: |
       ## ❓ What's a Hub, anyway?
       Think of a Hub as a **room** created by someone.
@@ -949,8 +1493,45 @@ hub:
       Hubs are a surprisingly simple concept.
 
       Let's get started!
+  home:
+    title: "{hubName} - Hub Home"
+    nextSteps: Your next steps
+    status:
+      noChannels: "Your hub is created. Connect its first channel to give it a home."
+      oneChannel: "One server is connected. Your hub is ready for another community to join."
+      readyToTest: "{count} servers are connected. Send a message to test the bridge; your hub becomes live after it is delivered."
+      live: "Your hub is live with {count} connected servers. Messages can now travel between communities."
+    tasks:
+      channel:
+        title: Connect your first channel
+        description: Pick the channel where your community will meet other servers.
+        complete: First channel connected
+        completeDescription: "{count} connected server(s). You can add more whenever you are ready."
+      rules:
+        title: Set community rules
+        description: Give new communities clear expectations before they join.
+        complete: Community rules are ready
+        completeDescription: "{count} rule(s) will appear when a server joins."
+      invite:
+        title: Invite your first server
+        description: A second connected server is what turns this into a cross-server conversation.
+        liveTitle: Your hub is live
+        liveDescription: Keep growing when it feels right, create an invite for another community.
+    buttons:
+      connect: Connect here
+      invite: Create invite
+      rules: Set rules
+      servers: Connected servers
+      settings: All settings
   wizard:
     start: Start
+    buttons:
+      details: Add hub details
+      createAndConnect: Create and Connect
+      createOnly: Create Hub Only
+      learn: How Hubs Work
+      connectHere: Connect this channel
+      connectLater: Create without connecting
     name:
       description: Pick a unique name for your hub. Max 100 chars.
     tagline:
@@ -960,14 +1541,23 @@ hub:
       label: Deskripsi Lengkap
       description: Describe your hub in detail (20-1000 characters)
     visibility:
+      title: Who can find this hub?
       unlisted:
+        label: Tidak Terdaftar
         desc: Not in directory.
       public:
+        label: Publik
         desc: Discoverable.
       private:
+        label: Pribadi
         desc: Invite-only.
+    connection:
+      title: Give your hub a home
+      description: If you connect a channel, messages there are shared with Hub servers. Choose a channel meant for cross-server conversation, or create the Hub without connecting and do this later.
     steps:
       progress: Langkah {current}/{total}
+      basics: Step 1 of 3 · Start with the basics
+      access: Step 2 of 3 · Choose access and your first channel
       step1:
         modalTitle: "Hub Details"
         visibilityLabel: Hub Visibility
@@ -988,7 +1578,7 @@ hub:
         description: "Choose your hub's visibility:\n\n🔓 **Public**: Discoverable.\n👁️ **Unlisted**: Not in directory.\n🔒 **Private**: Invite-only.\n\n-# 💡 *Tip: You can change this later in hub settings.*"
         requiredPublic: "**Required for public hubs**"
         optional: (Optional)
-        tip: "-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*"
+        tip: '-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*'
         modalTitle: "Step 3/6: Rules"
         rulesLabel: Hub Rules
         rulesPlaceholder: |
@@ -998,7 +1588,7 @@ hub:
         addRulesButton: Add Rules
       step4:
         title: Aturan Komunitas
-        description: "Tetapkan pedoman komunitas untuk hub Anda."
+        description: 'Tetapkan pedoman komunitas untuk hub Anda.'
         modalTitle: "Langkah 4/7: Aturan"
         welcomePlaceholder: Welcome to {hubName} or our hub!
         customMessageButton: Custom Message
@@ -1016,6 +1606,9 @@ hub:
       title: Ringkasan Konfigurasi Hub
       description: "Tinjau pengaturan hub Anda sebelum membuat:"
       nameAndDescription: Nama & Deskripsi
+      connection: First Step
+      connectNow: Connect this channel after creation
+      connectLater: Create the hub first; connect a channel later
       rulesCount: "{count} aturan ditetapkan"
       rulesNone: Tidak ada aturan (dapat ditambahkan nanti)
       welcomeDefault: Pesan selamat datang default
@@ -1026,7 +1619,12 @@ hub:
       loading: Membuat Hub Anda...
       loadingDescription: Mohon tunggu sementara kami menyiapkan semuanya...
       success: Hub Berhasil Dibuat!
-      successDescription: "{hubName} sekarang aktif! 🎉"
+      successDescription: '{hubName} sekarang aktif! 🎉'
+      nextStepsTitle: Apa Selanjutnya?
+      nextStepsDescription: Add rules, a welcome message, modules, and moderation logging whenever you're ready.
+      connectNowHint: This channel is being connected now. Messages sent here will be visible to everyone in the hub.
+      connectFailedHint: "Your hub was created, but this channel could not be connected. Use `/hub connect hub:{hubName}` after checking the bot's channel permissions."
+      connectLaterHint: "When you're ready, connect a channel with `/hub connect hub:{hubName}`."
       dashboardLink: Kelola hub Anda
       publicPageLink: Lihat di direktori
       nextSteps: Apa Selanjutnya?
@@ -1048,6 +1646,26 @@ hub:
       hubLimitReached: You have reached the maximum number of hubs allowed for your current plan.
   delete:
     description: Hub Anda telah dihapus.
+  moved:
+    title: This Command Moved
+    description: "`{old}` now lives in `{new}` ({section})."
+    button: Run it now
+  manage:
+    sections:
+      delete: Delete hub
+      invites: Invites
+  mod:
+    sections:
+      ban: Ban
+      mute: Mute
+      warn: Peringatkan
+      pardon: Pardon
+  picker:
+    title: Hub Not Found
+    unresolved: 'I couldn''t find a hub called **{hub}** that you can access.'
+    choose: "Here are the {count} hub(s) you can use instead:"
+    placeholder: Pick a hub
+    empty: "You don't manage any hubs yet. Use `/hub create` to start one, or `/hub browse` to find a public hub."
   connect:
     success:
       title: Terhubung!
@@ -1075,12 +1693,36 @@ hub:
       locked:
         title: Hub Terkunci
         description: This hub is currently locked and cannot be joined.
+      missingPermissions:
+        title: Missing Permissions
+        description: "You need the **Manage Messages** permission in this server to connect a channel to a hub."
+      channelAccessDenied:
+        title: Missing Permissions
+        description: "You need the **View Channel** and **Manage Channels** permissions in {channel} to connect it to a hub."
   announcements:
     title: Pengumuman Hub
     description: "Create a **one time** announcement that sends in all connected channels."
   config:
     title: Konfigurasi Hub
     description: Customize your InterChat hub for your community.
+    more:
+      title: "### Everything else"
+      placeholder: "Open any of the other {count}…"
+    footer: "-# Live rows read state already fetched by `/hub manage`. `manage` · `configure` · `edit`"
+    state:
+      enabled: "on"
+      set: "set"
+      missing: "missing"
+      modules:
+        empty: "Nothing enabled · members get plain text only"
+      rules:
+        set: "{count} rules published · visible to everyone"
+        empty: "No rules yet · guests see none on join"
+      identity:
+        icon: Icon set
+        noIcon: No icon
+      visibility:
+        public: Publik
     catalog:
       editInfo: Edit Info
       appearance: Appearance
@@ -1095,9 +1737,9 @@ hub:
       rules:
         label: Aturan Hub
         description: Kelola aturan dan pedoman komunitas hub Anda
-      team:
-        label: Manajemen Tim
-        description: Kelola tim hub dan izin staf Anda
+      staff:
+        label: Staf
+        description: Manage your hub's staff and roles
       modules:
         label: Modul
         description: Aktifkan atau nonaktifkan modul tambahan dalam hub Anda
@@ -1113,9 +1755,15 @@ hub:
       transfer:
         label: Transfer Kepemilikan
         description: Transfer kepemilikan hub Anda ke orang lain
+      delete:
+        label: Delete hub
+        description: Permanently delete this hub and disconnect all servers
       announcements:
         label: Pengumuman Terjadwal
         description: Konfigurasikan pengumuman terjadwal otomatis untuk hub Anda
+      servers:
+        label: Connected servers
+        description: View and manage active Discord server bridges
     announce:
       errors:
         invalidDuration: Invalid duration format.
@@ -1124,10 +1772,11 @@ hub:
   all:
     title: Hub InterChat
     description: Search through a list of all our hubs!
+    createHint: "Want your own shared channel? Use `/hub create`."
     filteredBy: "Hasil difilter oleh: {filter}"
     errors:
-      notFound: Uh oh! I was unable to find any hubs.
-      invalidFilter: Jangkrik... tidak ada hub yang cocok dengan filter Anda.
+      notFound: "Uh oh! I was unable to find any hubs."
+      invalidFilter: "Jangkrik... tidak ada hub yang cocok dengan filter Anda."
     modal:
       title: Filter Pencarian
       searchFilter:
@@ -1214,13 +1863,18 @@ leaderboard:
   title: Leaderboard
   noActivity: No Activity
   noActivityDescription: No activity recorded for this period.
+  users: Users
+  servers: Servers
+  streaks: Streaks
   messages: messages
+  unit:
+    calls: calls
+    votes: votes
+    streak: day streak
   calls: calls
   votes: votes
-  streak: day streak
   selectPeriod: Select time period
   selectType: Select leaderboard type
-  yourRank: Your Rank
   periods:
     thisMonth: This Month
     thisMonth.description: Current month statistics
@@ -1231,37 +1885,272 @@ leaderboard:
   buttons:
     users: Users
     servers: Servers
-    calls: Calls
-    votes: Vote
-    streaks: Streaks
   errors:
     alreadyShowingUsers: Already showing users leaderboard.
     alreadyShowingServers: Already showing servers leaderboard.
     alreadyShowingPeriod: Already showing this time period.
     alreadyShowingType: Already showing this leaderboard type.
+    unavailable: Leaderboards are unavailable right now. Please try again in a moment.
 profile:
   achievements:
     placeholder: Pencapaian di sini
+passportCard:
+  suspended: Passport suspended
+  active: Active today
+  inactive: Not active today
+  traveler: Traveler {traveler}
+  remembered: remembered by {count} people
+  milesTravelled: "{miles} miles travelled"
+  breakdown: "{stamps} stamps \u00b7 {gold} gold \u00b7 {silver} silver \u00b7 {bronze} bronze"
+  recent: "{shown} most recent of {total}"
+  noneTitle: No stamps collected yet
+  noneBody: Complete a cross-server call to be remembered.
+  nextAt: next title at {count} stamps
+  ladder: Campaign ladder
+  tiers: Tier distribution
+  total: "{count} total"
+  moreTo: "{count} more to {title}"
+  topReached: top title reached
+  calls: "{count} calls"
+  lastCall: "last call {when}"
+  tier:
+    gold: Gold
+    silver: Silver
+    bronze: Bronze
+  field:
+    stamps: Stamps
+    miles: Miles
+    calls: calls
+    gold: Gold
+    silver: Silver
+    bronze: Bronze
 my:
   hubs:
     title: Hub Anda
     description: "Berikut adalah hub yang Anda miliki atau moderasi:"
+    serverOne: server
+    servers: servers
+    messagesOne: message
+    messages: messages
+    visibility:
+      public: Publik
+      private: Pribadi
+      unlisted: Tidak Terdaftar
+    locked: Terkunci
+    nsfw: NSFW
+    unavailable: This hub is no longer available.
+    filters:
+      all: All
+      owned: Owned
+      staff: Staf
+    picker:
+      placeholder: Select a hub to manage...
+    empty:
+      title: No Hubs Yet
+      description: "You don't own or moderate any hubs. Use `/hub create` to start one, or `/hub browse` to find a community to help."
+    filtered:
+      title: No {filter} Hubs
+      description: "None of your hubs match this filter. Try **All** to see everything you own and moderate."
+    loading: Loading your hubs...
+  activity:
+    day: "{count} day"
+    days: "{count} days"
+    unranked: Unranked
+    closed: Activity dashboard closed.
+    utcFooter: Daily streaks use UTC.
+    tabs:
+      overview: Overview
+      hubs: Hubs
+      calls: calls
+    timeline:
+      day: "DAY {count}"
+      today: TODAY
+    overview:
+      title: KEEP THE CONNECTION GOING
+      securedTitle: TODAY'S CONNECTION IS COMPLETE
+      startTitle: START A NEW CONNECTION
+      securedSummary: "Your streak is {streak}. Come back tomorrow to keep it moving."
+      activeSummary: "Your streak is {streak}. One more active day keeps it alive."
+      freezeSummary: "Your {streak} streak can still be saved. Qualify today to use one freeze."
+      inactiveSummary: "Your previous streak was {streak}. Qualify today to start again."
+      newSummary: One active day starts your first InterChat streak.
+      stats: '❄️ {freezes} freezes · Best streak: {best} :trophy_icon: Streak rank: {rank}'
+    path:
+      title: TODAY'S PATH
+      hubs: "Send Hub messages  **{current}/{threshold}**"
+      call: Complete a 60+ second Call
+      unavailable: Hub message progress is temporarily unavailable
+      secured: Today's streak is secured
+      tomorrow: Your next streak window begins tomorrow.
+      freeze: Qualifying today will use one freeze and preserve your streak.
+      nextMessages: "Your next move: send {count} more Hub messages."
+      nextStart: "Send 5 Hub messages or complete a 60+ second Call."
+      nextUnavailable: A 60+ second Call still qualifies today.
+    hubs:
+      title: YOUR HUB PASSPORT
+      messages: "{count} messages"
+      places: PLACES YOUR WORDS HAVE VISITED
+      homeBase: YOUR HOME BASE
+      homeStats: "{count} messages · {share}% of this month"
+      otherPlaces: OTHER PLACES
+      empty: Send accepted Hub messages and the places you visit will appear here.
+      summary: '{count} active Hubs this month :trophy_icon: Global message rank: {rank}'
+      delay: Counts may be delayed by about 30 seconds.
+    calls:
+      title: KEEP THE CONVERSATION GOING
+      completed: COMPLETED CALLS
+      status: CONNECTION STATUS
+      qualifies: One qualifying Call secures today's streak.
+      currentStreak: Current streak
+      previousStreak: Previous streak
+      stats: ':trophy_icon: Call rank: {rank} :fire_icon: {streakLabel}: {streak} ❄️ Freezes available: {freezes}'
+      shared: Calls and Hub messages share one streak.
 stats:
   title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
+  description: Live numbers from across the network.
+  network: Right now
+  networkValue: "> **Servers** {servers}\n> **Members** {members}\n> **Hubs** {hubs}"
+  bot: This bot
+  botValue: "> **Ping** {ping}ms · **Uptime** <t:{uptime}:R> · **v{version}**"
   footer: InterChat | Version {version}
   shard:
     title: Informasi Shard
+    row: "> **Shard #{id}**: {status}\n> **Ping** {ping}ms · **Servers** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **CPU cores** {cores}\n> **RAM** {ram}MB"
     statusReady: Siap
     statusProvisioning: Provisioning
     current: "Current Shard: {id}"
 invite:
   title: Halo!
   description: Thanks for choosing InterChat. Need help? Join our support server.
+  steps: |-
+    > **1.** Press **Add to Server** below
+    > **2.** Pick your server
+    > **3.** Run `/setup` in the channel you want to use
+  footer: You need **Manage Server** on the server you pick.
+rules:
+  title: InterChat Rules
+  body: These rules apply everywhere you use InterChat, in hubs and calls alike.
+  tabs:
+    short: The rules
+    full: Full guidelines
+    moderation: Moderasi
+  short: |-
+    > **1.** Treat people with respect. If someone says stop, stop.
+    > **2.** Don't attack people for who they are. No slurs.
+    > **3.** No threats, and don't share private information.
+    > **4.** No sexual content. Never involving minors.
+    > **5.** No spam, and don't ruin the conversation.
+    > **6.** Don't evade bans or send fake reports.
+    > **7.** Names must follow these rules too.
+  rules:
+    title: The Rules
+    commonSense: |
+      ## Use common sense
+      These rules can't cover every possible situation.
+
+      If something is obviously being done to hurt, threaten, harass, sexualize, or seriously disrupt another person, don't assume it's allowed just because you can't find the exact wording in these rules.
+    body: |
+      ### 1. Treat people with respect
+      **Banter is allowed. Harassment isn't.**
+      - Joking and banter are fine, but don't turn them into repeated insults, harassment, or deliberate attempts to upset someone.
+      - If someone asks you to stop, **stop**.
+      - Don't repeatedly provoke, mock, or attack someone, especially after they've asked you to stop.
+      ### 2. Don't attack people for who they are
+      **Bigotry is not allowed.**
+      - Don't attack, insult, or degrade someone because of their race, ethnicity, nationality, religion, gender, sexuality, disability, or similar traits.
+      - Slurs aren't allowed, even if you claim you can use them because they apply to you.
+      ### 3. Keep people safe
+      **No threats or dangerous behavior.**
+      - Don't threaten to hurt, kill, or sexually assault someone.
+      - Don't encourage someone to hurt themselves.
+      - Don't encourage or help someone dox, swat, attack, or otherwise harm another person.
+
+      **Don't share private information.**
+      - Don't post or threaten to post someone's address, phone number, real name, location, IP address, or other private information.
+      ### 4. Keep sexual content appropriate
+      **Don't sexualize minors.**
+      - Sexual jokes, stories, comments, or conversations involving minors aren't allowed.
+      - Grooming, attempting to obtain sexual content from a minor, or other sexual behavior directed at minors is treated especially seriously.
+
+      **Keep explicit sexual content out of InterChat.**
+      - No sexting, sexual roleplay, graphic sexual messages, or similar content.
+      - Flirting is fine when it's welcome. If someone isn't interested, **stop**.
+      ### 5. Don't ruin the conversation
+      **No spam or deliberate disruption.**
+      - Don't flood chats, send huge walls of text, spam messages or emojis, or intentionally make a conversation unusable.
+      ### 6. Don't interfere with moderation
+      **Don't evade moderation.**
+      - Don't use another account or another method to get around an active ban or restriction.
+
+      **Don't abuse the report system.**
+      - Reports should be honest and made in good faith.
+      - Don't make fake reports to get someone punished.
+      ### 7. Keep your identity appropriate
+      **Names must follow the rules too.**
+      - Usernames, nicknames, server names, and other names shown through InterChat must follow these rules.
+  enforcement: |
+    ## How moderation works
+    Moderators look at **what happened, how serious it was, whether it was intentional, who it was directed at, whether the person stopped when asked, and their recent history.**
+    ### The punishment ladder is:
+    ```Warn → 6h → 24h → 7d → 14d → 30d → Permanent```
+    *Punishments may not always be linear, and often depend on the severity and context of the violation. Normal infractions older than 90 days should generally automatically expire and not increase a punishment.*
+startHere:
+  nav:
+    help: Perintah InterChat
+    invite: Invite
+    dashboard: Dashboard
+    stats: Stats
+    about: About
+  descriptions:
+    help: Explore our wide range of commands to help you connect with others.
+    about: What InterChat is, and how it works.
+    invite: Add InterChat to your server.
+    rules: Read the rules for hubs and calls.
+    stats: See live InterChat numbers.
+    feedback: Send a suggestion or a bug report.
+    report: Learn how to report a message.
+    dashboard: Open the web dashboard.
+    leaderboard: See the top callers and servers.
+    prefix: Change this server's command prefix.
+    vote: Vote for InterChat, earn a badge, and choose whether to re-match after a skip or hangup.
+dashboard:
+  description: Manage your hubs, servers and calls from your browser. No commands needed.
+prefix:
+  updatedTitle: Prefix updated
+  updated: This server now uses `{prefix}`. Try `/help`.
+  resetTitle: Prefix reset
+  reset: This server is back to the default prefix `{prefix}`.
+  error:
+    guildOnly: Prefixes are per-server, so this only works inside a server.
+    tooLong: A prefix can be at most 10 characters long.
+vote:
+  title: Vote for InterChat
+  description: It takes 10 seconds, and it helps more servers find us.
+  rewards: |-
+    ## What you get for 12 hours
+    > **Server emojis**: use any emoji in your messages
+    > **Voter badge**: shown on your InterChat profile
+    > **Personal auto-match**: choose whether you re-match after your partner skips or hangs up
+  alreadyVoted: |-
+    ## :party_popper: Thanks for voting!
+    You can vote again **{next}**.
+    Set your personal auto-match choices for when your partner skips or hangs up in `/my settings`.
+  thanks:
+    title: Thank you for voting!
+    intro: Your vote helps more servers find InterChat. Thanks for taking the 10 seconds. It also lets you choose whether to re-match after your partner skips or hangs up for 12 hours; set it in `/my settings`.
+    activeHeading: Active for the next 12 hours
+    emojiTitle: Server emojis
+    emojiBody: Use emoji from any server in your messages.
+    roleTitle: Voter role
+    roleBody: Granted in the support server, removed when your vote lapses, so re-vote to keep it.
+    keepHeading: Yours to keep
+    badgeTitle: Voter badge
+    badgeBody: Now on your InterChat profile.
+    freezeTitle: A streak freeze
+    freezeBody: Banked against a missed day, up to 2.
+    supportButton: Support server
+    footer: "Vote #{count} · next vote available {next}"
 services:
   hub:
     validation:
@@ -1305,9 +2194,9 @@ broadcast:
       message: This hub is currently locked.
       reason: Hub is currently locked
     invites:
-      message: "🚫 Discord invite links are not allowed in this hub."
+      message: '🚫 Discord invite links are not allowed in this hub.'
     nsfw:
-      message: "🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)"
+      message: '🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)'
     profanity:
       message: '🚫 Your message was blocked by the hub''s profanity filter.'
       reason: Profanity filter blocked message
@@ -1361,12 +2250,12 @@ commands:
     title: Suggestion / Bug Report
     overview:
       label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      placeholder: "Briefly describe your suggestion or bug..."
     description:
       label: Deskripsi
-      placeholder: Provide full details of your suggestion or bug...
+      placeholder: "Provide full details of your suggestion or bug..."
     category:
-      label: Category
+      label: "Category"
       options:
         bug: Bug Report
         bugDesc: Report an issue you've found
@@ -1376,13 +2265,12 @@ commands:
       label: Error ID (if applicable)
       placeholder: Paste the error ID here...
     messages:
-      submitted: Your feedback has been received and will be reviewed.
       success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
   report:
     title: Cara Melapor
-    description: "Right-click on a message and select **Apps → Report**."
+    description: |-
+      Right-click on a message and select **Apps → Report**.
+    footer: Reports go to the hub's moderators, or to InterChat staff.
     loadingGif: The GIF above may take a moment to load.
 userphone:
   commands:
@@ -1432,6 +2320,14 @@ userphone:
     totalCalls: Total Calls
     totalTalkTime: Total Talk Time
     averageCall: Average Call Length
+  errors:
+    wrongChannel:
+      title: Use a designated channel
+      intro: Lobby commands like `/call`, `/skip`, and `/hangup` only work in this server's lobby channels.
+      hereLabel: You are here
+      allowedLabel: "**Use one of these instead:**"
+      moreChannels: "-# …and {count} more."
+      modHint: "Moderators: change this in `/server manage` → Userphone Settings → Allowed Lobby Channels."
   block:
     selfBlock: "{cross} You cannot block yourself."
     alreadyBlocked: "{cross} You have already blocked {user}."
@@ -1482,3 +2378,63 @@ server:
       title: Auto Requeue on Hangup
       description: Automatically start a new call when the other side hangs up. Only works if you were recently active in the call.
       ignoreSuccess: "{tick} Report `{id}` has been marked as ignored."
+    lobbyChannels:
+      title: Allowed Lobby Channels
+      description: Restrict call, skip, and hangup to selected text channels. When no channels are selected, these commands work everywhere.
+      selectPlaceholder: Select text channels
+      currentlyAllowed: Commands currently allowed in
+      everywhere: Lobby commands work in every text channel when no channels are selected.
+      unsaved: Unsaved changes - press Save Changes to apply them.
+      saved: Lobby channel restrictions saved.
+      manageChannelsRequired: You need the Manage Channels permission to edit lobby channels.
+achievementsCard:
+  title: Traveler Achievements
+  handle: "@{name}"
+  summary: "{unlocked} of {total} unlocked"
+  page: "Page {page} of {total}"
+  unlocked: Unlocked
+  progress: "{current} of {threshold} {unit}"
+  closest: Closest milestone
+  toGo: "{name} \u2014 {n} {unit} to go"
+  allDone: Every milestone earned
+  noneTitle: No milestones yet
+  noneBody: Complete a cross-server call to earn the first one.
+  track:
+    calls: calls
+    messages: Pesan
+    hubs: Hubs
+    stamps: Stamps
+  unit:
+    calls: calls
+    messages: messages
+    hubs: hubs
+    stamps: stamps
+  one:
+    calls: call
+    messages: message
+    hubs: hub
+    stamps: stamp
+profileCard:
+  messages: Messages sent across hubs
+  calls: calls
+  hubs: Hubs joined
+  rank: Leaderboard
+  votes: Total votes
+  streak: Longest streak
+  achievements: Achievements
+  days: "{count} days"
+  dayOne: "{count} day"
+  achievementsDone: "{done} / {total} completed"
+  memberSince: "Member since {when}"
+  voter: Voter
+  role:
+    hubOwner: Hub owner
+    hubModerator: Hub moderator
+    hubManager: Hub manager
+    staff: Staf
+    developer: Developer
+    betaTester: Beta tester
+    topChatter: Top chatter
+    translator: Translator
+    voter: Voter
+    supporter: Supporter
