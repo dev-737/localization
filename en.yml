@@ -2465,13 +2465,14 @@ achievementsCard:
 
 profileCard:
   messages: Messages sent across hubs
-  calls: In calls
+  calls: Calls
   hubs: Hubs joined
   rank: Leaderboard
   votes: Total votes
   streak: Longest streak
   achievements: Achievements
   days: "{count} days"
+  dayOne: "{count} day"
   achievementsDone: "{done} / {total} completed"
   memberSince: "Member since {when}"
   voter: Voter
