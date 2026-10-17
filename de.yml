@@ -208,7 +208,7 @@ onboarding:
     description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
     channelPlaceholder: Choose a text channel
     startButton: Start matching
-    profileNotSent: "{user}, your message was not sent to the call. Choose your call profile below, then send it again."
+    profileNotSent: "{user}, your message wasn't sent. Choose how you appear in calls below, then send it again."
     errors:
       botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
       accountAge: Your Discord account must be at least 30 days old to use Calls.
