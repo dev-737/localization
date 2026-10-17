@@ -34,6 +34,8 @@ common:
     lastUpdated: Last Updated
     enabled: Enabled
     disabled: Disabled
+  imageAlt:
+    welcomeBanner: A map of Discord servers, all connected through InterChat
   buttons:
     back: Voltar
     next: Próximo
@@ -206,6 +208,7 @@ onboarding:
     description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
     channelPlaceholder: Choose a text channel
     startButton: Start matching
+    profileNotSent: "{user}, your message was not sent to the call. Choose your call profile below, then send it again."
     errors:
       botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
       accountAge: Your Discord account must be at least 30 days old to use Calls.
@@ -307,8 +310,8 @@ setup:
     chooseHubButton: Choose Hub
   errors:
     serverOnly: Setup only works inside a server.
-    managerRequired: You need **Manage Server** or **Manage Channels** to set up InterChat here.
-    manageChannelsRequired: You need **Manage Channels** to connect or create a Hub. You can still start a Call.
+    managerRequired: You need **Manage Server** to set up InterChat here. You can still start a Call.
+    manageChannelsRequired: You need **Manage Server** and **Manage Channels** to connect or create a Hub. You can still start a Call.
     textChannelRequired: Choose a standard server text channel.
     callsUnavailable: Calls are still starting up. Try again in a few seconds.
   select:
@@ -1376,6 +1379,9 @@ hub:
     description: View information on this hub! Select an option from below.
     noRules: No rules have been set for this hub.
     noDescription: No description provided.
+    imageAlt:
+      banner: Banner for {hubName}
+      icon: Icon for {hubName}
   buttons:
     rules: Regras
     stats: Stats
@@ -1695,7 +1701,7 @@ hub:
         description: This hub is currently locked and cannot be joined.
       missingPermissions:
         title: Missing Permissions
-        description: "You need the **Manage Messages** permission in this server to connect a channel to a hub."
+        description: "You need the **Manage Server** and **Manage Channels** permissions in this server to connect a channel to a hub."
       channelAccessDenied:
         title: Missing Permissions
         description: "You need the **View Channel** and **Manage Channels** permissions in {channel} to connect it to a hub."
@@ -2438,3 +2444,87 @@ profileCard:
     translator: Translator
     voter: Voter
     supporter: Supporter
+calls:
+  searching:
+    first: "{icon} **Looking for someone to talk to…** I'll post here when you're matched. `/hangup` stops searching."
+    afterSkip: "{icon} **Finding your next match…**"
+    partnerSkipped: "{icon} **They moved on, so I'm finding you someone new…**"
+    partnerLeft: "{icon} **They ended the call, so I'm finding you someone new…**"
+  connected:
+    title: "{icon} **You're connected with {name}.** Say hi!"
+    body: This is a text chat. Messages here are shared with them until someone uses `/hangup`.
+    someone: someone
+  hint: "`/topic` suggests something to talk about, `/skip` finds someone new, `/hangup` leaves."
+  ended:
+    byYou: "{icon} **Call ended.** You talked for {duration}."
+    byPartner: "{icon} **They ended the call.** You talked for {duration}."
+    partnerSkipped: "{icon} **They moved on to a new call.** You talked for {duration}."
+  # How long a call lasted, filled into {duration} above and in postCall.summary.
+  # Each unit has a form for exactly one and a form for every other count.
+  duration:
+    secondsOne: 1 second
+    secondsOther: "{count} seconds"
+    minutesOne: 1 minute
+    minutesOther: "{count} minutes"
+    hoursOne: 1 hour
+    hoursOther: "{count} hours"
+    hoursAndMinutes: "{hours} and {minutes}"
+  timeout: "{icon} **No one was free in the last {minutes} minutes, so I stopped searching.**"
+  # Shown in place of the Call again button when a closing message can only go out as plain text.
+  startAnother: Start another with `/call` whenever you like.
+  buttons:
+    callAgain: Call again
+    searchAgain: Search again
+    findGroup: Find another group
+  group:
+    waiting: "{icon} **Group call started.** Waiting for more servers ({count} of up to {max})…"
+    connected: "{icon} **You joined a group call.** {count} servers are here. Say hi!"
+    joined: "{icon} **{name}** joined · {count} servers in this call"
+    someoneJoined: "{icon} Someone new joined · {count} servers in this call"
+    youLeft: "{icon} You left the group call. It continues with {count} servers."
+  errors:
+    serverTextOnly: Calls only work in server text channels.
+    wrongChannel: "Calls in this server happen in {channel}."
+    notInCall: There's no call in this channel. Start one with `/call`.
+    alreadyInCall: This channel is already in a call. Use `/hangup` to end it first.
+    hubChannel: This channel is linked to a hub, so it can't host calls. Use another channel, or unlink it with `/hub disconnect`.
+    accountAge: "Calls open to Discord accounts after {days} days. Yours qualifies {date}."
+    restricted: "You can't use calls right now because of an active restriction. If you think that's wrong, contact support: {support}"
+    unavailable: Calls are briefly unavailable. Please try again in a minute.
+    cooldown: You can start another call in {seconds}s.
+    profileRequired: Choose your call profile in `/my settings` before starting a call.
+    profileTimedOut: No call profile was chosen, so I didn't start the call. Use `/call` again when you're ready.
+    skipGroup: Skip is for 1-on-1 calls. To leave a group call, use `/hangup`.
+    skipWaiting: You're still waiting for a match, so there's no one to skip yet.
+    skipTooSoon: "Give it a moment: you can skip in {seconds}s, or after {messages} more messages."
+    skipPermissions: I need **View Channel**, **Send Messages** and **Manage Webhooks** in this channel to find you a new match.
+    noOneElse: No one else is in this call right now.
+  friendRequest:
+    broadcast: "{icon} **{name}** would like to be friends on Discord. Their username is `{username}`."
+    sent: "{icon} Shared your Discord username with the call."
+    cooldown: You can share your username again in {seconds}s.
+  actions:
+    cooldown: You can send another action in {seconds}s.
+    gifUnavailable: I couldn't load a GIF right now. Please try again in a moment.
+    sent: "{icon} Sent to everyone in your call."
+    unknown: "There's no action called `{name}`. Try one of: {options}"
+  media:
+    attachments: "Your message wasn't sent: file uploads aren't supported in calls. Tenor, Giphy and Klipy GIFs and default stickers work."
+    imageLinks: "Your message wasn't sent: image links aren't supported in calls."
+    links: "Your message wasn't sent: links aren't supported in calls."
+    gifProvider: "Your message wasn't sent: only Tenor, Giphy and Klipy GIFs work in calls."
+    customStickers: "Your message wasn't sent: custom stickers aren't supported in calls. Default Discord stickers work."
+    voteRequired: "{icon} Your message wasn't sent: server emojis in calls are a voter perk. Vote to unlock them for 12 hours, or resend without them."
+  postCall:
+    summary: "{icon} **Call ended · {duration} · {messages} messages**"
+    question: Did anyone make it a great chat?
+    highlightButton: Give a highlight
+    pickTitle: "## 🌟 Give a highlight"
+    pickDescription: Who made this conversation great?
+    skipButton: Not this time
+    skipped: No highlight this time.
+    recorded: "{icon} **Highlight sent.** Thanks for recognising **{name}**. Their stamps and passport are updated."
+    notSpeaker: Highlights are for people who joined the conversation. Send a few messages next call to unlock them.
+    noCandidates: No one else spoke enough in this call to be highlighted.
+    failed: I couldn't save your highlight. Please try again.
+    fallbackName: traveler
