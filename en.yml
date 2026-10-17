@@ -34,6 +34,8 @@ common:
     lastUpdated: Last Updated
     enabled: Enabled
     disabled: Disabled
+  imageAlt:
+    welcomeBanner: A map of Discord servers, all connected through InterChat
   buttons:
     back: &btn_back Back
     next: &btn_next Next
@@ -1378,6 +1380,9 @@ hub:
     description: View information on this hub! Select an option from below.
     noRules: No rules have been set for this hub.
     noDescription: No description provided.
+    imageAlt:
+      banner: Banner for {hubName}
+      icon: Icon for {hubName}
   buttons:
     rules: Rules
     stats: Stats
@@ -2503,6 +2508,16 @@ calls:
     byYou: "{icon} **Call ended.** You talked for {duration}."
     byPartner: "{icon} **They ended the call.** You talked for {duration}."
     partnerSkipped: "{icon} **They moved on to a new call.** You talked for {duration}."
+  # How long a call lasted, filled into {duration} above and in postCall.summary.
+  # Each unit has a form for exactly one and a form for every other count.
+  duration:
+    secondsOne: 1 second
+    secondsOther: "{count} seconds"
+    minutesOne: 1 minute
+    minutesOther: "{count} minutes"
+    hoursOne: 1 hour
+    hoursOther: "{count} hours"
+    hoursAndMinutes: "{hours} and {minutes}"
   timeout: "{icon} **No one was free in the last {minutes} minutes, so I stopped searching.**"
   # Shown in place of the Call again button when a closing message can only go out as plain text.
   startAnother: Start another with `/call` whenever you like.
