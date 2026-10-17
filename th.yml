@@ -2459,6 +2459,7 @@ calls:
     byYou: "{icon} **Call ended.** You talked for {duration}."
     byPartner: "{icon} **They ended the call.** You talked for {duration}."
     partnerSkipped: "{icon} **They moved on to a new call.** You talked for {duration}."
+    inactivity: "{icon} Call ended because one side was inactive for 2 minutes. Start another when you're ready."
   # How long a call lasted, filled into {duration} above and in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:
