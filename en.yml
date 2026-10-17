@@ -2500,10 +2500,16 @@ calls:
     someone: someone
   hint: "`/topic` suggests something to talk about, `/skip` finds someone new, `/hangup` leaves."
   ended:
-    byYou: "{icon} **Call ended.** You talked for {duration}. Start another with `/call` whenever you like."
-    byPartner: "{icon} **They ended the call.** You talked for {duration}. Start another with `/call` whenever you like."
-    partnerSkipped: "{icon} **They moved on to a new call.** You talked for {duration}. Start another with `/call` whenever you like."
-  timeout: "{icon} **No one was free in the last {minutes} minutes, so I stopped searching.** Try `/call` again any time."
+    byYou: "{icon} **Call ended.** You talked for {duration}."
+    byPartner: "{icon} **They ended the call.** You talked for {duration}."
+    partnerSkipped: "{icon} **They moved on to a new call.** You talked for {duration}."
+  timeout: "{icon} **No one was free in the last {minutes} minutes, so I stopped searching.**"
+  # Shown in place of the Call again button when a closing message can only go out as plain text.
+  startAnother: Start another with `/call` whenever you like.
+  buttons:
+    callAgain: Call again
+    searchAgain: Search again
+    findGroup: Find another group
   group:
     waiting: "{icon} **Group call started.** Waiting for more servers ({count} of up to {max})…"
     connected: "{icon} **You joined a group call.** {count} servers are here. Say hi!"
@@ -2512,6 +2518,7 @@ calls:
     youLeft: "{icon} You left the group call. It continues with {count} servers."
   errors:
     serverTextOnly: Calls only work in server text channels.
+    wrongChannel: "Calls in this server happen in {channel}."
     notInCall: There's no call in this channel. Start one with `/call`.
     alreadyInCall: This channel is already in a call. Use `/hangup` to end it first.
     hubChannel: This channel is linked to a hub, so it can't host calls. Use another channel, or unlink it with `/hub disconnect`.
