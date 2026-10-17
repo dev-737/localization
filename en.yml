@@ -196,6 +196,7 @@ onboarding:
     description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
     channelPlaceholder: Choose a text channel
     startButton: Start matching
+    profileNotSent: "{user}, your message was not sent to the call. Choose your call profile below, then send it again."
     errors:
       botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
       accountAge: Your Discord account must be at least 30 days old to use Calls.
@@ -298,8 +299,8 @@ setup:
     chooseHubButton: Choose Hub
   errors:
     serverOnly: Setup only works inside a server.
-    managerRequired: You need **Manage Server** or **Manage Channels** to set up InterChat here.
-    manageChannelsRequired: You need **Manage Channels** to connect or create a Hub. You can still start a Call.
+    managerRequired: You need **Manage Server** to set up InterChat here. You can still start a Call.
+    manageChannelsRequired: You need **Manage Server** and **Manage Channels** to connect or create a Hub. You can still start a Call.
     textChannelRequired: Choose a standard server text channel.
     callsUnavailable: Calls are still starting up. Try again in a few seconds.
   select:
@@ -1710,7 +1711,7 @@ hub:
         description: This hub is currently locked and cannot be joined.
       missingPermissions:
         title: Missing Permissions
-        description: "You need the **Manage Messages** permission in this server to connect a channel to a hub."
+        description: "You need the **Manage Server** and **Manage Channels** permissions in this server to connect a channel to a hub."
       channelAccessDenied:
         title: Missing Permissions
         description: "You need the **View Channel** and **Manage Channels** permissions in {channel} to connect it to a hub."
