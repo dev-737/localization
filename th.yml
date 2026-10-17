@@ -168,7 +168,7 @@ about:
   examples: |-
     > **/call**: talk to someone new right now
     > **/hub directory**: join a hub and chat with many servers
-  closingText: '-# Made with ❤️ by InterChat Development'
+  closingText: '-# Made with ❤️ by Sidequest Labs'
   buttons:
     shardInfo: ข้อมูล Shard
 botLanding:
@@ -192,7 +192,7 @@ botLanding:
   closing: |
     **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
 
-    -# Made with ❤️ by InterChat Development
+    -# Made with ❤️ by Sidequest Labs
 onboarding:
   start:
     title: "Welcome to InterChat"
