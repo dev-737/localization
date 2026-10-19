@@ -468,6 +468,7 @@ appeal:
     title: സ്ക്വീക്കി ക്ലീൻ!
     description: അപ്പീൽ ചെയ്യാവുന്ന ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
   notAppealable: ഈ ലംഘനം ഇനി അപ്പീൽ ചെയ്യാവുന്നതല്ല.
+  notOpenYet: "You can appeal from {opens_at}"
   select:
     placeholder: അപ്പീൽ നൽകാൻ ഒരു ലംഘനം തിരഞ്ഞെടുക്കുക
   modal:
@@ -2446,21 +2447,21 @@ profileCard:
     supporter: Supporter
 calls:
   searching:
-    first: "{icon} **Looking for someone to talk to…** I'll post here when you're matched. `/hangup` stops searching."
-    afterSkip: "{icon} **Finding your next match…**"
-    partnerSkipped: "{icon} **They moved on, so I'm finding you someone new…**"
-    partnerLeft: "{icon} **They ended the call, so I'm finding you someone new…**"
+    first: "{icon} Looking for someone…"
+    afterSkip: "{icon} Finding someone new…"
+    partnerSkipped: "{icon} They skipped. Finding someone new…"
+    partnerLeft: "{icon} They hung up. Finding someone new…"
   connected:
-    title: "{icon} **You're connected with {name}.** Say hi!"
+    title: "{icon} Connected with **{name}**. Say hi!"
     body: This is a text chat. Messages here are shared with them until someone uses `/hangup`.
     someone: someone
   hint: "`/topic` suggests something to talk about, `/skip` finds someone new, `/hangup` leaves."
   ended:
-    byYou: "{icon} **Call ended.** You talked for {duration}."
-    byPartner: "{icon} **They ended the call.** You talked for {duration}."
-    partnerSkipped: "{icon} **They moved on to a new call.** You talked for {duration}."
+    byYou: "{icon} **Call ended** · {duration}"
+    byPartner: "{icon} **They hung up** · {duration}"
+    partnerSkipped: "{icon} **They skipped** · {duration}"
     inactivity: "{icon} Call ended because one side was inactive for 2 minutes. Start another when you're ready."
-  # How long a call lasted, filled into {duration} above and in postCall.summary.
+  # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:
     secondsOne: 1 second
@@ -2470,19 +2471,19 @@ calls:
     hoursOne: 1 hour
     hoursOther: "{count} hours"
     hoursAndMinutes: "{hours} and {minutes}"
-  timeout: "{icon} **No one was free in the last {minutes} minutes, so I stopped searching.**"
+  timeout: "{icon} No match found. Search stopped."
   # Shown in place of the Call again button when a closing message can only go out as plain text.
-  startAnother: Start another with `/call` whenever you like.
+  startAnother: "{command} to reconnect."
   buttons:
     callAgain: Call again
     searchAgain: Search again
     findGroup: Find another group
   group:
-    waiting: "{icon} **Group call started.** Waiting for more servers ({count} of up to {max})…"
-    connected: "{icon} **You joined a group call.** {count} servers are here. Say hi!"
+    waiting: "{icon} Waiting for more servers… **{count}/{max}**"
+    connected: "{icon} Group call connected · **{count} servers**"
     joined: "{icon} **{name}** joined · {count} servers in this call"
     someoneJoined: "{icon} Someone new joined · {count} servers in this call"
-    youLeft: "{icon} You left the group call. It continues with {count} servers."
+    youLeft: "{icon} Left the group call · {count} servers remain"
   errors:
     serverTextOnly: Calls only work in server text channels.
     wrongChannel: "Calls in this server happen in {channel}."
