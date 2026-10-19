@@ -462,6 +462,7 @@ appeal:
     title: No Active Infractions
     description: You have no active infractions that can be appealed.
   notAppealable: This infraction is no longer appealable.
+  notOpenYet: "You can appeal from {opens_at}"
   select:
     placeholder: Select an infraction to appeal
   modal:
