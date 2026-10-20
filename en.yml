@@ -36,7 +36,6 @@ common:
     disabled: Disabled
   imageAlt:
     welcomeBanner: A map of Discord servers, all connected through InterChat
-    setupBanner: A channel joining an InterChat hub and lighting up with other servers
   buttons:
     back: &btn_back Back
     next: &btn_next Next
@@ -219,6 +218,7 @@ setup:
     managersOnly: Only members with **Manage Server** and **Manage Channels** can set up InterChat. Ask a server admin if you’d like a channel connected.
     cancel: Cancel
     back: Back
+    actionFailed: Something went wrong on our side. Try again in a moment.
     channel:
       intro: Pick the channel where messages from other servers will show up.
       createTitle: "Create #{name}"
