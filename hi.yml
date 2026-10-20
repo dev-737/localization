@@ -194,139 +194,138 @@ botLanding:
 
     -# Made with ❤️ by Sidequest Labs
 onboarding:
-  start:
-    title: "Welcome to InterChat"
-    description: "Connect **{server}** to people beyond your server."
-    callTitle: Temporary cross-server text chat
-    callDescription: Meet someone new now. Calls are text conversations, not voice calls.
-    callButton: Meet someone now
-    serverButton: Set up this server
-    browseButton: Browse Hubs
-    rulesButton: Read the rules
+  # Copy shared by Calls started outside /call.
   call:
-    title: Meet someone now
-    description: Choose where your temporary text conversation will happen. InterChat will check permissions and create the call webhook automatically.
-    channelPlaceholder: Choose a text channel
-    startButton: Start matching
     profileNotSent: "{user}, your message wasn't sent. Choose how you appear in calls below, then send it again."
     errors:
       botPermissions: "I need View Channel, Send Messages, and Manage Webhooks in {channel}."
-      accountAge: Your Discord account must be at least 30 days old to use Calls.
       webhook: "I could not create the call webhook in {channel}."
       busy: The lines are busy right now. Please try again in a few seconds.
-      channelConfiguration: I could not save this channel for Calls, so the Call was safely cancelled.
-  channel:
-    createButton: Create a channel
-    auditReason: Created by an InterChat moderator during setup
-    errors:
-      manageChannels: You need Manage Server and Manage Channels to create an InterChat channel.
-      botManageChannels: I need Manage Channels at the server level to create a channel.
-      createFailed: Discord would not let me create the channel. Check the channel settings and try again.
 setup:
-  welcome:
-    title: Welcome to InterChat 👋
-    description: |
-      I connect this server to people and communities across Discord.
-
-      A server manager can choose a channel and get the first conversation running in a few clicks.
-    promise: "**No command list. No webhook setup. I’ll handle the technical work.**"
-  dm:
-    title: InterChat needs a channel
-    description: "I joined **{server}**, but I couldn’t find a channel where I can post the setup guide."
-    instructions: Open the server, let InterChat **View Channel** and **Send Messages** somewhere, then run `/setup`.
-  home:
-    title: "Let’s get {server} talking"
-    description: Set up this server by choosing a temporary call, joining an ongoing Hub, or starting one for your community.
-    resume: You can reopen this guide any time with `/setup`.
-    permissionsNote: Connecting a Hub to a server channel requires Manage Server and Manage Channels.
-  status:
-    title: Current Hub connections
-    empty: No Hub channel is connected in this server yet.
-    unavailable: I couldn’t check Hub connections right now. You can still explore setup and try again later.
-    connected: "{channel} is connected to **{hub}**."
-    paused: "{channel} is connected to **{hub}**, but the connection is paused."
-  goals:
-    call:
-      title: Meet another server now
-      description: Start a temporary, private 1-on-1 text chat.
-      button: Start a call
-    join:
-      title: Join a community
-      description: A Hub is an ongoing conversation shared across servers. Choose one, then connect a channel; messages there are shared with that Hub.
-      button: Find a Hub
-    create:
-      title: Build your own community
-      description: Create a Hub, choose who can find it, and connect a channel.
-      button: Create a Hub
-  hub:
-    channelTitle: Connect to {hub}
-    channelDescription: Choose an existing text channel or create a dedicated one. Use the Hub’s Details button to review its description and rules before connecting.
-    sharingNoticeTitle: What will be shared
-    sharingNotice: Messages sent in the channel you choose will be shared with the Hub’s other connected servers. Messages from them will appear in this channel with sender and server labels. Choose a channel your members expect to use for cross-server conversation.
-    channelPlaceholder: Choose the channel to connect
-    noChannelSelected: Select a channel to continue.
-    selectedChannel: "Selected channel: {channel}"
-    connectButton: "Connect #{channel}"
-    connectDisabled: Choose a channel
-    backToHubs: Back to Hubs
-    newChannelName: interchat-hub
-    newChannelTopic: Messages here are shared with the {hub} Hub through InterChat.
-    connectedTitle: Connected to the Hub
-    connectedDescription: "{channel} is connected to **{hub}**. Messages sent in this channel are shared with other servers in the Hub."
-    connectedNextStep: Say hello in the channel to start the conversation. Use `/hub disconnect` if you want to leave later.
-    openChannelButton: Open channel
-  channel:
-    placeholder: Choose a text channel
-    createPlaceholder: Choose a channel to connect
-    callTitle: Where should the call happen?
-    callDescription: Pick the channel where people will chat. I’ll create and manage the webhook automatically.
-    joinTitle: Which channel should join the Hub?
-    joinDescription: Messages in this channel will be shared with the Hub you choose next.
-    selected: "I’ll connect {channel} when the Hub is ready."
-  permissions:
-    title: One permission fix needed
-    description: "I’m missing these permissions in {channel}:"
-    instructions: Open the channel settings, grant these permissions to InterChat, then press **Check again**.
-    recheck: Check again
-    chooseAnother: Choose another channel
-  call:
-    readyTitle: Ready to meet another server
-    readyDescription: "{channel} passed every check. Nothing will be posted elsewhere."
-    whatHappens: I’ll start matchmaking and post the call controls in that channel. You can leave any time with `/hangup`.
-    start: Start matching
-    startedTitle: Your call is live
-    startedDescription: "I started matchmaking in {channel}. Head there and say hello when another server joins."
-  create:
-    title: Name your new Hub
-    nameLabel: Hub name
-    nameDescription: Pick a short, unique name people will recognize.
-    namePlaceholder: Gaming Lounge
-    taglineLabel: One-line description
-    taglineDescription: Tell people what this community is for.
-    taglinePlaceholder: A relaxed place to meet other gaming servers
-  directory:
-    connecting: "Choose a Hub below. I’ll connect it to {channel}."
-    chooseHubFirst: Choose a Hub first. You’ll choose the channel for it next.
-    chooseHubButton: Choose Hub
-  errors:
-    serverOnly: Setup only works inside a server.
-    managerRequired: You need **Manage Server** to set up InterChat here. You can still start a Call.
-    manageChannelsRequired: You need **Manage Server** and **Manage Channels** to connect or create a Hub. You can still start a Call.
-    textChannelRequired: Choose a standard server text channel.
-    callsUnavailable: Calls are still starting up. Try again in a few seconds.
+  # Shared with the language picker, the Hub directory, and the Hub create wizard.
   select:
     placeholder: एक भाषा चुनें
   locale:
     successDescription: "{tick} आपकी भाषा **{locale_name}** पर सेट कर दी गई है"
-  buttons:
-    tryCallNow: Try a Call Now
-    getStarted: सेटअप विजार्ड शुरू करें
-    connectHere: Connect Here
-    createHub: Hub बनाएं
-    discoverHubs: सार्वजनिक Hubs खोजें
-    useDefault: डिफ़ॉल्ट का उपयोग करें
-    skipForNow: अभी के लिए छोड़ें
-  skipped: No problem. You can start any time with `/call` or `/hub browse`.
+  directory:
+    connecting: "Choose a Hub below. I’ll connect it to {channel}."
+  channel:
+    createPlaceholder: Choose a channel to connect
+    selected: "I’ll connect {channel} when the Hub is ready."
+  # The /setup panel.
+  flow:
+    title: Set up InterChat
+    stepLabel: "Step {step} of 3 · {name}"
+    steps:
+      channel: Channel
+      hub: Hub
+      connect: Connect
+    startedBy: "Started by **{user}** · only they can use these buttons"
+    expired: "This setup timed out after 15 minutes without activity. Run `/setup` to start again."
+    replaced: This setup was replaced by a newer one.
+    notOwner: "**{user}** started this setup, so only they can use these buttons. Run `/setup` to start your own."
+    managersOnly: Only members with **Manage Server** and **Manage Channels** can set up InterChat. Ask a server admin if you’d like a channel connected.
+    cancel: रद्द करें
+    back: वापस (Back)
+    actionFailed: Something went wrong on our side. Try again in a moment.
+    channel:
+      intro: Pick the channel where messages from other servers will show up.
+      createTitle: "Create #{name}"
+      createDescription: A dedicated channel keeps cross-server chat out of your other channels. I’ll set up its permissions for you.
+      createButton: Create channel
+      creating: Creating…
+      existing: Or use a channel you already have
+      placeholder: Choose a channel
+      continue: जारी रखें
+      recheck: Check again
+      checking: Checking…
+      permissions:
+        view_channel: View channel
+        send_messages: Send messages
+        manage_webhooks: Manage webhooks
+      missing: "**I can’t use {channel} yet.** I need the permissions marked above to show messages from other servers with their names and avatars. Open the channel’s settings, go to **Permissions**, give the InterChat role what’s missing, then press **Check again**."
+      alreadyConnected: "{channel} is already connected to **{hub}**. Pick a different channel."
+      inCall: "{channel} has a call running. End it with `/hangup`, or pick a different channel."
+      unsupported: Pick a regular text channel.
+      topic: Messages here are shared with other servers through InterChat.
+      auditReason: "Created with /setup by {user}"
+      createFailed: I couldn’t create a channel. Give the InterChat role **Manage Channels** in this server and try again, or pick a channel you already have.
+      createdNote: "Created {channel} and gave myself the permissions I need there."
+    hub:
+      title: "Choose a hub for {channel}"
+      intro: A hub links one channel in many servers, so everyone talks in the same conversation.
+      suggestionsIn: "These are the most active hubs in {language} right now."
+      suggestions: These are the most active hubs right now.
+      choose: Choose
+      browse: Browse all hubs
+      metrics: "{count} servers · {activity}"
+      activity:
+        high: Very active
+        medium: Active
+        low: Quiet
+      unavailable: I couldn’t load hubs right now. Try again in a moment.
+      empty: No public hubs are open to join right now. Try a quick call instead.
+      retry: Try again
+      callTitle: Just want to try it?
+      callDescription: "Start a quick call: {channel} chats with one other server until someone hangs up. Nothing stays connected."
+      callButton: Start a call
+      callStarting: Starting…
+    browse:
+      title: All hubs
+      intro: "The {count} most active public hubs. For search and filters, use {command} after setup."
+      placeholder: Choose a hub
+      backToSuggestions: Back to suggestions
+    confirm:
+      title: "Connect {channel} to {hub}?"
+      rulesTitle: "{hub} rules"
+      noRules: This hub hasn’t posted rules yet.
+      rulesNote: "Members see these rules before their first message in {channel}."
+      connect: Connect
+      connecting: Connecting…
+      unavailable: I couldn’t load this hub’s details. Go back and choose it again, or pick another hub.
+    failed:
+      title: "Couldn’t connect to {hub}"
+      retry: Try again
+      otherHub: Choose another hub
+      generic: Something went wrong on our side, and nothing was connected. Try again in a moment.
+    live:
+      title: "{channel} is live"
+      description: "It’s connected to **{hub}**. Messages sent there now reach {count} servers, and theirs show up for you."
+      goTo: "Go to #{name}"
+    call:
+      title: Your call is on
+      description: "I’m finding a server for {channel}. Talk there once someone joins, use `/skip` for a different server, or `/hangup` to end the call."
+      stayTitle: Want something that stays?
+      stayDescription: "A hub keeps {channel} connected to many servers after the call ends."
+      stayButton: Find a hub
+      wrongChannel: "Calls in this server happen in {channel}. Start one there with `/call`."
+      profileNeeded: Choose how you appear in calls, then press **Start a call** again.
+      announceFailed: "I started the call but couldn’t post in {channel}, so I cancelled it. Check my permissions there and try again."
+      unavailable: Calls are still starting up. Try again in a few seconds.
+    status:
+      title: InterChat is set up
+      intro: "Here’s what’s connected in **{server}**."
+      connected: "{channel} → **{hub}**"
+      paused: "{channel} → **{hub}** · paused"
+      more: "…and {count} more. See them all with {command}."
+    next:
+      title: What’s next
+      anotherTitle: Connect another channel
+      anotherDescription: Bring a second channel into a different hub.
+      anotherButton: Connect another
+      settings: "Change call behavior, blocks, and channel options with {command}."
+      createHub: "Start a hub for your own community with {command}."
+    cancelled:
+      nothingChanged: "**Setup cancelled.** Nothing was changed. Run `/setup` whenever you’re ready."
+      keptChannel: "**Setup cancelled.** {channel} was kept, so you can use it next time or delete it. Run `/setup` whenever you’re ready."
+    welcome:
+      title: Thanks for adding InterChat
+      description: Connect a channel to a hub and your members can talk with other communities. Setup takes about a minute.
+      start: Start setup
+      whatIsHub: What is a hub?
+      whoCanSetUp: Setup is for members with Manage Server and Manage Channels.
+      hubExplainer: "**A hub is a shared channel across many servers.** Connect one of your channels and its messages go to every other server in the hub, with their replies coming back to you. You can leave a hub any time with `/hub leave`."
+      dmFallback: "I joined **{server}**, but I can’t post in any of its channels. Let InterChat **View Channel**, **Send Messages**, and **Attach Files** somewhere, then run `/setup` there."
 help:
   title: InterChat कमांड्स
   description: Explore our wide range of commands to help you connect with others.
