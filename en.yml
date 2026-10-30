@@ -2557,8 +2557,6 @@ calls:
   searching:
     first: "{icon} Looking for someone…"
     afterSkip: "{icon} Finding someone new…"
-    stillFirst: "{icon} Still looking…"
-    stillAfterSkip: "{icon} Still finding someone…"
     partnerSkipped: "{icon} They skipped. Finding someone new…"
     partnerLeft: "{icon} They hung up. Finding someone new…"
   connected:
@@ -2590,7 +2588,6 @@ calls:
     findGroup: Find another group
   group:
     waiting: "{icon} Waiting for more servers… **{count}/{max}**"
-    stillWaiting: "{icon} Still waiting for servers… **{count}/{max}**"
     connected: "{icon} Group call connected · **{count} servers**"
     joined: "{icon} **{name}** joined · {count} servers in this call"
     someoneJoined: "{icon} Someone new joined · {count} servers in this call"
