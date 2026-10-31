@@ -2631,7 +2631,7 @@ calls:
     highlightButton: Give a highlight
     pickTitle: "## 🌟 Give a highlight"
     pickDescription: Who made this conversation great?
-    rankLine: "-# {icon}Traveler rank {rank} · {done}/{total} miles to rank {next}"
+    rankLine: "-# {icon}Resonance {rank} · {done}/{total} to rank {next}"
     skipButton: Not this time
     skipped: No highlight this time.
     recorded: "{icon} **Highlight sent.** Thanks for recognising **{name}**. Their stamps and passport are updated."
