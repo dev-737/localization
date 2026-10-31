@@ -2502,7 +2502,7 @@ server:
       manageChannelsRequired: You need the Manage Channels permission to edit lobby channels.
 
 achievementsCard:
-  title: Traveler Achievements
+  title: Achievements
   handle: "@{name}"
   summary: "{unlocked} of {total} unlocked"
   page: "Page {page} of {total}"
@@ -2542,6 +2542,10 @@ profileCard:
   achievementsDone: "{done} / {total} completed"
   memberSince: "Member since {when}"
   voter: Voter
+  rankTitle: "Rank {rank}"
+  resonanceNext: "{done} / {total} miles to rank {next}"
+  resonanceTier: "{tier} at rank {rank}"
+  resonanceTop: Highest tier reached
   role:
     hubOwner: Hub owner
     hubModerator: Hub moderator
