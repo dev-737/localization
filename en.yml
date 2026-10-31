@@ -2553,6 +2553,8 @@ profileCard:
     staff: Staff
     developer: Developer
     betaTester: Beta tester
+    bugHunter: Bug hunter
+    goldBugHunter: Gold bug hunter
     topChatter: Top chatter
     translator: Translator
     voter: Voter
