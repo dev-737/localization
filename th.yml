@@ -1,546 +1,962 @@
 common:
   titles:
-    error: เกิดข้อผิดพลาด!
-    success: สำเร็จ!
+    error: &title_error เกิดข้อผิดพลาด!
+    success: &title_success สำเร็จ!
     cancelled: ยกเลิกแล้ว!
-    feedback: Feedback Received
-    validationError: Validation Error
+    feedback: ได้รับความคิดเห็นแล้ว
+    validationError: ข้อมูลไม่ผ่านการตรวจสอบ
+    slowDown: ช้าลงหน่อย!
   labels:
     date: วันที่
     loading: กำลังโหลด...
     pleaseWait: โปรดรอสักครู่...
     lastActive: ใช้งานล่าสุด
     unknown: ไม่ทราบ
-    unknownHub: Unknown Hub
-    language: Language
-    locked: ล็อค
+    unknownHub: Hub ที่ไม่รู้จัก
+    language: ภาษา
+    locked: ถูกล็อก
     nsfw: NSFW
-    visibility: Visibility
-    "yes": "Yes"
-    "no": "No"
+    visibility: การมองเห็น
+    "yes": "ใช่"
+    "no": "ไม่"
     none: ไม่มี
-    noneSpecified: None Specified
-    tryAgain: Please try again
-    noReason: No Reason
+    noneSpecified: ไม่ได้ระบุ
+    tryAgain: โปรดลองอีกครั้ง
+    noReason: &no_reason ไม่มีเหตุผล
     roles:
-      owner: Owner
-      member: Member
-      moderator: Moderator
-    note: Note
+      owner: เจ้าของ
+      member: สมาชิก
+      moderator: ผู้ดูแล
+      manager: ผู้จัดการ
+      staff: ทีมงาน
+    note: หมายเหตุ
     never: ไม่เคย
-    lastUpdated: Last Updated
-    enabled: Enabled
-    disabled: Disabled
+    lastUpdated: อัปเดตล่าสุด
+    enabled: เปิดใช้งาน
+    disabled: ปิดใช้งาน
+  imageAlt:
+    welcomeBanner: แผนที่เซิร์ฟเวอร์ Discord ที่เชื่อมต่อถึงกันทั้งหมดผ่าน InterChat
   buttons:
-    back: ย้อนกลับ
-    next: ถัดไป
+    back: &btn_back ย้อนกลับ
+    next: &btn_next ถัดไป
     previous: ก่อนหน้า
-    cancel: ยกเลิก
+    cancel: &btn_cancel ยกเลิก
     confirm: ยืนยัน
     create: สร้าง
     refresh: รีเฟรช
     delete: ลบ
-    open: Open
+    open: เปิด
+    edit: แก้ไข
+    add: เพิ่ม
     vote: โหวตบน top.gg
     invite: เชิญ InterChat
     dashboard: เปิดแดชบอร์ด
-    support: เข้าร่วม Support
-    edit: Edit
-    save: Save
-    apply: Apply Changes
-    close: Close
-    search: Search
-    jumpToMessage: Jump to Message
-    maybeLater: Maybe Later
-    show: Show
-    hide: Hide
-    enable: Enable
-    disable: Disable
-    continue: Continue
-    start: Start
-    stop: Stop
-    join: Join
-    accept: Accept
-    decline: Decline
+    support: เข้าร่วมซัพพอร์ต
+    discord: เข้าร่วม Discord
+    kofi: Ko-fi
+    edit: &btn_edit แก้ไข
+    save: &btn_save บันทึก
+    apply: ใช้การเปลี่ยนแปลง
+    close: ปิด
+    search: ค้นหา
+    jumpToMessage: ไปยังข้อความ
+    maybeLater: ไว้ทีหลัง
+    show: แสดง
+    hide: ซ่อน
+    enable: เปิดใช้
+    disable: ปิดใช้
+    continue: ดำเนินการต่อ
+    start: &btn_start เริ่ม
+    stop: หยุด
+    join: เข้าร่วม
+    accept: ยอมรับ
+    decline: ปฏิเสธ
   pagination:
-    footer: "Page {current} of {total} • {count} total items"
+    footer: "หน้า {current} จาก {total} • ทั้งหมด {count} รายการ"
     errors:
-      firstPage: "You're already on the first page."
-      lastPage: "You're already on the last page."
+      firstPage: "คุณอยู่หน้าแรกแล้ว"
+      lastPage: "คุณอยู่หน้าสุดท้ายแล้ว"
     page: หน้า {current}/{total}
-    pageOf: Page {current} of {total}
-    alreadyFirst: Already on the first page.
-    alreadyLast: Already on the last page.
+    pageOf: หน้า {current} จาก {total}
+    alreadyFirst: อยู่หน้าแรกแล้ว
+    alreadyLast: อยู่หน้าสุดท้ายแล้ว
   placeholders:
     select: เลือกตัวเลือก
     type: พิมพ์ที่นี่...
   visibility:
-    public: สาธารณะ
-    publicDesc: Discoverable on the hub directory.
-    private: ส่วนตัว
-    privateDesc: Invite-only, not listed publicly.
-    unlisted: ไม่แสดงในรายการ
-    unlistedDesc: Not in directory but anyone can join via ID/link.
+    public: &vis_public สาธารณะ
+    publicDesc: &vis_public_desc ค้นพบได้ในไดเรกทอรี Hub
+    private: &vis_private ส่วนตัว
+    privateDesc: &vis_private_desc เข้าได้เฉพาะผู้ที่ได้รับเชิญ ไม่แสดงต่อสาธารณะ
+    unlisted: &vis_unlisted ไม่แสดงในรายการ
+    unlistedDesc: &vis_unlisted_desc ไม่อยู่ในไดเรกทอรี แต่ใครก็เข้าร่วมได้ผ่าน ID หรือลิงก์
   entities:
     user: ผู้ใช้
     server: เซิร์ฟเวอร์
     hub: Hub
-    unknownUser: Unknown User
+    unknownUser: ผู้ใช้ที่ไม่รู้จัก
     unknownServer: เซิร์ฟเวอร์ที่ไม่รู้จัก
   messages:
-    notImplemented: ยังไม่เปิดใช้งาน
-    defaultSuccess: Action completed successfully.
-    actionCancelled: Action cancelled.
-    hubNotFound: ไม่พบ Hub โปรดลองใหม่ภายหลัง
+    notImplemented: ยังไม่รองรับ
+    defaultSuccess: ดำเนินการสำเร็จ
+    actionCancelled: &msg_cancelled ยกเลิกการดำเนินการแล้ว
+    hubNotFound: "ไม่พบ Hub ใช้ `/hub browse` เพื่อค้นหา Hub หรือ `/hub create` เพื่อสร้างของคุณเอง"
+    hubNotFoundNamed: 'ไม่มี Hub ชื่อ **{hub}** ที่คุณมองเห็น โปรดตรวจสอบการสะกด หรือใช้ `/hub browse` เพื่อค้นหา'
     serverNotFound: ไม่พบเซิร์ฟเวอร์
     userNotFound: ไม่พบผู้ใช้
     notSpecified: ไม่ได้ระบุ
-    interfacePermission: คุณไม่สามารถใช้อินเทอร์เฟซนี้ได้
-    hubUpdateFailed: การอัปเดตการตั้งค่า Hub ล้มเหลว
+    interfacePermission: คุณไม่สามารถใช้หน้าจอนี้ได้
+    hubUpdateFailed: อัปเดตการตั้งค่า Hub ไม่สำเร็จ
   footer:
-    submittedBy: "Submitted by {user}"
+    submittedBy: "ส่งโดย {user}"
   states:
-    enabled: Enabled
-    disabled: Disabled
+    enabled: เปิดใช้งาน
+    disabled: ปิดใช้งาน
   fields:
-    id: "ID {type}"
-    name: "ชื่อ {type}"
-    reason: เหตุผล
-    description: คำอธิบาย
+    id: "ID ของ{type}"
+    name: "ชื่อ{type}"
+    reason: &label_reason เหตุผล
+    description: &label_description คำอธิบาย
     created: สร้างเมื่อ
     status: สถานะ
-    channel: Channel
+    channel: ช่อง
   errors:
-    commandNotFound: Command not found.
+    commandNotFound: ไม่พบคำสั่ง
     notYourMenu: นี่ไม่ใช่เมนูของคุณ
-    cannotControlPagination: คุณไม่สามารถควบคุมการเปลี่ยนหน้านี้ได้
-    generic: Oops! Something went wrong while processing your request.
-    processing: An error occurred while processing your request. Please try again.
+    cannotControlPagination: คุณควบคุมการแบ่งหน้านี้ไม่ได้
+    generic: &err_generic อุ๊ปส์! เกิดข้อผิดพลาดขณะประมวลผลคำขอของคุณ
+    processing: &err_processing เกิดข้อผิดพลาดขณะประมวลผลคำขอของคุณ โปรดลองอีกครั้ง
     invalidSelection: การเลือกไม่ถูกต้อง
-    interactionCheck: คุณไม่สามารถใช้การโต้ตอบนี้ได้ เนื่องจากคุณไม่ใช่ผู้เรียกใช้งาน
+    interactionCheck: คุณใช้การโต้ตอบนี้ไม่ได้ เพราะคุณไม่ได้เป็นผู้เริ่ม
     rateLimited: คุณถูกจำกัดความถี่ ใจเย็นๆ ก่อนนะ
-    webhookRateLimit: คุณถึงขีดจำกัดการสร้าง Webhook แล้ว
-    invalidInput: คุณระบุข้อมูลไม่ถูกต้อง
+    webhookRateLimit: คุณสร้างเว็บฮุกถึงขีดจำกัดแล้ว
+    invalidInput: &err_invalid_input คุณยังไม่ได้ป้อนข้อมูลที่ถูกต้อง
     invalidInvite: คำเชิญนี้ไม่ถูกต้องหรือหมดอายุแล้ว
-    webhookError: สร้าง Webhook ล้มเหลว
-    notConnected: ฉันไม่พบ Hub ที่เชื่อมต่อในช่องนี้
-    notConnectedServer: "{cross} ฉันไม่พบการเชื่อมต่อใดๆ สำหรับเซิร์ฟเวอร์นี้"
-    noInteraction: คำสั่งนี้รองรับเฉพาะ Slash Commands เท่านั้น
-    missingAppealReference: ไม่พบข้อมูลอ้างอิงสำหรับการอุทธรณ์
-    missingArgument: "อาร์กิวเมนต์หายไป: `{param}`"
-    accessDenied: การเข้าถึงถูกปฏิเสธ
-    invalidId: "{cross} Please provide a valid User ID or Server ID."
+    webhookError: สร้างเว็บฮุกไม่สำเร็จ
+    notConnected: &err_not_connected ฉันไม่พบ Hub ที่เชื่อมต่ออยู่ในช่องนี้
+    notConnectedServer: "ฉันไม่พบการเชื่อมต่อใดๆ ของเซิร์ฟเวอร์นี้"
+    noInteraction: คำสั่งนี้ใช้ได้เฉพาะสแลชคอมมานด์
+    checkFailed: คุณไม่ตรงตามเงื่อนไขในการใช้คำสั่งนี้ที่นี่
+    missingAppealReference: ไม่มีข้อมูลอ้างอิงของการอุทธรณ์
+    missingArgument: "ขาดอาร์กิวเมนต์: `{param}`"
+    accessDenied: ปฏิเสธการเข้าถึง
+    invalidId: "{cross} โปรดระบุ ID ผู้ใช้หรือ ID เซิร์ฟเวอร์ที่ถูกต้อง"
+
 about:
   title: เกี่ยวกับ InterChat
-  description: |
-    InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
+  tagline: เซิร์ฟเวอร์ เชื่อมถึงกัน
+  description: |-
+    InterChat เชื่อมเซิร์ฟเวอร์ Discord เข้าด้วยกัน เพื่อให้คนจากต่างเซิร์ฟเวอร์พูดคุยกันได้
 
-    ## What do we offer?
-    - **Hubs:** persistent cross-server rooms with AutoMod, granular moderator roles, audit logs, announcements (+ scheduling), public discovery, custom badges, leaderboards, a web dashboard, etc.
-    - **Calls:** one-to-one or group bridges with per-server profanity filters
-    - **Leaderboards:** compete for top spot across hubs or calls
-    - **Moderation tools:** dedicated commands for hub staff & InterChat staff
-    - **Modern web dashboard:** manage everything from the browser
-    - **Earnable badges:** show off your activity in calls & hubs
-    ## Who is InterChat for?
-    - The bored and the curious, anyone who wants random, lively conversations.
-    - Server owners who want to build lasting bridges (gaming clans, study groups, partnerships, etc.).
-    ## Getting Started:
-    ### Calls
-    Use `/call` to instantly connect your channel with another server.
-    ### Hubs
-    1. Choose a channel you want linked **at all times**.
-    2. Browse `/hub directory` to find a hub you like (they're made by users just like you!).
-    3. Click **Join**, you're now connected to all servers in that hub.
-      Already know the hub? Use `/hub connect` with its name or invite code.
-    ## Useful Links
-  closingText: '-# Made with ❤️ by Sidequest Labs'
+    **Hub** คือช่องที่ใช้ร่วมกันซึ่งมีหลายเซิร์ฟเวอร์โพสต์ข้อความ แชตไม่เคยเงียบ
+
+    **การโทร** เชื่อมคุณกับอีกคนแบบส่วนตัว นานเท่าที่ทั้งสองฝ่ายต้องการ
+  examples: |-
+    > **/call**: คุยกับคนใหม่ได้ทันที
+    > **/hub directory**: เข้าร่วม Hub แล้วแชตกับหลายเซิร์ฟเวอร์
+
+  closingText: สร้างโดยทีม InterChat
   buttons:
     shardInfo: ข้อมูล Shard
+
 botLanding:
-  title: Your server, connected. 🌐 Let's go cross-server!
+  title: 'เซิร์ฟเวอร์ของคุณ เชื่อมถึงกันแล้ว :globe_icon: ไปคุยข้ามเซิร์ฟเวอร์กัน!'
   description: |
-    Hi, I'm InterChat. With me, you can have conversations with people all around discord, all from the comfort of this server. Cool? Wait until you hear what I do:
+    สวัสดี ฉันคือ InterChat ฉันเชื่อมเซิร์ฟเวอร์นี้เข้ากับบทสนทนาทั่ว Discord
 
-    ## :telephone: 1:1 Calls & Group calls
-    With the tap of one command you instantly get connected to another server, or multiple servers (in group calls!). Instant gratification at your fing
+    ## 📞 โทร 1:1 และโทรกลุ่ม
+    เริ่มการโทรแล้วเชื่อมกับอีกเซิร์ฟเวอร์ได้ในไม่กี่วินาที การโทรกลุ่มพาหลายเซิร์ฟเวอร์มาอยู่ในบทสนทนาเดียวกัน
 
-    Use `/call`, `/skip`, `/hangup`. And rank higher in `/leaderboard` :sunglasses:
+    ใช้ `/call`, `/skip` และ `/hangup` ทุกการโทรช่วยให้คุณไต่อันดับใน `/leaderboard` ได้ 😎
   hubs: |
-    ## 🏡 Hubs (where we stand out the most! ✨)
-    So you've seen calls, but *what if* you could make **cross-server** communities? It works by connecting multiple servers into one space!
+    ## :house_icon: Hub
+    Hub คือชุมชน**ข้ามเซิร์ฟเวอร์**แบบถาวร เชื่อมหลายเซิร์ฟเวอร์เข้ากับพื้นที่ร่วมที่เปิดอยู่ตลอดแม้ไม่มีการสนทนา
 
-    - 📌 **Create:** `/hub create` (Make your own hub)
-    - 🧭 **Explore:** `/hub directory` (Find public hubs)
-    - 🔗 **Connect:** `/hub connect` (Join an existing hub)
-    - ⚙️ **Manage:** `/hub manage` (Admin settings)
-    > Use `/help` for the full list.
+    - :pin: **สร้าง:** `/hub create` - สร้าง Hub ของคุณเอง
+    - :compass: **สำรวจ:** `/hub browse` - ค้นหา Hub สาธารณะ
+    - :link_icon: **เชื่อมต่อ:** `/hub connect` - เข้าร่วม Hub ที่มีอยู่
+    - ⚙️ **จัดการ:** `/hub manage` - เปิดการตั้งค่า Hub ของคุณ
+    > ใช้ `/help` เพื่อดูคำสั่งทั้งหมด
+
   closing: |
-    **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
+    **พร้อมพบเซิร์ฟเวอร์อื่นแล้วหรือยัง? ลองโทร ค้นหา Hub หรือสร้าง Hub ของคุณเองด้านล่างได้เลย**
 
-    -# Made with ❤️ by Sidequest Labs
+    -# สร้างด้วย :heart: โดย Sidequest Labs
+
+onboarding:
+  # Copy shared by Calls started outside /call.
+  call:
+    profileNotSent: "{user} ข้อความของคุณยังไม่ถูกส่ง เลือกวิธีที่คุณจะปรากฏในการโทรด้านล่าง แล้วส่งอีกครั้ง"
+    errors:
+      botPermissions: "ฉันต้องมีสิทธิ์ดูช่อง ส่งข้อความ และจัดการเว็บฮุกใน {channel}"
+      webhook: "ฉันสร้างเว็บฮุกสำหรับการโทรใน {channel} ไม่ได้"
+      busy: สายไม่ว่างในตอนนี้ โปรดลองอีกครั้งในไม่กี่วินาที
+
 setup:
+  # Shared with the language picker, the Hub directory, and the Hub create wizard.
   select:
     placeholder: เลือกภาษา
   locale:
-    successDescription: "{tick} ภาษาของคุณถูกตั้งค่าเป็น **{locale_name}**"
-  buttons:
-    getStarted: เริ่มวิซาร์ดการตั้งค่า
-    connectHere: Connect Here
-    createHub: สร้าง Hub
-    discoverHubs: ค้นหา Hub สาธารณะ
-    useDefault: ใช้ค่าเริ่มต้น
-    skipForNow: ข้ามไปก่อน
+    successDescription: "{tick} ตั้งค่าภาษาของคุณเป็น **{locale_name}** แล้ว"
+  directory:
+    connecting: "เลือก Hub ด้านล่าง ฉันจะเชื่อมต่อกับ {channel}"
+  channel:
+    createPlaceholder: เลือกช่องที่จะเชื่อมต่อ
+    selected: "ฉันจะเชื่อมต่อ {channel} เมื่อ Hub พร้อม"
+  # The /setup panel.
+  flow:
+    title: ตั้งค่า InterChat
+    stepLabel: "ขั้นตอนที่ {step} จาก 3 · {name}"
+    steps:
+      channel: ช่อง
+      hub: Hub
+      connect: เชื่อมต่อ
+    startedBy: "เริ่มโดย **{user}** · เฉพาะผู้นั้นที่ใช้ปุ่มเหล่านี้ได้"
+    expired: "การตั้งค่านี้หมดเวลาหลังไม่มีการใช้งาน 15 นาที เรียกใช้ `/setup` เพื่อเริ่มใหม่"
+    replaced: การตั้งค่านี้ถูกแทนที่ด้วยอันที่ใหม่กว่า
+    notOwner: "**{user}** เป็นผู้เริ่มการตั้งค่านี้ จึงมีเพียงผู้นั้นที่ใช้ปุ่มเหล่านี้ได้ เรียกใช้ `/setup` เพื่อเริ่มของคุณเอง"
+    managersOnly: เฉพาะสมาชิกที่มีสิทธิ์ **จัดการเซิร์ฟเวอร์** และ **จัดการช่อง** เท่านั้นที่ตั้งค่า InterChat ได้ หากต้องการเชื่อมต่อช่อง โปรดขอให้แอดมินเซิร์ฟเวอร์ช่วย
+    cancel: ยกเลิก
+    back: ย้อนกลับ
+    actionFailed: เกิดปัญหาที่ฝั่งเรา โปรดลองอีกครั้งในอีกสักครู่
+    channel:
+      intro: เลือกช่องที่จะแสดงข้อความจากเซิร์ฟเวอร์อื่น
+      createTitle: "สร้าง #{name}"
+      createDescription: ช่องเฉพาะช่วยแยกแชตข้ามเซิร์ฟเวอร์ออกจากช่องอื่นของคุณ ฉันจะตั้งสิทธิ์ให้เอง
+      createButton: สร้างช่อง
+      creating: กำลังสร้าง…
+      existing: หรือใช้ช่องที่คุณมีอยู่แล้ว
+      placeholder: เลือกช่อง
+      continue: ดำเนินการต่อ
+      recheck: ตรวจสอบอีกครั้ง
+      checking: กำลังตรวจสอบ…
+      permissions:
+        view_channel: ดูช่อง
+        send_messages: ส่งข้อความ
+        manage_webhooks: จัดการเว็บฮุก
+      missing: "**ฉันยังใช้ {channel} ไม่ได้** ฉันต้องมีสิทธิ์ที่ทำเครื่องหมายไว้ด้านบนเพื่อแสดงข้อความจากเซิร์ฟเวอร์อื่นพร้อมชื่อและอวาตาร์ ไปที่การตั้งค่าช่อง เลือก **สิทธิ์** ให้บทบาท InterChat ตามที่ขาด แล้วกด **ตรวจสอบอีกครั้ง**"
+      alreadyConnected: "{channel} เชื่อมต่อกับ **{hub}** อยู่แล้ว เลือกช่องอื่น"
+      inCall: "{channel} มีการโทรที่กำลังดำเนินอยู่ จบด้วย `/hangup` หรือเลือกช่องอื่น"
+      unsupported: เลือกช่องข้อความทั่วไป
+      topic: ข้อความที่นี่ถูกแชร์ให้เซิร์ฟเวอร์อื่นผ่าน InterChat
+      auditReason: "สร้างด้วย /setup โดย {user}"
+      createFailed: ฉันสร้างช่องไม่ได้ ให้สิทธิ์ **จัดการช่อง** แก่บทบาท InterChat ในเซิร์ฟเวอร์นี้แล้วลองอีกครั้ง หรือเลือกช่องที่มีอยู่แล้ว
+      createdNote: "สร้าง {channel} แล้ว และให้สิทธิ์ที่ฉันต้องใช้ที่นั่นแล้ว"
+    hub:
+      title: "เลือก Hub สำหรับ {channel}"
+      intro: Hub เชื่อมช่องหนึ่งช่องจากหลายเซิร์ฟเวอร์เข้าด้วยกัน ทุกคนจึงคุยกันในบทสนทนาเดียวกัน
+      suggestionsIn: "นี่คือ Hub ที่คึกคักที่สุดในภาษา{language}ตอนนี้"
+      suggestions: นี่คือ Hub ที่คึกคักที่สุดตอนนี้
+      yoursFirst: Hub ที่คุณเป็นเจ้าของจะมาก่อน ตามด้วย Hub ที่คึกคักที่สุด
+      yours: "Hub ของคุณ · {count} เซิร์ฟเวอร์"
+      yoursOne: Hub ของคุณ · 1 เซิร์ฟเวอร์
+      choose: เลือก
+      browse: เรียกดู Hub ทั้งหมด
+      metrics: "{count} เซิร์ฟเวอร์ · {activity}"
+      activity:
+        high: คึกคักมาก
+        medium: คึกคัก
+        low: เงียบ
+      unavailable: ตอนนี้ฉันโหลด Hub ไม่ได้ โปรดลองอีกครั้งในอีกสักครู่
+      empty: ตอนนี้ไม่มี Hub สาธารณะที่เปิดให้เข้าร่วม ลองโทรด่วนแทนได้
+      retry: ลองอีกครั้ง
+      callTitle: แค่อยากลองดูใช่ไหม?
+      callDescription: "เริ่มการโทรด่วน: {channel} จะแชตกับอีกหนึ่งเซิร์ฟเวอร์จนกว่าจะมีคนวางสาย ไม่มีอะไรเชื่อมต่อค้างไว้"
+      callButton: เริ่มการโทร
+      callStarting: กำลังเริ่ม…
+    browse:
+      title: Hub ทั้งหมด
+      intro: "Hub สาธารณะที่คึกคักที่สุด {count} อันดับ หากต้องการค้นหาและกรอง ให้ใช้ {command} หลังตั้งค่าเสร็จ"
+      placeholder: เลือก Hub
+      backToSuggestions: กลับไปที่คำแนะนำ
+    confirm:
+      title: "เชื่อมต่อ {channel} กับ {hub} ไหม?"
+      rulesTitle: "กฎของ {hub}"
+      noRules: Hub นี้ยังไม่ได้โพสต์กฎ
+      rulesNote: "สมาชิกจะเห็นกฎเหล่านี้ก่อนส่งข้อความแรกใน {channel}"
+      connect: เชื่อมต่อ
+      connecting: กำลังเชื่อมต่อ…
+      unavailable: ฉันโหลดรายละเอียดของ Hub นี้ไม่ได้ ย้อนกลับไปเลือกใหม่ หรือเลือก Hub อื่น
+    failed:
+      title: "เชื่อมต่อกับ {hub} ไม่ได้"
+      retry: ลองอีกครั้ง
+      otherHub: เลือก Hub อื่น
+      generic: เกิดปัญหาที่ฝั่งเราและยังไม่ได้เชื่อมต่ออะไรเลย โปรดลองอีกครั้งในอีกสักครู่
+    live:
+      title: "{channel} ใช้งานได้แล้ว"
+      description: "เชื่อมต่อกับ **{hub}** แล้ว ข้อความที่ส่งที่นั่นจะไปถึง {count} เซิร์ฟเวอร์ และข้อความของพวกเขาจะปรากฏให้คุณเห็น"
+      goTo: "ไปที่ #{name}"
+    call:
+      title: การโทรของคุณเริ่มแล้ว
+      description: "ฉันกำลังหาเซิร์ฟเวอร์ให้ {channel} เมื่อมีคนเข้าร่วมแล้วให้คุยที่นั่น ใช้ `/skip` เพื่อเปลี่ยนเซิร์ฟเวอร์ หรือ `/hangup` เพื่อวางสาย"
+      stayTitle: อยากได้อะไรที่อยู่ยาวไหม?
+      stayDescription: "Hub ช่วยให้ {channel} เชื่อมต่อกับหลายเซิร์ฟเวอร์ต่อไปแม้การโทรจบแล้ว"
+      stayButton: ค้นหา Hub
+      wrongChannel: "การโทรในเซิร์ฟเวอร์นี้เกิดขึ้นใน {channel} เริ่มที่นั่นด้วย `/call`"
+      profileNeeded: เลือกว่าคุณจะปรากฏอย่างไรในการโทร แล้วกด **เริ่มการโทร** อีกครั้ง
+      announceFailed: "ฉันเริ่มการโทรแล้วแต่โพสต์ใน {channel} ไม่ได้ จึงยกเลิกไป ตรวจสอบสิทธิ์ของฉันที่นั่นแล้วลองอีกครั้ง"
+      unavailable: ระบบการโทรกำลังเริ่มทำงาน โปรดลองอีกครั้งในไม่กี่วินาที
+    status:
+      title: ตั้งค่า InterChat เรียบร้อย
+      intro: "นี่คือสิ่งที่เชื่อมต่ออยู่ใน **{server}**"
+      connected: "{channel} → **{hub}**"
+      paused: "{channel} → **{hub}** · หยุดชั่วคราว"
+      more: "…และอีก {count} รายการ ดูทั้งหมดได้ด้วย {command}"
+    next:
+      title: ขั้นต่อไป
+      anotherTitle: เชื่อมต่อช่องอื่น
+      anotherDescription: นำช่องที่สองไปเชื่อมกับ Hub อื่น
+      anotherButton: เชื่อมต่ออีกช่อง
+      settings: "เปลี่ยนพฤติกรรมการโทร การบล็อก และตัวเลือกของช่องด้วย {command}"
+      createHub: "สร้าง Hub สำหรับชุมชนของคุณเองด้วย {command}"
+    cancelled:
+      nothingChanged: "**ยกเลิกการตั้งค่าแล้ว** ไม่มีอะไรเปลี่ยนแปลง เรียกใช้ `/setup` ได้ทุกเมื่อที่พร้อม"
+      keptChannel: "**ยกเลิกการตั้งค่าแล้ว** เก็บ {channel} ไว้ให้ คุณจะใช้คราวหน้าหรือลบก็ได้ เรียกใช้ `/setup` ได้ทุกเมื่อที่พร้อม"
+    welcome:
+      title: ขอบคุณที่เพิ่ม InterChat
+      description: เชื่อมช่องเข้ากับ Hub แล้วสมาชิกของคุณจะคุยกับชุมชนอื่นได้ การตั้งค่าใช้เวลาประมาณหนึ่งนาที
+      start: เริ่มการตั้งค่า
+      whatIsHub: Hub คืออะไร?
+      whoCanSetUp: การตั้งค่าสำหรับสมาชิกที่มีสิทธิ์จัดการเซิร์ฟเวอร์และจัดการช่อง
+      hubExplainer: "**Hub คือช่องที่ใช้ร่วมกันข้ามหลายเซิร์ฟเวอร์** เชื่อมช่องของคุณหนึ่งช่อง ข้อความจะไปถึงทุกเซิร์ฟเวอร์ใน Hub และคำตอบของพวกเขาจะกลับมาหาคุณ คุณออกจาก Hub ได้ทุกเมื่อด้วย `/hub leave`"
+      dmFallback: "ฉันเข้าร่วม **{server}** แล้ว แต่โพสต์ในช่องใดไม่ได้เลย ให้สิทธิ์ **ดูช่อง** **ส่งข้อความ** และ **แนบไฟล์** แก่ InterChat ในช่องใดช่องหนึ่ง แล้วเรียกใช้ `/setup` ที่นั่น"
+
 help:
-  title: คำสั่ง InterChat
-  description: Explore our wide range of commands to help you connect with others.
-  name: ช่วยเหลือ
+  title: ความช่วยเหลือ
+  description: สำรวจทุกคำสั่งที่ InterChat มี
+  browserDescription: เลือกจุดเริ่มต้นด้านล่าง หรือเรียกดูทุกคำสั่งตามหมวดหมู่ พิมพ์ / ในช่องเพื่อค้นหาทุกคำสั่งได้ทันที
+  gettingStarted: เริ่มต้นใช้งาน
+  home:
+    moreAvailable: "มีจุดเริ่มต้นอีก +{count} รายการในรายการหมวดหมู่"
+  category:
+    moreOnThisPage: "ซ่อนคำสั่งอีก +{count} รายการในหน้านี้ไว้เพื่อให้พอดีกับขีดจำกัดของ Discord"
+  categorySummary: "{count} คำสั่ง · หน้า {page}/{pages}"
+  select:
+    category: เลือกหมวดหมู่คำสั่ง
+  buttons:
+    view: เปิด
+    home: หน้าแรก
+  expired:
+    title: เซสชันความช่วยเหลือหมดอายุ
+    description: เรียกใช้ {command} อีกครั้งเพื่อเปิดคู่มือคำสั่งใหม่
+    button: หมดอายุ
+  categories:
+    startHere: เริ่มที่นี่
+    calls: การโทร
+    social: โซเชียล
+    hubs: Hub
+    account: บัญชี
+    server: การตั้งค่าเซิร์ฟเวอร์
+    moderation: การดูแลเนื้อหา
+    safety: ความปลอดภัย
+    other: อื่นๆ
+  categoryBlurbs:
+    startHere: "ก้าวแรกและพื้นฐานที่ใช้ทุกวัน · {count} คำสั่ง"
+    calls: "เริ่ม เข้าร่วม และออกจากการโทร · {count} คำสั่ง"
+    social: "ส่งแอ็กชันสนุกๆ ไปยังการโทรของคุณ · {count} คำสั่ง"
+    hubs: "เชื่อมต่อเซิร์ฟเวอร์และส่งต่อข้อความ · {count} คำสั่ง"
+    account: "โปรไฟล์ การตั้งค่า และความชอบ · {count} คำสั่ง"
+    server: "ตั้งค่า InterChat ในเซิร์ฟเวอร์ · {count} คำสั่ง"
+    moderation: "ดูแลผู้ใช้และข้อความ · {count} คำสั่ง"
+    safety: "รายงาน การบล็อก และความน่าเชื่อถือและความปลอดภัย · {count} คำสั่ง"
+    other: "ทุกอย่างที่เหลือ · {count} คำสั่ง"
+  commandTypes:
+    hybrid: ไฮบริด
+    prefix: พรีฟิกซ์
+    slash: สแลช
+  fields:
+    slashUsage: การใช้งานแบบสแลช
+    prefixUsage: การใช้งานแบบพรีฟิกซ์
+    commandType: ประเภทคำสั่ง
+    aliases: ชื่อแทน
+    userPermissions: สิทธิ์ของผู้ใช้
+    botPermissions: สิทธิ์ของบอต
+    hubPermission: สิทธิ์ใน Hub
+    availability: ความพร้อมใช้งาน
+    subcommands: คำสั่งย่อย
+    options: ตัวเลือก
+    examples: ตัวอย่าง
+  availability:
+    serverOnly: เฉพาะช่องของเซิร์ฟเวอร์
+    nsfwOnly: เฉพาะช่อง NSFW
+  option:
+    required: จำเป็น
+    optional: ไม่บังคับ
+    default: ค่าเริ่มต้น
+    choices: ตัวเลือกที่ใช้ได้
+    range: ช่วงค่า
+    length: ความยาว
+    channels: ช่อง
+    autocomplete: "เติมอัตโนมัติ: เปิดใช้งาน"
+    to: ถึง
+  types:
+    subcommand: คำสั่งย่อย
+    subcommandGroup: กลุ่มคำสั่งย่อย
+    string: สตริง
+    integer: จำนวนเต็ม
+    boolean: บูลีน
+    user: ผู้ใช้
+    member: สมาชิก
+    channel: ช่อง
+    textChannel: ช่องข้อความ
+    voiceChannel: ช่องเสียง
+    role: บทบาท
+    mentionable: กล่าวถึงได้
+    number: ตัวเลข
+    attachment: ไฟล์แนบ
+  recovery:
+    tooManyArguments: ระบุอาร์กิวเมนต์มากเกินไป ลบค่าส่วนเกินออกแล้วลองอีกครั้ง
+    badArgument: ไม่เข้าใจอาร์กิวเมนต์หนึ่งตัว ตรวจสอบประเภทของมันแล้วลองอีกครั้ง
+    parsingError: แยกวิเคราะห์อาร์กิวเมนต์ของคำสั่งไม่ได้ ตรวจสอบวิธีใช้ด้านล่างแล้วลองอีกครั้ง
+    userPermissions: คุณต้องมีสิทธิ์ {permissions} จึงจะเรียกใช้คำสั่งนี้ได้
+    botPermissions: ฉันต้องมีสิทธิ์ {permissions} จึงจะเรียกใช้คำสั่งนี้ได้
+    serverOnly: คำสั่งนี้ใช้ได้เฉพาะภายในเซิร์ฟเวอร์
+    missingRole: คุณไม่มีบทบาทที่จำเป็นสำหรับการเรียกใช้คำสั่งนี้
+    missingSubcommand: เลือกคำสั่งย่อยอย่างใดอย่างหนึ่งที่แสดงด้านล่าง
+    unknownSubcommand: "ไม่รู้จักคำสั่งย่อย: `{subcommand}` เลือกคำสั่งย่อยที่มีอยู่ด้านล่าง"
+    hubPermission: "{error} ตรวจสอบสิทธิ์ใน Hub ที่แสดงด้านล่าง"
+    invalidInput: "{error} ตรวจสอบประเภทอาร์กิวเมนต์และตัวเลือกที่ใช้ได้ด้านล่าง"
+    commandNotFound: ไม่พบคำสั่งหรือคำสั่งย่อยนั้น นี่คือหน้าความช่วยเหลือที่ใกล้เคียงที่สุด
+    generic: ใช้คำสั่งไม่ได้ ตรวจสอบวิธีใช้และข้อกำหนดด้านล่าง
+
 preferences:
   title: การตั้งค่าผู้ใช้
-  description: Edit your personal global settings.
+  description: แก้ไขการตั้งค่าส่วนตัวแบบทั่วโลกของคุณ
   replyMentions:
     title: "การตั้งค่า: การกล่าวถึงเมื่อตอบกลับ"
-    description: You will now be **{status}** when someone replies to your messages.
-    currentDescription: Currently you are **{status}** when replied to.
-    mentioned: ถูกกล่าวถึง (Mention)
+    description: ต่อไปนี้คุณจะ**{status}**เมื่อมีคนตอบกลับข้อความของคุณ
+    currentDescription: ขณะนี้คุณ**{status}**เมื่อมีคนตอบกลับ
+    mentioned: ถูกกล่าวถึง
     notMentioned: ไม่ถูกกล่าวถึง
   general:
     title: การตั้งค่าทั่วไป
-    description: Configure general preferences within InterChat.
+    description: กำหนดค่าการตั้งค่าทั่วไปใน InterChat
   locale:
     title: เลือกภาษา
     description: เลือกภาษาที่คุณต้องการสำหรับ InterChat
   select:
     category: เลือกหมวดหมู่
   badges:
-    title: "การตั้งค่า: ตราสัญลักษณ์ (Badges)"
-    description: Your badges are now **{status}** within your messages.
-    currentDescription: Currently your badges are **{status}** within your messages.
-    visible: แสดงอยู่
-    hidden: ซ่อนอยู่
+    title: "การตั้งค่า: แบดจ์"
+    description: แบดจ์ของคุณ**{status}**บนข้อความ ลีดเดอร์บอร์ด และโปรไฟล์แล้ว
+    currentDescription: ขณะนี้แบดจ์ของคุณ**{status}**บนข้อความ ลีดเดอร์บอร์ด และโปรไฟล์
+    visible: แสดง
+    hidden: ซ่อน
   voteReminders:
-    title: "การตั้งค่า: เตือนความจำการโหวต"
-    description: เปิด/ปิด การแจ้งเตือนให้โหวตจาก InterChat
+    title: "การตั้งค่า: การเตือนให้โหวต"
+    description: เปิดหรือปิดการเตือนให้โหวต การโหวตยังปลดล็อกการจับคู่อัตโนมัติส่วนตัวเป็นเวลา 12 ชั่วโมง หลังจากคู่สนทนาของคุณข้ามหรือวางสาย
     enabled: เปิดใช้งาน
     disabled: ปิดใช้งาน
     dm:
       title: ได้เวลาโหวตให้ InterChat แล้ว!
-      description: การสนับสนุนของคุณช่วยให้ InterChat เติบโต! โหวตบน top.gg เพื่อช่วยเราหน่อยนะ!
-      reminderInfo: You receive this reminder because you've voted before.
+      description: การสนับสนุนของคุณช่วยให้ InterChat เติบโต! โหวตบน top.gg เพื่อช่วยเรา คุณยังเลือกได้ด้วยว่าจะจับคู่ใหม่หรือไม่หลังคู่สนทนาข้ามหรือวางสาย
+      reminderInfo: ตัวเลือกจับคู่อัตโนมัติของคุณจะใช้งานได้ต่อเนื่อง 12 ชั่วโมงหลังโหวต จัดการได้ที่ `/my settings`
       disableConfirm:
         title: ปิดการเตือนให้โหวตแล้ว
-        description: You will no longer receive vote reminder DMs.
+        description: คุณจะไม่ได้รับ DM เตือนให้โหวตอีกต่อไป การโหวตยังปลดล็อกการจับคู่อัตโนมัติส่วนตัวเป็นเวลา 12 ชั่วโมง หลังคู่สนทนาข้ามหรือวางสาย
   errors:
-    noPreferences: คุณยังไม่มีการตั้งค่าใดๆ
+    noPreferences: คุณยังไม่ได้ตั้งค่าความชอบใดๆ
+
 appeal:
-  title: การทำผิดกฎของคุณที่อุทธรณ์ได้
-  description: Select an infraction below to submit an appeal.
+  title: การละเมิดของคุณที่อุทธรณ์ได้
+  description: เลือกการละเมิดด้านล่างเพื่อส่งการอุทธรณ์
   noInfractions:
-    title: ไม่มีการทำผิดกฎที่รอดำเนินการ
-    description: คุณไม่มีการทำผิดกฎที่สามารถอุทธรณ์ได้
-  notAppealable: การทำผิดกฎนี้ไม่สามารถอุทธรณ์ได้อีกต่อไป
+    title: ไม่มีการละเมิดที่ยังมีผล
+    description: คุณไม่มีการละเมิดที่ยังมีผลซึ่งอุทธรณ์ได้
+  notAppealable: การละเมิดนี้ไม่สามารถอุทธรณ์ได้อีกต่อไป
+  notOpenYet: "คุณอุทธรณ์ได้ตั้งแต่ {opens_at}"
   select:
-    placeholder: เลือกการทำผิดกฎเพื่ออุทธรณ์
+    placeholder: เลือกการละเมิดที่จะอุทธรณ์
   modal:
-    title: ส่งคำอุทธรณ์
-    q1: ทำไมคุณถึงเชื่อว่าการกระทำนี้ไม่ถูกต้อง?
+    title: ส่งการอุทธรณ์
+    q1: ทำไมคุณจึงเชื่อว่าการดำเนินการนี้ไม่ถูกต้อง?
     q2: เล่าสถานการณ์ให้เราฟัง
     q3: ข้อมูลเพิ่มเติม
   success:
-    submitted: "{tick} ส่งคำอุทธรณ์ของคุณเพื่อรับการตรวจสอบเรียบร้อยแล้ว"
+    submitted: "{tick} ส่งการอุทธรณ์ของคุณเพื่อพิจารณาแล้ว"
   viewInfractions:
-    title: การทำผิดกฎล่าสุดของผู้ใช้
-    empty: ไม่พบการทำผิดกฎสำหรับผู้ใช้นี้
+    title: การละเมิดล่าสุดของผู้ใช้
+    empty: ไม่พบการละเมิดของผู้ใช้นี้
   status:
     acceptedBy: ยอมรับโดย @{name}
     rejectedBy: ปฏิเสธโดย @{name}
     pending: รอการตอบกลับ
-    cooldown: ติดคูลดาวน์
-    canAppeal: สามารถอุทธรณ์ได้
+    cooldown: ช่วงพักรอ
+    canAppeal: อุทธรณ์ได้
   constants:
-    noReason: No Reason
+    noReason: *no_reason
   fields:
     date: "วันที่:"
     reason: "เหตุผล:"
   actions:
-    decisionTitle: การตัดสินคำอุทธรณ์
+    decisionTitle: ผลการพิจารณาอุทธรณ์
     reasonOptional:
       label: เหตุผล (ไม่บังคับ)
       placeholder: อธิบายการตัดสินใจของคุณ...
   dm:
-    accepted: Your appeal regarding a moderation action{hubName} has been accepted.
-    declined: Your appeal regarding a moderation action{hubName} has been declined.
-    moderatorNote: "บันทึกจากผู้ดูแล: {reason}"
+    accepted: การอุทธรณ์ของคุณเกี่ยวกับมาตรการดูแลเนื้อหา{hubName} ได้รับการยอมรับแล้ว
+    declined: การอุทธรณ์ของคุณเกี่ยวกับมาตรการดูแลเนื้อหา{hubName} ถูกปฏิเสธ
+    moderatorNote: "หมายเหตุจากผู้ดูแล: {reason}"
   embed:
     noInfractions:
-      title: ประวัติขาวสะอาด!
-      description: ไม่พบการทำผิดกฎที่อุทธรณ์ได้
+      title: สะอาดเอี่ยม!
+      description: ไม่พบการละเมิดที่อุทธรณ์ได้
     footer:
-      canAppeal: '💡 คุณสามารถอุทธรณ์การทำผิดกฎได้ {count} รายการ ใช้เมนูเลือกด้านล่าง'
-      checkLater: '💡 กลับมาตรวจสอบภายหลังเมื่อคูลดาวน์หมดลง หรือเมื่อการอุทธรณ์ได้รับการตรวจสอบแล้ว'
+      canAppeal: ':lightbulb_icon: คุณอุทธรณ์ได้ {count} การละเมิด ใช้เมนูเลือกด้านล่าง'
+      checkLater: ':lightbulb_icon: กลับมาดูใหม่เมื่อช่วงพักรอสิ้นสุดหรือเมื่อมีการพิจารณาอุทธรณ์แล้ว'
   errors:
-    nothingSelected: ไม่มีอะไรถูกเลือก
-    modalError: ไม่สามารถเปิด Modal อุทธรณ์ได้
-    recordFailed: "บันทึกการตัดสินใจล้มเหลว: {error}"
-    notFoundOrDeleted: ไม่พบคำอุทธรณ์หรืออาจถูกลบไปแล้ว
-    updateFailed: อัปเดตคำอุทธรณ์ล้มเหลว โปรดลองใหม่ภายหลัง
+    nothingSelected: ยังไม่ได้เลือกอะไร
+    modalError: เปิดแบบฟอร์มอุทธรณ์ไม่สำเร็จ
+    recordFailed: "บันทึกผลการตัดสินไม่สำเร็จ: {error}"
+    notFoundOrDeleted: ไม่พบการอุทธรณ์ หรือถูกลบไปแล้ว
+    updateFailed: อัปเดตการอุทธรณ์ไม่สำเร็จ โปรดลองอีกครั้งภายหลัง
+
+automod:
+  actionsDefault: ใช้ค่าเริ่มต้นของ Automod
+  actionsDefaultHint: ตั้งค่าที่หน้า Automod
+  actionsLabel: เมื่อตรงกับกฎควรเกิดอะไรขึ้น?
+  actionsTitle: จะเกิดอะไรขึ้น?
+  addWords: เพิ่มคำ
+  applyDraft: ใช้ฉบับร่างของฉัน
+  changeApplied: ':tick_icon: ใช้การเปลี่ยนแปลงของคุณแล้ว'
+  changeApplying: ⏳ กำลังบันทึก…
+  changeBlocked: ':alert_icon: มีการเปลี่ยนแปลงก่อนหน้ารอการตรวจสอบอยู่ จึงหยุดการเปลี่ยนแปลงใหม่ไว้ชั่วคราว'
+  changeFailedConflict: มีคนอื่นเปลี่ยน Automod ระหว่างที่กำลังใช้การเปลี่ยนแปลงของคุณ จึงไม่ได้ใช้การเปลี่ยนแปลงนั้น ใช้ เปรียบเทียบการเปลี่ยนแปลงของฉัน เพื่อใช้ฉบับร่างของคุณทับฉบับล่าสุด
+  changeFailedGeneric: ไม่ได้ยืนยันการเปลี่ยนแปลงนี้ ตรวจสอบกฎที่แสดงอยู่ที่นี่ แล้วลองอีกครั้ง
+  changeFailedGone: Automod นี้ไม่พร้อมใช้งานอีกต่อไป จึงไม่ได้ใช้การเปลี่ยนแปลง
+  changeFailedNotSent: การเปลี่ยนแปลงไม่เคยถึงบริการความปลอดภัย จึงไม่ได้ใช้อะไรเลย โปรดลองอีกครั้ง
+  changeFailedPermission: สิทธิ์ของคุณในการเปลี่ยน Automod นี้ถูกถอนก่อนที่จะใช้การเปลี่ยนแปลง จึงไม่ได้บันทึกอะไรเลย
+  changeFailedRefused: 'Automod ปฏิเสธการเปลี่ยนแปลงนี้ จึงไม่ได้ใช้: {reason}'
+  changeFailedRejected: บริการความปลอดภัยปฏิเสธการเปลี่ยนแปลงนี้ จึงไม่ได้ใช้
+  changeFailedService: บริการความปลอดภัยปฏิเสธการเปลี่ยนแปลงนี้ ซึ่งดูเหมือนปัญหาของบริการ ไม่ได้ใช้อะไรเลย โปรดรายงานปัญหานี้
+  changeFailedUnknown: เราไม่สามารถยืนยันได้ว่าการเปลี่ยนแปลงนี้ถูกใช้แล้วหรือไม่ จึงต้องตรวจสอบ ตรวจสอบกฎที่แสดงอยู่ที่นี่ แล้วบันทึกอีกครั้งหากจำเป็น
+  changeFailedUnreadable: อ่านการเปลี่ยนแปลงที่บันทึกไว้กลับมาไม่ได้ จึงไม่เคยถูกส่ง โปรดบันทึกอีกครั้ง
+  changeStillApplying: ⏳ ยังคงกำลังใช้อยู่ กดรีเฟรชอีกสักครู่เพื่อดูผลลัพธ์
+  confirmChange: ยืนยันการเปลี่ยนแปลง
+  confirmEffect: มีผลทันทีกับทุกคนใน {scope}
+  confirmOff: ปิดไว้ก่อน
+  confirmOn: เปิดเลย
+  confirmTitle: เปิด "{name}" ไหม?
+  conflictBanner: ':alert_icon: มีคนอื่นแก้ไข Automod ระหว่างที่คุณกำลังทำงาน การเปลี่ยนแปลงของคุณถูกเก็บไว้เป็นฉบับร่าง'
+  conflictCurrent: 'ฉบับล่าสุด: {rules} กฎ, {patterns} คำ'
+  conflictDraft: 'ฉบับร่างของคุณ: {rules} กฎ, {patterns} คำ'
+  conflictNote: การใช้จะแทนที่กฎทั้งหมดด้วยฉบับร่างของคุณ
+  conflictReviewTitle: เปรียบเทียบการเปลี่ยนแปลงของฉัน
+  conflictToast: มีคนอื่นเพิ่งแก้ไข Automod โหลดฉบับล่าสุดแล้ว และไม่ได้ใช้การเปลี่ยนแปลงของคุณ ตรวจสอบแล้วลองอีกครั้ง
+  deleteConfirm: ลบ "{name}" ไหม?
+  detailsDescription: คำอธิบาย
+  detailsName: ชื่อ
+  detailsReason: ข้อความที่แสดงเมื่อถูกตรวจพบ
+  detailsReasonHint: แสดงให้ผู้ใช้เห็นเมื่อกฎนี้ตรวจพบ
+  detailsTitle: ชื่อและเหตุผล
+  dialLabel: เมื่อกฎตรวจพบบางอย่าง…
+  dialMixed: ผสม (ตั้งค่าแยกตามกฎ)
+  disableRule: ปิด "{name}" ไหม?
+  disabled: ปิดใช้งาน
+  discard: ทิ้ง
+  discardBanner: การแก้ไขของคุณยังไม่ถูกใช้
+  discardConfirm: ทิ้งการเปลี่ยนแปลง
+  discardDraft: ทิ้งฉบับร่างของฉัน
+  discardTitle: ทิ้งการเปลี่ยนแปลงที่ยังไม่ได้บันทึกไหม?
+  durationError: ใช้ระยะเวลาเช่น 30m, 1h หรือ 2d
+  durationLabel: 'ระยะเวลา{action}'
+  durationPlaceholder: เช่น 30m, 1h, 2d
+  editActions: จะเกิดอะไรขึ้น
+  editDetails: ชื่อและเหตุผล
+  editSurfaces: ตรวจสอบที่ไหน
+  enableRule: เปิด "{name}" ไหม?
+  enabled: เปิดใช้งาน
+  errorTitle: ':alert_icon: โหลด Automod ไม่ได้'
+  keepEditing: แก้ไขต่อ
+  loadDenied: คุณไม่มีสิทธิ์ดู Automod ที่นี่
+  loadFailed: ตอนนี้โหลด Automod ไม่ได้ {reason}
+  loadGone: ไม่พบ Automod นี้
+  loadUnavailable: ติดต่อบริการความปลอดภัยไม่ได้ กดรีเฟรชเพื่อลองอีกครั้ง
+  newRule: กฎใหม่
+  newRuleModalTitle: กฎใหม่
+  newRuleName: ชื่อ
+  noRules: ยังไม่มีกฎ สร้างกฎแรกเพื่อเริ่มต้น
+  page: หน้า {current}/{total}
+  parameters: การตั้งค่าการดำเนินการ
+  pause: หยุด Automod ชั่วคราว
+  pauseConfirm: หยุด Automod ชั่วคราวไหม? กฎจะไม่ถูกบังคับใช้จนกว่าคุณจะเปิดต่อ
+  pickRule: เลือกกฎที่จะเปลี่ยน…
+  rejected: 'Automod ปฏิเสธการเปลี่ยนแปลงนี้: {error}'
+  removeSelect: เลือกคำที่จะลบ…
+  removeTitle: ลบคำ
+  removeWords: ลบคำ
+  replaceAll: แทนที่ทั้งหมด
+  replacementLabel: ชื่อคำแทนที่ปลอดภัย
+  replacesNote: การดำเนินการนี้จะแทนที่การกำหนดค่า Automod ทั้งหมด
+  resume: เปิด Automod ต่อ
+  resumeConfirm: เปิด Automod อีกครั้งไหม?
+  reviewDraft: เปรียบเทียบการเปลี่ยนแปลงของฉัน
+  ruleDescription: '{status} · {count} คำ'
+  ruleTitle: ':pencil_line: {name} · {status}'
+  rulesOn: 'เปิดอยู่ {enabled} จาก {total} กฎ'
+  saveBusy: กำลังใช้การเปลี่ยนแปลง Automod อีกรายการอยู่ รอให้เสร็จก่อนแล้วบันทึกอีกครั้ง
+  saveDenied: คุณไม่มีสิทธิ์เปลี่ยน Automod นี้อีกต่อไป
+  saveFailed: 'บันทึกการเปลี่ยนแปลงนี้ไม่ได้: {reason}'
+  saveGone: Automod นี้ไม่พร้อมใช้งานอีกต่อไป จึงไม่มีอะไรเปลี่ยนแปลง
+  saveUnavailable: ติดต่อบริการความปลอดภัยไม่ได้ จึงไม่มีอะไรเปลี่ยนแปลง โปรดลองอีกครั้งในอีกสักครู่
+  serverNote: การเตือน การปิดเสียง และการแบนเป็นเครื่องมือของ Hub จะมีผลเมื่อเซิร์ฟเวอร์นี้เข้าร่วม Hub
+  statusOff: 'ปิด'
+  statusOn: 'เปิด'
+  surfacesLabel: ควรตรวจสอบสิ่งเหล่านี้ที่ไหน?
+  surfacesTitle: ตรวจสอบที่ไหน
+  test: ทดสอบ
+  testCaught: ':alert_icon: จะถูก "{rule}" ตรวจพบ ผลที่ตามมา: {actions}'
+  testClean: ':tick_icon: จะไม่มีอะไรถูกตรวจพบ'
+  testDisclaimer: เป็นเพียงตัวอย่าง การตัดสินขั้นสุดท้ายทำโดยบริการบังคับใช้
+  testEmpty: ยังไม่มีกฎที่เปิดอยู่ จึงจะไม่มีอะไรถูกตรวจพบ
+  testFor: 🧪 ผลการทดสอบสำหรับ "{message}"
+  testLabel: พิมพ์ข้อความเหมือนที่ผู้ใช้จะส่ง
+  testModalTitle: ทดสอบ Automod
+  testNoSurface: กฎนี้ไม่ได้ตรวจเนื้อหาข้อความ การทดสอบข้อความจึงไม่มีอะไรให้ตรวจ
+  testRule: ทดสอบกฎนี้
+  title: ':shield_alert_icon: Automod · {scope}'
+  turnOff: ปิด
+  turnOn: เปิด
+  unsaved: ':alert_icon: การเปลี่ยนแปลงที่ยังไม่ได้บันทึก'
+  wordSlots: 'ใช้ช่องคำไปแล้ว {used} จาก {limit}'
+  wordsCount: '{count} คำ'
+  wordsHint: ใช้ * ที่ต้นหรือท้ายเพื่อจับคู่บางส่วน วลีให้ใส่ใน "เครื่องหมายคำพูดคู่" สูงสุด 4000 ตัวอักษร
+  wordsLabel: คำที่จะตรวจจับ บรรทัดละหนึ่งคำ
+  wordsReplaceTitle: แทนที่คำทั้งหมด
+  wordsTitle: เพิ่มคำ
 report:
   title: รายงานข้อความ
-  footer: การรายงานช่วยให้ InterChat ปลอดภัยสำหรับทุกคน
-  description: Report {user} to Hub Staff or InterChat Staff.
+  footer: รายงานช่วยให้ InterChat ปลอดภัยสำหรับทุกคน
+  prompt: รายงานข้อความนี้ให้ทีมดูแลเนื้อหาของเรา
   buttons:
-    toStaff: รายงานไปยังทีมงาน
-    toHub: รายงานไปยัง Hub
+    toStaff: รายงานถึงทีมงาน
+    toHub: รายงานถึง Hub
   modal:
     toStaff:
-      title: รายงานไปยังทีมงาน InterChat
+      title: รายงานถึงทีมงาน InterChat
     toHub:
-      title: รายงานไปยังผู้ดูแล Hub
+      title: รายงานถึงผู้ดูแล Hub
     reason:
       label: เหตุผลในการรายงาน
-      placeholder: โปรดอธิบายเหตุผลที่คุณรายงานข้อความนี้...
+      placeholder: โปรดอธิบายว่าทำไมคุณจึงรายงานข้อความนี้...
     context:
-      label: Context (Entire call history is sent)
-      placeholder: Add any additional context or details for staff...
+      label: บริบท (ส่งประวัติการโทรทั้งหมด)
+      placeholder: เพิ่มบริบทหรือรายละเอียดเพิ่มเติมสำหรับทีมงาน...
+    reasons:
+      nsfwImages: ภาพ NSFW
+      gore: ภาพโหด (Gore)
+      childSexualization: พฤติกรรมเป็นพิโดฟีเลีย / การทำให้เด็กเป็นวัตถุทางเพศ
+      sexualThreats: ขู่ข่มขืน / ขู่ทางเพศ
+      doxxing: การเปิดเผยข้อมูลส่วนตัว (Doxxing)
+      hardRuleName: คำหยาบ Hard-R ในชื่อผู้ใช้ / ชื่อเซิร์ฟเวอร์
+      spam: สแปม
+      suggestiveMessages: ข้อความเชิงยั่วยุทางเพศ
+      nsfwMessages: ข้อความ NSFW
+      casualSlurs: คำสบประมาทแบบทั่วไป
+      targetedSlurs: คำสบประมาทที่พุ่งเป้า / คำสบประมาทรุนแรง
+      mildToxicity: พฤติกรรมเป็นพิษระดับเบา
+      moderateToxicity: พฤติกรรมเป็นพิษระดับปานกลาง
+      severeToxicity: พฤติกรรมเป็นพิษระดับรุนแรง
+      harassment: การคุกคาม
+      mildHateSpeech: วาจาสร้างความเกลียดชังระดับเบา
+      severeHateSpeech: วาจาสร้างความเกลียดชังระดับรุนแรง
+      other: อื่นๆ
   success:
     title: ส่งรายงานแล้ว
-    toStaff: "{tick} Your report has been sent to InterChat staff."
-    toHub: "{tick} Your report has been sent to hub moderators."
+    toStaff: "{tick} ส่งรายงานของคุณถึงทีมงาน InterChat แล้ว"
+    toHub: "{tick} ส่งรายงานของคุณถึงผู้ดูแล Hub แล้ว"
   errors:
-    hubMessageOnly: "{x_icon} คุณสามารถรายงานได้เฉพาะข้อความที่ส่งผ่าน InterChat Hubs เท่านั้น"
-    cannotReportSelf: "{x_icon} คุณไม่สามารถรายงานข้อความของตัวเองได้"
-    outOfScope: "{x_icon} This message cannot be reported. You can only report messages sent inside InterChat Hubs and Calls."
-    alreadyReportedCall: "{x_icon} You have already reported this call. When you submit a report, the entire call history is sent to staff, so there is no need to report multiple times."
+    hubMessageOnly: "{x_icon} คุณรายงานได้เฉพาะข้อความที่ส่งผ่าน Hub ของ InterChat"
+    cannotReportSelf: "{x_icon} คุณรายงานข้อความของตัวเองไม่ได้"
+    outOfScope: "{x_icon} ไม่สามารถรายงานข้อความนี้ได้ คุณรายงานได้เฉพาะข้อความที่ส่งภายใน Hub และการโทรของ InterChat"
+    alreadyReportedCall: "{x_icon} คุณรายงานการโทรนี้ไปแล้ว เมื่อส่งรายงาน ประวัติการโทรทั้งหมดจะถูกส่งถึงทีมงาน จึงไม่ต้องรายงานซ้ำหลายครั้ง"
+
 hubConfig:
   general:
-    placeholder: Select a setting to configure...
-    summaryDescription: A summary of your hub's general settings.
-    hubIdentity: Hub Identity
+    placeholder: เลือกการตั้งค่าที่จะกำหนดค่า...
+    summaryDescription: สรุปการตั้งค่าทั่วไปของ Hub ของคุณ
+    hubIdentity: เอกลักษณ์ของ Hub
     fields:
-      name: "Name:"
-      description: "Description:"
-      rating: "Rating:"
-      visibility: "Visibility:"
-    editOnDashboard: Edit on Dashboard
-    noDescription: "*No description set.*"
-    properties: Properties
-    nsfw: '🔞 NSFW'
-    familyFriendly: '✅ Family Friendly'
-    lastUpdated: "Last Updated:"
-    descriptionUpdated: Description Updated!
-    descriptionSuccess: Your hub description has been successfully updated.
-    nameUpdated: Name Updated!
-    nameSuccess: Your hub has been renamed to **{name}**.
-    nameCooldownNote: '⚠️ Hub names can only be changed once every 10 days.'
-    welcomeUpdated: Welcome Message Updated!
-    welcomeSuccess: Your hub welcome message has been successfully updated.
-    nsfwUpdated: NSFW Setting Updated!
-    nsfwWarning: '⚠️ Important'
-    nsfwWarningDesc: Your hub is now marked as NSFW and may be filtered from searches.
-    sfwConfirmDesc: Your hub is now marked as safe for work.
-    visibilityUpdated: Visibility Updated!
-    visibilitySuccess: "Your hub is now: **{status}**"
-    visibilityMeaning: ℹ️ What this means
+      name: "ชื่อ:"
+      description: "คำอธิบาย:"
+      rating: "เรตติ้ง:"
+      visibility: "การมองเห็น:"
+    editOnDashboard: แก้ไขบนแดชบอร์ด
+    noDescription: "*ยังไม่ได้ตั้งคำอธิบาย*"
+    properties: คุณสมบัติ
+    nsfw: ':eye_off: NSFW'
+    familyFriendly: ':tick_icon: เหมาะสำหรับครอบครัว'
+    lastUpdated: "อัปเดตล่าสุด:"
+    descriptionUpdated: อัปเดตคำอธิบายแล้ว!
+    descriptionSuccess: อัปเดตคำอธิบาย Hub ของคุณเรียบร้อยแล้ว
+    nameUpdated: อัปเดตชื่อแล้ว!
+    nameSuccess: เปลี่ยนชื่อ Hub ของคุณเป็น **{name}** แล้ว
+    nameCooldownNote: ':alert_icon: เปลี่ยนชื่อ Hub ได้เพียงครั้งเดียวทุก 10 วัน'
+    welcomeUpdated: อัปเดตข้อความต้อนรับแล้ว!
+    welcomeSuccess: อัปเดตข้อความต้อนรับของ Hub ของคุณเรียบร้อยแล้ว
+    nsfwUpdated: อัปเดตการตั้งค่า NSFW แล้ว!
+    nsfwWarning: ':alert_icon: สำคัญ'
+    nsfwWarningDesc: ตอนนี้ Hub ของคุณถูกทำเครื่องหมายเป็น NSFW และอาจถูกกรองออกจากผลการค้นหา
+    sfwConfirmDesc: ตอนนี้ Hub ของคุณถูกทำเครื่องหมายว่าปลอดภัยสำหรับทุกวัย
+    visibilityUpdated: อัปเดตการมองเห็นแล้ว!
+    visibilitySuccess: "ตอนนี้ Hub ของคุณเป็น: **{status}**"
+    visibilityMeaning: ℹ️ ความหมายของสิ่งนี้
     visibility:
-      public: '🌐 สาธารณะ'
-      publicDesc: Discoverable on the hub directory.
-      unlisted: '👁️ ไม่แสดงในรายการ'
-      unlistedDesc: Not in directory but anyone can join via ID/link.
-      private: '🔒 ส่วนตัว'
-      privateDesc: Invite-only, not listed publicly.
+      public: ':globe_icon: สาธารณะ'
+      publicDesc: *vis_public_desc
+      unlisted: 👁️ ไม่แสดงในรายการ
+      unlistedDesc: *vis_unlisted_desc
+      private: ':lock_icon: ส่วนตัว'
+      privateDesc: *vis_private_desc
     editDescription:
       label: แก้ไขคำอธิบาย
-      description: Change your hub's description
-      title: Edit Hub Description
-      labelInput: Hub Description
-      placeholder: Describe what your hub is about...
+      description: เปลี่ยนคำอธิบายของ Hub ของคุณ
+      title: แก้ไขคำอธิบาย Hub
+      labelInput: คำอธิบาย Hub
+      placeholder: อธิบายว่า Hub ของคุณเกี่ยวกับอะไร...
     editName:
-      label: Edit Name
-      description: Change your hub's display name
-      title: Edit Hub Name
+      label: แก้ไขชื่อ
+      description: เปลี่ยนชื่อที่แสดงของ Hub ของคุณ
+      title: แก้ไขชื่อ Hub
       labelInput: ชื่อ Hub
-      placeholder: Enter a new name for your hub...
+      placeholder: ใส่ชื่อใหม่ให้ Hub ของคุณ...
     welcomeMessage:
       label: ข้อความต้อนรับ
-      description: Set a message sent to new members
-      title: Edit Welcome Message
+      description: ตั้งข้อความที่ส่งถึงสมาชิกใหม่
+      title: แก้ไขข้อความต้อนรับ
       labelInput: ข้อความต้อนรับ
-      placeholder: Welcome! Enjoy your stay...
+      placeholder: ยินดีต้อนรับ! ขอให้สนุกนะ...
     toggleNsfw:
-      label: เปิด/ปิด NSFW
-      description: Toggle between Safe for Work and NSFW
+      label: สลับ NSFW
+      description: สลับระหว่างปลอดภัยสำหรับทุกวัยกับ NSFW
     changeVisibility:
       label: เปลี่ยนการมองเห็น
-      description: สลับระหว่าง สาธารณะ, ไม่แสดงในรายการ, หรือ ส่วนตัว
-      title: '🔐 Change Hub Visibility'
-      desc: "Select the visibility level for your hub:"
+      description: สลับระหว่างสาธารณะ ไม่แสดงในรายการ หรือส่วนตัว
+      title: 🔐 เปลี่ยนการมองเห็นของ Hub
+      desc: "เลือกระดับการมองเห็นของ Hub ของคุณ:"
+    console:
+      brandingTab: แบรนด์ดิ้ง
+      settingsTab: การตั้งค่า
+      identityGroup: "-# **เอกลักษณ์**"
+      artworkGroup: "-# **งานภาพ**"
+      discoveryGroup: "-# **การค้นพบ**"
+      contentGroup: "-# **เนื้อหา**"
+      moderationGroup: "-# **การดูแลเนื้อหา**"
+      brandingSummary: "-# Hub นี้ดูเป็นอย่างไรสำหรับคนที่ค้นเจอ"
+      settingsSummary: "-# Hub นี้ทำงานอย่างไร: การค้นพบ เนื้อหา และการอุทธรณ์"
+      preview:
+        defaultName: Hub ไม่มีชื่อ
+        noTagline: ยังไม่ได้ตั้งสโลแกน
+        noDescription: ยังไม่ได้ตั้งคำอธิบาย
+        noWelcome: ยังไม่ได้ตั้งข้อความต้อนรับ
+        stats: "{connections} เซิร์ฟเวอร์ · {messages} ข้อความ/สัปดาห์ · {upvotes} อัปโหวต"
+      fields:
+        name: ชื่อ
+        tagline: สโลแกนสั้นๆ
+        description: คำอธิบาย
+        welcome: ข้อความต้อนรับ
+        icon: ไอคอน Hub
+        banner: แบนเนอร์ Hub
+        visibility: การมองเห็น
+        nsfw: เรตติ้งเนื้อหา
+        cooldown: ช่วงพักรอการอุทธรณ์
+        rules: กฎของ Hub
+      hints:
+        tagline: หนึ่งบรรทัดที่แสดงใต้ชื่อ Hub ในรายการ
+        taglineEmpty: ยังไม่ได้ตั้ง รายการจึงแสดงเฉพาะชื่อ Hub
+        description: ข้อความยาวที่สมาชิกอ่านเมื่อเปิด Hub
+        descriptionEmpty: ยังไม่ได้ตั้ง สมาชิกจึงไม่เห็นอะไรเมื่อเปิด Hub
+        welcome: คำทักทายที่กำหนดเองซึ่งแสดงเมื่อเซิร์ฟเวอร์เชื่อมต่อ
+        welcomeEmpty: ยังไม่ได้ตั้งคำทักทายที่กำหนดเองสำหรับการเชื่อมต่อใหม่
+        icon: อวาตาร์สี่เหลี่ยมที่สมาชิกเห็นทุกที่
+        banner: ภาพกว้างด้านหลังส่วนหัวของ Hub ของคุณ
+        visibility: ใครที่ค้นหาและเข้าร่วม Hub นี้ได้
+        nsfw: ทำเครื่องหมาย Hub นี้เป็น NSFW หรือเหมาะสำหรับครอบครัว
+        cooldown: ต้องรอนานเท่าไรก่อนจะอุทธรณ์การละเมิดได้
+      values:
+        servers: เซิร์ฟเวอร์
+        notSet: "ยังไม่ได้ตั้ง"
+        unlisted: ไม่แสดงในรายการ
+        private: ส่วนตัว
+        iconCustom: "กำหนดเอง"
+        iconDefault: "ค่าเริ่มต้น"
+        bannerSet: "ตั้งไว้แล้ว"
+        bannerUnset: "ยังไม่ได้ตั้ง"
+        cooldown: "{hours} ชั่วโมง"
+        cooldownWithDays: "{hours} ชั่วโมง · {days} วัน"
+        rulesConfigured: "กำหนดค่าแล้ว {count}"
+        rulesEmpty: "ยังไม่มี"
+      manage:
+        rulesAdd: เพิ่มกฎ
+        rulesEdit: แก้ไข
     errors:
-      nameCooldown: Name Change on Cooldown
-      nameCooldownDesc: You can change your hub name again in **{days} days**.
-      invalidName: Invalid Name
-      invalidNameDesc: Hub name cannot be empty.
-      nameTaken: Name Already Taken
-      nameTakenDesc: The name **{name}** is already used.
-    rulesCount: "{count}/{max} rules configured"
+      nameCooldown: การเปลี่ยนชื่ออยู่ในช่วงพักรอ
+      nameCooldownDesc: คุณเปลี่ยนชื่อ Hub ได้อีกครั้งใน **{days} วัน**
+      invalidName: ชื่อไม่ถูกต้อง
+      invalidNameDesc: ชื่อ Hub ต้องไม่ว่างเปล่า
+      nameTaken: ชื่อถูกใช้แล้ว
+      nameTakenDesc: ชื่อ **{name}** ถูกใช้แล้ว
+    rulesCount: "กำหนดค่ากฎแล้ว {count}/{max}"
   permissions:
     remove:
       label: ลบออก
     moderator:
-      label: Moderator
-      description: จัดการข้อความ, ดูแลผู้ใช้, จัดการรายงาน & การอุทธรณ์
+      label: ผู้ดูแล
+      description: จัดการข้อความ ดูแลผู้ใช้ จัดการรายงานและการอุทธรณ์
     manager:
-      label: Manager
-      description: จัดการการตั้งค่า Hub รวมถึงทุกสิ่งที่ Moderator ทำได้
+      label: ผู้จัดการ
+      description: จัดการการตั้งค่า Hub และทำได้ทุกอย่างที่ผู้ดูแลทำได้
     managerOnly:
       description: จัดการการตั้งค่า Hub
   modules:
     reactions:
-      label: รีแอคชั่น
-      description: อนุญาตให้มีรีแอคชั่นบนข้อความ
+      label: รีแอคชัน
+      description: อนุญาตให้โต้ตอบด้วยรีแอคชันกับข้อความ
     hideLinks:
       label: ซ่อนลิงก์
-      description: ซ่อนพรีวิวลิงก์ในข้อความของ Hub
+      description: ซ่อนตัวอย่างลิงก์ในข้อความของ Hub
     spamFilter:
       label: ตัวกรองสแปม
-      description: กรองสแปมและเนื้อหาที่ไม่ต้องการโดยอัตโนมัติ
+      description: กรองสแปมและเนื้อหาที่ไม่พึงประสงค์โดยอัตโนมัติ
     blockInvites:
       label: บล็อกคำเชิญ
-      description: บล็อกคำเชิญ Discord server ในข้อความ
+      description: บล็อกคำเชิญเซิร์ฟเวอร์ Discord ในข้อความ
     useNicknames:
       label: ใช้ชื่อเล่น
-      description: แสดงชื่อเล่นของผู้ใช้แทนชื่อผู้ใช้ (Username)
+      description: แสดงชื่อเล่นของผู้ใช้แทนชื่อผู้ใช้
     blockNsfw:
-      description: Block NSFW content even in NSFW hubs
+      description: บล็อกเนื้อหา NSFW แม้ใน Hub แบบ NSFW
     allowVideos:
-      description: Allow video attachments in messages
+      description: อนุญาตไฟล์แนบวิดีโอในข้อความ
     blockAttachments:
-      description: Block file attachments in messages
+      description: บล็อกไฟล์แนบในข้อความ
     blockTenorGifs:
-      description: Block Tenor GIFs in messages
-    title: Hub Modules
-    description: Configure additional features and moderation tools for your hub
-    enabled: Enabled **{module}**
-    disabled: Disabled **{module}**
+      description: บล็อก GIF จาก Tenor ในข้อความ
+    title: โมดูลของ Hub
+    description: กำหนดค่าฟีเจอร์เพิ่มเติมและเครื่องมือดูแลเนื้อหาสำหรับ Hub ของคุณ
+    enabled: เปิดใช้งาน **{module}** แล้ว
+    disabled: ปิดใช้งาน **{module}** แล้ว
     success:
-      title: Modules Updated!
+      title: อัปเดตโมดูลแล้ว!
     errors:
-      updateFailed: "An error occurred: {error}"
+      updateFailed: "เกิดข้อผิดพลาด: {error}"
   badges:
     owner:
-      label: Owner Badge
-      description: This badge is displayed on the user who owns the hub.
+      label: แบดจ์เจ้าของ
+      description: แบดจ์นี้แสดงที่ผู้ใช้ซึ่งเป็นเจ้าของ Hub
     manager:
-      label: Manager Badge
-      description: This badge is displayed on the users who manage this hub.
+      label: แบดจ์ผู้จัดการ
+      description: แบดจ์นี้แสดงที่ผู้ใช้ซึ่งจัดการ Hub นี้
     moderator:
-      label: Moderator Badge
-      description: This badge is displayed on the users who moderate this hub.
-    selectPlaceholder: Select a badge to configure
+      label: แบดจ์ผู้ดูแล
+      description: แบดจ์นี้แสดงที่ผู้ใช้ซึ่งดูแลเนื้อหาใน Hub นี้
+    selectPlaceholder: เลือกแบดจ์ที่จะกำหนดค่า
   logging:
-    moderationLogs: บันทึก Moderation
-    joinLeaveLogs: บันทึกการ เข้า/ออก
+    moderationLogs: บันทึกการดูแลเนื้อหา
+    joinLeaveLogs: บันทึกการเข้า/ออก
     appealsChannel: ช่องการอุทธรณ์
     reportsChannel: ช่องรายงาน
-    networkAlerts: แจ้งเตือนเครือข่าย
+    networkAlerts: การแจ้งเตือนเครือข่าย
     messageModeration: การดูแลข้อความ
-    title: Hub Logging Configuration
-    description: Configure logging channels and notification roles.
-    selectPlaceholder: Select logging type to configure...
-    selectChannel: Select a channel for logging...
-    selectRole: Select a role for notifications (optional)...
-    notConfigured: ไม่ได้ตั้งค่า
-    noRole: No role
-    role: Role
-    currentConfig: Current Configuration
-    footerHint: Select a logging type above to configure
-    configureTitle: Configure {type}
-    configureDescription: Select a channel and optionally a role for notifications below.
+    title: การกำหนดค่าบันทึกของ Hub
+    description: กำหนดค่าช่องบันทึกและบทบาทสำหรับการแจ้งเตือน
+    selectPlaceholder: เลือกประเภทบันทึกที่จะกำหนดค่า...
+    selectChannel: เลือกช่องสำหรับบันทึก...
+    selectRole: เลือกบทบาทสำหรับการแจ้งเตือน (ไม่บังคับ)...
+    notConfigured: ยังไม่ได้กำหนดค่า
+    noRole: ไม่มีบทบาท
+    role: บทบาท
+    currentConfig: การกำหนดค่าปัจจุบัน
+    footerHint: เลือกประเภทบันทึกด้านบนเพื่อกำหนดค่า
+    configureTitle: กำหนดค่า {type}
+    configureDescription: เลือกช่องและบทบาทสำหรับการแจ้งเตือน (ถ้าต้องการ) ด้านล่าง
     descriptions:
-      moderation: Channel for moderation actions (warns, bans, mutes)
-      joinLeave: Channel for hub connection events
-      appeals: Channel for appeal notifications
-      reports: Channel for user reports
-      networkAlerts: Channel for network-wide alerts and issues
-      messageModeration: Channel for message edit/delete logs
+      moderation: ช่องสำหรับการดำเนินการดูแลเนื้อหา (เตือน แบน ปิดเสียง)
+      joinLeave: ช่องสำหรับเหตุการณ์การเชื่อมต่อ Hub
+      appeals: ช่องสำหรับการแจ้งเตือนการอุทธรณ์
+      reports: ช่องสำหรับรายงานของผู้ใช้
+      networkAlerts: ช่องสำหรับการแจ้งเตือนและปัญหาทั่วทั้งเครือข่าย
+      messageModeration: ช่องสำหรับบันทึกการแก้ไข/ลบข้อความ
     success:
-      updated: "{type} configuration updated!"
-      updatedDesc: "Logging for **{type}** has been updated successfully."
-      cleared: "{type} configuration cleared!"
-      clearedDesc: "Logging for **{type}** has been cleared."
+      updated: "อัปเดตการกำหนดค่า {type} แล้ว!"
+      updatedDesc: "อัปเดตการบันทึกของ **{type}** เรียบร้อยแล้ว"
+      cleared: "ล้างการกำหนดค่า {type} แล้ว!"
+      clearedDesc: "ล้างการบันทึกของ **{type}** แล้ว"
     errors:
-      selectFirst: Please select a logging type first.
-      updateFailed: Failed to update logging configuration.
-      clearFailed: Failed to clear logging configuration.
+      selectFirst: โปรดเลือกประเภทบันทึกก่อน
+      updateFailed: อัปเดตการกำหนดค่าบันทึกไม่สำเร็จ
+      clearFailed: ล้างการกำหนดค่าบันทึกไม่สำเร็จ
   invites:
     create:
-      title: ต้องระบุข้อมูล
+      title: ต้องป้อนข้อมูล
       customCode:
-        label: รหัสที่กำหนดเอง
+        label: โค้ดที่กำหนดเอง
         placeholder: abc123
       uses:
         label: จำนวนครั้งที่ใช้ได้
-        placeholder: ปล่อยว่างไว้ถ้าไม่จำกัด
+        placeholder: เว้นว่างไว้หากไม่จำกัด
       expiry:
         label: วันหมดอายุ
-        placeholder: 1w, 3d, 12h (ปล่อยว่างไว้ถ้าไม่มีวันหมดอายุ)
+        placeholder: 1w, 3d, 12h (เว้นว่างไว้หากไม่มีวันหมดอายุ)
     errors:
-      invalidUses: Please enter a whole number for uses (or leave blank).
-      invalidExpiry: "Invalid expiry format. Examples: 1w, 3d, 12h."
+      invalidUses: โปรดป้อนจำนวนเต็มสำหรับจำนวนครั้งที่ใช้ได้ (หรือเว้นว่าง)
+      invalidExpiry: "รูปแบบวันหมดอายุไม่ถูกต้อง ตัวอย่าง: 1w, 3d, 12h"
   automod:
     createRule:
-      namePlaceholder: Enter rule name...
-      actionDescription: What should happen when this rule is triggered?
-      actionPlaceholder: Select an action...
+      namePlaceholder: ใส่ชื่อกฎ...
+      actionDescription: เมื่อกฎนี้ถูกทริกเกอร์ควรเกิดอะไรขึ้น?
+      actionPlaceholder: เลือกการดำเนินการ...
     actions:
       delete: บล็อกข้อความ
-      deleteDescription: บล็อกไม่ให้ส่งต่อข้อความที่ทริกเกอร์กฎนี้
-      warn: Warn User
-      warnDescription: Issue a warning to the user
-      alert: Send Alert
-      alertDescription: Send an alert to the logging channel
+      deleteDescription: ป้องกันไม่ให้ข้อความถูกส่งต่อ
+      warn: เตือนผู้ใช้
+      warnDescription: ออกคำเตือนให้ผู้ใช้
+      alert: ส่งการแจ้งเตือน
+      alertDescription: ส่งการแจ้งเตือนไปยังช่องบันทึก
       censor: เซ็นเซอร์ข้อความ
-      censorDescription: 'เซ็นเซอร์คำที่ตรงกันด้วยเครื่องหมายสี่เหลี่ยม (#)'
-    ruleCreated: Rule '{name}' has been created successfully!
+      censorDescription: เซ็นเซอร์คำที่ตรงกันด้วยเครื่องหมายแฮช (#)
+    ruleCreated: สร้างกฎ '{name}' เรียบร้อยแล้ว!
     errors:
-      createFailed: Failed to create rule. Please try again.
-      updatePatterns: Failed to update patterns.
-      addWhitelist: Failed to add to safe list.
+      createFailed: สร้างกฎไม่สำเร็จ โปรดลองอีกครั้ง
+      updatePatterns: อัปเดตรูปแบบไม่สำเร็จ
+      addWhitelist: เพิ่มลงรายการปลอดภัยไม่สำเร็จ
     editPatterns:
-      description: Enter patterns separated by commas. Use * for wildcards (e.g. bad*, *word*, *bad)
-      placeholder: Enter patterns...
-    patternsSaved: Saved {count} pattern{s}.
+      description: ป้อนรูปแบบโดยคั่นด้วยเครื่องหมายจุลภาค ใช้ * เป็นไวลด์การ์ด (เช่น bad*, *word*, *bad)
+      placeholder: ป้อนรูปแบบ...
+    patternsSaved: บันทึก {count} รูปแบบแล้ว
     whitelist:
-      description: Enter a word to add to the safe list
-      added: Added '{word}' to the safe list.
-      noneToRemove: No safe words to remove
-      selectRemove: Select words to remove...
-      removed: Removed {count} word(s) from the safe list.
-    proOnly: "Advanced AutoMod is available for Pro hubs only. Upgrade your hub to Pro to configure these rules."
+      description: ป้อนคำที่จะเพิ่มลงรายการปลอดภัย
+      added: เพิ่ม '{word}' ลงรายการปลอดภัยแล้ว
+      noneToRemove: ไม่มีคำปลอดภัยให้ลบ
+      selectRemove: เลือกคำที่จะลบ...
+      removed: ลบ {count} คำออกจากรายการปลอดภัยแล้ว
+    proOnly: "AutoMod ขั้นสูงใช้ได้เฉพาะ Hub แบบ Pro เท่านั้น อัปเกรด Hub ของคุณเป็น Pro เพื่อกำหนดค่ากฎเหล่านี้"
     deleteRule:
-      title: Delete Rule
-      description: Are you sure you want to delete **{ruleName}**?
-      success: Rule **{ruleName}** has been deleted.
-      cancelled: Rule deletion cancelled.
+      title: ลบกฎ
+      description: คุณแน่ใจหรือไม่ว่าต้องการลบ **{ruleName}**?
+      success: ลบกฎ **{ruleName}** แล้ว
+      cancelled: ยกเลิกการลบกฎแล้ว
+
 moderation:
   notifications:
-    title: "Moderation Notice"
-    description: "You have received a moderation action in the hub **{hubName}**."
-    warnTitle: "⚠️ You have been Warned"
-    muteTitle: "🔇 You have been Muted"
-    banTitle: "🔨 You have been Banned"
-    unmuteTitle: "🔊 You have been Unmuted"
-    unbanTitle: "🔊 You have been Unbanned"
-    fieldAction: "Action"
+    title: "การแจ้งเตือนการดูแลเนื้อหา"
+    description: "คุณได้รับมาตรการดูแลเนื้อหาใน Hub **{hubName}**"
+    warnTitle: ':alert_icon: คุณถูกเตือน'
+    muteTitle: ':volume_off: คุณถูกปิดเสียง'
+    banTitle: ':hammer_icon: คุณถูกแบน'
+    unmuteTitle: ':volume_2: คุณถูกเปิดเสียงแล้ว'
+    unbanTitle: ':volume_2: คุณถูกปลดแบนแล้ว'
+    fieldAction: "การดำเนินการ"
     fieldReason: "เหตุผล"
     fieldDuration: "ระยะเวลา"
     fieldExpires: "หมดอายุ"
-    appealHint: "If you believe this was an error, you can submit an appeal using `/appeal` in any server connected to this hub."
+    appealHint: "หากคุณเชื่อว่านี่เป็นความผิดพลาด คุณส่งการอุทธรณ์ได้ด้วย `/appeal` ในเซิร์ฟเวอร์ใดก็ได้ที่เชื่อมต่อกับ Hub นี้"
   footer:
-    actionedBy: "Actioned by {user}"
+    actionedBy: "ดำเนินการโดย {user}"
   actionNames:
-    warned: เตือนแล้ว
-    muted: ปิดเสียงแล้ว
-    banned: แบนแล้ว
+    warned: ถูกเตือน
+    muted: ถูกปิดเสียง
+    banned: ถูกแบน
   actionNouns:
     mute: ปิดเสียง
     ban: แบน
@@ -548,26 +964,26 @@ moderation:
     in: ใน
     from: จาก
   permissions:
-    managerRequired: ต้องมีสิทธิ์ระดับ Manager+ ขึ้นไป
+    managerRequired: ต้องมีสิทธิ์ระดับผู้จัดการขึ้นไป
   target:
-    both: โปรดระบุผู้ใช้ หรือ เซิร์ฟเวอร์ อย่างใดอย่างหนึ่ง ไม่ใช่ทั้งสองอย่าง
-    missing: โปรดระบุผู้ใช้ หรือ เซิร์ฟเวอร์
+    both: โปรดระบุผู้ใช้หรือเซิร์ฟเวอร์อย่างใดอย่างหนึ่ง ไม่ใช่ทั้งสอง
+    missing: โปรดระบุผู้ใช้หรือเซิร์ฟเวอร์
   revoke:
-    noActive: ไม่พบสถานะ {action} ที่ใช้งานอยู่
-    success: ยกเลิก {action} แล้ว
+    noActive: ไม่พบ{action}ที่ยังมีผลอยู่
+    success: เพิกถอน{action}แล้ว
   delete:
-    success: ข้อความถูกลบออกจาก Hub ที่เชื่อมต่อทั้งหมดแล้ว
-    notInterChatMessage: ข้อความนี้ไม่ใช่ข้อความ InterChat หรือถูกลบไปแล้ว
+    success: ลบข้อความออกจากทุก Hub ที่เชื่อมต่อแล้ว
+    notInterChatMessage: ข้อความนี้ไม่ใช่ข้อความของ InterChat หรือถูกลบไปแล้ว
   blacklist:
-    permissionDenied: คุณไม่มีสิทธิ์ระดับเจ้าหน้าที่ InterChat เพื่อออกคำสั่ง Blacklist ทั่วโลก
-    alreadyActive: เป้าหมายติดสถานะ Blacklist ทั่วโลกอยู่แล้ว
-    success: Blacklist {target} ทั่วโลกแล้ว
+    permissionDenied: คุณไม่มีสิทธิ์ทีมงาน InterChat ในการออกบัญชีดำส่วนกลาง
+    alreadyActive: เป้าหมายมีบัญชีดำส่วนกลางที่ยังมีผลอยู่แล้ว
+    success: ขึ้นบัญชีดำส่วนกลางให้ {target} แล้ว
   success:
-    action: "{target} ถูก {action} {prep} {hubName}"
+    action: "{target} {action} {prep} {hubName}"
   actions:
     warn:
       label: เตือน
-      description: ออกคำเตือนไปยังเป้าหมายที่เลือก
+      description: ออกคำเตือนให้เป้าหมายที่เลือก
     mute:
       label: ปิดเสียง
       description: ปิดเสียงผู้ใช้/เซิร์ฟเวอร์จาก Hub ที่ระบุ
@@ -575,608 +991,924 @@ moderation:
       label: แบน
       description: แบนผู้ใช้/เซิร์ฟเวอร์จาก Hub ที่ระบุ
     unmute:
-      label: ยกเลิกปิดเสียง
-      description: ยกเลิกสถานะปิดเสียง
+      label: เปิดเสียง
+      description: เพิกถอนการปิดเสียงที่ยังมีผลอยู่
     unban:
       label: ปลดแบน
-      description: ยกเลิกสถานะแบน
+      description: เพิกถอนการแบนที่ยังมีผลอยู่
     blacklist:
-      label: Blacklist
-      description: ออกคำสั่ง Blacklist ทั่วทั้ง InterChat (ผู้ใช้/เซิร์ฟเวอร์)
+      label: ขึ้นบัญชีดำ
+      description: ออกบัญชีดำทั่วทั้ง InterChat (ผู้ใช้/เซิร์ฟเวอร์)
     history:
-      label: History
-      description: View infraction and report history for the target
+      label: ประวัติ
+      description: ดูประวัติการละเมิดและรายงานของเป้าหมาย
     delete:
       label: ลบ
-      description: ลบข้อความที่เลือกออกจาก Hub ที่เชื่อมต่อทั้งหมด
+      description: ลบข้อความที่เลือกในทุก Hub ที่เชื่อมต่อ
   modal:
-    title: การดำเนินการ Moderation
+    title: การดำเนินการดูแลเนื้อหา
     reason:
-      placeholder: ใส่คำอธิบายสั้นๆ {optional}
+      placeholder: ใส่เหตุผลสั้นๆ{optional}
     duration:
       label: ระยะเวลา
       placeholder: เช่น 30m, 2h, 1d
   hubSelect:
-    placeholder: เลือก Hub เพื่อจัดการ...
-    noHubs: No hubs available
-    noHubsDesc: No hubs available for moderation
+    placeholder: เลือก Hub ที่จะดูแล...
+    noHubs: ไม่มี Hub ที่ใช้ได้
+    noHubsDesc: ไม่มี Hub ที่ใช้ดูแลเนื้อหาได้
   hubSelection:
-    title: การเลือก Hub
-    description: เลือก Hub ที่คุณต้องการจัดการ
+    title: เลือก Hub
+    description: เลือก Hub ที่คุณต้องการดูแล
     fieldHubLabel: Hub
     fieldHubPrompt: Hub ที่เลือก
   targetSelection:
     title: เลือกเป้าหมาย
-    description: คุณต้องการ {action} ใคร?
-    user: Act on User
-    server: Act on Server
+    description: คุณต้องการ{action}ใคร?
+    user: ดำเนินการกับผู้ใช้
+    server: ดำเนินการกับเซิร์ฟเวอร์
   actionSelect:
-    placeholder: เลือกการดำเนินการ...
+    placeholder: เลือกมาตรการดูแลเนื้อหา...
   validators:
-    reasonTooShort: "Reason must be at least {min} characters long."
-    reasonTooLong: "Reason must be no more than {max} characters long."
-    durationRequired: "Duration is required for mute actions."
-    durationNotNeeded: "Duration is only needed for mute actions."
-    durationTooShort: "Duration is too short."
-    durationTooLong: "Duration is too long."
-    invalidDurationFormat: "Invalid duration format."
-    noTarget: "No valid target specified for this action."
+    reasonTooShort: "เหตุผลต้องยาวอย่างน้อย {min} ตัวอักษร"
+    reasonTooLong: "เหตุผลต้องยาวไม่เกิน {max} ตัวอักษร"
+    durationRequired: "การปิดเสียงต้องระบุระยะเวลา"
+    durationNotNeeded: "ต้องระบุระยะเวลาเฉพาะการปิดเสียงเท่านั้น"
+    durationTooShort: "ระยะเวลาสั้นเกินไป"
+    durationTooLong: "ระยะเวลายาวเกินไป"
+    invalidDurationFormat: "รูปแบบระยะเวลาไม่ถูกต้อง"
+    noTarget: "ไม่ได้ระบุเป้าหมายที่ถูกต้องสำหรับการดำเนินการนี้"
   history:
-    title: "{info_icon} Moderation History"
-    noHubSelected: ไม่ได้เลือก Hub
-    noTarget: "No target specified."
-    recentInfractions: "Recent Infractions ({count} total)"
-    noInfractions: "No infractions found."
-    recentReports: "Recent Reports ({count} total)"
-    noReports: "No reports found."
-    fetchFailed: "Failed to fetch moderation history."
+    title: "{info_icon} ประวัติการดูแลเนื้อหา"
+    noHubSelected: ยังไม่ได้เลือก Hub
+    noTarget: "ไม่ได้ระบุเป้าหมาย"
+    recentInfractions: "การละเมิดล่าสุด (รวม {count})"
+    noInfractions: "ไม่พบการละเมิด"
+    recentReports: "รายงานล่าสุด (รวม {count})"
+    noReports: "ไม่พบรายงาน"
+    fetchFailed: "ดึงประวัติการดูแลเนื้อหาไม่สำเร็จ"
   report:
-    jumpToMessage: Jump to Message
-    notFound: "Report not found or deleted."
-    noHub: "Unable to determine hub for this report."
-    handledTitle: "Report Handled"
-    handledDesc: "Your report `{id}` has been reviewed and action has been taken."
-    handledFooter: "Thank you for helping keep the hub safe!"
+    jumpToMessage: ไปยังข้อความ
+    notFound: "ไม่พบรายงาน หรือถูกลบไปแล้ว"
+    noHub: "ระบุ Hub ของรายงานนี้ไม่ได้"
+    handledTitle: "จัดการรายงานแล้ว"
+    handledDesc: "รายงาน `{id}` ของคุณได้รับการตรวจสอบและดำเนินการแล้ว"
+    handledFooter: "ขอบคุณที่ช่วยรักษา Hub ให้ปลอดภัย!"
   errors:
     selectedHubNotFound: ไม่พบ Hub ที่เลือก
-    unknownAction: ไม่รู้จักการกระทำ
-    unsupportedAction: เส้นทางการกระทำไม่รองรับ
-    openPanelFailed: Unexpected error opening mod panel.
-    notModeratorForHub: คุณไม่ใช่ Moderator สำหรับ Hub นี้
-    alreadyState: "{targetType} ถูก {state} ใน Hub นี้อยู่แล้ว"
+    unknownAction: ไม่รู้จักการดำเนินการ
+    unsupportedAction: ไม่รองรับเส้นทางการดำเนินการนี้
+    openPanelFailed: เกิดข้อผิดพลาดที่ไม่คาดคิดขณะเปิดแผงผู้ดูแล
+    notModeratorForHub: คุณไม่ใช่ผู้ดูแลของ Hub นี้
+    alreadyState: "{targetType} {state} ใน Hub นี้อยู่แล้ว"
     invalidHubData: ข้อมูล Hub ไม่ถูกต้อง
     originalMessageNotFound: ไม่พบข้อความต้นฉบับในฐานข้อมูล
-    fetchAuthorOrServerFailed: ไม่สามารถดึงข้อมูลผู้เขียนข้อความหรือเซิร์ฟเวอร์ได้
+    fetchAuthorOrServerFailed: ดึงข้อมูลผู้เขียนข้อความหรือเซิร์ฟเวอร์ไม่ได้
     hubNotFoundForMessage: ไม่พบ Hub สำหรับข้อความนี้
-    noModeratedHubs: คุณไม่มีสิทธิ์ Moderation ใน Hub ใดๆ
+    noModeratedHubs: คุณไม่มีสิทธิ์ดูแลเนื้อหาในทุก Hub
     noTarget: โปรดระบุเป้าหมาย (ผู้ใช้/เซิร์ฟเวอร์) หรือตอบกลับข้อความ
-    actionProcessingFailed: "An error occurred while processing the action."
-    modalOpenFailed: "Failed to open the modal. Please try again."
-    notModerator: "You are not a moderator for any hubs."
-    noHubsAvailable: "No hubs are available for moderation."
+    actionProcessingFailed: "เกิดข้อผิดพลาดขณะประมวลผลการดำเนินการ"
+    modalOpenFailed: "เปิดฟอร์มไม่สำเร็จ โปรดลองอีกครั้ง"
+    notModerator: "คุณไม่ใช่ผู้ดูแลของ Hub ใดเลย"
+    noHubsAvailable: "ไม่มี Hub ที่ใช้ดูแลเนื้อหาได้"
     webhooks:
-      noPermission: "You do not have permission to moderate this hub."
+      noPermission: "คุณไม่มีสิทธิ์ดูแล Hub นี้"
+conversationIdeas:
+  title: ไอเดียชวนคุย
+  description: รับไอเดียชวนคุยส่วนตัวสำหรับ Hub หรือการโทรแบบข้อความ
+  another: อีกไอเดีย
+  hint: "เฉพาะคุณที่เห็นสิ่งนี้ ถามในแชตหรือแชร์คำตอบของคุณเองได้เลย ระบบจะไม่ส่งอะไรแทนคุณ"
+  callHint: "นี่คือแชตข้อความ ใช้ `/topic` เพื่อรับไอเดียชวนคุยส่วนตัว `/skip` เพื่อหาแชตอื่น หรือ `/hangup` เพื่อออก"
+  prompts:
+    games: "เกมอะไรที่คุณกลับมาเล่นได้เสมอ?"
+    music: "เพลงอะไรที่คุณเปิดวนซ้ำช่วงนี้?"
+    hobbies: "งานอดิเรกอะไรที่คุณอยากลอง?"
+    skills: "ถ้าเรียนรู้ทักษะได้ทันทีหนึ่งอย่าง คุณจะเลือกอะไร?"
+    fiction: "โลกสมมติแห่งไหนที่คุณอยากไปเยือน และเพราะอะไร?"
+    smallJoys: "เรื่องเล็กๆ อะไรที่ทำให้คุณยิ้มได้ในสัปดาห์นี้?"
+
 welcomeMessage:
-  title: ยินดีต้อนรับสู่ InterChat Hub ที่ชื่อว่า **{hubName}**!
-  errorDm: Failed to send welcome message.
-  introText: ตอนนี้คุณเชื่อมต่อกับเครือข่ายของเซิร์ฟเวอร์แล้ว ข้อความที่คุณส่งที่นี่จะปรากฏแก่ทุกคนใน Hub นี้
-  quickActions: การกระทำด่วน
+  title: ยินดีต้อนรับสู่ Hub ของ InterChat ชื่อ **{hubName}**!
+  errorDm: ส่งข้อความต้อนรับไม่สำเร็จ
+  introText: ตอนนี้คุณเชื่อมต่อกับเครือข่ายเซิร์ฟเวอร์แล้ว ข้อความที่คุณส่งที่นี่จะมองเห็นได้โดยทุกคนใน Hub นี้
+  startChatting: "ทักทาย เล่าสิ่งที่คุณสนใจ หรือตอบคนที่กำลังคุยอยู่ได้เลย ต้องการตัวช่วยเริ่มต้นไหม? ลองไอเดียชวนคุยด้านล่าง หรือใช้ `/topic` ได้ทุกเมื่อ"
+  quickActions: การดำเนินการด่วน
   buttons:
-    rules: กฎระเบียบ
+    rules: กฎ
     profile: โปรไฟล์
     hubInfo: ข้อมูล Hub
     report: วิธีรายงาน
-    support: Support
+    support: ซัพพอร์ต
     disconnect: ตัดการเชื่อมต่อ
   hubInfo:
-    connections: '🔗 การเชื่อมต่อ'
-    hubPageLabel: "{link_icon} Hub Page"
-    hubPageValue: "[View on InterChat]({hubUrl})"
+    connections: ':link_icon: การเชื่อมต่อ'
+    hubPageLabel: "{link_icon} หน้า Hub"
+    hubPageValue: "[ดูบน InterChat]({hubUrl})"
+    createHint: "อยากสร้างของคุณเองไหม? ใช้ `/hub create`"
   rules:
-    title: "{rules_icon} {hubName} - Rules"
-    guidelines: "Please adhere to the guidelines @ {guidelinesUrl}"
+    title: "{rules_icon} {hubName} - กฎ"
+    guidelines: "โปรดปฏิบัติตามแนวทางที่ {guidelinesUrl}"
   errors:
     disconnectPermission:
-      title: "{x_icon} Permission Denied"
-      description: You need the **Manage Channels** permission to disconnect from a hub.
+      title: "{x_icon} ปฏิเสธการเข้าถึง"
+      description: คุณต้องมีสิทธิ์ **จัดการช่อง** จึงจะตัดการเชื่อมต่อจาก Hub ได้
   disconnect:
-    successDescription: Successfully disconnected from **{hubName}**.
-    cancelled: Disconnection cancelled.
+    successDescription: ตัดการเชื่อมต่อจาก **{hubName}** เรียบร้อยแล้ว
+    cancelled: ยกเลิกการตัดการเชื่อมต่อแล้ว
   disconnectConfirm:
-    title: ตัดการเชื่อมต่อจาก Hub?
+    title: ตัดการเชื่อมต่อจาก Hub ไหม?
     description: คุณแน่ใจหรือไม่ว่าต้องการตัดการเชื่อมต่อจาก **{hubName}**?
+
 infractions:
-  description: ดูการทำผิดกฎใน Hub กรองตามผู้ใช้หรือเซิร์ฟเวอร์
+  description: ดูการละเมิดใน Hub โดยกรองตามผู้ใช้หรือเซิร์ฟเวอร์
   buttons:
-    userInfractions: การทำผิดกฎของผู้ใช้
-    serverInfractions: การทำผิดกฎของเซิร์ฟเวอร์
+    allInfractions: ทั้งหมด
+    userInfractions: ผู้ใช้
+    serverInfractions: เซิร์ฟเวอร์
+    clearFilter: ล้างตัวกรอง
   titles:
-    base: การทำผิดกฎ · {hubName}
-    userList: การทำผิดกฎของผู้ใช้ · {hubName}
-    serverList: การทำผิดกฎของเซิร์ฟเวอร์ · {hubName}
-    userSpecific: การทำผิดกฎสำหรับ {user} · {hubName}
-    serverSpecific: การทำผิดกฎสำหรับเซิร์ฟเวอร์ {serverId} · {hubName}
+    base: การละเมิด · {hubName}
+    userList: การละเมิดของผู้ใช้ · {hubName}
+    serverList: การละเมิดของเซิร์ฟเวอร์ · {hubName}
+    userSpecific: การละเมิดของ {user} · {hubName}
+    serverSpecific: การละเมิดของเซิร์ฟเวอร์ {serverId} · {hubName}
   descriptions:
-    base: เลือกประเภทการทำผิดกฎที่ต้องการดูสำหรับ Hub นี้
-    userListEmpty: ไม่พบการทำผิดกฎของผู้ใช้สำหรับ Hub นี้
-    serverListEmpty: ไม่พบการทำผิดกฎของเซิร์ฟเวอร์สำหรับ Hub นี้
+    base: เลือกว่าจะดูการละเมิดใดของ Hub นี้
+    empty: ไม่พบบันทึกการดูแลเนื้อหา
+    userListEmpty: ไม่พบการละเมิดของผู้ใช้ใน Hub นี้
+    serverListEmpty: ไม่พบการละเมิดของเซิร์ฟเวอร์ใน Hub นี้
   labels:
-    evidence: Evidence
-    issued: Issued
+    evidence: หลักฐาน
+    issued: ออกเมื่อ
   evidence:
     content: เนื้อหา
     author: ผู้เขียน
   errors:
-    noPermission: คุณไม่มีสิทธิ์ดูข้อมูลการทำผิดกฎสำหรับ Hub นี้
-    bothSelection: โปรดเลือกเฉพาะผู้ใช้ หรือ เซิร์ฟเวอร์ เพียงอย่างเดียว ไม่ใช่ทั้งคู่
+    noPermission: คุณไม่มีสิทธิ์ดูการละเมิดของ Hub นี้
+    bothSelection: โปรดเลือกเฉพาะผู้ใช้หรือเซิร์ฟเวอร์อย่างใดอย่างหนึ่ง ไม่ใช่ทั้งสอง
     invalidServerId: ID เซิร์ฟเวอร์ไม่ถูกต้อง
   permissions:
-    insufficient: คุณต้องมีสิทธิ์ระดับ {permission}+ ใน Hub นี้
+    insufficient: คุณต้องมีสิทธิ์ระดับ {permission} ขึ้นไปใน Hub นี้
   delete:
-    notFound: ไม่พบข้อมูลการลงโทษ
-    success: ลบข้อมูลการลงโทษเรียบร้อยแล้ว
+    notFound: ไม่พบการละเมิด
+    success: ลบการละเมิดแล้ว
+
 staff:
   get:
     server:
-      description: รับข้อมูลโดยละเอียดเกี่ยวกับเซิร์ฟเวอร์
+      description: ดูข้อมูลโดยละเอียดของเซิร์ฟเวอร์
     hub:
-      description: รับข้อมูลโดยละเอียดเกี่ยวกับ Hub
+      description: ดูข้อมูลโดยละเอียดของ Hub
     user:
-      description: รับข้อมูลโดยละเอียดเกี่ยวกับผู้ใช้
+      description: ดูข้อมูลโดยละเอียดของผู้ใช้
   hub:
     section:
-      moderation: Moderation
+      moderation: การดูแลเนื้อหา
     fields:
       name: ชื่อ
       messages: ข้อความ
       connections: การเชื่อมต่อ
-      upvotes: Upvotes
-      location: ตำแหน่ง
+      upvotes: อัปโหวต
+      location: ที่ตั้ง
       activity: กิจกรรม
-      appealCooldown: คูลดาวน์การอุทธรณ์
+      appealCooldown: ช่วงพักรอการอุทธรณ์
       welcomeMessage: ข้อความต้อนรับ
-      description: คำอธิบาย
+      description: *label_description
     values:
-      messagesThisWeek: "**{count}** สัปดาห์นี้"
-      connectionsActive: "**{count}** ใช้งานอยู่"
-      upvotesTotal: "**{count}** ทั้งหมด"
+      messagesThisWeek: "**{count}** ในสัปดาห์นี้"
+      connectionsActive: "**{count}** ที่ใช้งานอยู่"
+      upvotesTotal: "รวม **{count}**"
     badges:
-      verified: Verified
-      partnered: Partnered
-      featured: Featured
-      locked: ล็อค
+      verified: ยืนยันแล้ว
+      partnered: พาร์ตเนอร์
+      featured: แนะนำ
+      locked: ถูกล็อก
       nsfw: NSFW
   server:
     fields:
       name: ชื่อ
-      inviteCode: รหัสเชิญ
+      inviteCode: รหัสคำเชิญ
       messages: ข้อความ
       connections: การเชื่อมต่อ
       lastMessage: ข้อความล่าสุด
-      updated: อัปเดต
+      updated: อัปเดตเมื่อ
     values:
-      messagesTotal: "**{count}** ทั้งหมด"
-      connectionsActive: "**{count}** ใช้งานอยู่"
+      messagesTotal: "รวม **{count}**"
+      connectionsActive: "**{count}** ที่ใช้งานอยู่"
   user:
     inbox:
-      title: Inbox
-      description: We found some messages from our team for you!
-      emptyTitle: All caught up!
-      emptyDescription: We couldn't find any new announcements for you.
+      title: กล่องข้อความ
+      description: เราพบข้อความจากทีมของเราสำหรับคุณ!
+      emptyTitle: อ่านครบแล้ว!
+      emptyDescription: เราไม่พบประกาศใหม่สำหรับคุณ
     fields:
       name: ชื่อ
       messages: ข้อความ
       reputation: ชื่อเสียง
       votes: โหวต
       hubJoins: การเข้าร่วม Hub
-      engagement: การมีส่วนร่วม
+      engagement: ความมีส่วนร่วม
       locale: ภาษา
       lastMessage: ข้อความล่าสุด
       lastVote: โหวตล่าสุด
     values:
-      staff: Staff
-      member: Member
-      messagesSent: "**{count}** ส่งแล้ว"
-      reputationPoints: "**{count}** แต้ม"
-      votesCast: "**{count}** ครั้ง"
-      hubJoinsTotal: "**{count}** ทั้งหมด"
-      notSet: ไม่ได้ตั้งค่า
+      staff: ทีมงาน
+      member: สมาชิก
+      messagesSent: "ส่งแล้ว **{count}**"
+      reputationPoints: "**{count}** คะแนน"
+      votesCast: "โหวตไป **{count}**"
+      hubJoinsTotal: "รวม **{count}**"
+      notSet: ยังไม่ได้ตั้ง
       never: ไม่เคย
     sections:
       preferences: การตั้งค่า
       createdContent: เนื้อหาที่สร้าง
       activity: กิจกรรม
-      badges: ตราสัญลักษณ์
+      badges: แบดจ์
     preferences:
-      showBadges: แสดงตราสัญลักษณ์
-      mentionOnReply: แจ้งเตือนเมื่อตอบกลับ
-      showNsfwHubs: แสดง Hub NSFW
+      showBadges: แสดงแบดจ์
+      mentionOnReply: กล่าวถึงเมื่อตอบกลับ
+      showNsfwHubs: แสดง Hub แบบ NSFW
     content:
-      hubs: "{count} Hubs"
-      modPositions: "{count} ตำแหน่ง Mod"
+      hubs: "{count} Hub"
+      modPositions: "{count} ตำแหน่งผู้ดูแล"
       blockedWords: "{count} คำที่ถูกบล็อก"
-      automodRules: "{count} automod rules"
+      automodRules: "{count} กฎ Automod"
     moderation:
-      infractionsReceived: "{count} ครั้งที่ถูกลงโทษ"
-      infractionsIssued: "{count} ครั้งที่ลงโทษผู้อื่น"
-      blacklistsReceived: "{count} ครั้งที่โดน Blacklist"
-      blacklistsIssued: "{count} ครั้งที่สั่ง Blacklist"
+      infractionsReceived: "ได้รับการละเมิด {count}"
+      infractionsIssued: "ออกการละเมิด {count}"
+      blacklistsReceived: "ได้รับบัญชีดำ {count}"
+      blacklistsIssued: "ออกบัญชีดำ {count}"
     activity:
       appeals: "{count} การอุทธรณ์"
-      reviews: "{count} การรีวิว"
-      reportsMade: "{count} รายงานที่สร้าง"
-      reportsReceived: "{count} รายงานที่ได้รับ"
+      reviews: "{count} การตรวจสอบ"
+      reportsMade: "ส่งรายงาน {count}"
+      reportsReceived: "ได้รับรายงาน {count}"
       achievements: "{count} ความสำเร็จ"
   blacklist:
     fields:
       expires: หมดอายุ
-    notFound: ไม่พบรายการ Blacklist ที่ตรงกัน
-    removed: ลบรายการ Blacklist แล้ว
+    notFound: "ไม่พบรายการบัญชีดำของ{type}ที่ตรงกัน"
+    removed: ลบรายการบัญชีดำแล้ว
+
 hub:
+  directory:
+    title: "## {globe} ค้นพบ Hub - {sortEmoji} {sort}"
+    page: "หน้า {current} จาก {total} • Hub สาธารณะ {count} รายการ"
+    searching: 'กำลังค้นหา: "{query}"'
+    connectHint: "เลือกเชื่อมต่อ หรือใช้ `/hub connect hub:<ชื่อ>`"
+    connect: เชื่อมต่อ
+    details: รายละเอียด
+    serverOnly: เปิดไดเรกทอรีนี้ภายในเซิร์ฟเวอร์เพื่อเชื่อมต่อช่อง
+    sortPlaceholder: เรียงลำดับ Hub สาธารณะ
+    empty: ยังไม่มี Hub สาธารณะ สร้างอันแรกด้วย `/hub create`
+    emptySearch: 'ไม่มี Hub สาธารณะที่ตรงกับ "{query}" ลองค้นหาให้กว้างขึ้น'
+    search:
+      title: ค้นหา Hub สาธารณะ
+      label: ค้นหา
+      placeholder: ค้นหาจากชื่อและคำอธิบาย
+    sorts:
+      alive:
+        label: แนะนำ
+        description: บทสนทนาที่ดี ผู้คน และการเติบโตล่าสุด
+      active:
+        label: คึกคักตอนนี้
+        description: มีบทสนทนาและผู้คนมากที่สุดใน 24 ชั่วโมงที่ผ่านมา
+      upvoted:
+        label: อัปโหวตมากที่สุด
+        description: Hub ที่ได้รับอัปโหวตจากชุมชนมากที่สุด
+      big:
+        label: ใหญ่ที่สุด
+        description: มีเซิร์ฟเวอร์เชื่อมต่ออยู่มากที่สุดตอนนี้
+      new:
+        label: ใหม่
+        description: ชุมชนสาธารณะที่เพิ่งสร้าง
+    metrics:
+      servers: "{activity} {count} เซิร์ฟเวอร์"
+      messages: ":chat_icon: {count}/สัปดาห์"
+      people: ':users: {count}/วัน'
+      growth: "+{count} ในสัปดาห์นี้"
   rules:
     manage:
-      description: Manage your hub's community rules and guidelines below.
-      noRules: No rules have been set for this hub yet.
+      description: จัดการกฎและแนวทางของชุมชน Hub ของคุณด้านล่าง
+      noRules: ยังไม่ได้ตั้งกฎสำหรับ Hub นี้
       addRule:
-        label: Add Rule
+        label: เพิ่มกฎ
         modal:
-          title: Add New Rule
-          placeholder: Enter your new rule here...
+          title: เพิ่มกฎใหม่
+          placeholder: ใส่กฎใหม่ของคุณที่นี่...
       editRule:
-        label: Edit
+        label: *btn_edit
         modal:
-          title: Edit Rule
-          placeholder: Enter your updated rule here...
+          title: แก้ไขกฎ
+          placeholder: ใส่กฎที่อัปเดตของคุณที่นี่...
       deleteRule:
-        label: Delete Rule
-        confirmation: Are you sure you want to delete this rule?
+        label: ลบกฎ
+        confirmation: คุณแน่ใจหรือไม่ว่าต้องการลบกฎนี้?
       validation:
-        empty: Rule cannot be empty.
-        tooLong: Rule must be {maxLength} characters or less.
-        maxRules: Maximum of {maxRules} rules allowed.
+        empty: กฎต้องไม่ว่างเปล่า
+        tooLong: กฎต้องยาวไม่เกิน {maxLength} ตัวอักษร
+        maxRules: อนุญาตสูงสุด {maxRules} กฎ
       success:
-        added: Rule added successfully!
-        updated: Rule updated successfully!
-        deleted: Rule deleted successfully!
+        added: เพิ่มกฎเรียบร้อยแล้ว!
+        updated: อัปเดตกฎเรียบร้อยแล้ว!
+        deleted: ลบกฎเรียบร้อยแล้ว!
       errors:
-        ruleNotFound: Invalid rule selection.
-        invalidRuleSelection: Invalid rule selection.
-        processingError: An error occurred while processing your request. Please try again.
-        refreshError: An error occurred while refreshing.
-        deletionCancelled: Cancelled
-        deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: This command must be used in a connected channel or specify a hub name.
-        notConnected: This channel is not connected to any hub.
+        ruleNotFound: การเลือกกฎไม่ถูกต้อง
+        invalidRuleSelection: การเลือกกฎไม่ถูกต้อง
+        processingError: *err_processing
+        refreshError: เกิดข้อผิดพลาดขณะรีเฟรช
+        deletionCancelled: ยกเลิกแล้ว
+        deletionCancelledDescription: ยกเลิกการลบกฎแล้ว
+        noHub: "คำสั่งนี้ต้องมีช่องที่เชื่อมต่ออยู่หรือชื่อ Hub เรียกดูด้วย `/hub browse` หรือสร้างของคุณเองด้วย `/hub create`"
+        notConnected: "ช่องนี้ยังไม่ได้เชื่อมต่อกับ Hub เรียกดูด้วย `/hub browse` หรือสร้างของคุณเองด้วย `/hub create`"
       warnings:
-        deleteWarning: Warning
-        deleteWarningDescription: This action cannot be undone.
+        deleteWarning: คำเตือน
+        deleteWarningDescription: ไม่สามารถยกเลิกการดำเนินการนี้ได้
       display:
-        noRulesTitle: No Rules Set
-        noRulesDescription: No rules have been set for this hub yet.
-        rulesCount: "{count} of {max} rules used"
-        ruleHeading: "Rule {number}"
-        truncated: Full text will be shown when editing
+        noRulesTitle: ยังไม่ได้ตั้งกฎ
+        noRulesDescription: ยังไม่ได้ตั้งกฎสำหรับ Hub นี้
+        rulesCount: "ใช้ไปแล้ว {count} จาก {max} กฎ"
+        ruleHeading: "กฎข้อ {number}"
+        truncated: ข้อความเต็มจะแสดงเมื่อแก้ไข
     accept:
       buttons:
-        accept: Accept Rules
+        accept: ยอมรับกฎ
       titles:
-        accepted: Rules Accepted
-        declined: Rules Not Accepted
-        changedMind: '💡 Changed your mind?'
+        accepted: ยอมรับกฎแล้ว
+        declined: ไม่ได้ยอมรับกฎ
+        changedMind: ':lightbulb_icon: เปลี่ยนใจไหม?'
       messages:
-        accepted: "Thank you for accepting the rules for **{hubName}**!"
-        declined: "You have chosen not to accept the rules for **{hubName}** at this time."
-        changedMind: "Send another message in this channel to see the rules again and accept them."
+        accepted: "ขอบคุณที่ยอมรับกฎของ **{hubName}**!"
+        declined: "คุณเลือกที่จะไม่ยอมรับกฎของ **{hubName}** ในตอนนี้"
+        changedMind: "ส่งข้อความอีกครั้งในช่องนี้เพื่อดูกฎอีกครั้งและยอมรับ"
       footer:
-        welcome: Welcome to the community!
+        welcome: ยินดีต้อนรับสู่ชุมชน!
       errors:
-        failed: Something went wrong while processing your rule acceptance.
+        failed: เกิดข้อผิดพลาดขณะประมวลผลการยอมรับกฎของคุณ
   lock:
-    announceTitle: ล็อค Hub แล้ว
-    announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    announceTitle: ล็อก Hub แล้ว
+    announceDescription: "Hub นี้ถูกล็อกโดยผู้ดูแล\n\nตอนนี้มีเพียงผู้ดูแลเท่านั้นที่ส่งข้อความได้"
+    successTitle: ล็อก Hub แล้ว
+    successDescription: "ล็อก **{hub}** แล้ว สมาชิกใหม่เข้าร่วมไม่ได้และข้อความถูกหยุดชั่วคราว"
   unlock:
-    announceTitle: ปลดล็อค Hub แล้ว
-    announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
-    successDescription: "**{hub}** has been unlocked. New members can now join."
+    announceTitle: ปลดล็อก Hub แล้ว
+    announceDescription: "Hub นี้ถูกปลดล็อกแล้ว คำเชิญและข้อความเปิดใช้งานอีกครั้ง"
+    successTitle: ปลดล็อก Hub แล้ว
+    successDescription: "ปลดล็อก **{hub}** แล้ว สมาชิกใหม่เข้าร่วมได้แล้ว"
   announcement:
-    webhookUsername: "{hubName} | Hub Announcement"
-    officialTitle: "{hubName} | Official Hub Announcement"
-    disclaimer: "This announcement was sent by hub officials - not InterChat staff"
+    webhookUsername: "{hubName} | ประกาศของ Hub"
+    officialTitle: "{hubName} | ประกาศอย่างเป็นทางการของ Hub"
+    disclaimer: "ประกาศนี้ส่งโดยผู้ดูแลของ Hub - ไม่ใช่ทีมงาน InterChat"
   invites:
     title: คำเชิญที่ใช้งานอยู่
-    description: Create and manage invite codes for your hub
-    noneFound: ไม่พบรายการ!
-    inviteUses: "**จำนวนการใช้:**"
+    description: สร้างและจัดการรหัสคำเชิญสำหรับ Hub ของคุณ
+    noneFound: ไม่พบ!
+    inviteUses: "**จำนวนครั้งที่ใช้:**"
     inviteExpire: "**หมดอายุ:**"
     titles:
-      generated: Generated!
+      generated: สร้างแล้ว!
     messages:
-      generated: "{tick} `{code}` can now be used {uses} time(s) to join your hub."
-      generatedUnlimited: "{tick} `{code}` can now be used to join your hub."
-      howToUse: "Next step: connect a channel with `/hub connect invite:{code}`"
+      generated: "{tick} ตอนนี้ใช้ `{code}` เข้าร่วม Hub ของคุณได้ {uses} ครั้ง"
+      generatedUnlimited: "{tick} ตอนนี้ใช้ `{code}` เข้าร่วม Hub ของคุณได้"
+      howToUse: "ขั้นต่อไป: เชื่อมต่อช่องด้วย `/hub connect invite:{code}`"
     footer:
       hub: "Hub: {hubName}"
   info:
     titles:
-      rules: Rules for {hubName}
-      stats: Stats for {hubName}
+      rules: กฎของ {hubName}
+      stats: สถิติของ {hubName}
     badges:
-      verified: This hub is an official verified hub.
-      partnered: This hub is an official partnered hub.
-    description: View information on this hub! Select an option from below.
-    noRules: No rules have been set for this hub.
-    noDescription: No description provided.
+      verified: Hub นี้เป็น Hub ที่ได้รับการยืนยันอย่างเป็นทางการ
+      partnered: Hub นี้เป็น Hub พาร์ตเนอร์อย่างเป็นทางการ
+    description: ดูข้อมูลของ Hub นี้! เลือกตัวเลือกด้านล่าง
+    noRules: ยังไม่ได้ตั้งกฎสำหรับ Hub นี้
+    noDescription: ไม่มีคำอธิบาย
+    imageAlt:
+      banner: แบนเนอร์ของ {hubName}
+      icon: ไอคอนของ {hubName}
   buttons:
-    rules: กฎระเบียบ
-    stats: Stats
-    connect: Connect
-    report: Report
-  servers:
-    title: Connected Servers
-    empty: No servers are connected to this hub.
+    rules: กฎ
+    stats: สถิติ
+    connect: เชื่อมต่อ
+    report: รายงาน
+  staff:
+    title: ทีมงาน
+    assignTitle: เพิ่มหรือย้ายทีมงาน
+    empty: ยังไม่มีทีมงานที่ได้รับมอบหมายให้ Hub นี้ เพิ่มใครสักคนด้านล่างเพื่อให้เข้าถึง Hub นี้ได้
+    loadError: โหลดรายชื่อทีมงานไม่สำเร็จ โปรดลองอีกครั้งในอีกสักครู่
+    errors:
+      unavailable: การจัดการทีมงานไม่พร้อมใช้งานชั่วคราว
+      selectFirst: เลือกผู้ใช้และบทบาทก่อน
+      roleGone: บทบาทนั้นไม่พร้อมใช้งานอีกต่อไป
+      numericId: ป้อน ID ผู้ใช้ที่เป็นตัวเลข
+      selfMove: "คุณย้ายตัวเองไปยังบทบาทที่ไม่มี 'จัดการทีมงาน' ไม่ได้"
+      noUsers: เลือกผู้ใช้อย่างน้อยหนึ่งคนที่จะลบ
+      manageStaffProtected: บทบาทที่จัดการทีมงานได้ไม่สามารถลบได้
+      assignFailed: อัปเดตทีมงานไม่สำเร็จ Control Plane ไม่พร้อมใช้งาน
+      removeFailed: ลบทีมงานไม่สำเร็จ Control Plane ไม่พร้อมใช้งาน
+      roleCreateFailed: สร้างบทบาทไม่สำเร็จ Control Plane ไม่พร้อมใช้งาน
+      roleEditFailed: อัปเดตบทบาทไม่สำเร็จ Control Plane ไม่พร้อมใช้งาน
+      roleDeleteFailed: ลบบทบาทไม่สำเร็จ Control Plane ไม่พร้อมใช้งาน
+      staleRole: บทบาทนี้ถูกลบระหว่างที่คุณกำลังดูอยู่
+    buttons:
+      enterId: ป้อน ID ผู้ใช้
+      userPlaceholder: เลือกผู้ใช้ที่จะจัดการ
+      rolePlaceholder: เลือกบทบาทที่จะมอบหมาย
+      manageRoles: จัดการบทบาท
+      createRole: สร้างบทบาท
+      backToStaff: กลับไปที่ทีมงาน
+      allRoles: บทบาททั้งหมด
+      editDetails: แก้ไขรายละเอียด
+      deleteRole: ลบบทบาท
+      assign: มอบหมายให้ {count} คน
+      remove: ลบ {count} คนออกจากทีมงาน
+      keepStaff: เก็บทีมงานไว้
+      confirmRemove: ลบออกจากทีมงาน
     confirm:
-      title: Disconnect Server
+      removeTitle: ลบ {count} คนออกจากทีมงานไหม?
+      removeWarning: พวกเขาจะสูญเสียบทบาทใน Hub ทั้งหมดทันที และกู้คืนจากที่นี่ไม่ได้
+    roles:
+      title: บทบาท - {hub}
+      none: ยังไม่ได้กำหนดบทบาทสำหรับ Hub นี้
+      noPermissions: -# ไม่มีสิทธิ์
+      assigned: ทีมงานที่ได้รับมอบหมาย
+      assignedNone: ไม่มี
+      morePermissions: +{count} เพิ่มเติม
+    results:
+      assigned: มอบหมาย {role} ให้ผู้ใช้ {count} คนแล้ว
+      removed: ลบผู้ใช้ {count} คนออกจากทีมงานแล้ว
+  servers:
+    title: เซิร์ฟเวอร์ที่เชื่อมต่อ
+    empty: ไม่มีเซิร์ฟเวอร์ที่เชื่อมต่อกับ Hub นี้
+    confirm:
+      title: ยกเลิกการเชื่อมต่อเซิร์ฟเวอร์
     errors:
-      noPermission: You must be a hub admin to view this.
+      noPermission: คุณต้องเป็นแอดมินของ Hub จึงจะดูส่วนนี้ได้
+  history:
+    title: "ประวัติ - {hubName}"
+    subtitle: เลือกสิ่งที่ต้องการตรวจดู
+    view: ดู
+    retry: ลองอีกครั้ง
+    tabs:
+      servers: เซิร์ฟเวอร์
+      config: คอนฟิก
+      activity: กิจกรรม
+    cards:
+      servers: เซิร์ฟเวอร์
+      config: การเปลี่ยนแปลงคอนฟิก
+      activity: กิจกรรม
+    descriptions:
+      servers: เซิร์ฟเวอร์ที่เชื่อมต่อและสถานะ
+      config: การตั้งค่า ทีมงาน และกฎ
+      activity: การเข้าร่วม การออก และการเปลี่ยนชื่อ
+    requires:
+      manageConnections: ต้องมีสิทธิ์จัดการการเชื่อมต่อ
+      viewLogs: ต้องมีสิทธิ์ดูบันทึก
+    activity:
+      title: "กิจกรรมเซิร์ฟเวอร์ - {hubName}"
+      empty: ยังไม่มีกิจกรรมเซิร์ฟเวอร์ การเข้าร่วม การออก และการเปลี่ยนชื่อของเซิร์ฟเวอร์ใน Hub นี้จะแสดงที่นี่
+      error: กิจกรรมเซิร์ฟเวอร์ไม่พร้อมใช้งานชั่วคราว
+      renamed: เปลี่ยนชื่อ
+      newOwner: เจ้าของใหม่
+      left: ออกจาก InterChat
   disconnect:
-    title: ตัดการเชื่อมต่อแล้ว!
-    description: ตัดการเชื่อมต่อจาก Hub แล้ว
+    title: ยกเลิกการเชื่อมต่อแล้ว!
+    description: ยกเลิกการเชื่อมต่อกับ Hub แล้ว
     fieldValue: "ช่องที่เกี่ยวข้อง: {channel}"
+
     errors:
-      notConnected: This channel isn't connected to any hub.
+      notConnected: ช่องนี้ไม่ได้เชื่อมต่อกับ Hub ใดเลย
   events:
     serverJoined:
-      title: '🎉 เซิร์ฟเวอร์ใหม่เข้าร่วม!'
-      description: "**{serverName}** has joined the hub!"
+      title: ':party_popper: เซิร์ฟเวอร์ใหม่เข้าร่วมแล้ว!'
+      description: "**{serverName}** เข้าร่วม Hub แล้ว!"
       footer: ยินดีต้อนรับสู่ {hubName}!
   create:
-    title: Let's Get You Started!
-    description: Pick a name, short-description, description & visibility for your hub.
-    whatsAHub: |
-      ## ❓ What's a Hub, anyway?
-      Think of a Hub as a **room** created by someone.
-      ## 🤨 Okay... how does this "room" work?
-      In real life, a room needs people. In InterChat, multiple servers join the same Hub through a channel in each server.
-      ## 🤔 "Joined"? What's actually connected?
-      Let's zoom in.
-
-      Imagine you're in **Server A**, and there's a channel called **#global** that's connected to a Hub.
-
-      When you send a message in **#global**, that message is forwarded to every other server connected to the same Hub.
-
-      Their messages are then forwarded back to your **#global** channel too.
-      ## 👏 That's it.
-      Hubs are a surprisingly simple concept.
-
-      Let's get started!
-  wizard:
-    start: Start
-    name:
-      description: Pick a unique name for your hub. Max 100 chars.
-    tagline:
-      label: คำโปรยของ Hub
-      description: A one-sentence summary of your hub
-    description:
-      label: คำอธิบายฉบับเต็ม
-      description: Describe your hub in detail (20-1000 characters)
-    visibility:
-      unlisted:
-        desc: Not in directory.
-      public:
-        desc: Discoverable.
-      private:
-        desc: Invite-only.
+    title: สร้าง Hub
+    step: "ขั้นตอนที่ {current} จาก 3 · {label}"
     steps:
-      progress: ขั้นตอนที่ {current}/{total}
-      step1:
-        modalTitle: "Hub Details"
-        visibilityLabel: Hub Visibility
-        visibilityPlaceholder: Select Hub Visibility...
-      step2:
-        title: โลโก้ Hub
-        description: |
-          Add a logo for your hub!
-
-          -# 💡 *Tip: Use an image URL or choose the default bot avatar.*
-        modalTitle: "ขั้นตอนที่ 2/7: โลโก้"
-        logoUrlLabel: URL โลโก้
-        logoUrlPlaceholder: https://example.com/logo.png
-        addLogoButton: เพิ่มโลโก้
-        invalidUrl: URL รูปภาพไม่ถูกต้อง ใช้อวตารบอทเริ่มต้นแทน
-      step3:
-        title: Hub Visibility
-        description: "Choose your hub's visibility:\n\n🔓 **Public**: Discoverable.\n👁️ **Unlisted**: Not in directory.\n🔒 **Private**: Invite-only.\n\n-# 💡 *Tip: You can change this later in hub settings.*"
-        requiredPublic: "**Required for public hubs**"
-        optional: (Optional)
-        tip: "-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*"
-        modalTitle: "Step 3/6: Rules"
-        rulesLabel: Hub Rules
-        rulesPlaceholder: |
-          1. Be respectful
-          2. No spam
-          3. Follow Discord ToS
-        addRulesButton: Add Rules
-      step4:
-        title: กฎของชุมชน
-        description: "กำหนดแนวทางปฏิบัติสำหรับ Hub ของคุณ"
-        modalTitle: "ขั้นตอนที่ 4/7: กฎระเบียบ"
-        welcomePlaceholder: Welcome to {hubName} or our hub!
-        customMessageButton: Custom Message
-      step5:
-        title: ข้อความต้อนรับ
-        description: "Create a welcome message for new members!\n-# 💡 *Tip: Keep it friendly and informative. Max 500 characters.*"
-        modulesPlaceholder: Select modules to enable...
-      step6:
-        description: "Select features to enable for your hub!\n✅ **Pre-selected**: Reactions, Spam Filter (recommended)\n\n-# 💡 *Tip: You can adjust these anytime.*"
-        selectChannelButton: Select Channel
-        channelSelectTitle: Select Logging Channel
-        channelSelectDescription: "Choose a channel for moderation logs:"
-        channelSelectPlaceholder: Select a logging channel
-    summary:
-      title: สรุปการตั้งค่า Hub
-      description: "ตรวจสอบการตั้งค่า Hub ของคุณก่อนสร้าง:"
-      nameAndDescription: ชื่อ & คำอธิบาย
-      rulesCount: "ตั้งไว้ {count} ข้อ"
-      rulesNone: ไม่มีกฎ (เพิ่มได้ภายหลัง)
-      welcomeDefault: ข้อความต้อนรับเริ่มต้น
-      featuresNone: ไม่มี
-      footer: พร้อมที่จะสร้าง Hub ของคุณหรือยัง?
-      dashboardNotice: Icon, rules, modules, and logging can be configured in the dashboard after creation.
-    completion:
-      loading: กำลังสร้าง Hub ของคุณ...
-      loadingDescription: โปรดรอสักครู่ขณะที่เราตั้งค่าทุกอย่าง...
-      success: สร้าง Hub สำเร็จแล้ว!
-      successDescription: "{hubName} เปิดใช้งานแล้ว! 🎉"
-      dashboardLink: จัดการ Hub ของคุณ
-      publicPageLink: ดูในไดเรกทอรี
-      nextSteps: ทำอะไรต่อดี?
-      nextStepsPrivate1: "**Create an Invite**: `/hub invite hub:{hubName}`"
-      nextStepsPrivate2: "**Share Code**: Send the invite code to the other server."
-      nextStepsPrivate3: "**Connect**: The other server runs `/hub connect invite:<code>`"
-      nextStepsPublic: "**Connect Channels**: Run `/hub connect hub:{hubName}` to join!"
-      advancedSettings: "**Advanced Settings**: `/hub manage {hubName}`"
-      needHelp: "**Need Help?**: [Join our support server]({supportInvite})"
-    cancelled:
-      description: Your hub was not created.
+      identity: ตัวตน
+      safety: ความปลอดภัย
+      reach: การเข้าถึง
+    notYours: การตั้งค่า Hub นี้เป็นของคนอื่น รัน /hub create เพื่อเริ่มของคุณเอง
+    cancelled: ยกเลิกการสร้าง Hub แล้ว ยังไม่ได้สร้างอะไร
+    buttons:
+      next: ถัดไป
+      back: ย้อนกลับ
+      cancel: ยกเลิก
+    identity:
+      noTagline: ยังไม่มีสโลแกน จะแสดงใต้ชื่อใน /hub browse
+      edit: แก้ไขชื่อและสโลแกน
+      language: ภาษาหลัก
+      languagePlaceholder: เลือกภาษา
+      languageHint: "กรอกให้จากภาษาของเซิร์ฟเวอร์ {server} ช่วยให้ผู้คนหา Hub ที่คุยกันได้"
+      languageHintGeneric: ช่วยให้ผู้คนหา Hub ที่คุยกันได้
+      multi: หลายภาษา
+      sfw:
+        title: เหมาะกับทุกวัย
+        description: Hub ส่วนใหญ่เป็นแบบนี้ ทำเครื่องหมาย 18+ เฉพาะเมื่อเนื้อหาสำหรับผู้ใหญ่คือจุดประสงค์ของ Hub
+        button: ทำเครื่องหมายเป็น 18+
+      nsfw:
+        title: Hub 18+
+        description: จะมีป้าย 18+ ใน /hub browse และไม่ปรากฏในการค้นหาที่เหมาะกับทุกวัย
+        button: ทำให้เหมาะกับทุกวัย
+      needTagline: เพิ่มสโลแกนเพื่อดำเนินการต่อ
+    modal:
+      title: ชื่อและสโลแกน
+      name: ชื่อ Hub
+      nameHint: ตัวอักษร ตัวเลข ช่องว่าง หรือขีดกลาง 3 ถึง 32 ตัว
+      tagline: สโลแกน
+      taglineHint: หนึ่งบรรทัดใต้ชื่อใน /hub browse ยาว 5 ถึง 100 ตัวอักษร
+      taglinePlaceholder: สำหรับคนนอนดึก
+    safety:
+      filter: ตัวกรองเนื้อหา
+      presetPlaceholder: เลือกค่าที่ตั้งไว้ล่วงหน้า
+      presets:
+        chill:
+          label: สบาย ๆ
+          description: ควบคุมเบา ๆ สื่อและลิงก์ผ่านได้อย่างอิสระ
+        balanced:
+          label: สมดุล
+          description: แนะนำสำหรับ Hub ส่วนใหญ่
+        strict:
+          label: เข้มงวด
+          description: ข้อความมาก่อน สำหรับชุมชนขนาดใหญ่หรืออายุน้อย
+      switches:
+        spamFilter:
+          'on': ตัวกรองสแปม
+          'off': ปิดตัวกรองสแปม
+        blockInvites:
+          'on': บล็อกคำเชิญเซิร์ฟเวอร์
+          'off': อนุญาตคำเชิญเซิร์ฟเวอร์
+        blockNsfw:
+          'on': ตัวกรองรูปภาพ NSFW
+          'off': ปิดตัวกรองรูปภาพ NSFW
+        reactions:
+          'on': รีแอคชัน
+          'off': ปิดรีแอคชัน
+        hideLinks:
+          'on': ซ่อนลิงก์
+          'off': แสดงลิงก์
+        allowVideos:
+          'on': อนุญาตวิดีโอ
+          'off': บล็อกวิดีโอ
+        blockAttachments:
+          'on': บล็อกรูปภาพและไฟล์
+          'off': อนุญาตรูปภาพและไฟล์
+        blockTenorGifs:
+          'on': บล็อก GIF จาก Tenor
+          'off': อนุญาต GIF จาก Tenor
+      switchesHint: คุณเปลี่ยนสวิตช์ใดก็ได้ภายหลังใน /hub manage
+      nsfwHint: ตัวกรองรูปภาพ NSFW ปิดอยู่เพราะนี่เป็น Hub 18+
+      rules: กฎเริ่มต้น
+      rulesPlaceholder: เลือกกฎเริ่มต้น
+      rulesPicked: "เลือกแล้ว {count} กฎ"
+      rulesPickedOne: เลือกแล้ว 1 กฎ
+      rulesHint: เซิร์ฟเวอร์ต้องยอมรับกฎเหล่านี้ก่อนจึงจะลิงก์ช่องได้ แก้ไขหรือเพิ่มกฎของคุณเองได้ทุกเมื่อ
+      appeals: การอุทธรณ์
+      appealsHint: ผู้ที่คุณบล็อกจาก Hub ขออนุญาตกลับเข้ามาได้บ่อยแค่ไหน
+      cooldown: "หนึ่งครั้งทุก {duration}"
+      recommended: แนะนำ
+      durations:
+        d1: 1 วัน
+        d3: 3 วัน
+        d7: 7 วัน
+        d14: 14 วัน
+        d30: 30 วัน
+    rules:
+      respect: สุภาพต่อกัน ห้ามคุกคามหรือโจมตีส่วนบุคคล
+      hate: ห้ามใช้ถ้อยคำสร้างความเกลียดชัง คำดูถูก หรือการเลือกปฏิบัติ
+      sfw: ให้เหมาะกับทุกวัย
+      age: ทุกคนที่นี่ต้องมีอายุ 18 ปีขึ้นไป
+      spam: ห้ามสแปม ส่งข้อความรัว ๆ หรือโฆษณา
+      invites: ห้ามส่งคำเชิญเซิร์ฟเวอร์หรือโปรโมตตัวเอง
+      lang: "โปรดแชทเป็นภาษา {language} เพื่อให้ทุกคนตามทัน"
+      langMulti: ยินดีต้อนรับทุกภาษา อดทนต่อกันด้วย
+      privacy: อย่าแชร์ข้อมูลส่วนตัว ทั้งของคุณและของคนอื่น
+      spoilers: ทำเครื่องหมายสปอยเลอร์
+      tos: ปฏิบัติตามข้อกำหนดในการให้บริการและแนวทางชุมชนของ Discord
+    reach:
+      title: "ใครหา {name} เจอได้บ้าง?"
+      public:
+        label: สาธารณะ
+        description: เซิร์ฟเวอร์ใดก็เข้าร่วมได้ ระบบจะแสดงใน /hub browse เองเมื่อคุณทำรายการตั้งค่าสั้น ๆ เสร็จ
+      unlisted:
+        label: ไม่แสดงในรายการ
+        description: ไม่แสดงในรายการ เซิร์ฟเวอร์ใดก็ตามที่มีลิงก์เชิญของคุณเข้าร่วมได้
+      private:
+        label: ส่วนตัว
+        description: ไม่แสดงในรายการ เซิร์ฟเวอร์ต้องมีลิงก์เชิญที่คุณสร้าง
+      summary: "{language} · {rating} · ตัวกรอง{preset} · {rules} · อุทธรณ์ได้ทุก {cooldown}"
+      rules: "{count} กฎ"
+      rulesOne: 1 กฎ
+      create: "สร้าง {name}"
+      creating: กำลังสร้าง…
+    rating:
+      sfw: เหมาะกับทุกวัย
+      nsfw: 18+
     errors:
-      cantUseWizard: คุณไม่สามารถใช้วิซาร์ดนี้ได้
-      nameAlreadyExists: This name in already in use! Pick a new one.
-      invalidInput: คุณระบุข้อมูลไม่ถูกต้อง
-      uniqueConstraint: Uh oh! That hub name has already been taken.
-      processingError: Something went wrong while creating your hub.
-      hubLimitUpgrade: Upgrade to Core, Plus or Pro to create up to 3 hubs.
-      hubLimitReached: You have reached the maximum number of hubs allowed for your current plan.
+      tagline: สโลแกนยาว 5 ถึง 100 ตัวอักษร
+      nameTakenMeanwhile: "Hub อื่นเพิ่งใช้ชื่อ **{name}** ไป เลือกชื่อใหม่ ตัวเลือกอื่นทั้งหมดของคุณยังอยู่"
+      failed: "ยังไม่ได้สร้าง Hub InterChat ติดต่อเซิร์ฟเวอร์ของตัวเองไม่ได้ ตัวเลือกของคุณยังอยู่ กดสร้างเพื่อลองอีกครั้ง"
+
+  home:
+    ready: "{name} พร้อมแล้ว"
+    meta: "{language} · {rating} · {servers}"
+    servers: "{count} เซิร์ฟเวอร์"
+    serversOne: 1 เซิร์ฟเวอร์
+    status:
+      listed: แสดงใน /hub browse แล้ว
+      pending: รอการแสดงในรายการ
+      unlisted: ไม่แสดงในรายการ
+      private: ส่วนตัว
+    nextSteps: ขั้นตอนถัดไป
+    footer: "มีแต่คุณที่เห็นสิ่งนี้ กลับมาได้ทุกเมื่อด้วย {command}"
+    back: ย้อนกลับ
+    flash:
+      linked: "**ลิงก์ {channel} แล้ว** ไปทักทายที่นั่น แล้วเชิญเซิร์ฟเวอร์อื่น"
+      listed: "**{name} แสดงในรายการแล้ว** เซิร์ฟเวอร์หาเจอได้ใน /hub browse และ /setup"
+      saved: บันทึกแล้ว
+    steps:
+      link:
+        title: ลิงก์ช่อง
+        description: Hub ไม่มีช่องของตัวเอง ลิงก์ช่องหนึ่งที่นี่เพื่อให้คุณแชทใน Hub ได้
+        doneOne: "ลิงก์ {channel} แล้ว"
+        done: "ลิงก์ช่องที่นี่แล้ว {count} ช่อง"
+        doneElsewhere: ลิงก์ไว้ในเซิร์ฟเวอร์อื่นแล้ว
+        button: ลิงก์ช่อง
+        again: ลิงก์อีกช่อง
+      discover:
+        title: ทำให้ค้นเจอได้
+        titlePrivate: ตั้งค่าให้เสร็จ
+        progress: "เสร็จแล้ว {done} จาก 4 ทำที่เหลือให้เสร็จ แล้วระบบจะแสดงใน /hub browse เอง"
+        progressPrivate: "เสร็จแล้ว {done} จาก 4 ไอคอน คำอธิบาย กฎ และลิงก์เชิญ"
+        done: เสร็จแล้ว ระบบแสดงใน /hub browse เอง
+        donePrivate: เสร็จแล้ว
+        button: ดำเนินการต่อ
+        again: ตรวจสอบ
+      invite:
+        title: เชิญเซิร์ฟเวอร์อื่น
+        description: รับข้อความสำเร็จรูปสำหรับเจ้าของเซิร์ฟเวอร์อื่น
+        doneOne: มีเซิร์ฟเวอร์อื่นเข้าร่วมแล้ว 1 แห่ง
+        done: "มีเซิร์ฟเวอร์อื่นเข้าร่วมแล้ว {count} แห่ง"
+        button: รับข้อความเชิญ
+        again: เชิญเพิ่ม
+    link:
+      title: ลิงก์ช่อง
+      explainer: ทุกเซิร์ฟเวอร์ใน Hub ลิงก์หนึ่งช่อง ข้อความที่ส่งในช่องที่ลิงก์ช่องใดก็ตามจะแสดงในช่องอื่นทั้งหมด พร้อมชื่อผู้ส่งและเซิร์ฟเวอร์
+      placeholder: เลือกช่อง
+      footnote: "เจ้าของเซิร์ฟเวอร์อื่นทำแบบเดียวกันในเซิร์ฟเวอร์ของตัวเองด้วย {command}"
+    discover:
+      lead: ทำสี่ข้อนี้ให้เสร็จ แล้ว Hub ของคุณจะแสดงในรายการเอง ไม่ต้องมีใครอนุมัติ
+      leadListed: เสร็จหมดแล้ว Hub ของคุณอยู่ใน /hub browse
+      leadExempt: Hub ของคุณอยู่ใน /hub browse อยู่แล้ว สิ่งเหล่านี้ช่วยให้เซิร์ฟเวอร์ไว้วางใจ
+      leadPrivate: "Hub ของคุณเป็น{visibility} สิ่งเหล่านี้จึงไม่กระทบการแสดงในรายการ แต่ช่วยให้เซิร์ฟเวอร์ไว้วางใจ"
+      optional: ไม่บังคับ
+      region: ภูมิภาค
+      logs: ช่องบันทึก
+      managers: ผู้จัดการร่วม
+      art:
+        title: ไอคอนและแบนเนอร์
+        description: หน้าตาของ Hub ในไดเรกทอรีและในข้อความต้อนรับ
+        button: เพิ่ม
+        redo: เปลี่ยน
+      text:
+        title: คำอธิบายและข้อความต้อนรับ
+        description: ข้อความต้อนรับจะทักทายทุกเซิร์ฟเวอร์ที่ลิงก์ช่อง
+        button: เขียน
+        redo: แก้ไข
+      rules:
+        title: กฎ
+        description: เซิร์ฟเวอร์ยอมรับสิ่งเหล่านี้ก่อนลิงก์
+        countOne: 1 กฎ
+        count: "{count} กฎ"
+        button: เพิ่มกฎ
+        redo: แก้ไข
+      invite:
+        title: ลิงก์เชิญ
+        description: ให้เจ้าของเซิร์ฟเวอร์เข้าร่วมด้วยลิงก์เดียว
+        button: สร้างลิงก์
+        redo: จัดการ
+    artModal:
+      title: ไอคอนและแบนเนอร์
+      icon: ลิงก์รูปไอคอน
+      iconHint: รูปสี่เหลี่ยมจัตุรัส อย่างน้อย 256 × 256 ใช้ลิงก์ถาวร ลิงก์ไฟล์แนบของ Discord จะหมดอายุ
+      banner: ลิงก์รูปแบนเนอร์
+      bannerHint: รูปแนวกว้าง ประมาณ 1600 × 400
+      invalid: ลิงก์รูปภาพต้องขึ้นต้นด้วย https://
+    textModal:
+      title: คำอธิบายและการต้อนรับ
+      description: คำอธิบาย
+      descriptionHint: Hub ของคุณเกี่ยวกับอะไร แสดงในหน้าไดเรกทอรีของ Hub
+      descriptionPlaceholder: แชทดึก ๆ ข้ามเซิร์ฟเวอร์ ทั้งเพลง เกม และเรื่องที่อยู่ในใจ
+      welcome: ข้อความต้อนรับ
+      welcomeHint: "โพสต์เมื่อเซิร์ฟเวอร์ลิงก์ช่อง {{serverName}} และ {{hubName}} จะถูกเติมให้อัตโนมัติ"
+      welcomePlaceholder: "ยินดีต้อนรับสู่ {{hubName}}, {{serverName}}! ทักทายกันหน่อย"
+      sameAsTagline: คำอธิบายต้องบอกอะไรได้มากกว่าสโลแกน
+    invite:
+      title: เชิญเซิร์ฟเวอร์อื่น
+      needsLink: "{name} เป็น{visibility} เซิร์ฟเวอร์อื่นจึงต้องมีลิงก์เชิญเพื่อเข้าร่วม"
+      createLink: สร้างลิงก์เชิญ
+      lead: ส่งข้อความนี้ให้เจ้าของเซิร์ฟเวอร์ที่คุณอยากให้มาอยู่ใน Hub ของคุณ
+      message: |-
+        มาแชทกับเราที่ {name} Hub ของ InterChat {tagline}
+        เข้าร่วมที่นี่: {link}
+      messageByCode: |-
+        มาแชทกับเราที่ {name} Hub ของ InterChat {tagline}
+        1. เพิ่ม InterChat ลงในเซิร์ฟเวอร์ของคุณ: {botInvite}
+        2. ในช่องที่ต้องการแชร์ ให้รัน /hub join invite:{code}
+      messageByName: |-
+        มาแชทกับเราที่ {name} Hub ของ InterChat {tagline}
+        1. เพิ่ม InterChat ลงในเซิร์ฟเวอร์ของคุณ: {botInvite}
+        2. ในช่องที่ต้องการแชร์ ให้รัน /hub join hub:{name}
+      hint: เปลี่ยนวันหมดอายุและจำนวนครั้งที่ใช้ของลิงก์ได้ใน /hub manage
+      hintByName: Hub ของคุณเป็นสาธารณะ แค่ชื่อก็พอ สร้างลิงก์เชิญในเช็กลิสต์หากต้องการแชร์เป็นลิงก์เดียวแทน
+    errors:
+      generic: ไม่สำเร็จ ลองอีกครั้งในอีกสักครู่
   delete:
-    description: Hub ของคุณถูกลบแล้ว
+    description: ลบ Hub ของคุณแล้ว
+  moved:
+    title: คำสั่งนี้ย้ายแล้ว
+    description: "ตอนนี้ `{old}` อยู่ใน `{new}` ({section})"
+    button: รันเลย
+  manage:
+    sections:
+      delete: ลบ Hub
+      invites: คำเชิญ
+  mod:
+    sections:
+      ban: แบน
+      mute: ปิดเสียง
+      warn: เตือน
+      pardon: อภัยโทษ
+  picker:
+    title: ไม่พบ Hub
+    unresolved: 'ฉันหา Hub ชื่อ **{hub}** ที่คุณเข้าถึงได้ไม่เจอ'
+    choose: "นี่คือ Hub จำนวน {count} แห่งที่คุณใช้แทนได้:"
+    placeholder: เลือก Hub
+    empty: "คุณยังไม่ได้จัดการ Hub ใดเลย ใช้ `/hub create` เพื่อสร้างหนึ่งอัน หรือ `/hub browse` เพื่อหา Hub สาธารณะ"
   connect:
     success:
       title: เชื่อมต่อแล้ว!
-      description: เชื่อมต่อกับ **{hubName}** แล้ว - เริ่มคุยได้เลย!
+      description: เชื่อมต่อกับ **{hubName}** แล้ว - มาแชทกันเลย!
       fieldValue: "ช่องที่เชื่อมต่อ: {channel}"
     errors:
       alreadyConnected:
         title: เชื่อมต่อกับ Hub นี้อยู่แล้ว
-        description: It looks like this server is already connected to this hub.
+        description: ดูเหมือนว่าเซิร์ฟเวอร์นี้เชื่อมต่อกับ Hub นี้อยู่แล้วที่ {channel}
       missingInput:
-        title: Missing Information
-        description: "Provide a hub name or an invite code.\n\nTry: `/hub connect hub:MyHub` or `/hub connect invite:abc123`"
+        title: ข้อมูลไม่ครบ
+        description: "ระบุชื่อ Hub หรือรหัสคำเชิญ\n\nลอง: `/hub connect hub:MyHub` หรือ `/hub connect invite:abc123` อยากเริ่มของตัวเองไหม? ใช้ `/hub create`"
       hubNotFound:
-        title: Hub Not Found
-        description: "I couldn't find that hub. Check the name, or use `/hub directory` to browse public hubs."
+        title: ไม่พบ Hub
+        description: "ฉันหา Hub นั้นไม่เจอ ตรวจสอบชื่อ หรือใช้ `/hub browse` เพื่อเรียกดู Hub สาธารณะ"
       invalidInvite:
-        title: Invalid Invite
-        description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
+        title: คำเชิญไม่ถูกต้อง
+        description: "รหัสคำเชิญนั้นไม่ถูกต้องหรือหมดอายุแล้ว ขอคำเชิญใหม่จากเจ้าของ Hub แล้วลองอีกครั้ง"
       channelNotSupported:
-        title: Unsupported Channel
-        description: "Choose a text channel, thread, or forum channel."
+        title: ช่องที่ไม่รองรับ
+        description: "เลือกช่องข้อความหรือเธรด"
       webhookPerms:
-        title: Missing Permissions
-        description: "I couldn't create webhooks in that channel. I need **Manage Webhooks** and **Send Messages** there."
+        title: ขาดสิทธิ์
+        description: "ฉันสร้างเว็บฮุคในช่องนั้นไม่ได้ ฉันต้องมีสิทธิ์ **จัดการเว็บฮุค** และ **ส่งข้อความ** ที่นั่น"
       locked:
-        title: ล็อค Hub แล้ว
-        description: This hub is currently locked and cannot be joined.
+        title: ล็อก Hub แล้ว
+        description: ขณะนี้ Hub นี้ถูกล็อก จึงเข้าร่วมไม่ได้
+      missingPermissions:
+        title: ขาดสิทธิ์
+        description: "คุณต้องมีสิทธิ์ **จัดการเซิร์ฟเวอร์** และ **จัดการช่อง** ในเซิร์ฟเวอร์นี้จึงจะเชื่อมต่อช่องกับ Hub ได้"
+      channelAccessDenied:
+        title: ขาดสิทธิ์
+        description: "คุณต้องมีสิทธิ์ **ดูช่อง** และ **จัดการช่อง** ใน {channel} จึงจะเชื่อมต่อกับ Hub ได้"
   announcements:
-    title: ประกาศ Hub
-    description: "Create a **one time** announcement that sends in all connected channels."
+    title: ประกาศของ Hub
+    description: "สร้างประกาศ **ครั้งเดียว** ที่ส่งไปทุกช่องที่เชื่อมต่อ"
   config:
-    title: การตั้งค่า Hub
-    description: Customize your InterChat hub for your community.
+    title: การกำหนดค่า Hub
+    description: ปรับแต่ง Hub InterChat ของคุณให้เข้ากับชุมชนของคุณ
+    more:
+      title: "### อื่น ๆ ทั้งหมด"
+      placeholder: "เปิดอันใดอันหนึ่งจากที่เหลืออีก {count}…"
+    footer: "-# แถวแบบสดอ่านสถานะที่ `/hub manage` ดึงมาไว้แล้ว `manage` · `configure` · `edit`"
+    state:
+      enabled: "เปิด"
+      set: "ตั้งค่าแล้ว"
+      missing: "ไม่มี"
+      modules:
+        empty: "ไม่ได้เปิดอะไรเลย · สมาชิกได้รับเฉพาะข้อความธรรมดา"
+      rules:
+        set: "เผยแพร่ {count} กฎ · ทุกคนมองเห็น"
+        empty: "ยังไม่มีกฎ · ผู้เยี่ยมชมจะไม่เห็นกฎเมื่อเข้าร่วม"
+      identity:
+        icon: ตั้งไอคอนแล้ว
+        noIcon: ไม่มีไอคอน
+      visibility:
+        public: สาธารณะ
     catalog:
-      editInfo: Edit Info
-      appearance: Appearance
-      settings: Settings
-      invites: Invites
-      moderators: Moderators
-      deleteHub: Delete Hub
+      editInfo: แก้ไขข้อมูล
+      appearance: ลักษณะที่ปรากฏ
+      settings: การตั้งค่า
+      invites: คำเชิญ
+      moderators: ผู้ดูแล
+      deleteHub: ลบ Hub
     options:
       general:
         label: การตั้งค่าทั่วไป
-        description: ปรับแต่งรูปลักษณ์ของ Hub, กฎ, และอื่นๆ
+        description: ปรับแต่งลักษณะที่ปรากฏ กฎ และอื่น ๆ ของ Hub ของคุณ
       rules:
         label: กฎของ Hub
-        description: จัดการกฎและแนวทางปฏิบัติของชุมชนใน Hub ของคุณ
-      team:
-        label: การจัดการทีม
-        description: จัดการทีมของ Hub และสิทธิ์ของเจ้าหน้าที่
+        description: จัดการกฎและแนวทางของชุมชนใน Hub ของคุณ
+      staff:
+        label: ทีมงาน
+        description: จัดการทีมงานและบทบาทของ Hub ของคุณ
       modules:
         label: โมดูล
-        description: เปิดหรือปิดโมดูลเพิ่มเติมภายใน Hub ของคุณ
+        description: เปิดหรือปิดโมดูลเพิ่มเติมใน Hub ของคุณ
       logging:
-        label: การตั้งค่า Logging
-        description: ตั้งค่าช่องสำหรับบันทึกและบทบาทการแจ้งเตือนสำหรับ Hub ของคุณ
+        label: การกำหนดค่าบันทึก
+        description: กำหนดค่าช่องบันทึกและบทบาทแจ้งเตือนสำหรับ Hub ของคุณ
       automod:
         label: AutoMod
-        description: Manage anti-swear rules, patterns, and safe list
+        description: จัดการกฎป้องกันคำหยาบ รูปแบบ และรายการปลอดภัย
       badges:
-        label: Custom Badges
-        description: Configure custom badge visibility
+        label: แบดจ์กำหนดเอง
+        description: กำหนดค่าการมองเห็นแบดจ์กำหนดเอง
       transfer:
         label: โอนความเป็นเจ้าของ
-        description: โอนความเป็นเจ้าของ Hub ของคุณให้ผู้อื่น
+        description: โอนความเป็นเจ้าของ Hub ของคุณให้คนอื่น
+      delete:
+        label: ลบ Hub
+        description: ลบ Hub นี้ถาวรและยกเลิกการเชื่อมต่อเซิร์ฟเวอร์ทั้งหมด
       announcements:
-        label: ประกาศตามกำหนดเวลา
-        description: ตั้งค่าประกาศอัตโนมัติตามกำหนดเวลาสำหรับ Hub ของคุณ
+        label: ประกาศที่ตั้งเวลาไว้
+        description: กำหนดค่าประกาศตั้งเวลาอัตโนมัติสำหรับ Hub ของคุณ
+      servers:
+        label: เซิร์ฟเวอร์ที่เชื่อมต่อ
+        description: ดูและจัดการสะพานเซิร์ฟเวอร์ Discord ที่ใช้งานอยู่
     announce:
       errors:
-        invalidDuration: Invalid duration format.
+        invalidDuration: รูปแบบระยะเวลาไม่ถูกต้อง
       success:
-        queued: Your broadcast has been queued.
+        queued: ใส่การประกาศของคุณเข้าคิวแล้ว
   all:
-    title: InterChat Hubs
-    description: Search through a list of all our hubs!
-    filteredBy: "ผลลัพธ์กรองโดย: {filter}"
+    title: Hub ของ InterChat
+    description: ค้นหาจากรายชื่อ Hub ทั้งหมดของเรา!
+    createHint: "อยากมีช่องแชร์ของตัวเองไหม? ใช้ `/hub create`"
+    filteredBy: "ผลลัพธ์ที่กรองด้วย: {filter}"
     errors:
-      notFound: Uh oh! I was unable to find any hubs.
-      invalidFilter: เงียบกริบ... ไม่มี Hub ไหนตรงกับตัวกรองของคุณ
+      notFound: "โอ๊ะโอ! ฉันหา Hub ไม่เจอเลย คุณสร้างของตัวเองได้ด้วย `/hub create`"
+      invalidFilter: "เงียบกริบ... ไม่มี Hub ที่ตรงกับตัวกรองของคุณ อยากมีของตัวเองไหม? ใช้ `/hub create`"
     modal:
       title: ตัวกรองการค้นหา
       searchFilter:
         label: ตัวกรอง
         placeholder: InterChat Central
+
 connection:
   title: การจัดการการเชื่อมต่อ
-  description: กำหนดค่าและบริหารจัดการการเชื่อมต่อ Hub ทั้งหมดภายในเซิร์ฟเวอร์นี้
-  removeConnection: Remove Connection
-  broadcastState: Toggle Broadcast ({state})
+  description: กำหนดค่าและดูแลการเชื่อมต่อ Hub ทั้งหมดในเซิร์ฟเวอร์นี้
+  removeConnection: ลบการเชื่อมต่อ
+  broadcastState: สลับการประกาศ ({state})
   states:
-    start: Start
-    pause: Pause
-    active: Active
-    paused: Paused
+    start: *btn_start
+    pause: หยุดชั่วคราว
+    active: คึกคัก
+    paused: หยุดชั่วคราวแล้ว
   select:
-    placeholder: Select a connection to manage...
+    placeholder: เลือกการเชื่อมต่อที่จะจัดการ...
   fields:
-    state: State
+    state: สถานะ
   messages:
-    disconnected: Successfully disconnected from this hub.
+    disconnected: ยกเลิกการเชื่อมต่อกับ Hub นี้สำเร็จ
   errors:
-    notFound: Connection not found.
-    serverOnly: This command can only be used in a server.
+    notFound: ไม่พบการเชื่อมต่อ
+    serverOnly: คำสั่งนี้ใช้ได้เฉพาะในเซิร์ฟเวอร์
     limitReached:
-      title: Connection limit reached
-      upgrade: Upgrade to Plus or Pro to unlock more connections per server.
-      disconnect: Disconnect an existing connection before adding a new one.
+      title: ถึงขีดจำกัดการเชื่อมต่อแล้ว
+      upgrade: อัปเกรดเป็น Plus หรือ Pro เพื่อปลดล็อกการเชื่อมต่อต่อเซิร์ฟเวอร์เพิ่มเติม
+      disconnect: ยกเลิกการเชื่อมต่อที่มีอยู่ก่อนเพิ่มอันใหม่
   fixAll:
-    label: ซ่อมแซมการเชื่อมต่อทั้งหมด
+    label: แก้ไขทุกการเชื่อมต่อ
   manage:
-    placeholder: เลือกการเชื่อมต่อเพื่อจัดการ
+    placeholder: เลือกการเชื่อมต่อที่จะจัดการ
   selected:
-    description: You may now edit this connection.
+    description: ตอนนี้คุณแก้ไขการเชื่อมต่อนี้ได้แล้ว
     state:
-      enabled: การกระจายข้อความ **เปิดใช้งาน** อยู่
-      disabled: การกระจายข้อความ **หยุดชั่วคราว** อยู่
+      enabled: ตอนนี้การประกาศ **ทำงาน** แล้ว
+      disabled: ตอนนี้การประกาศ **หยุดชั่วคราว**
   fix:
     title: การตรวจสอบการเชื่อมต่อ
-    description: All connections within this guild have been validated.
+    description: ตรวจสอบการเชื่อมต่อทั้งหมดในกิลด์นี้แล้ว
     responses:
       success:
-        fixed: ซ่อมแซมการเชื่อมต่อแล้ว!
+        fixed: แก้ไขการเชื่อมต่อแล้ว!
         valid: ไม่พบปัญหา
       errors:
-        channelDeleted: The channel associated with this hub has been deleted.
-        permissionsWebhook: I am unable to use webhooks.
-        permissionsSend: I am unable to send messages.
-        permissionsGeneral: I'm missing permissions in that channel. Ensure I have `Manage Webhooks`, `View Channel` and `Send Message` permissions.
+        channelDeleted: ช่องที่เกี่ยวข้องกับ Hub นี้ถูกลบแล้ว
+        permissionsWebhook: ฉันใช้เว็บฮุคไม่ได้
+        permissionsSend: บอตขาดสิทธิ์! ฉันส่งข้อความในช่องนั้นไม่ได้
+        permissionsGeneral: ฉันขาดสิทธิ์ในช่องนั้น ตรวจสอบให้แน่ใจว่าฉันมีสิทธิ์ `จัดการเว็บฮุค`, `ดูช่อง` และ `ส่งข้อความ`
+
 messageInfo:
   tabs:
     message:
@@ -1196,289 +1928,713 @@ messageInfo:
     content: เนื้อหา
     timestamp: เวลา
     username: ชื่อผู้ใช้
-    accountCreated: บัญชีสร้างเมื่อ
-    badges: ตราสัญลักษณ์
+    accountCreated: สร้างบัญชีเมื่อ
+    badges: แบดจ์
     serverName: ชื่อเซิร์ฟเวอร์
-    connectionChannel: ช่องเชื่อมต่อ
-    connectedSince: เชื่อมต่อตั้งแต่
+    connectionChannel: ช่องที่เชื่อมต่อ
+    connectedSince: เชื่อมต่อมาตั้งแต่
   status:
-    connected: เชื่อมต่อ
-    disconnected: ตัดการเชื่อมต่อ
+    connected: เชื่อมต่อแล้ว
+    disconnected: ยกเลิกการเชื่อมต่อแล้ว
   buttons:
     profile: โปรไฟล์
   unknown:
     server: เซิร์ฟเวอร์ที่ไม่รู้จัก
-  noBadges: ไม่มีตราสัญลักษณ์ที่จะแสดง
+  noBadges: ไม่มีแบดจ์ให้แสดง
   noConnection: ไม่มีข้อมูลการเชื่อมต่อ
+
 leaderboard:
-  title: Leaderboard
-  noActivity: No Activity
-  noActivityDescription: No activity recorded for this period.
-  messages: messages
-  calls: calls
-  votes: votes
-  streak: day streak
-  selectPeriod: Select time period
-  selectType: Select leaderboard type
-  yourRank: Your Rank
-  periods:
-    thisMonth: This Month
-    thisMonth.description: Current month statistics
-    lastMonth: Last Month
-    lastMonth.description: Previous month statistics
-    allTime: All Time
-    allTime.description: All-time statistics
-  buttons:
-    users: Users
-    servers: Servers
-    calls: Calls
+  title: กระดานผู้นำ
+  noActivity: ยังไม่มีกิจกรรม
+  noActivityDescription: ไม่มีการบันทึกอะไรในช่วงนี้ เป็นคนแรกเลย!
+  users: ผู้ใช้
+  servers: เซิร์ฟเวอร์
+  streaks: สตรีค
+  messages: ข้อความ
+  unit:
+    calls: การโทร
     votes: โหวต
-    streaks: Streaks
+    streak: วันสตรีค
+  calls: การโทร
+  votes: โหวต
+  selectPeriod: เลือกช่วงเวลา
+  selectType: แสดง…
+  periods:
+    thisMonth: เดือนนี้
+    thisMonth.description: สถิติของเดือนปัจจุบัน
+    lastMonth: เดือนที่แล้ว
+    lastMonth.description: สถิติของเดือนก่อนหน้า
+    allTime: ตลอดกาล
+    allTime.description: สถิติตลอดกาล
+  buttons:
+    users: ผู้ใช้
+    servers: เซิร์ฟเวอร์
   errors:
-    alreadyShowingUsers: Already showing users leaderboard.
-    alreadyShowingServers: Already showing servers leaderboard.
-    alreadyShowingPeriod: Already showing this time period.
-    alreadyShowingType: Already showing this leaderboard type.
+    alreadyShowingUsers: กำลังแสดงกระดานผู้นำของผู้ใช้อยู่แล้ว
+    alreadyShowingServers: กำลังแสดงกระดานผู้นำของเซิร์ฟเวอร์อยู่แล้ว
+    alreadyShowingPeriod: กำลังแสดงช่วงเวลานี้อยู่แล้ว
+    alreadyShowingType: กำลังแสดงกระดานผู้นำนั้นอยู่แล้ว
+    unavailable: กระดานผู้นำใช้งานไม่ได้ในตอนนี้ โปรดลองอีกครั้งในอีกสักครู่
+
 profile:
   achievements:
     placeholder: ความสำเร็จอยู่ที่นี่
+
+passportCard:
+  suspended: พาสปอร์ตถูกระงับ
+  active: ใช้งานวันนี้
+  inactive: ไม่ได้ใช้งานวันนี้
+  traveler: นักเดินทาง {traveler}
+  remembered: มี {count} คนจดจำ
+  milesTravelled: "เดินทางไปแล้ว {miles} ไมล์"
+  breakdown: "{stamps} แสตมป์ · {gold} ทอง · {silver} เงิน · {bronze} ทองแดง"
+  recent: "ล่าสุด {shown} จาก {total}"
+  noneTitle: ยังไม่ได้สะสมแสตมป์
+  noneBody: โทรข้ามเซิร์ฟเวอร์ให้เสร็จเพื่อให้ได้รับการจดจำ
+  nextAt: ตำแหน่งถัดไปที่ {count} แสตมป์
+  ladder: บันไดแคมเปญ
+  tiers: การกระจายระดับ
+  total: "รวม {count}"
+  moreTo: "อีก {count} ถึง {title}"
+  topReached: ถึงตำแหน่งสูงสุดแล้ว
+  calls: "{count} สาย"
+  lastCall: "สายล่าสุด {when}"
+  tier:
+    gold: ทอง
+    silver: เงิน
+    bronze: ทองแดง
+  field:
+    stamps: แสตมป์
+    miles: ไมล์
+    calls: การโทร
+    gold: ทอง
+    silver: เงิน
+    bronze: ทองแดง
+
 my:
   hubs:
     title: Hub ของคุณ
-    description: "นี่คือ Hub ที่คุณเป็นเจ้าของหรือดูแลอยู่:"
+    description: "นี่คือ Hub ที่คุณเป็นเจ้าของหรือดูแล:"
+    serverOne: เซิร์ฟเวอร์
+    servers: เซิร์ฟเวอร์
+    messagesOne: ข้อความ
+    messages: ข้อความ
+    visibility:
+      public: สาธารณะ
+      private: ส่วนตัว
+      unlisted: ไม่แสดงในรายการ
+    locked: ถูกล็อก
+    nsfw: NSFW
+    unavailable: Hub นี้ไม่พร้อมใช้งานอีกต่อไป
+    filters:
+      all: ทั้งหมด
+      owned: ของคุณเอง
+      staff: ทีมงาน
+    picker:
+      placeholder: เลือก Hub ที่จะจัดการ...
+    empty:
+      title: ยังไม่มี Hub
+      description: "คุณไม่ได้เป็นเจ้าของหรือดูแล Hub ใดเลย ใช้ `/hub create` เพื่อสร้างหนึ่งอัน หรือ `/hub browse` เพื่อหาชุมชนที่จะช่วยดูแล"
+    filtered:
+      title: ไม่มี Hub {filter}
+      description: "ไม่มี Hub ของคุณที่ตรงกับตัวกรองนี้ ลอง **ทั้งหมด** เพื่อดูทุกอย่างที่คุณเป็นเจ้าของและดูแล"
+    loading: กำลังโหลด Hub ของคุณ...
+  activity:
+    day: "{count} วัน"
+    days: "{count} วัน"
+    unranked: ยังไม่มีอันดับ
+    closed: ปิดแดชบอร์ดกิจกรรมแล้ว
+    utcFooter: สตรีครายวันใช้เวลา UTC
+    tabs:
+      overview: ภาพรวม
+      hubs: Hub
+      calls: การโทร
+    timeline:
+      day: "วันที่ {count}"
+      today: วันนี้
+    overview:
+      title: รักษาการเชื่อมต่อให้ต่อเนื่อง
+      securedTitle: การเชื่อมต่อของวันนี้ครบแล้ว
+      startTitle: เริ่มการเชื่อมต่อใหม่
+      securedSummary: "สตรีคของคุณคือ {streak} กลับมาพรุ่งนี้เพื่อให้ต่อเนื่อง"
+      activeSummary: "สตรีคของคุณคือ {streak} ใช้งานอีกหนึ่งวันก็รักษาไว้ได้"
+      freezeSummary: "สตรีค {streak} ของคุณยังกู้คืนได้ ทำให้ครบเงื่อนไขวันนี้เพื่อใช้ฟรีซหนึ่งครั้ง"
+      inactiveSummary: "สตรีคก่อนหน้าของคุณคือ {streak} ทำให้ครบเงื่อนไขวันนี้เพื่อเริ่มใหม่"
+      newSummary: การใช้งานหนึ่งวันจะเริ่มสตรีค InterChat แรกของคุณ
+      stats: "❄️ ฟรีซ {freezes} ครั้ง · สตรีคที่ดีที่สุด: {best}\n:trophy_icon: อันดับสตรีค: {rank}"
+    path:
+      title: เส้นทางของวันนี้
+      hubs: "ส่งข้อความใน Hub  **{current}/{threshold}**"
+      call: โทรให้ครบ 60+ วินาที
+      unavailable: ความคืบหน้าข้อความ Hub ไม่พร้อมใช้งานชั่วคราว
+      secured: สตรีคของวันนี้ปลอดภัยแล้ว
+      tomorrow: ช่วงสตรีคถัดไปของคุณเริ่มพรุ่งนี้
+      freeze: การทำให้ครบเงื่อนไขวันนี้จะใช้ฟรีซหนึ่งครั้งและรักษาสตรีคของคุณไว้
+      nextMessages: "สิ่งที่ต้องทำต่อ: ส่งข้อความ Hub อีก {count} ข้อความ"
+      nextStart: "ส่งข้อความ Hub 5 ข้อความ หรือโทรให้ครบ 60+ วินาที"
+      nextUnavailable: การโทร 60+ วินาทียังนับสำหรับวันนี้
+    hubs:
+      title: พาสปอร์ต Hub ของคุณ
+      messages: "{count} ข้อความ"
+      places: สถานที่ที่คำพูดของคุณเคยไปถึง
+      homeBase: ฐานของคุณ
+      homeStats: "{count} ข้อความ · {share}% ของเดือนนี้"
+      otherPlaces: สถานที่อื่น ๆ
+      empty: ส่งข้อความ Hub ที่ได้รับการยอมรับ แล้วสถานที่ที่คุณไปจะแสดงที่นี่
+      summary: "{count} Hub ที่ใช้งานในเดือนนี้\n:trophy_icon: อันดับข้อความทั่วโลก: {rank}"
+      delay: ตัวเลขอาจล่าช้าประมาณ 30 วินาที
+    calls:
+      title: รักษาการสนทนาให้ต่อเนื่อง
+      completed: การโทรที่เสร็จสิ้น
+      status: สถานะการเชื่อมต่อ
+      qualifies: การโทรที่ผ่านเงื่อนไขหนึ่งครั้งช่วยรักษาสตรีคของวันนี้
+      currentStreak: สตรีคปัจจุบัน
+      previousStreak: สตรีคก่อนหน้า
+      stats: ":trophy_icon: อันดับการโทร: {rank}\n:fire_icon: {streakLabel}: {streak}\n❄️ ฟรีซที่ใช้ได้: {freezes}"
+      shared: การโทรและข้อความ Hub ใช้สตรีคเดียวกัน
+
 stats:
-  title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
-  footer: InterChat | Version {version}
+  title: InterChat
+  description: ตัวเลขสดจากทั้งเครือข่าย
+  network: ตอนนี้
+  networkValue: "> **เซิร์ฟเวอร์** {servers}\n> **สมาชิก** {members}\n> **Hub** {hubs}"
+  bot: บอตนี้
+  botValue: "> **Ping** {ping}ms · **Uptime** <t:{uptime}:R> · **v{version}**"
+  footer: InterChat • v{version}
   shard:
-    title: ข้อมูล Shard
-    statusReady: พร้อมใช้งาน
-    statusProvisioning: Provisioning
-    current: "Current Shard: {id}"
+    title: ข้อมูลชาร์ด
+    row: "> **ชาร์ด #{id}**: {status}\n> **Ping** {ping}ms · **เซิร์ฟเวอร์** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **แกน CPU** {cores}\n> **RAM** {ram}MB"
+    statusReady: พร้อม
+    statusProvisioning: กำลังจัดเตรียม
+    current: "คุณอยู่บนชาร์ด #{id}"
+
 invite:
-  title: เฮ้!
-  description: Thanks for choosing InterChat. Need help? Join our support server.
+  title: เพิ่ม InterChat ลงในเซิร์ฟเวอร์ของคุณ
+  description: ฟรี และใช้เวลาประมาณหนึ่งนาที
+  steps: |-
+    > **1.** กด **เพิ่มลงในเซิร์ฟเวอร์** ด้านล่าง
+    > **2.** เลือกเซิร์ฟเวอร์ของคุณ
+    > **3.** รัน `/setup` ในช่องที่ต้องการใช้
+  footer: คุณต้องมีสิทธิ์ **จัดการเซิร์ฟเวอร์** ในเซิร์ฟเวอร์ที่คุณเลือก
+
+rules:
+  title: กฎของ InterChat
+  body: กฎเหล่านี้ใช้ทุกที่ที่คุณใช้ InterChat ทั้งใน Hub และการโทร
+  tabs:
+    short: กฎ
+    full: แนวทางฉบับเต็ม
+    moderation: การดูแลเนื้อหา
+  short: |-
+    > **1.** ปฏิบัติต่อผู้อื่นด้วยความเคารพ ถ้าใครบอกให้หยุด ก็หยุด
+    > **2.** อย่าโจมตีผู้อื่นเพราะตัวตนของเขา ห้ามใช้คำดูถูก
+    > **3.** ห้ามข่มขู่ และอย่าแชร์ข้อมูลส่วนตัว
+    > **4.** ห้ามเนื้อหาทางเพศ และห้ามเกี่ยวข้องกับผู้เยาว์เด็ดขาด
+    > **5.** ห้ามสแปม และอย่าทำลายบทสนทนา
+    > **6.** อย่าหลบเลี่ยงการแบนหรือส่งรายงานปลอม
+    > **7.** ชื่อก็ต้องปฏิบัติตามกฎเหล่านี้ด้วย
+  rules:
+    title: กฎ
+    commonSense: |
+      ## ใช้สามัญสำนึก
+      กฎเหล่านี้ครอบคลุมทุกสถานการณ์ที่เป็นไปได้ไม่ได้
+
+      ถ้าเห็นชัดว่ามีการกระทำเพื่อทำร้าย ข่มขู่ คุกคาม ทำให้เป็นเรื่องทางเพศ หรือรบกวนผู้อื่นอย่างรุนแรง อย่าคิดว่าทำได้เพียงเพราะหาถ้อยคำที่ตรงกันในกฎเหล่านี้ไม่เจอ
+    body: |
+      ### 1. ปฏิบัติต่อผู้อื่นด้วยความเคารพ
+      **หยอกล้อได้ แต่คุกคามไม่ได้**
+      - การพูดเล่นและหยอกล้อไม่เป็นไร แต่อย่าทำให้กลายเป็นการดูถูกซ้ำ ๆ การคุกคาม หรือการจงใจทำให้ใครไม่พอใจ
+      - ถ้าใครขอให้คุณหยุด ให้ **หยุด**
+      - อย่ายั่วยุ เยาะเย้ย หรือโจมตีใครซ้ำ ๆ โดยเฉพาะหลังจากที่เขาขอให้คุณหยุดแล้ว
+      ### 2. อย่าโจมตีผู้อื่นเพราะตัวตนของเขา
+      **ไม่อนุญาตให้มีอคติรุนแรง**
+      - อย่าโจมตี ดูหมิ่น หรือเหยียดหยามใครเพราะเชื้อชาติ ชาติพันธุ์ สัญชาติ ศาสนา เพศ รสนิยมทางเพศ ความพิการ หรือลักษณะที่คล้ายกัน
+      - ไม่อนุญาตให้ใช้คำดูถูก แม้คุณจะอ้างว่าใช้ได้เพราะเกี่ยวกับตัวคุณเอง
+      ### 3. ดูแลความปลอดภัยของผู้อื่น
+      **ห้ามข่มขู่หรือพฤติกรรมอันตราย**
+      - อย่าขู่ว่าจะทำร้าย ฆ่า หรือล่วงละเมิดทางเพศใคร
+      - อย่าสนับสนุนให้ใครทำร้ายตัวเอง
+      - อย่าสนับสนุนหรือช่วยใครในการ dox, swat, โจมตี หรือทำร้ายผู้อื่นในรูปแบบอื่น
+
+      **อย่าแชร์ข้อมูลส่วนตัว**
+      - อย่าโพสต์หรือขู่ว่าจะโพสต์ที่อยู่ เบอร์โทร ชื่อจริง ตำแหน่งที่อยู่ ที่อยู่ IP หรือข้อมูลส่วนตัวอื่นของใคร
+      ### 4. ทำให้เนื้อหาทางเพศเหมาะสม
+      **อย่าทำให้ผู้เยาว์เป็นเรื่องทางเพศ**
+      - ไม่อนุญาตให้มีมุกตลก เรื่องเล่า ความคิดเห็น หรือบทสนทนาทางเพศที่เกี่ยวข้องกับผู้เยาว์
+      - การ grooming การพยายามขอเนื้อหาทางเพศจากผู้เยาว์ หรือพฤติกรรมทางเพศอื่นที่มุ่งต่อผู้เยาว์ จะถูกจัดการอย่างจริงจังเป็นพิเศษ
+
+      **อย่านำเนื้อหาทางเพศโจ่งแจ้งเข้ามาใน InterChat**
+      - ห้าม sexting เล่นบทบาทสมมติทางเพศ ข้อความทางเพศโจ่งแจ้ง หรือเนื้อหาที่คล้ายกัน
+      - การจีบทำได้เมื่อเขายินดี ถ้าใครไม่สนใจ ให้ **หยุด**
+      ### 5. อย่าทำลายบทสนทนา
+      **ห้ามสแปมหรือรบกวนโดยจงใจ**
+      - อย่าส่งข้อความรัวจนท่วมแชท ส่งข้อความยาวเป็นกำแพง สแปมข้อความหรืออีโมจิ หรือจงใจทำให้บทสนทนาใช้งานไม่ได้
+      ### 6. อย่าขัดขวางการดูแล
+      **อย่าหลบเลี่ยงการดูแล**
+      - อย่าใช้บัญชีอื่นหรือวิธีอื่นเพื่อเลี่ยงการแบนหรือข้อจำกัดที่มีผลอยู่
+
+      **อย่าใช้ระบบรายงานในทางที่ผิด**
+      - รายงานควรซื่อสัตย์และทำด้วยเจตนาดี
+      - อย่าส่งรายงานปลอมเพื่อให้ใครถูกลงโทษ
+      ### 7. ทำให้ตัวตนของคุณเหมาะสม
+      **ชื่อก็ต้องปฏิบัติตามกฎด้วย**
+      - ชื่อผู้ใช้ ชื่อเล่น ชื่อเซิร์ฟเวอร์ และชื่ออื่นที่แสดงผ่าน InterChat ต้องปฏิบัติตามกฎเหล่านี้
+
+  enforcement: |
+    ## การดูแลทำงานอย่างไร
+    ผู้ดูแลพิจารณา **สิ่งที่เกิดขึ้น ความร้ายแรง ความจงใจ เป้าหมาย การหยุดเมื่อถูกขอ และประวัติล่าสุด**
+    ### บันไดบทลงโทษคือ:
+    ```เตือน → 6h → 24h → 7d → 14d → 30d → ถาวร```
+    *บทลงโทษอาจไม่เรียงตามลำดับเสมอไป และมักขึ้นอยู่กับความร้ายแรงและบริบทของการละเมิด การละเมิดทั่วไปที่เก่ากว่า 90 วันโดยทั่วไปควรหมดอายุอัตโนมัติและไม่เพิ่มบทลงโทษ*
+
+startHere:
+  nav:
+    help: ความช่วยเหลือ
+    invite: เชิญ
+    dashboard: แดชบอร์ด
+    stats: สถิติ
+    about: เกี่ยวกับ
+  descriptions:
+    help: สำรวจทุกคำสั่งที่ InterChat มี
+    about: InterChat คืออะไร และทำงานอย่างไร
+    invite: เพิ่ม InterChat ลงในเซิร์ฟเวอร์ของคุณ
+    rules: อ่านกฎสำหรับ Hub และการโทร
+    stats: ดูตัวเลขสดของ InterChat
+    feedback: ส่งข้อเสนอแนะหรือรายงานบั๊ก
+    report: เรียนรู้วิธีรายงานข้อความ
+    dashboard: เปิดแดชบอร์ดบนเว็บ
+    leaderboard: ดูผู้โทรและเซิร์ฟเวอร์อันดับต้น ๆ
+    prefix: เปลี่ยนคำนำหน้าคำสั่งของเซิร์ฟเวอร์นี้
+    vote: โหวตให้ InterChat รับแบดจ์ และเลือกว่าจะจับคู่ใหม่หลังข้ามหรือวางสายหรือไม่
+
+dashboard:
+  description: จัดการ Hub เซิร์ฟเวอร์ และการโทรของคุณจากเบราว์เซอร์ ไม่ต้องใช้คำสั่ง
+
+prefix:
+  updatedTitle: อัปเดตคำนำหน้าแล้ว
+  updated: ตอนนี้เซิร์ฟเวอร์นี้ใช้ `{prefix}` ลอง `/help`
+  resetTitle: รีเซ็ตคำนำหน้าแล้ว
+  reset: เซิร์ฟเวอร์นี้กลับไปใช้คำนำหน้าเริ่มต้น `{prefix}`
+  error:
+    guildOnly: คำนำหน้าแยกตามเซิร์ฟเวอร์ จึงใช้ได้เฉพาะภายในเซิร์ฟเวอร์
+    tooLong: คำนำหน้ายาวได้สูงสุด 10 ตัวอักษร
+
+vote:
+  title: โหวตให้ InterChat
+  description: ใช้เวลา 10 วินาที และช่วยให้เซิร์ฟเวอร์อื่นหาเราเจอมากขึ้น
+  rewards: |-
+    ## สิ่งที่คุณได้รับเป็นเวลา 12 ชั่วโมง
+    > **อีโมจิเซิร์ฟเวอร์**: ใช้อีโมจิใดก็ได้ในข้อความของคุณ
+    > **แบดจ์ผู้โหวต**: แสดงบนโปรไฟล์ InterChat ของคุณ
+    > **จับคู่อัตโนมัติส่วนตัว**: เลือกว่าจะให้จับคู่ใหม่หรือไม่หลังคู่สนทนาของคุณข้ามหรือวางสาย
+  alreadyVoted: |-
+    ## :party_popper: ขอบคุณที่โหวต!
+    คุณโหวตได้อีกครั้ง **{next}**
+    ตั้งค่าการจับคู่อัตโนมัติส่วนตัวสำหรับตอนที่คู่สนทนาข้ามหรือวางสายได้ที่ `/my settings`
+  thanks:
+    title: ขอบคุณที่โหวต!
+    intro: โหวตของคุณช่วยให้เซิร์ฟเวอร์อื่นพบ InterChat มากขึ้น ขอบคุณที่สละเวลา 10 วินาที โหวตนี้ยังให้คุณเลือกได้เป็นเวลา 12 ชั่วโมงว่าจะจับคู่ใหม่หรือไม่หลังคู่สนทนาข้ามหรือวางสาย ตั้งค่าได้ที่ `/my settings`
+    activeHeading: ใช้งานได้ในอีก 12 ชั่วโมงข้างหน้า
+    emojiTitle: อีโมจิเซิร์ฟเวอร์
+    emojiBody: ใช้อีโมจิจากเซิร์ฟเวอร์ใดก็ได้ในข้อความของคุณ
+    roleTitle: ยศผู้โหวต
+    roleBody: มอบให้ในเซิร์ฟเวอร์ซัพพอร์ตและถูกถอนเมื่อโหวตของคุณหมดอายุ ดังนั้นโหวตใหม่เพื่อเก็บไว้
+    keepHeading: เป็นของคุณตลอดไป
+    badgeTitle: แบดจ์ผู้โหวต
+    badgeBody: ตอนนี้อยู่บนโปรไฟล์ InterChat ของคุณแล้ว
+    freezeTitle: ฟรีซสตรีคหนึ่งครั้ง
+    freezeBody: เก็บไว้สำหรับวันที่พลาด สูงสุด 2 ครั้ง
+    supportButton: เซิร์ฟเวอร์ซัพพอร์ต
+    footer: "โหวตครั้งที่ {count} · โหวตครั้งถัดไปได้ {next}"
+
 services:
   hub:
     validation:
-      invalidName: The provided hub name is invalid.
-      nameTaken: That hub name is already taken.
+      invalidName: ชื่อ Hub ที่ระบุไม่ถูกต้อง
+      nameTaken: ชื่อ Hub นี้ถูกใช้แล้ว
     defaults:
-      noDescription: No description provided.
+      noDescription: ไม่มีคำอธิบาย
   moderation:
     defaults:
-      noReason: No Reason
+      noReason: *no_reason
+
 support:
   priority:
-    standard: Standard
+    standard: มาตรฐาน
+
 badges:
   developer:
-    title: InterChat Developer
-    description: Core developer of InterChat
+    title: นักพัฒนา InterChat
+    description: นักพัฒนาหลักของ InterChat
   staff:
-    title: InterChat Staff
-    description: InterChat staff member
+    title: ทีมงาน InterChat
+    description: สมาชิกทีมงาน InterChat
   owner:
-    title: Hub Owner
-    description: Owner of the hub "{hubName}"
+    title: เจ้าของ Hub
+    description: เจ้าของ Hub "{hubName}"
   moderator:
-    title: Hub Moderator
-    description: Moderator of the hub "{hubName}"
+    title: ผู้ดูแล Hub
+    description: ผู้ดูแล Hub "{hubName}"
   manager:
-    title: Hub Manager
-    description: Manager of the hub "{hubName}"
+    title: ผู้จัดการ Hub
+    description: ผู้จัดการ Hub "{hubName}"
+
 broadcast:
   spam:
-    mutedMessage: You have been temporarily muted for {minutes} minutes due to spam.
-    warningMessage: '⚠️ You are sending messages too quickly!'
-    autoMuteReason: "Auto-Mute: Spam detected"
-    autoWarnReason: "Auto-Warn: Spam detected"
+    mutedMessage: คุณถูกปิดเสียงชั่วคราว {minutes} นาทีเนื่องจากสแปม
+    warningMessage: ':alert_icon: คุณส่งข้อความเร็วเกินไป!'
+    autoMuteReason: "ปิดเสียงอัตโนมัติ: ตรวจพบสแปม"
+    autoWarnReason: "เตือนอัตโนมัติ: ตรวจพบสแปม"
   validation:
     accountAge:
-      message: Your account is too new to send messages through InterChat.
-      reason: Account too new
+      message: บัญชีของคุณใหม่เกินไปที่จะส่งข้อความผ่าน InterChat
+      reason: บัญชีใหม่เกินไป
     hubLock:
-      message: This hub is currently locked.
-      reason: Hub is currently locked
+      message: Hub นี้ถูกล็อกอยู่ในขณะนี้
+      reason: Hub ถูกล็อกอยู่ในขณะนี้
     invites:
-      message: "🚫 Discord invite links are not allowed in this hub."
+      message: ':ban: ไม่อนุญาตลิงก์เชิญ Discord ใน Hub นี้'
     nsfw:
-      message: "🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)"
+      message: ':ban: ข้อความของคุณถูกตัวกรองของ InterChat บล็อก (เหตุผล: ตรวจพบ NSFW)'
     profanity:
-      message: '🚫 Your message was blocked by the hub''s profanity filter.'
-      reason: Profanity filter blocked message
+      message: ':ban: ข้อความของคุณถูกตัวกรองคำหยาบของ Hub บล็อก'
+      reason: ตัวกรองคำหยาบบล็อกข้อความ
     videos:
-      message: '🚫 Video attachments are not allowed in this hub.'
+      message: ':ban: ไม่อนุญาตไฟล์แนบวิดีโอใน Hub นี้'
     messageLength:
-      reason: Message Length
-      message: Your message length is too long. Please shorten it.
+      reason: ความยาวข้อความ
+      message: ข้อความของคุณยาวเกินไป โปรดย่อให้สั้นลง
     spam:
-      reason: Spam detected
+      reason: ตรวจพบสแปม
     accessRestriction:
-      prefix: "Access restricted: "
-      reason: Active restriction
+      prefix: "จำกัดการเข้าถึง:"
+      reason: ข้อจำกัดที่มีผลอยู่
+
 blacklist:
   add:
-    title: Add to Blocklist
+    title: เพิ่มลงในรายการบล็อก
     type:
-      label: Type
-      description: Specify whether you are blocking a User or a Server.
+      label: ประเภท
+      description: ระบุว่าคุณกำลังบล็อกผู้ใช้หรือเซิร์ฟเวอร์
       options:
-        userDesc: Block a specific user.
-        serverDesc: Block an entire server.
+        userDesc: บล็อกผู้ใช้คนใดคนหนึ่ง
+        serverDesc: บล็อกทั้งเซิร์ฟเวอร์
     id:
-      label: User or Server ID to Block
-      placeholder: Enter the User ID or Server ID
+      label: ID ผู้ใช้หรือเซิร์ฟเวอร์ที่จะบล็อก
+      placeholder: กรอก ID ผู้ใช้หรือ ID เซิร์ฟเวอร์
     reason:
-      label: Note (optional)
-      description: A small note helps you remember why you've blocked.
-      placeholder: E.g., Spammer, Annoying, Toxic etc.
+      label: บันทึก (ไม่บังคับ)
+      description: บันทึกสั้น ๆ ช่วยให้คุณจำได้ว่าทำไมถึงบล็อก
+      placeholder: เช่น สแปมเมอร์ น่ารำคาญ เป็นพิษ ฯลฯ
     messages:
-      success: "Blocked {id} with reason: {reason}"
+      success: "บล็อก {id} แล้ว เหตุผล: {reason}"
     errors:
-      selfBlock: "{cross} You cannot block this server itself."
-      selfUserBlock: "{cross} You cannot block yourself."
-      failed: "Failed to block {id}."
+      selfBlock: "{cross} คุณบล็อกเซิร์ฟเวอร์นี้เองไม่ได้"
+      selfUserBlock: "{cross} คุณบล็อกตัวเองไม่ได้"
+      failed: "บล็อก {id} ไม่สำเร็จ"
   list:
     filters:
-      all: "All ({count})"
-      users: Users
-      servers: Servers
+      all: "ทั้งหมด ({count})"
+      users: ผู้ใช้
+      servers: เซิร์ฟเวอร์
     empty:
-      all: "You're too nice! Block some servers/users to see them here."
-      users: "No blocked users found."
-      servers: "No blocked servers found."
-    instructions: 'You can add servers or users to the blocklist using the "Add to Blocklist" button.'
+      all: "คุณใจดีเกินไป! บล็อกเซิร์ฟเวอร์/ผู้ใช้บางส่วนเพื่อดูที่นี่"
+      users: "ไม่พบผู้ใช้ที่ถูกบล็อก"
+      servers: "ไม่พบเซิร์ฟเวอร์ที่ถูกบล็อก"
+    instructions: 'คุณเพิ่มเซิร์ฟเวอร์หรือผู้ใช้ลงในรายการบล็อกได้ด้วยปุ่ม "เพิ่มลงในรายการบล็อก"'
     errors:
-      notFound: "{cross} Item not found or already removed."
-      removeFailed: "{cross} Error removing item: {error}"
+      notFound: "{cross} ไม่พบรายการหรือถูกลบไปแล้ว"
+      removeFailed: "{cross} เกิดข้อผิดพลาดขณะลบรายการ: {error}"
+
 commands:
   suggestion:
-    title: Suggestion / Bug Report
+    title: ส่งความคิดเห็น
     overview:
-      label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      label: สรุป
+      placeholder: "หนึ่งบรรทัด: อะไรผิดพลาด หรืออยากได้อะไร"
     description:
-      label: คำอธิบาย
-      placeholder: Provide full details of your suggestion or bug...
+      label: *label_description
+      placeholder: "เล่าให้เราฟังทีละขั้นว่าเกิดอะไรขึ้น"
     category:
-      label: Category
+      label: "เรื่องอะไร?"
       options:
-        bug: Bug Report
-        bugDesc: Report an issue you've found
-        suggestion: Suggestion
-        suggestionDesc: Suggest a new feature or improvement
+        bug: มีบางอย่างพัง
+        bugDesc: รายงานปัญหาที่คุณเจอ
+        suggestion: ฉันมีไอเดีย
+        suggestionDesc: เสนอฟีเจอร์หรือการปรับปรุง
     errorId:
-      label: Error ID (if applicable)
-      placeholder: Paste the error ID here...
+      label: ID ข้อผิดพลาด (ไม่บังคับ)
+      placeholder: วาง ID ข้อผิดพลาดจากข้อความแจ้งข้อผิดพลาด
     messages:
-      submitted: Your feedback has been received and will be reviewed.
-      success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
+      success: "{tick} ขอบคุณ! ส่งความคิดเห็นของคุณไปยังทีม InterChat แล้ว"
   report:
-    title: วิธีรายงาน
-    description: "Right-click on a message and select **Apps → Report**."
-    loadingGif: The GIF above may take a moment to load.
+    title: วิธีรายงานข้อความ
+    description: |-
+      > **1.** คลิกขวาที่ข้อความ
+      > **2.** ไปที่ **แอป → รายงาน**
+      > **3.** เลือกเหตุผล เราจะส่งต่อให้ทีมที่เหมาะสม
+    footer: รายงานจะส่งไปยังผู้ดูแลของ Hub หรือทีมงาน InterChat
+    loadingGif: GIF ด้านบนอาจใช้เวลาโหลดสักครู่
+
 userphone:
   commands:
     start:
-      description: Start a userphone call and connect to another server
+      description: เริ่มสาย Userphone และเชื่อมต่อกับเซิร์ฟเวอร์อื่น
     end:
-      description: End the current userphone call
+      description: จบสาย Userphone ปัจจุบัน
     skip:
-      description: Skip the current call and look for a new partner
+      description: ข้ามสายปัจจุบันและหาคู่สนทนาใหม่
     block:
-      description: Block a user from connecting to you via userphone
+      description: บล็อกผู้ใช้ไม่ให้เชื่อมต่อกับคุณผ่าน Userphone
     unblock:
-      description: Unblock a user from userphone
+      description: เลิกบล็อกผู้ใช้จาก Userphone
     report:
-      description: Report the user you are connected with
+      description: รายงานผู้ใช้ที่คุณเชื่อมต่ออยู่
     stats:
-      description: View your userphone statistics
+      description: ดูสถิติ Userphone ของคุณ
   status:
-    alreadyInCall: "{cross} This channel is already in a userphone call. Use `/userphone end` to disconnect first."
-    alreadyInCallDuration: "{cross} This channel is already in a userphone call. Current duration: **{duration}**."
-    connected: "{tick} **Connected!** You're now chatting with another server. Say hi! 👋"
-    searching: "**Searching...** Looking for someone to connect with. Hang tight!"
-    notInCall: "{cross} This channel is not in a userphone call."
-    notInCallHint: "{cross} You're not in a call. Use `/call` to start one!"
-    ended: "{tick} Call ended. Thanks for chatting!"
-    disconnected: You've been disconnected from the call.
-    hungUp: "{info} **They hung up.** The call has ended."
-    partnerDisconnected: "{info} **Your partner disconnected.** They're no longer available."
-    skipped: "{info} **Skipped!** Your partner moved on to a new call."
-    searchingAfterSkip: "{loading} **Searching again...** Looking for a new partner now!"
-    waitingInQueue: Waiting in queue for a match...
+    alreadyInCall: "{cross} ช่องนี้อยู่ในสาย Userphone แล้ว ใช้ `/userphone end` เพื่อตัดการเชื่อมต่อก่อน"
+    alreadyInCallDuration: "{cross} ช่องนี้อยู่ในสาย Userphone แล้ว ระยะเวลาปัจจุบัน: **{duration}**"
+    connected: "{tick} **เชื่อมต่อแล้ว!** ตอนนี้คุณกำลังแชทกับเซิร์ฟเวอร์อื่น ทักทายหน่อย! 👋"
+    searching: "**กำลังค้นหา...** กำลังหาคนที่จะเชื่อมต่อด้วย รอสักครู่!"
+    notInCall: "{cross} ช่องนี้ไม่ได้อยู่ในสาย Userphone"
+    notInCallHint: "{cross} คุณไม่ได้อยู่ในสาย ใช้ `/call` เพื่อเริ่มสาย!"
+    ended: "{tick} จบสายแล้ว ขอบคุณที่แชท!"
+    disconnected: คุณถูกตัดการเชื่อมต่อจากสายแล้ว
+    hungUp: "{info} **อีกฝ่ายวางสายแล้ว** สายจบลงแล้ว"
+    partnerDisconnected: "{info} **คู่สนทนาของคุณตัดการเชื่อมต่อ** เขาไม่อยู่แล้ว"
+    skipped: "{info} **ข้ามแล้ว!** คู่สนทนาของคุณไปสายใหม่แล้ว"
+    searchingAfterSkip: "{loading} **กำลังค้นหาอีกครั้ง...** กำลังหาคู่สนทนาใหม่!"
+    waitingInQueue: กำลังรอคิวเพื่อจับคู่...
   embed:
-    skippedTitle: Call Skipped
+    skippedTitle: ข้ามสายแล้ว
     duration: ระยะเวลา
-    startNewCall: Want to chat more? Use `/call` to start another!
-    searchingTitle: Searching for a Call
-    matchNotification: We will notify you as soon as a match is found.
-    cancelHint: Use `/hangup` to stop searching.
-    connectedTitle: Userphone Connected
-    howItWorks: How it works
-    sendMessages: Send messages here to chat with the other server.
-    imagesSupported: Images are supported during userphone calls.
-    hangupHint: Use `/hangup` to end the call.
-    skipHint: Use `/skip` to move to a new partner.
-    endedTitle: Call Ended
-    statsTitle: Your Userphone Stats
-    totalCalls: Total Calls
-    totalTalkTime: Total Talk Time
-    averageCall: Average Call Length
+    startNewCall: อยากคุยต่อไหม? ใช้ `/call` เพื่อเริ่มสายอื่น!
+    searchingTitle: กำลังค้นหาสาย
+    matchNotification: เราจะแจ้งคุณทันทีที่พบคู่
+    cancelHint: ใช้ `/hangup` เพื่อหยุดค้นหา
+    connectedTitle: เชื่อมต่อ Userphone แล้ว
+    howItWorks: ทำงานอย่างไร
+    sendMessages: ส่งข้อความที่นี่เพื่อแชทกับเซิร์ฟเวอร์อื่น
+    imagesSupported: รองรับรูปภาพระหว่างสาย Userphone
+    hangupHint: ใช้ `/hangup` เพื่อจบสาย
+    skipHint: ใช้ `/skip` เพื่อไปหาคู่สนทนาใหม่
+    endedTitle: จบสายแล้ว
+    statsTitle: สถิติ Userphone ของคุณ
+    totalCalls: จำนวนสายทั้งหมด
+    totalTalkTime: เวลาคุยทั้งหมด
+    averageCall: ความยาวสายเฉลี่ย
+  errors:
+    wrongChannel:
+      title: ใช้ช่องที่กำหนด
+      intro: คำสั่งล็อบบี้อย่าง `/call`, `/skip` และ `/hangup` ใช้ได้เฉพาะในช่องล็อบบี้ของเซิร์ฟเวอร์นี้
+      hereLabel: คุณอยู่ที่นี่
+      allowedLabel: "**ให้ใช้ช่องใดช่องหนึ่งเหล่านี้แทน:**"
+      moreChannels: "-# …และอีก {count} ช่อง"
+      modHint: "ผู้ดูแล: เปลี่ยนได้ที่ `/server manage` → การตั้งค่า Userphone → ช่องล็อบบี้ที่อนุญาต"
   block:
-    selfBlock: "{cross} You cannot block yourself."
-    alreadyBlocked: "{cross} You have already blocked {user}."
-    success: "{tick} Successfully blocked {user} from userphone calls."
-    unblockSuccess: "{tick} Successfully unblocked {user}."
-    notBlocked: "{cross} {user} is not blocked."
+    selfBlock: "{cross} คุณบล็อกตัวเองไม่ได้"
+    alreadyBlocked: "{cross} คุณบล็อก {user} ไปแล้ว"
+    success: "{tick} บล็อก {user} จากสาย Userphone สำเร็จ"
+    unblockSuccess: "{tick} เลิกบล็อก {user} สำเร็จ"
+    notBlocked: "{cross} {user} ไม่ได้ถูกบล็อก"
   report:
-    transcriptTitle: "Userphone transcript | Server: {server} | Channel: #{channel}"
-    transcriptAttachments: "Attachments:"
-    transcriptNoMessages: No recent user messages were available.
-    modalTitle: Report Userphone Call
+    transcriptTitle: "บันทึกการสนทนา Userphone | เซิร์ฟเวอร์: {server} | ช่อง: #{channel}"
+    transcriptAttachments: "ไฟล์แนบ:"
+    transcriptNoMessages: ไม่มีข้อความล่าสุดของผู้ใช้
+    modalTitle: รายงานสาย Userphone
     reasonLabel: เหตุผลในการรายงาน
-    reasonPlaceholder: Describe what happened during the call...
-    callEnded: The call has been ended automatically.
-    buttonLabel: Report User
-    success: "{tick} Your report has been submitted. Our staff will review it shortly."
-    noRecentCall: "{cross} No recent userphone call found to report. You can only report during or shortly after a call."
+    reasonPlaceholder: อธิบายสิ่งที่เกิดขึ้นระหว่างสาย...
+    callEnded: สายถูกจบโดยอัตโนมัติแล้ว
+    buttonLabel: รายงานผู้ใช้
+    success: "{tick} ส่งรายงานของคุณแล้ว ทีมงานของเราจะตรวจสอบเร็ว ๆ นี้"
+    noRecentCall: "{cross} ไม่พบสาย Userphone ล่าสุดที่จะรายงาน คุณรายงานได้เฉพาะระหว่างสายหรือหลังสายจบไม่นาน"
   staff:
     reports:
-      staffDescription: Review pending userphone reports
-      title: Pending Userphone Reports
-      empty: "{tick} No pending userphone reports at this time."
-      entry: "**Reporter:** <@{reporter}>\n**Reported:** <@{reported}>\n**Reason:** {reason}\n**Call ID:** {call_id}"
-      footer: "Showing {count} pending report(s)"
-      resolveSuccess: "{tick} Report `{id}` has been marked as resolved."
+      staffDescription: ตรวจสอบรายงาน Userphone ที่รอดำเนินการ
+      title: รายงาน Userphone ที่รอดำเนินการ
+      empty: "{tick} ขณะนี้ไม่มีรายงาน Userphone ที่รอดำเนินการ"
+      entry: "**ผู้รายงาน:** <@{reporter}>\n**ผู้ถูกรายงาน:** <@{reported}>\n**เหตุผล:** {reason}\n**ID สาย:** {call_id}"
+      footer: "แสดงรายงานที่รอดำเนินการ {count} รายการ"
+      resolveSuccess: "{tick} ทำเครื่องหมายรายงาน `{id}` ว่าแก้ไขแล้ว"
+
 server:
   settings:
-    title: Server Settings
-    comingSoon: Advanced server settings (language, default filters, fallback channel) will be available in a future update.
+    title: การตั้งค่าเซิร์ฟเวอร์
+    comingSoon: การตั้งค่าเซิร์ฟเวอร์ขั้นสูง (ภาษา ตัวกรองเริ่มต้น ช่องสำรอง) จะพร้อมใช้งานในการอัปเดตครั้งต่อไป
   automod:
-    title: "Server Profanity Filter"
-    sectionDescription: "Configure bad word filters specifically for this server in calls."
-    buttonLabel: "Profanity Filter"
+    title: "ตัวกรองคำหยาบของเซิร์ฟเวอร์"
+    sectionDescription: "กำหนดค่าตัวกรองคำหยาบเฉพาะเซิร์ฟเวอร์นี้ในสาย"
+    buttonLabel: "ตัวกรองคำหยาบ"
   userphone:
-    title: Userphone Settings
-    sectionDescription: Configure how your server behaves in calls.
-    buttonLabel: Userphone Settings
+    title: การตั้งค่า Userphone
+    sectionDescription: กำหนดว่าเซิร์ฟเวอร์ของคุณจะทำงานอย่างไรในการโทร
+    buttonLabel: การตั้งค่า Userphone
     hideServerName:
-      title: Hide Server Name
-      description: Hides other servers' names from the webhook username in **group calls**. (Always hidden in 1v1 calls).
+      title: ซ่อนชื่อเซิร์ฟเวอร์
+      description: ซ่อนชื่อเซิร์ฟเวอร์อื่นจากชื่อผู้ใช้ของ webhook ใน**สายกลุ่ม** (ซ่อนเสมอในสาย 1v1)
     pingOnMatch:
-      title: Ping on Match
-      description: Send a ping in your channel when a 1v1 call match is found.
+      title: ping เมื่อจับคู่ได้
+      description: ส่ง ping ในช่องของคุณเมื่อพบคู่สำหรับสาย 1v1
     autoRequeueOnSkip:
-      title: Auto Requeue on Skip
-      description: Automatically start a new call when the other side skips. Only works if you were recently active in the call.
+      title: เข้าคิวใหม่อัตโนมัติเมื่อถูกข้าม
+      description: เริ่มสายใหม่อัตโนมัติเมื่ออีกฝ่ายข้าม ใช้ได้เฉพาะเมื่อคุณเพิ่งใช้งานในสายนั้นไม่นาน
     autoRequeueOnHangup:
-      title: Auto Requeue on Hangup
-      description: Automatically start a new call when the other side hangs up. Only works if you were recently active in the call.
-      ignoreSuccess: "{tick} Report `{id}` has been marked as ignored."
+      title: เข้าคิวใหม่อัตโนมัติเมื่อถูกวางสาย
+      description: เริ่มสายใหม่อัตโนมัติเมื่ออีกฝ่ายวางสาย ใช้ได้เฉพาะเมื่อคุณเพิ่งใช้งานในสายนั้นไม่นาน
+      ignoreSuccess: "{tick} ทำเครื่องหมายรายงาน `{id}` ว่าไม่สนใจแล้ว"
+    lobbyChannels:
+      title: ช่องล็อบบี้ที่อนุญาต
+      description: จำกัดการโทร ข้าม และวางสายให้ใช้ได้เฉพาะช่องข้อความที่เลือก หากไม่ได้เลือกช่องใด คำสั่งเหล่านี้จะใช้ได้ทุกที่
+      selectPlaceholder: เลือกช่องข้อความ
+      currentlyAllowed: คำสั่งที่อนุญาตในขณะนี้ใน
+      everywhere: คำสั่งล็อบบี้ใช้ได้ในทุกช่องข้อความเมื่อไม่ได้เลือกช่องใด
+      unsaved: มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก - กดบันทึกการเปลี่ยนแปลงเพื่อใช้งาน
+      saved: บันทึกข้อจำกัดช่องล็อบบี้แล้ว
+      manageChannelsRequired: คุณต้องมีสิทธิ์จัดการช่องเพื่อแก้ไขช่องล็อบบี้
+
+achievementsCard:
+  title: ความสำเร็จ
+  handle: "@{name}"
+  summary: "ปลดล็อกแล้ว {unlocked} จาก {total}"
+  page: "หน้า {page} จาก {total}"
+  unlocked: ปลดล็อกแล้ว
+  progress: "{current} จาก {threshold} {unit}"
+  closest: หมุดหมายที่ใกล้ที่สุด
+  toGo: "{name} — อีก {n} {unit}"
+  allDone: ได้รับทุกหมุดหมายแล้ว
+  noneTitle: ยังไม่มีหมุดหมาย
+  noneBody: โทรข้ามเซิร์ฟเวอร์ให้จบหนึ่งสายเพื่อรับหมุดหมายแรก
+  track:
+    calls: การโทร
+    messages: ข้อความ
+    hubs: Hub
+    stamps: แสตมป์
+  unit:
+    calls: การโทร
+    messages: ข้อความ
+    hubs: Hub
+    stamps: แสตมป์
+  one:
+    calls: สาย
+    messages: ข้อความ
+    hubs: Hub
+    stamps: แสตมป์
+
+profileCard:
+  messages: ข้อความที่ส่งข้าม Hub
+  calls: การโทร
+  hubs: Hub ที่เข้าร่วม
+  rank: กระดานผู้นำ
+  votes: โหวตทั้งหมด
+  streak: สตรีคที่ยาวที่สุด
+  achievements: ความสำเร็จ
+  days: "{count} วัน"
+  dayOne: "{count} วัน"
+  achievementsDone: "สำเร็จ {done} / {total}"
+  memberSince: "เป็นสมาชิกตั้งแต่ {when}"
+  voter: ผู้โหวต
+  rankTitle: "แรงก์ {rank}"
+  resonanceNext: "{done} / {total} ไมล์ถึงแรงก์ {next}"
+  resonanceTier: "{tier} ที่แรงก์ {rank}"
+  resonanceTop: ถึงระดับสูงสุดแล้ว
+  role:
+    hubOwner: เจ้าของ Hub
+    hubModerator: ผู้ดูแล Hub
+    hubManager: ผู้จัดการ Hub
+    staff: ทีมงาน
+    developer: นักพัฒนา
+    betaTester: เบต้าเทสเตอร์
+    bugHunter: นักล่าบั๊ก
+    goldBugHunter: นักล่าบั๊กระดับทอง
+    topChatter: ตัวท็อปด้านแชท
+    translator: ผู้แปล
+    voter: ผู้โหวต
+    supporter: ผู้สนับสนุน
+calls:
+  searching:
+    first: "{icon} กำลังหาใครสักคน…"
+    afterSkip: "{icon} กำลังหาคนใหม่…"
+    partnerSkipped: "{icon} อีกฝ่ายข้ามไปแล้ว กำลังหาคนใหม่…"
+    partnerLeft: "{icon} อีกฝ่ายวางสายแล้ว กำลังหาคนใหม่…"
+  connected:
+    title: "{icon} เชื่อมต่อกับ **{name}** แล้ว ทักทายหน่อย!"
+    body: นี่คือแชทข้อความ ข้อความที่นี่จะแชร์กับอีกฝ่ายจนกว่าจะมีคนใช้ `/hangup`
+    someone: ใครสักคน
+  hint: "`/topic` แนะนำหัวข้อให้คุย `/skip` หาคนใหม่ `/hangup` ออกจากสาย"
+  ended:
+    byYou: "{icon} **จบสาย** · {duration}"
+    byPartner: "{icon} **อีกฝ่ายวางสาย** · {duration}"
+    byNamedPartner: "{icon} **{name}** วางสายจากอีกฝั่ง · {duration}"
+    partnerSkipped: "{icon} **อีกฝ่ายข้าม** · {duration}"
+    inactivity: "{icon} สายจบลงเพราะฝ่ายหนึ่งไม่มีกิจกรรม 2 นาที เริ่มสายใหม่เมื่อคุณพร้อม"
+  # Spoken duration units used in postCall.summary.
+  # Each unit has a form for exactly one and a form for every other count.
+  duration:
+    secondsOne: 1 วินาที
+    secondsOther: "{count} วินาที"
+    minutesOne: 1 นาที
+    minutesOther: "{count} นาที"
+    hoursOne: 1 ชั่วโมง
+    hoursOther: "{count} ชั่วโมง"
+    hoursAndMinutes: "{hours} {minutes}"
+  timeout: "{icon} ไม่พบคู่ หยุดค้นหาแล้ว"
+  # Shown in place of the Call again button when a closing message can only go out as plain text.
+  startAnother: "{command} เพื่อเชื่อมต่อใหม่"
+  buttons:
+    callAgain: โทรอีกครั้ง
+    searchAgain: ค้นหาอีกครั้ง
+    findGroup: หากลุ่มอื่น
+  group:
+    waiting: "{icon} กำลังรอเซิร์ฟเวอร์เพิ่ม… **{count}/{max}**"
+    connected: "{icon} เชื่อมต่อสายกลุ่มแล้ว · **{count} เซิร์ฟเวอร์**"
+    joined: "{icon} **{name}** เข้าร่วมแล้ว · มี {count} เซิร์ฟเวอร์ในสายนี้"
+    someoneJoined: "{icon} มีคนใหม่เข้าร่วม · มี {count} เซิร์ฟเวอร์ในสายนี้"
+    youLeft: "{icon} ออกจากสายกลุ่มแล้ว · เหลือ {count} เซิร์ฟเวอร์"
+  errors:
+    serverTextOnly: การโทรใช้ได้เฉพาะในช่องข้อความของเซิร์ฟเวอร์
+    wrongChannel: "การโทรในเซิร์ฟเวอร์นี้ทำที่ {channel}"
+    notInCall: ไม่มีสายในช่องนี้ เริ่มสายด้วย `/call`
+    alreadyInCall: ช่องนี้อยู่ในสายแล้ว ใช้ `/hangup` เพื่อจบสายก่อน
+    hubChannel: ช่องนี้เชื่อมกับ Hub จึงจัดสายไม่ได้ ใช้ช่องอื่น หรือยกเลิกการเชื่อมด้วย `/hub disconnect`
+    accountAge: "การโทรเปิดให้บัญชี Discord ที่มีอายุครบ {days} วัน บัญชีของคุณจะมีสิทธิ์ในวันที่ {date}"
+    restricted: "ตอนนี้คุณใช้การโทรไม่ได้เพราะมีข้อจำกัดที่มีผลอยู่ หากคิดว่าไม่ถูกต้อง โปรดติดต่อฝ่ายสนับสนุน: {support}"
+    unavailable: การโทรไม่พร้อมใช้งานชั่วคราว โปรดลองอีกครั้งในอีกหนึ่งนาที
+    cooldown: คุณเริ่มสายใหม่ได้ในอีก {seconds} วินาที
+    profileRequired: เลือกโปรไฟล์การโทรใน `/my settings` ก่อนเริ่มสาย
+    profileTimedOut: ไม่ได้เลือกโปรไฟล์การโทร ฉันจึงไม่ได้เริ่มสาย ใช้ `/call` อีกครั้งเมื่อคุณพร้อม
+    skipGroup: การข้ามใช้กับสาย 1 ต่อ 1 หากต้องการออกจากสายกลุ่ม ให้ใช้ `/hangup`
+    skipWaiting: คุณยังรอการจับคู่อยู่ จึงยังไม่มีใครให้ข้าม
+    skipTooSoon: "รอสักครู่: คุณข้ามได้ในอีก {seconds} วินาที หรือหลังส่งอีก {messages} ข้อความ"
+    skipPermissions: ฉันต้องมีสิทธิ์ **ดูช่อง** **ส่งข้อความ** และ **จัดการ Webhook** ในช่องนี้เพื่อหาคู่ใหม่ให้คุณ
+    noOneElse: ตอนนี้ไม่มีคนอื่นในสายนี้
+  friendRequest:
+    broadcast: "{icon} **{name}** อยากเป็นเพื่อนกับคุณบน Discord ชื่อผู้ใช้ของเขาคือ `{username}`"
+    sent: "{icon} แชร์ชื่อผู้ใช้ Discord ของคุณในสายแล้ว"
+    cooldown: คุณแชร์ชื่อผู้ใช้ได้อีกครั้งในอีก {seconds} วินาที
+  actions:
+    cooldown: คุณส่งแอ็กชันอื่นได้ในอีก {seconds} วินาที
+    gifUnavailable: ตอนนี้ฉันโหลด GIF ไม่ได้ โปรดลองอีกครั้งในอีกสักครู่
+    sent: "{icon} ส่งถึงทุกคนในสายของคุณแล้ว"
+    unknown: "ไม่มีแอ็กชันชื่อ `{name}` ลองอย่างใดอย่างหนึ่งต่อไปนี้: {options}"
+  media:
+    attachments: "ข้อความของคุณไม่ได้ถูกส่ง: ไม่รองรับการอัปโหลดไฟล์ในสาย ใช้ GIF จาก Tenor, Giphy และ Klipy รวมถึงสติกเกอร์เริ่มต้นได้"
+    imageLinks: "ข้อความของคุณไม่ได้ถูกส่ง: ไม่รองรับลิงก์รูปภาพในสาย"
+    links: "ข้อความของคุณไม่ได้ถูกส่ง: ไม่รองรับลิงก์ในสาย"
+    gifProvider: "ข้อความของคุณไม่ได้ถูกส่ง: ในสายใช้ได้เฉพาะ GIF จาก Tenor, Giphy และ Klipy"
+    customStickers: "ข้อความของคุณไม่ได้ถูกส่ง: ไม่รองรับสติกเกอร์แบบกำหนดเองในสาย สติกเกอร์เริ่มต้นของ Discord ใช้ได้"
+    voteRequired: "{icon} ข้อความของคุณไม่ได้ถูกส่ง: อีโมจิเซิร์ฟเวอร์ในสายเป็นสิทธิพิเศษของผู้โหวต โหวตเพื่อปลดล็อกเป็นเวลา 12 ชั่วโมง หรือส่งใหม่โดยไม่ใส่อีโมจิ"
+  postCall:
+    summary: "{icon} **จบสาย · {duration} · {messages} ข้อความ**"
+    question: มีใครทำให้การแชทนี้ยอดเยี่ยมไหม?
+    highlightButton: ให้ไฮไลต์
+    pickTitle: "## 🌟 ให้ไฮไลต์"
+    pickDescription: ใครทำให้บทสนทนานี้ยอดเยี่ยม?
+    rankLine: "-# {icon}เรโซแนนซ์ {rank} · {done}/{total} ถึงแรงก์ {next}"
+    skipButton: ครั้งนี้ไม่
+    skipped: ครั้งนี้ไม่มีไฮไลต์
+    recorded: "{icon} **ส่งไฮไลต์แล้ว** ขอบคุณที่ชื่นชม **{name}** แสตมป์และพาสปอร์ตของเขาอัปเดตแล้ว"
+    notSpeaker: ไฮไลต์สำหรับคนที่ร่วมบทสนทนา ส่งข้อความสักสองสามข้อความในสายหน้าเพื่อปลดล็อก
+    noCandidates: ไม่มีใครพูดมากพอในสายนี้ที่จะได้รับไฮไลต์
+    failed: ฉันบันทึกไฮไลต์ของคุณไม่ได้ โปรดลองอีกครั้ง
+    fallbackName: นักเดินทาง

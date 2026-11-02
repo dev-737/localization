@@ -1,1484 +1,2640 @@
 common:
   titles:
-    error: Error!
-    success: Success!
-    cancelled: Cancelled!
-    feedback: Feedback Received
-    validationError: Validation Error
+    error: &title_error Erreur !
+    success: &title_success Succès !
+    cancelled: Annulé !
+    feedback: Retour reçu
+    validationError: Erreur de validation
+    slowDown: Doucement !
   labels:
     date: Date
-    loading: Loading...
-    pleaseWait: Please wait...
-    lastActive: Last Active
-    unknown: Unknown
-    unknownHub: Unknown Hub
-    language: Language
-    locked: Locked
+    loading: Chargement...
+    pleaseWait: Veuillez patienter...
+    lastActive: Dernière activité
+    unknown: Inconnu
+    unknownHub: Hub inconnu
+    language: Langue
+    locked: Verrouillé
     nsfw: NSFW
-    visibility: Visibility
-    "yes": "Yes"
-    "no": "No"
-    none: None
-    noneSpecified: None Specified
-    tryAgain: Please try again
-    noReason: No Reason
+    visibility: Visibilité
+    "yes": "Oui"
+    "no": "Non"
+    none: Aucun
+    noneSpecified: Non précisé
+    tryAgain: Veuillez réessayer
+    noReason: &no_reason Aucune raison
     roles:
-      owner: Owner
-      member: Member
-      moderator: Moderator
+      owner: Propriétaire
+      member: Membre
+      moderator: Modérateur
+      manager: Gestionnaire
+      staff: Équipe
     note: Note
-    never: Never
-    lastUpdated: Last Updated
-    enabled: Enabled
-    disabled: Disabled
+    never: Jamais
+    lastUpdated: Dernière mise à jour
+    enabled: Activé
+    disabled: Désactivé
+  imageAlt:
+    welcomeBanner: Une carte de serveurs Discord, tous reliés grâce à InterChat
   buttons:
-    back: Back
-    next: Next
-    previous: Previous
-    cancel: Cancel
-    confirm: Confirm
-    create: Create
-    refresh: Refresh
-    delete: Delete
-    open: Open
-    vote: Vote on top.gg
-    invite: Invite InterChat
-    dashboard: Open Dashboard
-    support: Join Support
-    edit: Edit
-    save: Save
-    apply: Apply Changes
-    close: Close
-    search: Search
-    jumpToMessage: Jump to Message
-    maybeLater: Maybe Later
-    show: Show
-    hide: Hide
-    enable: Enable
-    disable: Disable
-    continue: Continue
-    start: Start
-    stop: Stop
-    join: Join
-    accept: Accept
-    decline: Decline
+    back: &btn_back Retour
+    next: &btn_next Suivant
+    previous: Précédent
+    cancel: &btn_cancel Annuler
+    confirm: Confirmer
+    create: Créer
+    refresh: Actualiser
+    delete: Supprimer
+    open: Ouvrir
+    edit: Modifier
+    add: Ajouter
+    vote: Voter sur top.gg
+    invite: Inviter InterChat
+    dashboard: Ouvrir le tableau de bord
+    support: Rejoindre le support
+    discord: Rejoindre Discord
+    kofi: Ko-fi
+    edit: &btn_edit Modifier
+    save: &btn_save Enregistrer
+    apply: Appliquer les modifications
+    close: Fermer
+    search: Rechercher
+    jumpToMessage: Aller au message
+    maybeLater: Peut-être plus tard
+    show: Afficher
+    hide: Masquer
+    enable: Activer
+    disable: Désactiver
+    continue: Continuer
+    start: &btn_start Démarrer
+    stop: Arrêter
+    join: Rejoindre
+    accept: Accepter
+    decline: Refuser
   pagination:
-    footer: "Page {current} of {total} • {count} total items"
+    footer: "Page {current} sur {total} • {count} éléments au total"
     errors:
-      firstPage: "You're already on the first page."
-      lastPage: "You're already on the last page."
+      firstPage: "Tu es déjà sur la première page."
+      lastPage: "Tu es déjà sur la dernière page."
     page: Page {current}/{total}
-    pageOf: Page {current} of {total}
-    alreadyFirst: Already on the first page.
-    alreadyLast: Already on the last page.
+    pageOf: Page {current} sur {total}
+    alreadyFirst: Déjà sur la première page.
+    alreadyLast: Déjà sur la dernière page.
   placeholders:
-    select: Select an option
-    type: Type here...
+    select: Choisis une option
+    type: Écris ici...
   visibility:
-    public: Public
-    publicDesc: Discoverable on the hub directory.
-    private: Private
-    privateDesc: Invite-only, not listed publicly.
-    unlisted: Unlisted
-    unlistedDesc: Not in directory but anyone can join via ID/link.
+    public: &vis_public Public
+    publicDesc: &vis_public_desc Visible dans l'annuaire des hubs.
+    private: &vis_private Privé
+    privateDesc: &vis_private_desc Sur invitation uniquement, non listé publiquement.
+    unlisted: &vis_unlisted Non listé
+    unlistedDesc: &vis_unlisted_desc Absent de l'annuaire, mais tout le monde peut rejoindre via l'ID ou le lien.
   entities:
-    user: User
-    server: Server
+    user: Utilisateur
+    server: Serveur
     hub: Hub
-    unknownUser: Unknown User
-    unknownServer: Unknown Server
+    unknownUser: Utilisateur inconnu
+    unknownServer: Serveur inconnu
   messages:
-    notImplemented: Not implemented yet.
-    defaultSuccess: Action completed successfully.
-    actionCancelled: Action cancelled.
-    hubNotFound: Hub not found. Please try again later.
-    serverNotFound: Server not found.
-    userNotFound: User not found.
-    notSpecified: Not specified
-    interfacePermission: You can't use this interface.
-    hubUpdateFailed: Failed to update hub settings.
+    notImplemented: Pas encore disponible.
+    defaultSuccess: Action effectuée avec succès.
+    actionCancelled: &msg_cancelled Action annulée.
+    hubNotFound: "Hub introuvable. Utilise `/hub browse` pour en trouver un, ou `/hub create` pour créer le tien."
+    hubNotFoundNamed: 'Aucun hub nommé **{hub}** n''est visible pour toi. Vérifie l''orthographe ou utilise `/hub browse` pour en trouver un.'
+    serverNotFound: Serveur introuvable.
+    userNotFound: Utilisateur introuvable.
+    notSpecified: Non précisé
+    interfacePermission: Tu ne peux pas utiliser cette interface.
+    hubUpdateFailed: Impossible de mettre à jour les paramètres du hub.
   footer:
-    submittedBy: "Submitted by {user}"
+    submittedBy: "Soumis par {user}"
   states:
-    enabled: Enabled
-    disabled: Disabled
+    enabled: Activé
+    disabled: Désactivé
   fields:
-    id: "{type} ID"
-    name: "{type} Name"
-    reason: Reason
-    description: Description
-    created: Created
-    status: Status
-    channel: Channel
+    id: "ID {type}"
+    name: "Nom {type}"
+    reason: &label_reason Raison
+    description: &label_description Description
+    created: Créé
+    status: Statut
+    channel: Salon
   errors:
-    commandNotFound: Command not found.
-    notYourMenu: This isn't your menu.
-    cannotControlPagination: You cannot control this pagination.
-    generic: Oops! Something went wrong while processing your request.
-    processing: An error occurred while processing your request. Please try again.
-    invalidSelection: Invalid selection.
-    interactionCheck: You may not use this interaction, as you did not invoke it.
-    rateLimited: You are being rate limited. Take a chill pill.
-    webhookRateLimit: You have reached the webhook creation rate limit.
-    invalidInput: You have not provided a valid input.
-    invalidInvite: This invite is invalid or expired.
-    webhookError: Erreur lors de la création du Webhook.
-    notConnected: I could not find a hub connected in this channel.
-    notConnectedServer: "I could not find any connections for this server."
-    noInteraction: This command only supports slash commands.
-    missingAppealReference: Missing appeal reference.
-    missingArgument: "Missing argument: `{param}`."
-    accessDenied: Access Denied
-    invalidId: "{cross} Please provide a valid User ID or Server ID."
+    commandNotFound: Commande introuvable.
+    notYourMenu: Ce n'est pas ton menu.
+    cannotControlPagination: Tu ne peux pas contrôler cette pagination.
+    generic: &err_generic Oups ! Un problème est survenu pendant le traitement de ta demande.
+    processing: &err_processing Une erreur est survenue pendant le traitement de ta demande. Réessaie.
+    invalidSelection: Sélection invalide.
+    interactionCheck: Tu ne peux pas utiliser cette interaction, car tu ne l'as pas lancée.
+    rateLimited: Tu es limité(e) par le taux de requêtes. Calme-toi un peu.
+    webhookRateLimit: Tu as atteint la limite de création de webhooks.
+    invalidInput: &err_invalid_input Tu n'as pas saisi une valeur valide.
+    invalidInvite: Cette invitation est invalide ou a expiré.
+    webhookError: Échec de la création du webhook.
+    notConnected: &err_not_connected Je n'ai trouvé aucun hub connecté dans ce salon.
+    notConnectedServer: "Je n'ai trouvé aucune connexion pour ce serveur."
+    noInteraction: Cette commande ne fonctionne qu'avec les commandes slash.
+    checkFailed: Tu ne remplis pas les conditions pour utiliser cette commande ici.
+    missingAppealReference: Référence de l'appel manquante.
+    missingArgument: "Argument manquant : `{param}`."
+    accessDenied: Accès refusé
+    invalidId: "{cross} Indique un ID d'utilisateur ou de serveur valide."
+
 about:
-  title: A propose de InterChat
-  description: |
-    InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
+  title: À propos d'InterChat
+  tagline: Des serveurs, connectés.
+  description: |-
+    InterChat relie des serveurs Discord entre eux, pour que les membres de serveurs différents puissent discuter ensemble.
 
-    ## What do we offer?
-    - **Hubs:** persistent cross-server rooms with AutoMod, granular moderator roles, audit logs, announcements (+ scheduling), public discovery, custom badges, leaderboards, a web dashboard, etc.
-    - **Calls:** one-to-one or group bridges with per-server profanity filters
-    - **Leaderboards:** compete for top spot across hubs or calls
-    - **Moderation tools:** dedicated commands for hub staff & InterChat staff
-    - **Modern web dashboard:** manage everything from the browser
-    - **Earnable badges:** show off your activity in calls & hubs
-    ## Who is InterChat for?
-    - The bored and the curious, anyone who wants random, lively conversations.
-    - Server owners who want to build lasting bridges (gaming clans, study groups, partnerships, etc.).
-    ## Getting Started:
-    ### Calls
-    Use `/call` to instantly connect your channel with another server.
-    ### Hubs
-    1. Choose a channel you want linked **at all times**.
-    2. Browse `/hub directory` to find a hub you like (they're made by users just like you!).
-    3. Click **Join**, you're now connected to all servers in that hub.
-      Already know the hub? Use `/hub connect` with its name or invite code.
-    ## Useful Links
-  closingText: "-# Made with ❤️ by Sidequest Labs"
+    Les **hubs** sont des salons partagés où de nombreux serveurs écrivent. Le chat ne s'arrête jamais.
+
+    Les **appels** te mettent en relation en privé avec une autre personne, aussi longtemps que vous le souhaitez tous les deux.
+  examples: |-
+    > **/call** : parle tout de suite à quelqu'un de nouveau
+    > **/hub directory** : rejoins un hub et discute avec de nombreux serveurs
+
+  closingText: Créé par l'équipe InterChat.
   buttons:
-    shardInfo: Info partagée
+    shardInfo: Infos sur les shards
+
 botLanding:
-  title: Your server, connected. 🌐 Let's go cross-server!
+  title: 'Ton serveur, connecté. :globe_icon: Direction l''inter-serveurs !'
   description: |
-    Hi, I'm InterChat. With me, you can have conversations with people all around discord, all from the comfort of this server. Cool? Wait until you hear what I do:
+    Salut, je suis InterChat. Je relie ce serveur aux conversations de tout Discord.
 
-    ## :telephone: 1:1 Calls & Group calls
-    With the tap of one command you instantly get connected to another server, or multiple servers (in group calls!). Instant gratification at your fing
+    ## 📞 Appels en 1:1 et en groupe
+    Lance un appel et connecte-toi à un autre serveur en quelques secondes. Les appels de groupe réunissent plusieurs serveurs dans la même conversation.
 
-    Use `/call`, `/skip`, `/hangup`. And rank higher in `/leaderboard` :sunglasses:
+    Utilise `/call`, `/skip` et `/hangup`. Chaque appel peut te faire monter dans le `/leaderboard`. 😎
   hubs: |
-    ## 🏡 Hubs (where we stand out the most! ✨)
-    So you've seen calls, but *what if* you could make **cross-server** communities? It works by connecting multiple servers into one space!
+    ## :house_icon: Hubs
+    Les hubs sont des communautés **inter-serveurs** permanentes. Relie plusieurs serveurs à un même espace qui reste ouvert entre les conversations.
 
-    - 📌 **Create:** `/hub create` (Make your own hub)
-    - 🧭 **Explore:** `/hub directory` (Find public hubs)
-    - 🔗 **Connect:** `/hub connect` (Join an existing hub)
-    - ⚙️ **Manage:** `/hub manage` (Admin settings)
-    > Use `/help` for the full list.
+    - :pin: **Créer :** `/hub create` - crée ton propre hub
+    - :compass: **Explorer :** `/hub browse` - trouve des hubs publics
+    - :link_icon: **Connecter :** `/hub connect` - rejoins un hub existant
+    - ⚙️ **Gérer :** `/hub manage` - ouvre les paramètres de ton hub
+    > Utilise `/help` pour voir toutes les commandes.
+
   closing: |
-    **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
+    **Prêt à rencontrer un autre serveur ? Essaie un appel, découvre un hub ou crée le tien ci-dessous.**
 
-    -# Made with ❤️ by Sidequest Labs
+    -# Fait avec :heart: par Sidequest Labs
+
+onboarding:
+  # Copy shared by Calls started outside /call.
+  call:
+    profileNotSent: "{user}, ton message n'a pas été envoyé. Choisis ci-dessous comment tu apparais dans les appels, puis renvoie-le."
+    errors:
+      botPermissions: "J'ai besoin des permissions Voir le salon, Envoyer des messages et Gérer les webhooks dans {channel}."
+      webhook: "Je n'ai pas pu créer le webhook d'appel dans {channel}."
+      busy: Les lignes sont occupées pour le moment. Réessaie dans quelques secondes.
+
 setup:
+  # Shared with the language picker, the Hub directory, and the Hub create wizard.
   select:
-    placeholder: Select a language
+    placeholder: Choisis une langue
   locale:
-    successDescription: "{tick} Your language has been set to **{locale_name}**"
-  buttons:
-    getStarted: Start Setup Wizard
-    connectHere: Connect Here
-    createHub: Create Hub
-    discoverHubs: Discover Public Hubs
-    useDefault: Use Default
-    skipForNow: Skip for Now
+    successDescription: "{tick} Ta langue a été définie sur **{locale_name}**"
+  directory:
+    connecting: "Choisis un hub ci-dessous. Je le connecterai à {channel}."
+  channel:
+    createPlaceholder: Choisis un salon à connecter
+    selected: "Je connecterai {channel} quand le hub sera prêt."
+  # The /setup panel.
+  flow:
+    title: Configurer InterChat
+    stepLabel: "Étape {step} sur 3 · {name}"
+    steps:
+      channel: Salon
+      hub: Hub
+      connect: Connecter
+    startedBy: "Lancé par **{user}** · seule cette personne peut utiliser ces boutons"
+    expired: "Cette configuration a expiré après 15 minutes d'inactivité. Lance `/setup` pour recommencer."
+    replaced: Cette configuration a été remplacée par une plus récente.
+    notOwner: "**{user}** a lancé cette configuration, donc seule cette personne peut utiliser ces boutons. Lance `/setup` pour démarrer la tienne."
+    managersOnly: Seuls les membres ayant **Gérer le serveur** et **Gérer les salons** peuvent configurer InterChat. Demande à un administrateur du serveur de connecter un salon.
+    cancel: Annuler
+    back: Retour
+    actionFailed: Un problème est survenu de notre côté. Réessaie dans un instant.
+    channel:
+      intro: Choisis le salon où s'afficheront les messages des autres serveurs.
+      createTitle: "Créer #{name}"
+      createDescription: Un salon dédié garde le chat inter-serveurs à l'écart de tes autres salons. Je m'occupe de ses permissions.
+      createButton: Créer le salon
+      creating: Création…
+      existing: Ou utilise un salon existant
+      placeholder: Choisis un salon
+      continue: Continuer
+      recheck: Vérifier à nouveau
+      checking: Vérification…
+      permissions:
+        view_channel: Voir le salon
+        send_messages: Envoyer des messages
+        manage_webhooks: Gérer les webhooks
+      missing: "**Je ne peux pas encore utiliser {channel}.** J'ai besoin des permissions indiquées ci-dessus pour afficher les messages des autres serveurs avec leurs noms et avatars. Ouvre les paramètres du salon, va dans **Permissions**, donne au rôle InterChat ce qui manque, puis appuie sur **Vérifier à nouveau**."
+      alreadyConnected: "{channel} est déjà connecté à **{hub}**. Choisis un autre salon."
+      inCall: "Un appel est en cours dans {channel}. Termine-le avec `/hangup` ou choisis un autre salon."
+      unsupported: Choisis un salon textuel classique.
+      topic: Les messages ici sont partagés avec d'autres serveurs via InterChat.
+      auditReason: "Créé avec /setup par {user}"
+      createFailed: Je n'ai pas pu créer de salon. Donne au rôle InterChat la permission **Gérer les salons** sur ce serveur et réessaie, ou choisis un salon existant.
+      createdNote: "{channel} créé, et je me suis donné les permissions nécessaires."
+    hub:
+      title: "Choisis un hub pour {channel}"
+      intro: Un hub relie un salon de plusieurs serveurs, pour que tout le monde discute dans la même conversation.
+      suggestionsIn: "Voici les hubs les plus actifs en {language} en ce moment."
+      suggestions: Voici les hubs les plus actifs en ce moment.
+      yoursFirst: Les hubs que tu possèdes passent en premier, puis les plus actifs.
+      yours: "Ton hub · {count} serveurs"
+      yoursOne: Ton hub · 1 serveur
+      choose: Choisir
+      browse: Parcourir tous les hubs
+      metrics: "{count} serveurs · {activity}"
+      activity:
+        high: Très actif
+        medium: Actif
+        low: Calme
+      unavailable: Je n'ai pas pu charger les hubs pour le moment. Réessaie dans un instant.
+      empty: Aucun hub public n'est ouvert à l'adhésion pour le moment. Essaie plutôt un appel rapide.
+      retry: Réessayer
+      callTitle: Tu veux juste tester ?
+      callDescription: "Lance un appel rapide : {channel} discute avec un autre serveur jusqu'à ce que quelqu'un raccroche. Rien ne reste connecté."
+      callButton: Lancer un appel
+      callStarting: Lancement…
+    browse:
+      title: Tous les hubs
+      intro: "Les {count} hubs publics les plus actifs. Pour la recherche et les filtres, utilise {command} après la configuration."
+      placeholder: Choisis un hub
+      backToSuggestions: Retour aux suggestions
+    confirm:
+      title: "Connecter {channel} à {hub} ?"
+      rulesTitle: "Règles de {hub}"
+      noRules: Ce hub n'a pas encore publié de règles.
+      rulesNote: "Les membres voient ces règles avant leur premier message dans {channel}."
+      connect: Connecter
+      connecting: Connexion…
+      unavailable: Je n'ai pas pu charger les détails de ce hub. Reviens en arrière et choisis-le à nouveau, ou prends un autre hub.
+    failed:
+      title: "Impossible de se connecter à {hub}"
+      retry: Réessayer
+      otherHub: Choisir un autre hub
+      generic: Un problème est survenu de notre côté et rien n'a été connecté. Réessaie dans un instant.
+    live:
+      title: "{channel} est en ligne"
+      description: "Il est connecté à **{hub}**. Les messages envoyés ici atteignent désormais {count} serveurs, et les leurs t'arrivent."
+      goTo: "Aller à #{name}"
+    call:
+      title: Ton appel est lancé
+      description: "Je cherche un serveur pour {channel}. Parle là-bas dès que quelqu'un arrive, utilise `/skip` pour changer de serveur ou `/hangup` pour mettre fin à l'appel."
+      stayTitle: Tu veux quelque chose de durable ?
+      stayDescription: "Un hub garde {channel} connecté à de nombreux serveurs après la fin de l'appel."
+      stayButton: Trouver un hub
+      wrongChannel: "Les appels de ce serveur se passent dans {channel}. Lances-en un là-bas avec `/call`."
+      profileNeeded: Choisis comment tu apparais dans les appels, puis appuie à nouveau sur **Lancer un appel**.
+      announceFailed: "J'ai lancé l'appel mais je n'ai pas pu écrire dans {channel}, donc je l'ai annulé. Vérifie mes permissions là-bas et réessaie."
+      unavailable: Les appels sont encore en cours de démarrage. Réessaie dans quelques secondes.
+    status:
+      title: InterChat est configuré
+      intro: "Voici ce qui est connecté sur **{server}**."
+      connected: "{channel} → **{hub}**"
+      paused: "{channel} → **{hub}** · en pause"
+      more: "…et {count} de plus. Affiche-les tous avec {command}."
+    next:
+      title: Et ensuite ?
+      anotherTitle: Connecter un autre salon
+      anotherDescription: Ajoute un deuxième salon à un autre hub.
+      anotherButton: En connecter un autre
+      settings: "Modifie le comportement des appels, les blocages et les options du salon avec {command}."
+      createHub: "Crée un hub pour ta propre communauté avec {command}."
+    cancelled:
+      nothingChanged: "**Configuration annulée.** Rien n'a été modifié. Lance `/setup` quand tu veux."
+      keptChannel: "**Configuration annulée.** {channel} a été conservé, tu pourras l'utiliser la prochaine fois ou le supprimer. Lance `/setup` quand tu veux."
+    welcome:
+      title: Merci d'avoir ajouté InterChat
+      description: Connecte un salon à un hub et tes membres pourront discuter avec d'autres communautés. La configuration prend environ une minute.
+      start: Démarrer la configuration
+      whatIsHub: C'est quoi, un hub ?
+      whoCanSetUp: La configuration est réservée aux membres ayant Gérer le serveur et Gérer les salons.
+      hubExplainer: "**Un hub est un salon partagé entre de nombreux serveurs.** Connecte l'un de tes salons et ses messages arrivent sur tous les autres serveurs du hub, leurs réponses te revenant. Tu peux quitter un hub à tout moment avec `/hub leave`."
+      dmFallback: "J'ai rejoint **{server}**, mais je ne peux écrire dans aucun salon. Donne à InterChat les permissions **Voir le salon**, **Envoyer des messages** et **Joindre des fichiers** quelque part, puis lance `/setup` là-bas."
+
 help:
-  title: InterChat commandes
-  description: Explore our wide range of commands to help you connect with others.
-  name: Aide
-preferences:
-  title: User Preferences
-  description: Edit your personal global settings.
-  replyMentions:
-    title: "Preferences: Reply Mentions"
-    description: You will now be **{status}** when someone replies to your messages.
-    currentDescription: Currently you are **{status}** when replied to.
-    mentioned: mentioned
-    notMentioned: not mentioned
-  general:
-    title: General Preferences
-    description: Configure general preferences within InterChat.
-  locale:
-    title: Language Select
-    description: Select your preferred language for InterChat.
+  title: Aide
+  description: Découvre toutes les commandes d'InterChat.
+  browserDescription: Choisis un point de départ ci-dessous ou parcours toutes les commandes par catégorie. Tape / dans la zone pour chercher instantanément parmi toutes les commandes.
+  gettingStarted: Pour commencer
+  home:
+    moreAvailable: "+{count} autre(s) point(s) de départ disponible(s) dans la liste des catégories."
+  category:
+    moreOnThisPage: "+{count} autre(s) commande(s) de cette page sont masquées à cause de la limite de Discord."
+  categorySummary: "{count} commande(s) · page {page}/{pages}"
   select:
-    category: Select a category
-  badges:
-    title: "Preferences: Badges"
-    description: Your badges are now **{status}** within your messages.
-    currentDescription: Currently your badges are **{status}** within your messages.
-    visible: visible
-    hidden: hidden
-  voteReminders:
-    title: "Preferences: Vote Reminders"
-    description: Toggle vote reminder notifications from InterChat.
-    enabled: enabled
-    disabled: disabled
-    dm:
-      title: Time to Vote for InterChat!
-      description: Your support helps InterChat grow! Vote on top.gg to help us out!
-      reminderInfo: You receive this reminder because you've voted before.
-      disableConfirm:
-        title: Vote Reminders Disabled
-        description: You will no longer receive vote reminder DMs.
-  errors:
-    noPreferences: You don't have any preferences set yet.
-appeal:
-  title: Vos infractions susceptibles d'appel
-  description: Select an infraction below to submit an appeal.
-  noInfractions:
-    title: No Active Infractions
-    description: You have no active infractions that can be appealed.
-  notAppealable: Cette infraction n’est plus susceptible d’appel.
-  select:
-    placeholder: Select an infraction to appeal
-  modal:
-    title: Submit Appeal
-    q1: Why do you believe this action was incorrect?
-    q2: Tell us about the situation
-    q3: Additional Information
-  success:
-    submitted: "{tick} Your appeal has been submitted for review."
-  viewInfractions:
-    title: Recent User Infractions
-    empty: No infractions found for this user.
-  status:
-    acceptedBy: Accepted by @{name}
-    rejectedBy: Rejected by @{name}
-    pending: Pending Response
-    cooldown: Cooldown
-    canAppeal: Appealable
-  constants:
-    noReason: No Reason
+    category: Choisis une catégorie de commandes
+  buttons:
+    view: Ouvrir
+    home: Accueil
+  expired:
+    title: Session d'aide expirée
+    description: Relance {command} pour ouvrir un nouveau guide des commandes.
+    button: Expirée
+  categories:
+    startHere: Commencer ici
+    calls: Appels
+    social: Social
+    hubs: Hubs
+    account: Compte
+    server: Configuration du serveur
+    moderation: Modération
+    safety: Sécurité
+    other: Autres
+  categoryBlurbs:
+    startHere: "Premiers pas et bases du quotidien · {count} commande(s)"
+    calls: "Lancer, rejoindre et quitter des appels · {count} commande(s)"
+    social: "Envoie des actions amusantes à ton appel · {count} commande(s)"
+    hubs: "Connecter des serveurs et relayer des messages · {count} commande(s)"
+    account: "Profil, paramètres et préférences · {count} commande(s)"
+    server: "Configurer InterChat sur un serveur · {count} commande(s)"
+    moderation: "Modérer les utilisateurs et les messages · {count} commande(s)"
+    safety: "Signalements, blocage, confiance et sécurité · {count} commande(s)"
+    other: "Tout le reste · {count} commande(s)"
+  commandTypes:
+    hybrid: Hybride
+    prefix: Préfixe
+    slash: Slash
   fields:
-    date: "Date:"
-    reason: "Reason:"
+    slashUsage: Utilisation en slash
+    prefixUsage: Utilisation avec préfixe
+    commandType: Type de commande
+    aliases: Alias
+    userPermissions: Permissions de l'utilisateur
+    botPermissions: Permissions du bot
+    hubPermission: Permission de hub
+    availability: Disponibilité
+    subcommands: Sous-commandes
+    options: Options
+    examples: Exemples
+  availability:
+    serverOnly: Salons de serveur uniquement
+    nsfwOnly: Salons NSFW uniquement
+  option:
+    required: obligatoire
+    optional: facultatif
+    default: Par défaut
+    choices: Choix
+    range: Plage
+    length: Longueur
+    channels: Salons
+    autocomplete: "Saisie semi-automatique : activée"
+    to: à
+  types:
+    subcommand: Sous-commande
+    subcommandGroup: Groupe de sous-commandes
+    string: Chaîne
+    integer: Entier
+    boolean: Booléen
+    user: Utilisateur
+    member: Membre
+    channel: Salon
+    textChannel: Salon textuel
+    voiceChannel: Salon vocal
+    role: Rôle
+    mentionable: Mentionnable
+    number: Nombre
+    attachment: Pièce jointe
+  recovery:
+    tooManyArguments: Trop d'arguments ont été fournis. Retire les valeurs en trop et réessaie.
+    badArgument: Impossible de comprendre l'un des arguments. Vérifie son type et réessaie.
+    parsingError: Impossible d'analyser les arguments de la commande. Vérifie l'utilisation ci-dessous et réessaie.
+    userPermissions: Tu as besoin de la ou des permission(s) {permissions} pour exécuter cette commande.
+    botPermissions: J'ai besoin de la ou des permission(s) {permissions} pour exécuter cette commande.
+    serverOnly: Cette commande ne peut être utilisée que sur un serveur.
+    missingRole: Tu n'as pas le rôle requis pour exécuter cette commande.
+    missingSubcommand: Choisis l'une des sous-commandes listées ci-dessous.
+    unknownSubcommand: "Sous-commande inconnue : `{subcommand}`. Choisis l'une des sous-commandes disponibles ci-dessous."
+    hubPermission: "{error} Vérifie la permission de hub indiquée ci-dessous."
+    invalidInput: "{error} Vérifie les types d'arguments et les choix acceptés ci-dessous."
+    commandNotFound: Cette commande ou sous-commande est introuvable. Voici la page d'aide la plus proche.
+    generic: La commande n'a pas pu être utilisée. Vérifie l'utilisation et les prérequis ci-dessous.
+
+preferences:
+  title: Préférences utilisateur
+  description: Modifie tes paramètres globaux personnels.
+  replyMentions:
+    title: "Préférences : mentions de réponse"
+    description: Tu seras désormais **{status}** quand quelqu'un répond à tes messages.
+    currentDescription: Actuellement, tu es **{status}** quand on te répond.
+    mentioned: mentionné(e)
+    notMentioned: non mentionné(e)
+  general:
+    title: Préférences générales
+    description: Configure les préférences générales dans InterChat.
+  locale:
+    title: Choix de la langue
+    description: Choisis ta langue préférée pour InterChat.
+  select:
+    category: Choisis une catégorie
+  badges:
+    title: "Préférences : badges"
+    description: Tes badges sont désormais **{status}** sur les messages, les classements et ton profil.
+    currentDescription: Actuellement, tes badges sont **{status}** sur les messages, les classements et ton profil.
+    visible: visibles
+    hidden: masqués
+  voteReminders:
+    title: "Préférences : rappels de vote"
+    description: Active ou désactive les rappels de vote. Voter débloque aussi l'auto-match personnel pendant 12 heures après que ton partenaire a passé ou raccroché.
+    enabled: activés
+    disabled: désactivés
+    dm:
+      title: C'est l'heure de voter pour InterChat !
+      description: Ton soutien aide InterChat à grandir ! Vote sur top.gg pour nous aider. Tu peux aussi choisir de te refaire associer quand ton partenaire passe ou raccroche.
+      reminderInfo: Tes choix d'auto-match restent actifs pendant 12 heures après un vote. Gère-les dans `/my settings`.
+      disableConfirm:
+        title: Rappels de vote désactivés
+        description: Tu ne recevras plus de MP de rappel de vote. Voter débloque toujours l'auto-match personnel pendant 12 heures quand un partenaire passe ou raccroche.
+  errors:
+    noPreferences: Tu n'as encore défini aucune préférence.
+
+appeal:
+  title: Tes infractions contestables
+  description: Sélectionne une infraction ci-dessous pour déposer un recours.
+  noInfractions:
+    title: Aucune infraction active
+    description: Tu n'as aucune infraction active pouvant faire l'objet d'un recours.
+  notAppealable: Cette infraction ne peut plus faire l'objet d'un recours.
+  notOpenYet: "Tu pourras faire appel à partir de {opens_at}"
+  select:
+    placeholder: Sélectionne une infraction à contester
+  modal:
+    title: Déposer un recours
+    q1: Pourquoi penses-tu que cette action était injustifiée ?
+    q2: Raconte-nous la situation
+    q3: Informations complémentaires
+  success:
+    submitted: "{tick} Ton recours a été soumis pour examen."
+  viewInfractions:
+    title: Infractions récentes de l'utilisateur
+    empty: Aucune infraction trouvée pour cet utilisateur.
+  status:
+    acceptedBy: Accepté par @{name}
+    rejectedBy: Refusé par @{name}
+    pending: Réponse en attente
+    cooldown: Délai d'attente
+    canAppeal: Contestable
+  constants:
+    noReason: *no_reason
+  fields:
+    date: "Date :"
+    reason: "Raison :"
   actions:
-    decisionTitle: Appeal Decision
+    decisionTitle: Décision sur le recours
     reasonOptional:
-      label: Reason (Optional)
-      placeholder: Explain your decision...
+      label: Raison (facultatif)
+      placeholder: Explique ta décision...
   dm:
-    accepted: Your appeal regarding a moderation action{hubName} has been accepted.
-    declined: Your appeal regarding a moderation action{hubName} has been declined.
-    moderatorNote: "Moderator note: {reason}"
+    accepted: Ton recours concernant une action de modération{hubName} a été accepté.
+    declined: Ton recours concernant une action de modération{hubName} a été refusé.
+    moderatorNote: "Note du modérateur : {reason}"
   embed:
     noInfractions:
-      title: Squeaky Clean!
-      description: No appealable infractions found.
+      title: Impeccable !
+      description: Aucune infraction contestable trouvée.
     footer:
-      canAppeal: "💡 You can appeal {count} infraction(s). Use the select menu below."
-      checkLater: "💡 Check back later when cooldowns expire or appeals are reviewed."
+      canAppeal: ':lightbulb_icon: Tu peux contester {count} infraction(s). Utilise le menu de sélection ci-dessous.'
+      checkLater: ':lightbulb_icon: Reviens plus tard, quand les délais d''attente auront expiré ou que les recours auront été examinés.'
   errors:
-    nothingSelected: Nothing was selected.
-    modalError: Failed to open appeal modal.
-    recordFailed: "Failed to record decision: {error}"
-    notFoundOrDeleted: Appeal not found or has been deleted.
-    updateFailed: Failed to update appeal. Please try again later.
+    nothingSelected: Rien n'a été sélectionné.
+    modalError: Impossible d'ouvrir le formulaire de recours.
+    recordFailed: "Impossible d'enregistrer la décision : {error}"
+    notFoundOrDeleted: Recours introuvable ou supprimé.
+    updateFailed: Impossible de mettre à jour le recours. Réessaie plus tard.
+
+automod:
+  actionsDefault: Utiliser la valeur par défaut d'Automod
+  actionsDefaultHint: Défini sur la page Automod
+  actionsLabel: Que doit-il se passer en cas de correspondance ?
+  actionsTitle: Que se passe-t-il ?
+  addWords: Ajouter des mots
+  applyDraft: Appliquer mon brouillon
+  changeApplied: ':tick_icon: Ta modification a été appliquée.'
+  changeApplying: ⏳ Enregistrement…
+  changeBlocked: ':alert_icon: Une modification précédente attend une vérification, donc les nouvelles modifications sont suspendues pour le moment.'
+  changeFailedConflict: Automod a été modifié par quelqu'un d'autre pendant l'application de ta modification, elle n'a donc pas été appliquée. Utilise Comparer mes modifications pour appliquer ton brouillon par-dessus la dernière version.
+  changeFailedGeneric: Cette modification n'a pas été confirmée. Vérifie les règles affichées ici, puis réessaie.
+  changeFailedGone: Cet Automod n'est plus disponible, la modification n'a donc pas été appliquée.
+  changeFailedNotSent: La modification n'a jamais atteint le service de sécurité, donc rien n'a été appliqué. Réessaie.
+  changeFailedPermission: Ta permission de modifier cet Automod a été retirée avant l'application, donc rien n'a été enregistré.
+  changeFailedRefused: 'Automod a refusé cette modification, elle n''a donc pas été appliquée : {reason}'
+  changeFailedRejected: Le service de sécurité a rejeté cette modification, elle n'a donc pas été appliquée.
+  changeFailedService: Le service de sécurité a refusé cette modification, ce qui ressemble à un problème de service. Rien n'a été appliqué ; merci de le signaler.
+  changeFailedUnknown: Nous n'avons pas pu confirmer si cette modification a été appliquée, une vérification est donc nécessaire. Vérifie les règles affichées ici, puis enregistre à nouveau si besoin.
+  changeFailedUnreadable: La modification enregistrée n'a pas pu être relue, elle n'a donc jamais été envoyée. Enregistre-la à nouveau.
+  changeStillApplying: ⏳ Application en cours. Appuie sur Actualiser dans un instant pour voir le résultat.
+  confirmChange: Confirmer la modification
+  confirmEffect: Cela prend effet immédiatement pour tout le monde dans {scope}.
+  confirmOff: Le laisser désactivé pour l'instant
+  confirmOn: Activer maintenant
+  confirmTitle: Activer « {name} » ?
+  conflictBanner: ':alert_icon: Quelqu''un d''autre a modifié Automod pendant que tu travaillais. Ta modification a été conservée en brouillon.'
+  conflictCurrent: 'Dernière version : {rules} règles, {patterns} mots'
+  conflictDraft: 'Ton brouillon : {rules} règles, {patterns} mots'
+  conflictNote: L'application remplace toutes les règles par ton brouillon.
+  conflictReviewTitle: Comparer mes modifications
+  conflictToast: Quelqu'un d'autre vient de modifier Automod. La dernière version a été chargée et ta modification n'a pas été appliquée. Vérifie et réessaie.
+  deleteConfirm: Supprimer « {name} » ?
+  detailsDescription: Description
+  detailsName: Nom
+  detailsReason: Message affiché en cas de détection
+  detailsReasonHint: Affiché à l'utilisateur quand cette règle le détecte.
+  detailsTitle: Nom et raison
+  dialLabel: Quand une règle détecte quelque chose…
+  dialMixed: Mixte (défini par règle)
+  disableRule: Désactiver « {name} » ?
+  disabled: Désactivé
+  discard: Abandonner
+  discardBanner: Tes modifications ne sont pas encore appliquées.
+  discardConfirm: Abandonner les modifications
+  discardDraft: Abandonner mon brouillon
+  discardTitle: Abandonner les modifications non enregistrées ?
+  durationError: Utilise une durée comme 30m, 1h ou 2d.
+  durationLabel: 'Durée de {action}'
+  durationPlaceholder: p. ex. 30m, 1h, 2d
+  editActions: Ce qui se passe
+  editDetails: Nom et raison
+  editSurfaces: Où vérifier
+  enableRule: Activer « {name} » ?
+  enabled: Activé
+  errorTitle: ':alert_icon: Impossible de charger Automod.'
+  keepEditing: Continuer à modifier
+  loadDenied: Tu n'as pas la permission de voir Automod ici.
+  loadFailed: Impossible de charger Automod pour le moment. {reason}
+  loadGone: Cet Automod est introuvable.
+  loadUnavailable: Impossible de joindre le service de sécurité. Appuie sur Actualiser pour réessayer.
+  newRule: Nouvelle règle
+  newRuleModalTitle: Nouvelle règle
+  newRuleName: Nom
+  noRules: Aucune règle pour l'instant. Crée la première règle pour commencer.
+  page: Page {current}/{total}
+  parameters: Paramètres de l'action
+  pause: Mettre Automod en pause
+  pauseConfirm: Mettre Automod en pause ? Les règles ne sont plus appliquées jusqu'à la reprise.
+  pickRule: Choisis une règle à modifier…
+  rejected: 'Automod a rejeté cette modification : {error}'
+  removeSelect: Sélectionne les mots à retirer…
+  removeTitle: Retirer des mots
+  removeWords: Retirer des mots
+  replaceAll: Tout remplacer
+  replacementLabel: Nom du remplacement sûr
+  replacesNote: Cela remplace toute la configuration d'Automod.
+  resume: Reprendre Automod
+  resumeConfirm: Réactiver Automod ?
+  reviewDraft: Comparer mes modifications
+  ruleDescription: '{status} · {count} mots'
+  ruleTitle: ':pencil_line: {name} · {status}'
+  rulesOn: '{enabled} règles activées sur {total}'
+  saveBusy: Une autre modification d'Automod est déjà en cours d'application. Attends qu'elle se termine, puis enregistre à nouveau.
+  saveDenied: Tu n'as plus la permission de modifier cet Automod.
+  saveFailed: 'Impossible d''enregistrer cette modification : {reason}'
+  saveGone: Cet Automod n'est plus disponible, donc rien n'a été modifié.
+  saveUnavailable: Impossible de joindre le service de sécurité, donc rien n'a été modifié. Réessaie dans un instant.
+  serverNote: Les avertissements, les mises en sourdine et les bannissements sont des outils de hub. Ils s'appliquent quand ce serveur rejoint un hub.
+  statusOff: 'Désactivé'
+  statusOn: 'Activé'
+  surfacesLabel: Où faut-il les vérifier ?
+  surfacesTitle: Où vérifier
+  test: Tester
+  testCaught: ':alert_icon: Serait détecté par « {rule} ». Conséquence : {actions}.'
+  testClean: ':tick_icon: Rien ne serait détecté.'
+  testDisclaimer: Aperçu uniquement. La décision finale est prise par le service d'application.
+  testEmpty: Aucune règle n'est activée pour l'instant, donc rien ne serait détecté.
+  testFor: 🧪 Résultat du test pour « {message} »
+  testLabel: Écris un message comme le ferait un utilisateur
+  testModalTitle: Tester Automod
+  testNoSurface: Cette règle ne vérifie pas le contenu des messages, donc un test de message n'a rien à examiner.
+  testRule: Tester cette règle
+  title: ':shield_alert_icon: Automod · {scope}'
+  turnOff: Désactiver
+  turnOn: Activer
+  unsaved: ':alert_icon: Modifications non enregistrées'
+  wordSlots: '{used} emplacements de mots utilisés sur {limit}'
+  wordsCount: '{count} mots'
+  wordsHint: Utilise * au début ou à la fin pour une correspondance partielle. Les expressions vont entre « guillemets ». 4000 caractères maximum.
+  wordsLabel: Mots à détecter, un par ligne
+  wordsReplaceTitle: Remplacer tous les mots
+  wordsTitle: Ajouter des mots
 report:
   title: Signaler le message
-  footer: Les rapports contribuent à assurer la sécurité d'InterChat pour tous
-  description: Report {user} to Hub Staff or InterChat Staff.
+  footer: Les signalements aident à garder InterChat sûr pour tout le monde
+  prompt: Signale ce message à notre équipe de modération.
   buttons:
-    toStaff: Report to Staff
-    toHub: Report to Hub
+    toStaff: Signaler à l'équipe
+    toHub: Signaler au hub
   modal:
     toStaff:
-      title: Report to InterChat Staff
+      title: Signaler à l'équipe d'InterChat
     toHub:
-      title: Report to Hub Moderators
+      title: Signaler aux modérateurs du hub
     reason:
-      label: Reason for Report
-      placeholder: Please describe why you are reporting this message...
+      label: Raison du signalement
+      placeholder: Décris pourquoi tu signales ce message...
     context:
-      label: Context (Entire call history is sent)
-      placeholder: Add any additional context or details for staff...
+      label: Contexte (tout l'historique de l'appel est envoyé)
+      placeholder: Ajoute du contexte ou des détails supplémentaires pour l'équipe...
+    reasons:
+      nsfwImages: Images NSFW
+      gore: Gore
+      childSexualization: Comportement pédophile / sexualisation d'enfants
+      sexualThreats: Menaces de viol / menaces sexuelles
+      doxxing: Doxxing
+      hardRuleName: Hard-R dans un pseudo / un nom de serveur
+      spam: Spam
+      suggestiveMessages: Messages suggestifs
+      nsfwMessages: Messages NSFW
+      casualSlurs: Insultes banalisées
+      targetedSlurs: Insultes ciblées / insultes extrêmes
+      mildToxicity: Toxicité légère
+      moderateToxicity: Toxicité modérée
+      severeToxicity: Toxicité sévère
+      harassment: Harcèlement
+      mildHateSpeech: Discours haineux léger
+      severeHateSpeech: Discours haineux sévère
+      other: Autres
   success:
     title: Signalement envoyé
-    toStaff: "{tick} Your report has been sent to InterChat staff."
-    toHub: "{tick} Your report has been sent to hub moderators."
+    toStaff: "{tick} Ton signalement a été envoyé à l'équipe d'InterChat."
+    toHub: "{tick} Ton signalement a été envoyé aux modérateurs du hub."
   errors:
-    hubMessageOnly: "{x_icon} Vous ne pouvez signaler que les messages envoyés via les hubs InterChat."
-    cannotReportSelf: "{x_icon} Vous ne pouvez pas signaler vos propres messages."
-    outOfScope: "{x_icon} This message cannot be reported. You can only report messages sent inside InterChat Hubs and Calls."
-    alreadyReportedCall: "{x_icon} You have already reported this call. When you submit a report, the entire call history is sent to staff, so there is no need to report multiple times."
+    hubMessageOnly: "{x_icon} Tu ne peux signaler que les messages envoyés via les hubs InterChat."
+    cannotReportSelf: "{x_icon} Tu ne peux pas signaler tes propres messages."
+    outOfScope: "{x_icon} Ce message ne peut pas être signalé. Tu ne peux signaler que les messages envoyés dans les hubs et les appels InterChat."
+    alreadyReportedCall: "{x_icon} Tu as déjà signalé cet appel. Quand tu envoies un signalement, tout l'historique de l'appel est transmis à l'équipe, inutile donc de signaler plusieurs fois."
+
 hubConfig:
   general:
-    placeholder: Select a setting to configure...
-    summaryDescription: A summary of your hub's general settings.
-    hubIdentity: Hub Identity
+    placeholder: Choisis un paramètre à configurer...
+    summaryDescription: Un résumé des paramètres généraux de ton hub.
+    hubIdentity: Identité du hub
     fields:
-      name: "Name:"
-      description: "Description:"
-      rating: "Rating:"
-      visibility: "Visibility:"
-    editOnDashboard: Edit on Dashboard
-    noDescription: "*No description set.*"
-    properties: Properties
-    nsfw: "🔞 NSFW"
-    familyFriendly: "✅ Family Friendly"
-    lastUpdated: "Last Updated:"
-    descriptionUpdated: Description Updated!
-    descriptionSuccess: Your hub description has been successfully updated.
-    nameUpdated: Name Updated!
-    nameSuccess: Your hub has been renamed to **{name}**.
-    nameCooldownNote: "⚠️ Hub names can only be changed once every 10 days."
-    welcomeUpdated: Welcome Message Updated!
-    welcomeSuccess: Your hub welcome message has been successfully updated.
-    nsfwUpdated: NSFW Setting Updated!
-    nsfwWarning: "⚠️ Important"
-    nsfwWarningDesc: Your hub is now marked as NSFW and may be filtered from searches.
-    sfwConfirmDesc: Your hub is now marked as safe for work.
-    visibilityUpdated: Visibility Updated!
-    visibilitySuccess: "Your hub is now: **{status}**"
-    visibilityMeaning: ℹ️ What this means
+      name: "Nom :"
+      description: "Description :"
+      rating: "Classification :"
+      visibility: "Visibilité :"
+    editOnDashboard: Modifier sur le tableau de bord
+    noDescription: "*Aucune description définie.*"
+    properties: Propriétés
+    nsfw: ':eye_off: NSFW'
+    familyFriendly: ':tick_icon: Tout public'
+    lastUpdated: "Dernière mise à jour :"
+    descriptionUpdated: Description mise à jour !
+    descriptionSuccess: La description de ton hub a bien été mise à jour.
+    nameUpdated: Nom mis à jour !
+    nameSuccess: Ton hub a été renommé en **{name}**.
+    nameCooldownNote: ':alert_icon: Le nom d''un hub ne peut être modifié qu''une fois tous les 10 jours.'
+    welcomeUpdated: Message de bienvenue mis à jour !
+    welcomeSuccess: Le message de bienvenue de ton hub a bien été mis à jour.
+    nsfwUpdated: Paramètre NSFW mis à jour !
+    nsfwWarning: ':alert_icon: Important'
+    nsfwWarningDesc: Ton hub est désormais marqué NSFW et peut être filtré des recherches.
+    sfwConfirmDesc: Ton hub est désormais marqué comme tout public.
+    visibilityUpdated: Visibilité mise à jour !
+    visibilitySuccess: "Ton hub est désormais : **{status}**"
+    visibilityMeaning: ℹ️ Ce que cela signifie
     visibility:
-      public: "🌐 Public"
-      publicDesc: Discoverable on the hub directory.
-      unlisted: "👁️ Unlisted"
-      unlistedDesc: Not in directory but anyone can join via ID/link.
-      private: "🔒 Private"
-      privateDesc: Invite-only, not listed publicly.
+      public: ':globe_icon: Public'
+      publicDesc: *vis_public_desc
+      unlisted: 👁️ Non listé
+      unlistedDesc: *vis_unlisted_desc
+      private: ':lock_icon: Privé'
+      privateDesc: *vis_private_desc
     editDescription:
-      label: Edit Description
-      description: Change your hub's description
-      title: Edit Hub Description
-      labelInput: Hub Description
-      placeholder: Describe what your hub is about...
+      label: Modifier la description
+      description: Change la description de ton hub
+      title: Modifier la description du hub
+      labelInput: Description du hub
+      placeholder: Décris de quoi parle ton hub...
     editName:
-      label: Edit Name
-      description: Change your hub's display name
-      title: Edit Hub Name
-      labelInput: Hub Name
-      placeholder: Enter a new name for your hub...
+      label: Modifier le nom
+      description: Change le nom d'affichage de ton hub
+      title: Modifier le nom du hub
+      labelInput: Nom du hub
+      placeholder: Saisis un nouveau nom pour ton hub...
     welcomeMessage:
-      label: Welcome Message
-      description: Set a message sent to new members
-      title: Edit Welcome Message
-      labelInput: Welcome Message
-      placeholder: Welcome! Enjoy your stay...
+      label: Message de bienvenue
+      description: Définis un message envoyé aux nouveaux membres
+      title: Modifier le message de bienvenue
+      labelInput: Message de bienvenue
+      placeholder: Bienvenue ! Profite bien de ton séjour...
     toggleNsfw:
-      label: Toggle NSFW
-      description: Toggle between Safe for Work and NSFW
+      label: Basculer NSFW
+      description: Bascule entre tout public et NSFW
     changeVisibility:
-      label: Change Visibility
-      description: Switch between Public, Unlisted, or Private
-      title: "🔐 Change Hub Visibility"
-      desc: "Select the visibility level for your hub:"
+      label: Modifier la visibilité
+      description: Passe de Public à Non listé ou Privé
+      title: 🔐 Modifier la visibilité du hub
+      desc: "Choisis le niveau de visibilité de ton hub :"
+    console:
+      brandingTab: Identité visuelle
+      settingsTab: Paramètres
+      identityGroup: "-# **Identité**"
+      artworkGroup: "-# **Visuels**"
+      discoveryGroup: "-# **Découverte**"
+      contentGroup: "-# **Contenu**"
+      moderationGroup: "-# **Modération**"
+      brandingSummary: "-# L'apparence de ce hub pour les personnes qui le trouvent."
+      settingsSummary: "-# Le comportement de ce hub : découverte, contenu et recours."
+      preview:
+        defaultName: Hub sans nom
+        noTagline: Aucun slogan défini
+        noDescription: Aucune description définie
+        noWelcome: Aucun message de bienvenue défini
+        stats: "{connections} serveurs · {messages} msg/sem. · {upvotes} votes"
+      fields:
+        name: Nom
+        tagline: Slogan court
+        description: Description
+        welcome: Message de bienvenue
+        icon: Icône du hub
+        banner: Bannière du hub
+        visibility: Visibilité
+        nsfw: Classification du contenu
+        cooldown: Délai d'attente des recours
+        rules: Règles du hub
+      hints:
+        tagline: Une ligne affichée sous le nom du hub dans les listes
+        taglineEmpty: Non défini, les listes n'affichent donc que le nom du hub
+        description: Le long texte que lisent les membres en ouvrant le hub
+        descriptionEmpty: Non défini, les membres ne voient donc rien en ouvrant le hub
+        welcome: Message d'accueil personnalisé affiché quand un serveur se connecte
+        welcomeEmpty: Aucun message d'accueil personnalisé n'est défini pour les nouvelles connexions
+        icon: L'avatar carré que les membres voient partout
+        banner: L'image large derrière l'en-tête de ton hub
+        visibility: Qui peut trouver ce hub et le rejoindre
+        nsfw: Marque ce hub comme NSFW ou tout public
+        cooldown: Combien de temps attendre avant de faire appel d'une infraction
+      values:
+        servers: serveurs
+        notSet: "Non défini"
+        unlisted: Non listé
+        private: Privé
+        iconCustom: "Personnalisé"
+        iconDefault: "Par défaut"
+        bannerSet: "Défini"
+        bannerUnset: "Non défini"
+        cooldown: "{hours} heures"
+        cooldownWithDays: "{hours} heures · {days} jours"
+        rulesConfigured: "{count} configurée(s)"
+        rulesEmpty: "Aucune pour l'instant"
+      manage:
+        rulesAdd: Ajouter des règles
+        rulesEdit: Modifier
     errors:
-      nameCooldown: Name Change on Cooldown
-      nameCooldownDesc: You can change your hub name again in **{days} days**.
-      invalidName: Invalid Name
-      invalidNameDesc: Hub name cannot be empty.
-      nameTaken: Name Already Taken
-      nameTakenDesc: The name **{name}** is already used.
-    rulesCount: "{count}/{max} rules configured"
+      nameCooldown: Changement de nom en attente
+      nameCooldownDesc: Tu pourras de nouveau changer le nom de ton hub dans **{days} jours**.
+      invalidName: Nom invalide
+      invalidNameDesc: Le nom du hub ne peut pas être vide.
+      nameTaken: Nom déjà pris
+      nameTakenDesc: Le nom **{name}** est déjà utilisé.
+    rulesCount: "{count}/{max} règles configurées"
   permissions:
     remove:
-      label: Remove
+      label: Retirer
     moderator:
-      label: Moderator
-      description: Manage messages, moderate users, handle reports & appeals
+      label: Modérateur
+      description: Gérer les messages, modérer les utilisateurs, traiter les signalements et les recours
     manager:
-      label: Manager
-      description: Manage hub settings plus everything that moderators can do
+      label: Gestionnaire
+      description: Gérer les paramètres du hub, en plus de tout ce que peuvent faire les modérateurs
     managerOnly:
-      description: Manage hub settings
+      description: Gérer les paramètres du hub
   modules:
     reactions:
-      label: Reactions
-      description: Allow reaction-based interactions on messages
+      label: Réactions
+      description: Autoriser les interactions par réaction sur les messages
     hideLinks:
-      label: Hide Links
-      description: Hide link previews in hub messages
+      label: Masquer les liens
+      description: Masquer les aperçus de liens dans les messages du hub
     spamFilter:
-      label: Spam Filter
-      description: Automatically filter spam and unwanted content
+      label: Filtre anti-spam
+      description: Filtrer automatiquement le spam et les contenus indésirables
     blockInvites:
-      label: Block Invites
-      description: Block Discord server invites in messages
+      label: Bloquer les invitations
+      description: Bloquer les invitations de serveurs Discord dans les messages
     useNicknames:
-      label: Use Nicknames
-      description: Display user nicknames instead of usernames
+      label: Utiliser les pseudos
+      description: Afficher les pseudos des utilisateurs plutôt que leurs noms d'utilisateur
     blockNsfw:
-      description: Block NSFW content even in NSFW hubs
+      description: Bloquer les contenus NSFW, même dans les hubs NSFW
     allowVideos:
-      description: Allow video attachments in messages
+      description: Autoriser les vidéos en pièce jointe dans les messages
     blockAttachments:
-      description: Block file attachments in messages
+      description: Bloquer les pièces jointes dans les messages
     blockTenorGifs:
-      description: Block Tenor GIFs in messages
-    title: Hub Modules
-    description: Configure additional features and moderation tools for your hub
-    enabled: Enabled **{module}**
-    disabled: Disabled **{module}**
+      description: Bloquer les GIF Tenor dans les messages
+    title: Modules du hub
+    description: Configure des fonctionnalités supplémentaires et des outils de modération pour ton hub
+    enabled: '**{module}** activé'
+    disabled: '**{module}** désactivé'
     success:
-      title: Modules Updated!
+      title: Modules mis à jour !
     errors:
-      updateFailed: "An error occurred: {error}"
+      updateFailed: "Une erreur est survenue : {error}"
   badges:
     owner:
-      label: Owner Badge
-      description: This badge is displayed on the user who owns the hub.
+      label: Badge de propriétaire
+      description: Ce badge s'affiche sur l'utilisateur propriétaire du hub.
     manager:
-      label: Manager Badge
-      description: This badge is displayed on the users who manage this hub.
+      label: Badge de gestionnaire
+      description: Ce badge s'affiche sur les utilisateurs qui gèrent ce hub.
     moderator:
-      label: Moderator Badge
-      description: This badge is displayed on the users who moderate this hub.
-    selectPlaceholder: Select a badge to configure
+      label: Badge de modérateur
+      description: Ce badge s'affiche sur les utilisateurs qui modèrent ce hub.
+    selectPlaceholder: Choisis un badge à configurer
   logging:
-    moderationLogs: Moderation Logs
-    joinLeaveLogs: Join/Leave Logs
-    appealsChannel: Appeals Channel
-    reportsChannel: Reports Channel
-    networkAlerts: Network Alerts
-    messageModeration: Message Moderation
-    title: Hub Logging Configuration
-    description: Configure logging channels and notification roles.
-    selectPlaceholder: Select logging type to configure...
-    selectChannel: Select a channel for logging...
-    selectRole: Select a role for notifications (optional)...
-    notConfigured: Not configured
-    noRole: No role
-    role: Role
-    currentConfig: Current Configuration
-    footerHint: Select a logging type above to configure
-    configureTitle: Configure {type}
-    configureDescription: Select a channel and optionally a role for notifications below.
+    moderationLogs: Journaux de modération
+    joinLeaveLogs: Journaux d'arrivées/départs
+    appealsChannel: Salon des recours
+    reportsChannel: Salon des signalements
+    networkAlerts: Alertes réseau
+    messageModeration: Modération des messages
+    title: Configuration des journaux du hub
+    description: Configure les salons de journalisation et les rôles de notification.
+    selectPlaceholder: Choisis un type de journal à configurer...
+    selectChannel: Choisis un salon pour la journalisation...
+    selectRole: Choisis un rôle pour les notifications (facultatif)...
+    notConfigured: Non configuré
+    noRole: Aucun rôle
+    role: Rôle
+    currentConfig: Configuration actuelle
+    footerHint: Choisis un type de journal ci-dessus pour le configurer
+    configureTitle: Configurer {type}
+    configureDescription: Choisis ci-dessous un salon et, si tu veux, un rôle pour les notifications.
     descriptions:
-      moderation: Channel for moderation actions (warns, bans, mutes)
-      joinLeave: Channel for hub connection events
-      appeals: Channel for appeal notifications
-      reports: Channel for user reports
-      networkAlerts: Channel for network-wide alerts and issues
-      messageModeration: Channel for message edit/delete logs
+      moderation: Salon des actions de modération (avertissements, bannissements, mises en sourdine)
+      joinLeave: Salon des événements de connexion au hub
+      appeals: Salon des notifications de recours
+      reports: Salon des signalements d'utilisateurs
+      networkAlerts: Salon des alertes et problèmes à l'échelle du réseau
+      messageModeration: Salon des journaux de modification/suppression de messages
     success:
-      updated: "{type} configuration updated!"
-      updatedDesc: "Logging for **{type}** has been updated successfully."
-      cleared: "{type} configuration cleared!"
-      clearedDesc: "Logging for **{type}** has been cleared."
+      updated: "Configuration de {type} mise à jour !"
+      updatedDesc: "La journalisation de **{type}** a bien été mise à jour."
+      cleared: "Configuration de {type} effacée !"
+      clearedDesc: "La journalisation de **{type}** a été effacée."
     errors:
-      selectFirst: Please select a logging type first.
-      updateFailed: Failed to update logging configuration.
-      clearFailed: Failed to clear logging configuration.
+      selectFirst: Choisis d'abord un type de journal.
+      updateFailed: Impossible de mettre à jour la configuration de journalisation.
+      clearFailed: Impossible d'effacer la configuration de journalisation.
   invites:
     create:
-      title: Input Required
+      title: Saisie requise
       customCode:
-        label: Custom Code
+        label: Code personnalisé
         placeholder: abc123
       uses:
-        label: Uses
-        placeholder: Leave me blank for infinite
+        label: Utilisations
+        placeholder: Laisse-moi vide pour illimité
       expiry:
-        label: Expiry
-        placeholder: 1w, 3d, 12h (Leave me blank for no expiry)
+        label: Expiration
+        placeholder: 1w, 3d, 12h (laisse-moi vide pour aucune expiration)
     errors:
-      invalidUses: Please enter a whole number for uses (or leave blank).
-      invalidExpiry: "Invalid expiry format. Examples: 1w, 3d, 12h."
+      invalidUses: Saisis un nombre entier pour les utilisations (ou laisse vide).
+      invalidExpiry: "Format d'expiration invalide. Exemples : 1w, 3d, 12h."
   automod:
     createRule:
-      namePlaceholder: Enter rule name...
-      actionDescription: What should happen when this rule is triggered?
-      actionPlaceholder: Select an action...
+      namePlaceholder: Saisis le nom de la règle...
+      actionDescription: Que doit-il se passer quand cette règle se déclenche ?
+      actionPlaceholder: Choisis une action...
     actions:
-      delete: Block Message
-      deleteDescription: Block the message from being relayed
-      warn: Warn User
-      warnDescription: Issue a warning to the user
-      alert: Send Alert
-      alertDescription: Send an alert to the logging channel
-      censor: Censor Message
-      censorDescription: "Censors the matched word with hashes (#)"
-    ruleCreated: Rule '{name}' has been created successfully!
+      delete: Bloquer le message
+      deleteDescription: Empêche le message d'être relayé
+      warn: Avertir l'utilisateur
+      warnDescription: Envoie un avertissement à l'utilisateur
+      alert: Envoyer une alerte
+      alertDescription: Envoie une alerte dans le salon de journalisation
+      censor: Censurer le message
+      censorDescription: Censure le mot détecté avec des dièses (#)
+    ruleCreated: La règle « {name} » a bien été créée !
     errors:
-      createFailed: Failed to create rule. Please try again.
-      updatePatterns: Failed to update patterns.
-      addWhitelist: Failed to add to safe list.
+      createFailed: Impossible de créer la règle. Réessaie.
+      updatePatterns: Impossible de mettre à jour les motifs.
+      addWhitelist: Impossible d'ajouter à la liste sûre.
     editPatterns:
-      description: Enter patterns separated by commas. Use * for wildcards (e.g. bad*, *word*, *bad)
-      placeholder: Enter patterns...
-    patternsSaved: Saved {count} pattern{s}.
+      description: Saisis des motifs séparés par des virgules. Utilise * comme joker (p. ex. bad*, *word*, *bad)
+      placeholder: Saisis des motifs...
+    patternsSaved: '{count} motif(s) enregistré(s).'
     whitelist:
-      description: Enter a word to add to the safe list
-      added: Added '{word}' to the safe list.
-      noneToRemove: No safe words to remove
-      selectRemove: Select words to remove...
-      removed: Removed {count} word(s) from the safe list.
-    proOnly: "Advanced AutoMod is available for Pro hubs only. Upgrade your hub to Pro to configure these rules."
+      description: Saisis un mot à ajouter à la liste sûre
+      added: « {word} » a été ajouté à la liste sûre.
+      noneToRemove: Aucun mot sûr à retirer
+      selectRemove: Sélectionne les mots à retirer...
+      removed: '{count} mot(s) retiré(s) de la liste sûre.'
+    proOnly: "L'AutoMod avancé est réservé aux hubs Pro. Passe ton hub en Pro pour configurer ces règles."
     deleteRule:
-      title: Delete Rule
-      description: Are you sure you want to delete **{ruleName}**?
-      success: Rule **{ruleName}** has been deleted.
-      cancelled: Rule deletion cancelled.
+      title: Supprimer la règle
+      description: Es-tu sûr(e) de vouloir supprimer **{ruleName}** ?
+      success: La règle **{ruleName}** a été supprimée.
+      cancelled: Suppression de la règle annulée.
+
 moderation:
   notifications:
-    title: "Moderation Notice"
-    description: "You have received a moderation action in the hub **{hubName}**."
-    warnTitle: "⚠️ You have been Warned"
-    muteTitle: "🔇 You have been Muted"
-    banTitle: "🔨 You have been Banned"
-    unmuteTitle: "🔊 You have been Unmuted"
-    unbanTitle: "🔊 You have been Unbanned"
+    title: "Avis de modération"
+    description: "Tu as reçu une action de modération dans le hub **{hubName}**."
+    warnTitle: ':alert_icon: Tu as reçu un avertissement'
+    muteTitle: ':volume_off: Tu as été mis(e) en sourdine'
+    banTitle: ':hammer_icon: Tu as été banni(e)'
+    unmuteTitle: ':volume_2: Ta mise en sourdine a été levée'
+    unbanTitle: ':volume_2: Ton bannissement a été levé'
     fieldAction: "Action"
-    fieldReason: "Reason"
-    fieldDuration: "Duration"
-    fieldExpires: "Expires"
-    appealHint: "If you believe this was an error, you can submit an appeal using `/appeal` in any server connected to this hub."
+    fieldReason: "Raison"
+    fieldDuration: "Durée"
+    fieldExpires: "Expire"
+    appealHint: "Si tu penses qu'il s'agit d'une erreur, tu peux faire appel avec `/appeal` sur n'importe quel serveur connecté à ce hub."
   footer:
-    actionedBy: "Actioned by {user}"
+    actionedBy: "Action effectuée par {user}"
   actionNames:
-    warned: Warned
-    muted: Muted
-    banned: Banned
+    warned: Averti
+    muted: Mis en sourdine
+    banned: Banni
   actionNouns:
-    mute: mute
-    ban: ban
+    mute: mise en sourdine
+    ban: bannissement
   prep:
-    in: in
-    from: from
+    in: dans
+    from: de
   permissions:
-    managerRequired: Manager+ permissions required.
+    managerRequired: Permissions de gestionnaire ou supérieures requises.
   target:
-    both: Please specify either a user or a server, not both.
-    missing: Please specify either a user or a server.
+    both: Indique soit un utilisateur, soit un serveur, pas les deux.
+    missing: Indique un utilisateur ou un serveur.
   revoke:
-    noActive: No active {action} found.
-    success: Revoked {action}.
+    noActive: Aucun(e) {action} actif(ve) trouvé(e).
+    success: '{action} révoqué(e).'
   delete:
-    success: Message has been deleted from all connected hubs.
-    notInterChatMessage: This message is not an InterChat message or has already been deleted.
+    success: Le message a été supprimé de tous les hubs connectés.
+    notInterChatMessage: Ce message n'est pas un message InterChat ou a déjà été supprimé.
   blacklist:
-    permissionDenied: You lack InterChat staff permissions to issue a global blacklist.
-    alreadyActive: Target already has an active global blacklist.
-    success: Globally blacklisted {target}.
+    permissionDenied: Tu n'as pas les permissions d'équipe InterChat pour prononcer une liste noire globale.
+    alreadyActive: La cible a déjà une liste noire globale active.
+    success: '{target} a été ajouté(e) à la liste noire globale.'
   success:
-    action: "{target} has been {action} {prep} {hubName}"
+    action: "{target} a été {action} {prep} {hubName}"
   actions:
     warn:
-      label: Warn
-      description: Issue a warning to the selected target
+      label: Avertir
+      description: Envoie un avertissement à la cible sélectionnée
     mute:
-      label: Mute
-      description: Mute a user/server from the specified hub
+      label: Mettre en sourdine
+      description: Met en sourdine un utilisateur/serveur dans le hub indiqué
     ban:
-      label: Ban
-      description: Bannir un utilisateur/serveur du hub
+      label: Bannir
+      description: Bannit un utilisateur/serveur du hub indiqué
     unmute:
-      label: Unmute
-      description: Revoke active mute infractions
+      label: Lever la sourdine
+      description: Révoque les mises en sourdine actives
     unban:
-      label: Unban
-      description: Revoke active ban infractions
+      label: Lever le bannissement
+      description: Révoque les bannissements actifs
     blacklist:
-      label: Blacklist
-      description: Issue an interchat wide blacklist (user/server)
+      label: Liste noire
+      description: Prononce une liste noire à l'échelle d'InterChat (utilisateur/serveur)
     history:
-      label: History
-      description: View infraction and report history for the target
+      label: Historique
+      description: Affiche l'historique des infractions et des signalements de la cible
     delete:
-      label: Delete
-      description: Delete the selected message across all connected hubs
+      label: Supprimer
+      description: Supprime le message sélectionné dans tous les hubs connectés
   modal:
-    title: Moderation Action
+    title: Action de modération
     reason:
-      placeholder: Enter a concise justification{optional}
+      placeholder: Saisis une justification concise{optional}
     duration:
-      label: Duration
-      placeholder: e.g. 30m, 2h, 1d
+      label: Durée
+      placeholder: p. ex. 30m, 2h, 1d
   hubSelect:
-    placeholder: Select a hub to moderate...
-    noHubs: No hubs available
-    noHubsDesc: No hubs available for moderation
+    placeholder: Choisis un hub à modérer...
+    noHubs: Aucun hub disponible
+    noHubsDesc: Aucun hub disponible pour la modération
   hubSelection:
-    title: Hub Selection
-    description: Select the hub you want to moderate.
+    title: Choix du hub
+    description: Choisis le hub que tu veux modérer.
     fieldHubLabel: Hub
-    fieldHubPrompt: Selected Hub
+    fieldHubPrompt: Hub sélectionné
   targetSelection:
-    title: Target Selection
-    description: Who do you want to {action}?
-    user: Act on User
-    server: Act on Server
+    title: Choix de la cible
+    description: Qui veux-tu {action} ?
+    user: Agir sur un utilisateur
+    server: Agir sur un serveur
   actionSelect:
-    placeholder: Select a moderation action...
+    placeholder: Choisis une action de modération...
   validators:
-    reasonTooShort: "Reason must be at least {min} characters long."
-    reasonTooLong: "Reason must be no more than {max} characters long."
-    durationRequired: "Duration is required for mute actions."
-    durationNotNeeded: "Duration is only needed for mute actions."
-    durationTooShort: "Duration is too short."
-    durationTooLong: "Duration is too long."
-    invalidDurationFormat: "Invalid duration format."
-    noTarget: "No valid target specified for this action."
+    reasonTooShort: "La raison doit contenir au moins {min} caractères."
+    reasonTooLong: "La raison ne doit pas dépasser {max} caractères."
+    durationRequired: "Une durée est requise pour les mises en sourdine."
+    durationNotNeeded: "Une durée n'est nécessaire que pour les mises en sourdine."
+    durationTooShort: "La durée est trop courte."
+    durationTooLong: "La durée est trop longue."
+    invalidDurationFormat: "Format de durée invalide."
+    noTarget: "Aucune cible valide n'a été indiquée pour cette action."
   history:
-    title: "{info_icon} Moderation History"
-    noHubSelected: No hub selected.
-    noTarget: "No target specified."
-    recentInfractions: "Recent Infractions ({count} total)"
-    noInfractions: "No infractions found."
-    recentReports: "Recent Reports ({count} total)"
-    noReports: "No reports found."
-    fetchFailed: "Failed to fetch moderation history."
+    title: "{info_icon} Historique de modération"
+    noHubSelected: Aucun hub sélectionné.
+    noTarget: "Aucune cible indiquée."
+    recentInfractions: "Infractions récentes ({count} au total)"
+    noInfractions: "Aucune infraction trouvée."
+    recentReports: "Signalements récents ({count} au total)"
+    noReports: "Aucun signalement trouvé."
+    fetchFailed: "Impossible de récupérer l'historique de modération."
   report:
-    jumpToMessage: Jump to Message
-    notFound: "Report not found or deleted."
-    noHub: "Unable to determine hub for this report."
-    handledTitle: "Report Handled"
-    handledDesc: "Your report `{id}` has been reviewed and action has been taken."
-    handledFooter: "Thank you for helping keep the hub safe!"
+    jumpToMessage: Aller au message
+    notFound: "Signalement introuvable ou supprimé."
+    noHub: "Impossible de déterminer le hub de ce signalement."
+    handledTitle: "Signalement traité"
+    handledDesc: "Ton signalement `{id}` a été examiné et une mesure a été prise."
+    handledFooter: "Merci de contribuer à la sécurité du hub !"
   errors:
-    selectedHubNotFound: Selected hub not found.
-    unknownAction: Unknown action.
-    unsupportedAction: Unsupported action route.
-    openPanelFailed: Unexpected error opening mod panel.
-    notModeratorForHub: You are not a moderator for this hub.
-    alreadyState: "{targetType} is already {state} in this hub."
-    invalidHubData: Invalid hub data.
-    originalMessageNotFound: Original message not found in database.
-    fetchAuthorOrServerFailed: Could not fetch message author or server.
-    hubNotFoundForMessage: Hub not found for this message.
-    noModeratedHubs: You don't have moderation permissions in any hubs.
-    noTarget: Please specify a target (user/server) or reply to a message.
-    actionProcessingFailed: "An error occurred while processing the action."
-    modalOpenFailed: "Failed to open the modal. Please try again."
-    notModerator: "You are not a moderator for any hubs."
-    noHubsAvailable: "No hubs are available for moderation."
+    selectedHubNotFound: Le hub sélectionné est introuvable.
+    unknownAction: Action inconnue.
+    unsupportedAction: Route d'action non prise en charge.
+    openPanelFailed: Erreur inattendue à l'ouverture du panneau de modération.
+    notModeratorForHub: Tu n'es pas modérateur de ce hub.
+    alreadyState: "{targetType} est déjà {state} dans ce hub."
+    invalidHubData: Données du hub invalides.
+    originalMessageNotFound: Message d'origine introuvable dans la base de données.
+    fetchAuthorOrServerFailed: Impossible de récupérer l'auteur du message ou le serveur.
+    hubNotFoundForMessage: Hub introuvable pour ce message.
+    noModeratedHubs: Tu n'as de permissions de modération dans aucun hub.
+    noTarget: Indique une cible (utilisateur/serveur) ou réponds à un message.
+    actionProcessingFailed: "Une erreur est survenue pendant le traitement de l'action."
+    modalOpenFailed: "Impossible d'ouvrir le formulaire. Réessaie."
+    notModerator: "Tu n'es modérateur d'aucun hub."
+    noHubsAvailable: "Aucun hub n'est disponible pour la modération."
     webhooks:
-      noPermission: "You do not have permission to moderate this hub."
+      noPermission: "Tu n'as pas la permission de modérer ce hub."
+conversationIdeas:
+  title: Idée de conversation
+  description: Obtiens une idée de conversation privée pour un hub ou un appel textuel
+  another: Une autre idée
+  hint: "Tu es le seul à voir ceci. Pose la question dans le chat ou partage ta propre réponse. Rien n'est envoyé à ta place."
+  callHint: "Ceci est un chat textuel. Utilise `/topic` pour une idée de conversation privée, `/skip` pour trouver un autre chat ou `/hangup` pour partir."
+  prompts:
+    games: "À quel jeu peux-tu toujours rejouer ?"
+    music: "Quelle chanson tourne en boucle chez toi ces derniers temps ?"
+    hobbies: "Quel loisir aimerais-tu essayer ?"
+    skills: "Si tu pouvais apprendre instantanément une compétence, laquelle choisirais-tu ?"
+    fiction: "Dans quel monde fictif aimerais-tu aller, et pourquoi ?"
+    smallJoys: "Quelle petite chose t'a fait sourire cette semaine ?"
+
 welcomeMessage:
-  title: Welcome to the InterChat hub called **{hubName}**!
-  errorDm: Failed to send welcome message.
-  introText: You're now connected to a network of servers. Messages you send here will be visible to everyone in this hub.
-  quickActions: Quick Actions
+  title: Bienvenue dans le hub InterChat **{hubName}** !
+  errorDm: Impossible d'envoyer le message de bienvenue.
+  introText: Tu es maintenant connecté(e) à un réseau de serveurs. Les messages que tu envoies ici seront visibles par tout le monde dans ce hub.
+  startChatting: "Dis bonjour, parle de ce que tu aimes ou réponds à quelqu'un qui discute déjà. Besoin d'un point de départ ? Essaie une idée de conversation ci-dessous ou utilise `/topic` à tout moment."
+  quickActions: Actions rapides
   buttons:
-    rules: Rules
-    profile: Profile
-    hubInfo: Hub Info
-    report: How to Report
+    rules: Règles
+    profile: Profil
+    hubInfo: Infos du hub
+    report: Comment signaler
     support: Support
-    disconnect: Disconnect
+    disconnect: Déconnecter
   hubInfo:
-    connections: "🔗 Connections"
-    hubPageLabel: "{link_icon} Hub Page"
-    hubPageValue: "[View on InterChat]({hubUrl})"
+    connections: ':link_icon: Connexions'
+    hubPageLabel: "{link_icon} Page du hub"
+    hubPageValue: "[Voir sur InterChat]({hubUrl})"
+    createHint: "Envie de créer le tien ? Utilise `/hub create`."
   rules:
-    title: "{rules_icon} {hubName} - Rules"
-    guidelines: "Please adhere to the guidelines @ {guidelinesUrl}"
+    title: "{rules_icon} {hubName} - Règles"
+    guidelines: "Merci de respecter les règles sur {guidelinesUrl}"
   errors:
     disconnectPermission:
-      title: "{x_icon} Permission Denied"
-      description: You need the **Manage Channels** permission to disconnect from a hub.
+      title: "{x_icon} Permission refusée"
+      description: Tu as besoin de la permission **Gérer les salons** pour te déconnecter d'un hub.
   disconnect:
-    successDescription: Successfully disconnected from **{hubName}**.
-    cancelled: Disconnection cancelled.
+    successDescription: Déconnexion de **{hubName}** réussie.
+    cancelled: Déconnexion annulée.
   disconnectConfirm:
-    title: Disconnect from Hub?
-    description: Are you sure you want to disconnect from **{hubName}**?
+    title: Se déconnecter du hub ?
+    description: Es-tu sûr(e) de vouloir te déconnecter de **{hubName}** ?
+
 infractions:
-  description: Afficher les infractions dans un hub, filtrées par utilisateur ou serveur.
+  description: Consulte les infractions d'un hub, filtrées par utilisateur ou serveur.
   buttons:
-    userInfractions: User Infractions
-    serverInfractions: Server Infractions
+    allInfractions: Toutes
+    userInfractions: Utilisateurs
+    serverInfractions: Serveurs
+    clearFilter: Effacer le filtre
   titles:
     base: Infractions · {hubName}
-    userList: User Infractions · {hubName}
-    serverList: Server Infractions · {hubName}
-    userSpecific: Infractions for {user} · {hubName}
-    serverSpecific: Infractions for Server {serverId} · {hubName}
+    userList: Infractions des utilisateurs · {hubName}
+    serverList: Infractions des serveurs · {hubName}
+    userSpecific: Infractions de {user} · {hubName}
+    serverSpecific: Infractions du serveur {serverId} · {hubName}
   descriptions:
-    base: Select which infractions to view for this hub.
-    userListEmpty: No user infractions found for this hub.
-    serverListEmpty: No server infractions found for this hub.
+    base: Choisis les infractions à afficher pour ce hub.
+    empty: Aucun enregistrement de modération trouvé.
+    userListEmpty: Aucune infraction d'utilisateur trouvée pour ce hub.
+    serverListEmpty: Aucune infraction de serveur trouvée pour ce hub.
   labels:
-    evidence: Evidence
-    issued: Issued
+    evidence: Preuve
+    issued: Émise
   evidence:
-    content: Content
-    author: Author
+    content: Contenu
+    author: Auteur
   errors:
-    noPermission: You do not have permission to view infractions for this hub.
-    bothSelection: Please select only a user or a server, not both.
-    invalidServerId: Invalid server ID.
+    noPermission: Tu n'as pas la permission de voir les infractions de ce hub.
+    bothSelection: Choisis uniquement un utilisateur ou un serveur, pas les deux.
+    invalidServerId: ID de serveur invalide.
   permissions:
-    insufficient: You need {permission}+ permissions in this hub.
+    insufficient: Tu as besoin des permissions {permission} ou supérieures dans ce hub.
   delete:
-    notFound: Infraction not found.
-    success: Infraction deleted.
+    notFound: Infraction introuvable.
+    success: Infraction supprimée.
+
 staff:
   get:
     server:
-      description: Obtenez des informations détaillées sur un serveur
+      description: Obtenir des informations détaillées sur un serveur
     hub:
-      description: Obtenez des informations détaillées sur un hub
+      description: Obtenir des informations détaillées sur un hub
     user:
-      description: Obtenez des informations détaillées sur un utilisateur
+      description: Obtenir des informations détaillées sur un utilisateur
   hub:
     section:
-      moderation: Moderation
+      moderation: Modération
     fields:
-      name: Name
+      name: Nom
       messages: Messages
-      connections: Connections
-      upvotes: Upvotes
-      location: Location
-      activity: Activity
-      appealCooldown: Appeal Cooldown
-      welcomeMessage: Welcome Message
-      description: Description
+      connections: Connexions
+      upvotes: Votes
+      location: Emplacement
+      activity: Activité
+      appealCooldown: Délai d'attente des recours
+      welcomeMessage: Message de bienvenue
+      description: *label_description
     values:
-      messagesThisWeek: "**{count}** this week"
-      connectionsActive: "**{count}** active"
-      upvotesTotal: "**{count}** total"
+      messagesThisWeek: "**{count}** cette semaine"
+      connectionsActive: "**{count}** actives"
+      upvotesTotal: "**{count}** au total"
     badges:
-      verified: Verified
-      partnered: Partnered
-      featured: Featured
-      locked: Locked
+      verified: Vérifié
+      partnered: Partenaire
+      featured: À l'honneur
+      locked: Verrouillé
       nsfw: NSFW
   server:
     fields:
-      name: Name
-      inviteCode: Invite Code
+      name: Nom
+      inviteCode: Code d'invitation
       messages: Messages
-      connections: Connections
-      lastMessage: Last Message
-      updated: Updated
+      connections: Connexions
+      lastMessage: Dernier message
+      updated: Mis à jour
     values:
-      messagesTotal: "**{count}** total"
-      connectionsActive: "**{count}** active"
+      messagesTotal: "**{count}** au total"
+      connectionsActive: "**{count}** actives"
   user:
     inbox:
-      title: Inbox
-      description: We found some messages from our team for you!
-      emptyTitle: All caught up!
-      emptyDescription: We couldn't find any new announcements for you.
+      title: Boîte de réception
+      description: Nous avons trouvé quelques messages de notre équipe pour toi !
+      emptyTitle: Tout est à jour !
+      emptyDescription: Nous n'avons trouvé aucune nouvelle annonce pour toi.
     fields:
-      name: Name
+      name: Nom
       messages: Messages
-      reputation: Reputation
+      reputation: Réputation
       votes: Votes
-      hubJoins: Hub Joins
+      hubJoins: Arrivées dans des hubs
       engagement: Engagement
-      locale: Locale
-      lastMessage: Last Message
-      lastVote: Last Vote
+      locale: Langue
+      lastMessage: Dernier message
+      lastVote: Dernier vote
     values:
-      staff: Staff
-      member: Member
-      messagesSent: "**{count}** sent"
+      staff: Équipe
+      member: Membre
+      messagesSent: "**{count}** envoyés"
       reputationPoints: "**{count}** points"
-      votesCast: "**{count}** cast"
-      hubJoinsTotal: "**{count}** total"
-      notSet: Not set
-      never: Never
+      votesCast: "**{count}** exprimés"
+      hubJoinsTotal: "**{count}** au total"
+      notSet: Non défini
+      never: Jamais
     sections:
-      preferences: Preferences
-      createdContent: Created Content
-      activity: Activity
+      preferences: Préférences
+      createdContent: Contenu créé
+      activity: Activité
       badges: Badges
     preferences:
-      showBadges: Show badges
-      mentionOnReply: Mention on reply
-      showNsfwHubs: Show NSFW hubs
+      showBadges: Afficher les badges
+      mentionOnReply: Mentionner en réponse
+      showNsfwHubs: Afficher les hubs NSFW
     content:
       hubs: "{count} hubs"
-      modPositions: "{count} mod positions"
-      blockedWords: "{count} blocked words"
-      automodRules: "{count} automod rules"
+      modPositions: "{count} postes de modération"
+      blockedWords: "{count} mots bloqués"
+      automodRules: "{count} règles d'automod"
     moderation:
-      infractionsReceived: "{count} infractions received"
-      infractionsIssued: "{count} infractions issued"
-      blacklistsReceived: "{count} blacklists received"
-      blacklistsIssued: "{count} blacklists issued"
+      infractionsReceived: "{count} infractions reçues"
+      infractionsIssued: "{count} infractions émises"
+      blacklistsReceived: "{count} listes noires reçues"
+      blacklistsIssued: "{count} listes noires émises"
     activity:
-      appeals: "{count} appeals"
-      reviews: "{count} reviews"
-      reportsMade: "{count} reports made"
-      reportsReceived: "{count} reports received"
-      achievements: "{count} achievements"
+      appeals: "{count} recours"
+      reviews: "{count} examens"
+      reportsMade: "{count} signalements effectués"
+      reportsReceived: "{count} signalements reçus"
+      achievements: "{count} succès"
   blacklist:
     fields:
-      expires: Expires
-    notFound: No matching blacklist entry was found.
-    removed: Blacklist entry removed.
+      expires: Expire
+    notFound: "Aucune entrée de liste noire {type} correspondante n'a été trouvée."
+    removed: Entrée de liste noire supprimée.
+
 hub:
+  directory:
+    title: "## {globe} Découvrir des hubs - {sortEmoji} {sort}"
+    page: "Page {current} sur {total} • {count} hubs publics"
+    searching: 'Recherche : « {query} »'
+    connectHint: "Choisis Connecter, ou utilise `/hub connect hub:<nom>`."
+    connect: Connecter
+    details: Détails
+    serverOnly: Ouvre cet annuaire dans un serveur pour connecter un salon.
+    sortPlaceholder: Trier les hubs publics
+    empty: Aucun hub public n'est disponible pour l'instant. Crée le premier avec `/hub create`.
+    emptySearch: 'Aucun hub public ne correspond à « {query} ». Essaie une recherche plus large.'
+    search:
+      title: Rechercher des hubs publics
+      label: Rechercher
+      placeholder: Recherche dans les noms et les descriptions
+    sorts:
+      alive:
+        label: Recommandés
+        description: Conversation saine, public et croissance récente
+      active:
+        label: Actifs en ce moment
+        description: Le plus de conversations et de monde ces dernières 24 heures
+      upvoted:
+        label: Les plus votés
+        description: Hubs avec le plus de votes de la communauté
+      big:
+        label: Les plus grands
+        description: Le plus de serveurs connectés actuellement
+      new:
+        label: Nouveaux
+        description: Communautés publiques créées récemment
+    metrics:
+      servers: "{activity} {count} serveurs"
+      messages: ":chat_icon: {count}/semaine"
+      people: ':users: {count}/jour'
+      growth: "+{count} cette semaine"
   rules:
     manage:
-      description: Manage your hub's community rules and guidelines below.
-      noRules: No rules have been set for this hub yet.
+      description: Gère ci-dessous les règles et consignes de la communauté de ton hub.
+      noRules: Aucune règle n'a encore été définie pour ce hub.
       addRule:
-        label: Add Rule
+        label: Ajouter une règle
         modal:
-          title: Add New Rule
-          placeholder: Enter your new rule here...
+          title: Ajouter une nouvelle règle
+          placeholder: Saisis ici ta nouvelle règle...
       editRule:
-        label: Edit
+        label: *btn_edit
         modal:
-          title: Edit Rule
-          placeholder: Enter your updated rule here...
+          title: Modifier la règle
+          placeholder: Saisis ici ta règle mise à jour...
       deleteRule:
-        label: Delete Rule
-        confirmation: Are you sure you want to delete this rule?
+        label: Supprimer la règle
+        confirmation: Es-tu sûr(e) de vouloir supprimer cette règle ?
       validation:
-        empty: Rule cannot be empty.
-        tooLong: Rule must be {maxLength} characters or less.
-        maxRules: Maximum of {maxRules} rules allowed.
+        empty: La règle ne peut pas être vide.
+        tooLong: La règle doit faire {maxLength} caractères ou moins.
+        maxRules: Maximum de {maxRules} règles autorisées.
       success:
-        added: Rule added successfully!
-        updated: Rule updated successfully!
-        deleted: Rule deleted successfully!
+        added: Règle ajoutée avec succès !
+        updated: Règle mise à jour avec succès !
+        deleted: Règle supprimée avec succès !
       errors:
-        ruleNotFound: Invalid rule selection.
-        invalidRuleSelection: Invalid rule selection.
-        processingError: An error occurred while processing your request. Please try again.
-        refreshError: An error occurred while refreshing.
-        deletionCancelled: Cancelled
-        deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: This command must be used in a connected channel or specify a hub name.
-        notConnected: This channel is not connected to any hub.
+        ruleNotFound: Sélection de règle invalide.
+        invalidRuleSelection: Sélection de règle invalide.
+        processingError: *err_processing
+        refreshError: Une erreur est survenue pendant l'actualisation.
+        deletionCancelled: Annulé
+        deletionCancelledDescription: La suppression de la règle a été annulée.
+        noHub: "Cette commande nécessite un salon connecté ou un nom de hub. Parcours les hubs avec `/hub browse` ou crée le tien avec `/hub create`."
+        notConnected: "Ce salon n'est pas encore connecté à un hub. Parcours les hubs avec `/hub browse` ou crée le tien avec `/hub create`."
       warnings:
-        deleteWarning: Warning
-        deleteWarningDescription: This action cannot be undone.
+        deleteWarning: Avertissement
+        deleteWarningDescription: Cette action est irréversible.
       display:
-        noRulesTitle: No Rules Set
-        noRulesDescription: No rules have been set for this hub yet.
-        rulesCount: "{count} of {max} rules used"
-        ruleHeading: "Rule {number}"
-        truncated: Full text will be shown when editing
+        noRulesTitle: Aucune règle définie
+        noRulesDescription: Aucune règle n'a encore été définie pour ce hub.
+        rulesCount: "{count} règles utilisées sur {max}"
+        ruleHeading: "Règle {number}"
+        truncated: Le texte complet s'affichera lors de la modification
     accept:
       buttons:
-        accept: Accept Rules
+        accept: Accepter les règles
       titles:
-        accepted: Rules Accepted
-        declined: Rules Not Accepted
-        changedMind: "💡 Changed your mind?"
+        accepted: Règles acceptées
+        declined: Règles non acceptées
+        changedMind: ':lightbulb_icon: Tu as changé d''avis ?'
       messages:
-        accepted: "Thank you for accepting the rules for **{hubName}**!"
-        declined: "You have chosen not to accept the rules for **{hubName}** at this time."
-        changedMind: "Send another message in this channel to see the rules again and accept them."
+        accepted: "Merci d'avoir accepté les règles de **{hubName}** !"
+        declined: "Tu as choisi de ne pas accepter les règles de **{hubName}** pour le moment."
+        changedMind: "Envoie un autre message dans ce salon pour revoir les règles et les accepter."
       footer:
-        welcome: Welcome to the community!
+        welcome: Bienvenue dans la communauté !
       errors:
-        failed: Something went wrong while processing your rule acceptance.
+        failed: Un problème est survenu pendant le traitement de ton acceptation des règles.
   lock:
-    announceTitle: Hub Locked
-    announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    announceTitle: Hub verrouillé
+    announceDescription: "Ce hub a été verrouillé par un modérateur.\n\nSeuls les modérateurs peuvent désormais envoyer des messages."
+    successTitle: Hub verrouillé
+    successDescription: "**{hub}** a été verrouillé. Les nouveaux membres ne peuvent pas rejoindre et les messages sont suspendus."
   unlock:
-    announceTitle: Hub Unlocked
-    announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
-    successDescription: "**{hub}** has been unlocked. New members can now join."
+    announceTitle: Hub déverrouillé
+    announceDescription: "Ce hub a été déverrouillé. Les invitations et les messages sont de nouveau activés."
+    successTitle: Hub déverrouillé
+    successDescription: "**{hub}** a été déverrouillé. Les nouveaux membres peuvent maintenant rejoindre."
   announcement:
-    webhookUsername: "{hubName} | Hub Announcement"
-    officialTitle: "{hubName} | Official Hub Announcement"
-    disclaimer: "This announcement was sent by hub officials - not InterChat staff"
+    webhookUsername: "{hubName} | Annonce du hub"
+    officialTitle: "{hubName} | Annonce officielle du hub"
+    disclaimer: "Cette annonce a été envoyée par les responsables du hub, pas par l'équipe d'InterChat"
   invites:
-    title: Active Invites
-    description: Create and manage invite codes for your hub
-    noneFound: None found!
-    inviteUses: "**Uses:**"
-    inviteExpire: "**Expires:**"
+    title: Invitations actives
+    description: Crée et gère des codes d'invitation pour ton hub
+    noneFound: Aucune trouvée !
+    inviteUses: "**Utilisations :**"
+    inviteExpire: "**Expire :**"
     titles:
-      generated: Generated!
+      generated: Généré !
     messages:
-      generated: "{tick} `{code}` can now be used {uses} time(s) to join your hub."
-      generatedUnlimited: "{tick} `{code}` can now be used to join your hub."
-      howToUse: "Next step: connect a channel with `/hub connect invite:{code}`"
+      generated: "{tick} `{code}` peut maintenant être utilisé {uses} fois pour rejoindre ton hub."
+      generatedUnlimited: "{tick} `{code}` peut maintenant être utilisé pour rejoindre ton hub."
+      howToUse: "Étape suivante : connecte un salon avec `/hub connect invite:{code}`"
     footer:
-      hub: "Hub: {hubName}"
+      hub: "Hub : {hubName}"
   info:
     titles:
-      rules: Rules for {hubName}
-      stats: Stats for {hubName}
+      rules: Règles de {hubName}
+      stats: Statistiques de {hubName}
     badges:
-      verified: This hub is an official verified hub.
-      partnered: This hub is an official partnered hub.
-    description: View information on this hub! Select an option from below.
-    noRules: No rules have been set for this hub.
-    noDescription: No description provided.
+      verified: Ce hub est un hub officiel vérifié.
+      partnered: Ce hub est un hub partenaire officiel.
+    description: Consulte les informations de ce hub ! Choisis une option ci-dessous.
+    noRules: Aucune règle n'a été définie pour ce hub.
+    noDescription: Aucune description fournie.
+    imageAlt:
+      banner: Bannière de {hubName}
+      icon: Icône de {hubName}
   buttons:
-    rules: Rules
-    stats: Stats
-    connect: Connect
-    report: Report
-  servers:
-    title: Connected Servers
-    empty: No servers are connected to this hub.
+    rules: Règles
+    stats: Statistiques
+    connect: Connecter
+    report: Signaler
+  staff:
+    title: Équipe
+    assignTitle: Ajouter ou déplacer des membres de l'équipe
+    empty: Aucun membre d'équipe n'est affecté à ce hub. Ajoutes-en un ci-dessous pour lui donner accès à ce hub.
+    loadError: Impossible de charger la liste de l'équipe. Réessaie dans un instant.
+    errors:
+      unavailable: La gestion de l'équipe est temporairement indisponible.
+      selectFirst: Choisis d'abord des utilisateurs et un rôle.
+      roleGone: Ce rôle n'est plus disponible.
+      numericId: Saisis un ID d'utilisateur numérique.
+      selfMove: "Tu ne peux pas te déplacer vers un rôle sans « Gérer l'équipe »."
+      noUsers: Choisis au moins un utilisateur à retirer.
+      manageStaffProtected: Les rôles pouvant gérer l'équipe ne peuvent pas être supprimés.
+      assignFailed: Impossible de mettre à jour l'équipe. Le Control Plane est indisponible.
+      removeFailed: Impossible de retirer le membre de l'équipe. Le Control Plane est indisponible.
+      roleCreateFailed: Impossible de créer le rôle. Le Control Plane est indisponible.
+      roleEditFailed: Impossible de mettre à jour le rôle. Le Control Plane est indisponible.
+      roleDeleteFailed: Impossible de supprimer le rôle. Le Control Plane est indisponible.
+      staleRole: Ce rôle a été supprimé pendant que tu le consultais.
+    buttons:
+      enterId: Saisir un ID d'utilisateur
+      userPlaceholder: Choisis des utilisateurs à gérer
+      rolePlaceholder: Choisis un rôle à attribuer
+      manageRoles: Gérer les rôles
+      createRole: Créer un rôle
+      backToStaff: Retour à l'équipe
+      allRoles: Tous les rôles
+      editDetails: Modifier les détails
+      deleteRole: Supprimer le rôle
+      assign: Attribuer à {count}
+      remove: Retirer {count} de l'équipe
+      keepStaff: Garder dans l'équipe
+      confirmRemove: Retirer de l'équipe
     confirm:
-      title: Disconnect Server
+      removeTitle: Retirer {count} de l'équipe ?
+      removeWarning: Ils perdent immédiatement tous leurs rôles de hub et ne peuvent pas être rétablis depuis ici.
+    roles:
+      title: Rôles - {hub}
+      none: Aucun rôle n'est encore défini pour ce hub.
+      noPermissions: -# aucune permission
+      assigned: Équipe affectée
+      assignedNone: Aucun
+      morePermissions: +{count} de plus
+    results:
+      assigned: '{role} attribué à {count} utilisateur(s).'
+      removed: '{count} utilisateur(s) retiré(s) de l''équipe.'
+  servers:
+    title: Serveurs connectés
+    empty: Aucun serveur n'est connecté à ce hub.
+    confirm:
+      title: Déconnecter le serveur
     errors:
-      noPermission: You must be a hub admin to view this.
+      noPermission: Tu dois être admin du hub pour voir ça.
+  history:
+    title: "Historique - {hubName}"
+    subtitle: Choisis ce que tu veux consulter
+    view: Voir
+    retry: Réessayer
+    tabs:
+      servers: Serveurs
+      config: Config
+      activity: Activité
+    cards:
+      servers: Serveurs
+      config: Changements de config
+      activity: Activité
+    descriptions:
+      servers: Serveurs connectés et leur état
+      config: Paramètres, équipe et règles
+      activity: Arrivées, départs et changements de nom
+    requires:
+      manageConnections: Nécessite Gérer les connexions
+      viewLogs: Nécessite Voir les journaux
+    activity:
+      title: "Activité des serveurs - {hubName}"
+      empty: Aucune activité de serveur pour l'instant. Les arrivées, départs et changements de nom des serveurs de ce hub apparaîtront ici.
+      error: L'activité des serveurs est temporairement indisponible.
+      renamed: Renommé
+      newOwner: Nouveau propriétaire
+      left: A quitté InterChat
   disconnect:
-    title: Disconnected!
-    description: Disconnected from hub.
-    fieldValue: "Associated Channel: {channel}"
+    title: Déconnecté !
+    description: Déconnecté du hub.
+    fieldValue: "Salon associé : {channel}"
+
     errors:
-      notConnected: This channel isn't connected to any hub.
+      notConnected: Ce salon n'est connecté à aucun hub.
   events:
     serverJoined:
-      title: "🎉 Nouveau serveur rejoint !"
-      description: "**{serverName}** has joined the hub!"
-      footer: Bienvenue dans {hubName} !
+      title: ':party_popper: Un nouveau serveur a rejoint !'
+      description: "**{serverName}** a rejoint le hub !"
+      footer: Bienvenue sur {hubName} !
   create:
-    title: Let's Get You Started!
-    description: Pick a name, short-description, description & visibility for your hub.
-    whatsAHub: |
-      ## ❓ What's a Hub, anyway?
-      Think of a Hub as a **room** created by someone.
-      ## 🤨 Okay... how does this "room" work?
-      In real life, a room needs people. In InterChat, multiple servers join the same Hub through a channel in each server.
-      ## 🤔 "Joined"? What's actually connected?
-      Let's zoom in.
-
-      Imagine you're in **Server A**, and there's a channel called **#global** that's connected to a Hub.
-
-      When you send a message in **#global**, that message is forwarded to every other server connected to the same Hub.
-
-      Their messages are then forwarded back to your **#global** channel too.
-      ## 👏 That's it.
-      Hubs are a surprisingly simple concept.
-
-      Let's get started!
-  wizard:
-    start: Start
-    name:
-      description: Pick a unique name for your hub. Max 100 chars.
-    tagline:
-      label: Hub Tagline
-      description: A one-sentence summary of your hub
-    description:
-      label: Full Description
-      description: Describe your hub in detail (20-1000 characters)
-    visibility:
-      unlisted:
-        desc: Not in directory.
-      public:
-        desc: Discoverable.
-      private:
-        desc: Invite-only.
+    title: Créer un hub
+    step: "Étape {current} sur 3 · {label}"
     steps:
-      progress: Step {current}/{total}
-      step1:
-        modalTitle: "Hub Details"
-        visibilityLabel: Hub Visibility
-        visibilityPlaceholder: Select Hub Visibility...
-      step2:
-        title: Hub Logo
-        description: |
-          Add a logo for your hub!
-
-          -# 💡 *Tip: Use an image URL or choose the default bot avatar.*
-        modalTitle: "Step 2/7: Logo"
-        logoUrlLabel: Logo URL
-        logoUrlPlaceholder: https://example.com/logo.png
-        addLogoButton: Add Logo
-        invalidUrl: Invalid image URL. Using default bot avatar instead.
-      step3:
-        title: Hub Visibility
-        description: "Choose your hub's visibility:\n\n🔓 **Public**: Discoverable.\n👁️ **Unlisted**: Not in directory.\n🔒 **Private**: Invite-only.\n\n-# 💡 *Tip: You can change this later in hub settings.*"
-        requiredPublic: "**Required for public hubs**"
-        optional: (Optional)
-        tip: "-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*"
-        modalTitle: "Step 3/6: Rules"
-        rulesLabel: Hub Rules
-        rulesPlaceholder: |
-          1. Be respectful
-          2. No spam
-          3. Follow Discord ToS
-        addRulesButton: Add Rules
-      step4:
-        title: Community Rules
-        description: "Set community guidelines for your hub."
-        modalTitle: "Step 4/7: Rules"
-        welcomePlaceholder: Welcome to {hubName} or our hub!
-        customMessageButton: Custom Message
-      step5:
-        title: Welcome Message
-        description: "Create a welcome message for new members!\n-# 💡 *Tip: Keep it friendly and informative. Max 500 characters.*"
-        modulesPlaceholder: Select modules to enable...
-      step6:
-        description: "Select features to enable for your hub!\n✅ **Pre-selected**: Reactions, Spam Filter (recommended)\n\n-# 💡 *Tip: You can adjust these anytime.*"
-        selectChannelButton: Select Channel
-        channelSelectTitle: Select Logging Channel
-        channelSelectDescription: "Choose a channel for moderation logs:"
-        channelSelectPlaceholder: Select a logging channel
-    summary:
-      title: Hub Configuration Summary
-      description: "Review your hub settings before creating:"
-      nameAndDescription: Name & Description
-      rulesCount: "{count} rule(s) set"
-      rulesNone: No rules (can add later)
-      welcomeDefault: Default welcome message
-      featuresNone: None
-      footer: Ready to create your hub?
-      dashboardNotice: Icon, rules, modules, and logging can be configured in the dashboard after creation.
-    completion:
-      loading: Creating Your Hub...
-      loadingDescription: Please wait while we set everything up...
-      success: Hub Created Successfully!
-      successDescription: "{hubName} is now live! 🎉"
-      dashboardLink: Manage your hub
-      publicPageLink: View on directory
-      nextSteps: What's Next?
-      nextStepsPrivate1: "**Create an Invite**: `/hub invite hub:{hubName}`"
-      nextStepsPrivate2: "**Share Code**: Send the invite code to the other server."
-      nextStepsPrivate3: "**Connect**: The other server runs `/hub connect invite:<code>`"
-      nextStepsPublic: "**Connect Channels**: Run `/hub connect hub:{hubName}` to join!"
-      advancedSettings: "**Advanced Settings**: `/hub manage {hubName}`"
-      needHelp: "**Need Help?**: [Join our support server]({supportInvite})"
-    cancelled:
-      description: Your hub was not created.
+      identity: Identité
+      safety: Sécurité
+      reach: Portée
+    notYours: Cette configuration de hub appartient à quelqu'un d'autre. Lance /hub create pour démarrer la tienne.
+    cancelled: Création du hub annulée. Rien n'a été créé.
+    buttons:
+      next: Suivant
+      back: Retour
+      cancel: Annuler
+    identity:
+      noTagline: Pas encore de slogan. Il s'affiche sous le nom dans /hub browse.
+      edit: Modifier le nom et le slogan
+      language: Langue principale
+      languagePlaceholder: Choisis une langue
+      languageHint: "Rempli d'après la langue du serveur {server}. Aide les gens à trouver des hubs où ils peuvent discuter."
+      languageHintGeneric: Aide les gens à trouver des hubs où ils peuvent discuter.
+      multi: Plusieurs langues
+      sfw:
+        title: Tout public
+        description: La plupart le sont. Marque-le 18+ seulement si le contenu pour adultes est la raison d'être du hub.
+        button: Marquer comme 18+
+      nsfw:
+        title: Hub 18+
+        description: Il est signalé 18+ dans /hub browse et exclu des recherches tout public.
+        button: Le rendre tout public
+      needTagline: Ajoute un slogan pour continuer.
+    modal:
+      title: Nom et slogan
+      name: Nom du hub
+      nameHint: De 3 à 32 lettres, chiffres, espaces ou tirets.
+      tagline: Slogan
+      taglineHint: Une ligne sous le nom dans /hub browse. De 5 à 100 caractères.
+      taglinePlaceholder: Pour ceux qui veillent tard
+    safety:
+      filter: Filtre de contenu
+      presetPlaceholder: Choisis un préréglage
+      presets:
+        chill:
+          label: Décontracté
+          description: Touche légère. Les médias et les liens circulent librement.
+        balanced:
+          label: Équilibré
+          description: Recommandé pour la plupart des hubs.
+        strict:
+          label: Strict
+          description: Le texte d'abord. Pour les grandes communautés ou les plus jeunes.
+      switches:
+        spamFilter:
+          'on': Filtre anti-spam
+          'off': Filtre anti-spam désactivé
+        blockInvites:
+          'on': Invitations de serveurs bloquées
+          'off': Invitations de serveurs autorisées
+        blockNsfw:
+          'on': Filtre d'images NSFW
+          'off': Filtre d'images NSFW désactivé
+        reactions:
+          'on': Réactions
+          'off': Réactions désactivées
+        hideLinks:
+          'on': Liens masqués
+          'off': Liens affichés
+        allowVideos:
+          'on': Vidéos autorisées
+          'off': Vidéos bloquées
+        blockAttachments:
+          'on': Images et fichiers bloqués
+          'off': Images et fichiers autorisés
+        blockTenorGifs:
+          'on': GIF Tenor bloqués
+          'off': GIF Tenor autorisés
+      switchesHint: Tu peux modifier chaque option plus tard dans /hub manage.
+      nsfwHint: Le filtre d'images NSFW est désactivé car c'est un hub 18+.
+      rules: Règles de départ
+      rulesPlaceholder: Choisis des règles de départ
+      rulesPicked: "{count} règles choisies"
+      rulesPickedOne: 1 règle choisie
+      rulesHint: Les serveurs acceptent ces règles avant de pouvoir lier un salon. Modifie-les ou ajoute les tiennes à tout moment.
+      appeals: Appels
+      appealsHint: La fréquence à laquelle une personne que tu as bloquée du hub peut demander à revenir.
+      cooldown: "Une fois tous les {duration}"
+      recommended: Recommandés
+      durations:
+        d1: 1 jour
+        d3: 3 jours
+        d7: 7 jours
+        d14: 14 jours
+        d30: 30 jours
+    rules:
+      respect: Sois respectueux. Pas de harcèlement ni d'attaques personnelles.
+      hate: Pas de discours haineux, d'insultes ni de discrimination.
+      sfw: Reste tout public.
+      age: Toutes les personnes ici doivent avoir 18 ans ou plus.
+      spam: Pas de spam, de flood ni de publicité.
+      invites: Pas d'invitations de serveurs ni d'autopromotion.
+      lang: "Merci de discuter en {language} pour que tout le monde puisse suivre."
+      langMulti: Toutes les langues sont les bienvenues. Soyez patients les uns avec les autres.
+      privacy: Ne partage pas d'informations personnelles, ni les tiennes ni celles des autres.
+      spoilers: Signale les spoilers.
+      tos: Respecte les Conditions d'utilisation et les Règles de la communauté de Discord.
+    reach:
+      title: "Qui peut trouver {name} ?"
+      public:
+        label: Public
+        description: N'importe quel serveur peut rejoindre. Il se liste tout seul dans /hub browse une fois que tu as terminé une courte liste de configuration.
+      unlisted:
+        label: Non listé
+        description: Non listé. N'importe quel serveur ayant ton lien d'invitation peut rejoindre.
+      private:
+        label: Privé
+        description: Non listé. Les serveurs ont besoin d'un lien d'invitation que tu crées.
+      summary: "{language} · {rating} · filtre {preset} · {rules} · appels tous les {cooldown}"
+      rules: "{count} règles"
+      rulesOne: 1 règle
+      create: "Créer {name}"
+      creating: Création…
+    rating:
+      sfw: Tout public
+      nsfw: 18+
     errors:
-      cantUseWizard: You can't use this wizard.
-      nameAlreadyExists: This name in already in use! Pick a new one.
-      invalidInput: You have not provided a valid input.
-      uniqueConstraint: Uh oh! That hub name has already been taken.
-      processingError: Something went wrong while creating your hub.
-      hubLimitUpgrade: Upgrade to Core, Plus or Pro to create up to 3 hubs.
-      hubLimitReached: You have reached the maximum number of hubs allowed for your current plan.
+      tagline: Un slogan fait de 5 à 100 caractères.
+      nameTakenMeanwhile: "Un autre hub vient de prendre le nom **{name}**. Choisis-en un nouveau. Tout le reste de ce que tu as choisi est conservé."
+      failed: "Le hub n'a pas été créé. InterChat n'a pas pu joindre ses serveurs. Tes choix sont conservés, appuie donc sur Créer pour réessayer."
+
+  home:
+    ready: "{name} est prêt"
+    meta: "{language} · {rating} · {servers}"
+    servers: "{count} serveurs"
+    serversOne: 1 serveur
+    status:
+      listed: Listé dans /hub browse
+      pending: Listage en attente
+      unlisted: Non listé
+      private: Privé
+    nextSteps: Prochaines étapes
+    footer: "Toi seul peux voir ceci. Reviens-y à tout moment avec {command}."
+    back: Retour
+    flash:
+      linked: "**{channel} est lié.** Dis bonjour là-bas, puis invite d'autres serveurs."
+      listed: "**{name} est maintenant listé.** Les serveurs peuvent le trouver dans /hub browse et dans /setup."
+      saved: Enregistré.
+    steps:
+      link:
+        title: Lier un salon
+        description: Un hub n'a pas de salon à lui. Lies-en un ici pour pouvoir y discuter.
+        doneOne: "{channel} est lié."
+        done: "{count} salons ici sont liés."
+        doneElsewhere: Lié dans un autre serveur.
+        button: Lier un salon
+        again: En lier un autre
+      discover:
+        title: Le rendre découvrable
+        titlePrivate: Terminer la configuration
+        progress: "{done} sur 4 faits. Termine le reste et il se liste tout seul dans /hub browse."
+        progressPrivate: "{done} sur 4 faits. Icône, description, règles et un lien d'invitation."
+        done: Terminé. Il se liste tout seul dans /hub browse.
+        donePrivate: Terminé.
+        button: Continuer
+        again: Revoir
+      invite:
+        title: Inviter d'autres serveurs
+        description: Obtiens un message tout prêt pour les autres propriétaires de serveurs.
+        doneOne: 1 autre serveur a rejoint.
+        done: "{count} autres serveurs ont rejoint."
+        button: Obtenir le message d'invitation
+        again: Inviter plus
+    link:
+      title: Lier un salon
+      explainer: Chaque serveur d'un hub lie un salon. Un message envoyé dans n'importe quel salon lié apparaît dans tous les autres, avec le nom de l'expéditeur et son serveur.
+      placeholder: Choisis un salon
+      footnote: "Les autres propriétaires de serveurs font la même chose dans leur propre serveur avec {command}."
+    discover:
+      lead: Termine ces quatre points et ton hub se liste tout seul. Personne n'a besoin de l'approuver.
+      leadListed: Tout est fait. Ton hub est dans /hub browse.
+      leadExempt: Ton hub est déjà dans /hub browse. Ces points aident les serveurs à lui faire confiance.
+      leadPrivate: "Ton hub est {visibility}, donc ces points n'affectent pas le listage, mais ils aident les serveurs à lui faire confiance."
+      optional: Facultatif
+      region: Région
+      logs: Salon de journaux
+      managers: Co-gestionnaires
+      art:
+        title: Icône et bannière
+        description: L'apparence de ton hub dans l'annuaire et dans son message de bienvenue.
+        button: Ajouter
+        redo: Modifier
+      text:
+        title: Description et message de bienvenue
+        description: Le message de bienvenue accueille chaque serveur qui lie un salon.
+        button: Écrire
+        redo: Modifier
+      rules:
+        title: Règles
+        description: Les serveurs les acceptent avant de lier.
+        countOne: 1 règle.
+        count: "{count} règles."
+        button: Ajouter des règles
+        redo: Modifier
+      invite:
+        title: Lien d'invitation
+        description: Permet aux propriétaires de serveurs de rejoindre avec un seul lien.
+        button: Créer le lien
+        redo: Gérer
+    artModal:
+      title: Icône et bannière
+      icon: Lien de l'image d'icône
+      iconHint: Une image carrée, d'au moins 256 × 256. Utilise un lien permanent ; les liens de pièces jointes Discord expirent.
+      banner: Lien de l'image de bannière
+      bannerHint: Une image large, d'environ 1600 × 400.
+      invalid: Les liens d'image doivent commencer par https://.
+    textModal:
+      title: Description et bienvenue
+      description: Description
+      descriptionHint: De quoi parle ton hub. Affiché sur sa page de l'annuaire.
+      descriptionPlaceholder: Discussions nocturnes entre serveurs. Musique, jeux et tout ce qui te passe par la tête.
+      welcome: Message de bienvenue
+      welcomeHint: "Publié quand un serveur lie un salon. {{serverName}} et {{hubName}} sont remplacés automatiquement."
+      welcomePlaceholder: "Bienvenue sur {{hubName}}, {{serverName}} ! Dis bonjour."
+      sameAsTagline: La description doit en dire plus que le slogan.
+    invite:
+      title: Inviter d'autres serveurs
+      needsLink: "{name} est {visibility}, donc les autres serveurs ont besoin d'un lien d'invitation pour rejoindre."
+      createLink: Créer un lien d'invitation
+      lead: Envoie ceci aux propriétaires de serveurs que tu veux dans ton hub.
+      message: |-
+        Viens discuter avec nous sur {name}, un hub InterChat. {tagline}
+        Rejoins-nous ici : {link}
+      messageByCode: |-
+        Viens discuter avec nous sur {name}, un hub InterChat. {tagline}
+        1. Ajoute InterChat à ton serveur : {botInvite}
+        2. Dans le salon que tu veux partager, lance /hub join invite:{code}
+      messageByName: |-
+        Viens discuter avec nous sur {name}, un hub InterChat. {tagline}
+        1. Ajoute InterChat à ton serveur : {botInvite}
+        2. Dans le salon que tu veux partager, lance /hub join hub:{name}
+      hint: Modifie l'expiration et le nombre d'utilisations du lien dans /hub manage.
+      hintByName: Ton hub est public, donc son nom suffit. Crée un lien d'invitation dans la checklist pour partager un seul lien à la place.
+    errors:
+      generic: Ça n'a pas marché. Réessaie dans un instant.
   delete:
-    description: Your hub has been deleted.
+    description: Ton hub a été supprimé.
+  moved:
+    title: Cette commande a déménagé
+    description: "`{old}` se trouve maintenant dans `{new}` ({section})."
+    button: L'exécuter maintenant
+  manage:
+    sections:
+      delete: Supprimer le hub
+      invites: Invitations
+  mod:
+    sections:
+      ban: Bannir
+      mute: Mettre en sourdine
+      warn: Avertir
+      pardon: Gracier
+  picker:
+    title: Hub introuvable
+    unresolved: 'Je n''ai trouvé aucun hub nommé **{hub}** auquel tu as accès.'
+    choose: "Voici les {count} hub(s) que tu peux utiliser à la place :"
+    placeholder: Choisis un hub
+    empty: "Tu ne gères encore aucun hub. Utilise `/hub create` pour en créer un, ou `/hub browse` pour trouver un hub public."
   connect:
     success:
-      title: Connected!
-      description: Connected to **{hubName}** - get chatting!
-      fieldValue: "Connected Channel: {channel}"
+      title: Connecté !
+      description: Connecté à **{hubName}** - c'est parti pour discuter !
+      fieldValue: "Salon connecté : {channel}"
     errors:
       alreadyConnected:
-        title: Already Connected to this hub
-        description: It looks like this server is already connected to this hub.
+        title: Déjà connecté à ce hub
+        description: Il semble que ce serveur soit déjà connecté à ce hub dans {channel}.
       missingInput:
-        title: Missing Information
-        description: "Provide a hub name or an invite code.\n\nTry: `/hub connect hub:MyHub` or `/hub connect invite:abc123`"
+        title: Informations manquantes
+        description: "Indique un nom de hub ou un code d'invitation.\n\nEssaie : `/hub connect hub:MyHub` ou `/hub connect invite:abc123`. Envie de créer le tien ? Utilise `/hub create`."
       hubNotFound:
-        title: Hub Not Found
-        description: "I couldn't find that hub. Check the name, or use `/hub directory` to browse public hubs."
+        title: Hub introuvable
+        description: "Je n'ai pas trouvé ce hub. Vérifie le nom, ou utilise `/hub browse` pour parcourir les hubs publics."
       invalidInvite:
-        title: Invalid Invite
-        description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
+        title: Invitation invalide
+        description: "Ce code d'invitation est invalide ou expiré. Demande une nouvelle invitation au propriétaire du hub et réessaie."
       channelNotSupported:
-        title: Unsupported Channel
-        description: "Choose a text channel, thread, or forum channel."
+        title: Salon non pris en charge
+        description: "Choisis un salon textuel ou un fil."
       webhookPerms:
-        title: Missing Permissions
-        description: "I couldn't create webhooks in that channel. I need **Manage Webhooks** and **Send Messages** there."
+        title: Autorisations manquantes
+        description: "Je n'ai pas pu créer de webhooks dans ce salon. J'y ai besoin de **Gérer les webhooks** et **Envoyer des messages**."
       locked:
-        title: Hub Locked
-        description: This hub is currently locked and cannot be joined.
+        title: Hub verrouillé
+        description: Ce hub est actuellement verrouillé et ne peut pas être rejoint.
+      missingPermissions:
+        title: Autorisations manquantes
+        description: "Tu as besoin des autorisations **Gérer le serveur** et **Gérer les salons** sur ce serveur pour connecter un salon à un hub."
+      channelAccessDenied:
+        title: Autorisations manquantes
+        description: "Tu as besoin des autorisations **Voir le salon** et **Gérer les salons** dans {channel} pour le connecter à un hub."
   announcements:
-    title: Hub Announcements
-    description: "Create a **one time** announcement that sends in all connected channels."
+    title: Annonces du hub
+    description: "Crée une annonce **unique** envoyée dans tous les salons connectés."
   config:
-    title: Hub Configuration
-    description: Customize your InterChat hub for your community.
+    title: Configuration du hub
+    description: Personnalise ton hub InterChat pour ta communauté.
+    more:
+      title: "### Tout le reste"
+      placeholder: "Ouvrir l'un des {count} autres…"
+    footer: "-# Les lignes en direct lisent l'état déjà récupéré par `/hub manage`. `manage` · `configure` · `edit`"
+    state:
+      enabled: "activé"
+      set: "défini"
+      missing: "manquant"
+      modules:
+        empty: "Rien d'activé · les membres n'ont que du texte brut"
+      rules:
+        set: "{count} règles publiées · visibles par tous"
+        empty: "Pas encore de règles · les invités n'en voient aucune en arrivant"
+      identity:
+        icon: Icône définie
+        noIcon: Pas d'icône
+      visibility:
+        public: Public
     catalog:
-      editInfo: Edit Info
-      appearance: Appearance
-      settings: Settings
-      invites: Invites
-      moderators: Moderators
-      deleteHub: Delete Hub
+      editInfo: Modifier les infos
+      appearance: Apparence
+      settings: Paramètres
+      invites: Invitations
+      moderators: Modérateurs
+      deleteHub: Supprimer le hub
     options:
       general:
-        label: General Settings
-        description: Customize your hub's appearance, rules, and more
+        label: Paramètres généraux
+        description: Personnalise l'apparence, les règles et plus encore de ton hub
       rules:
-        label: Hub Rules
-        description: Manage your hub's community rules and guidelines
-      team:
-        label: Team Management
-        description: Manage your hub's team and staff permissions
+        label: Règles du hub
+        description: Gère les règles et consignes de la communauté de ton hub
+      staff:
+        label: Équipe
+        description: Gère l'équipe et les rôles de ton hub
       modules:
         label: Modules
-        description: Enable or disable additional modules within your hub
+        description: Active ou désactive des modules supplémentaires dans ton hub
       logging:
-        label: Logging Configuration
-        description: Configure logging channels and notification roles for your hub
+        label: Configuration des journaux
+        description: Configure les salons de journaux et les rôles de notification de ton hub
       automod:
         label: AutoMod
-        description: Manage anti-swear rules, patterns, and safe list
+        description: Gère les règles anti-grossièretés, les motifs et la liste blanche
       badges:
-        label: Custom Badges
-        description: Configure custom badge visibility
+        label: Badges personnalisés
+        description: Configure la visibilité des badges personnalisés
       transfer:
-        label: Transfer Ownership
-        description: Transfer your hub's ownership to another person
+        label: Transférer la propriété
+        description: Transfère la propriété de ton hub à une autre personne
+      delete:
+        label: Supprimer le hub
+        description: Supprimer définitivement ce hub et déconnecter tous les serveurs
       announcements:
-        label: Scheduled Announcements
-        description: Configure automatic scheduled announcements for your hub
+        label: Annonces programmées
+        description: Configure des annonces programmées automatiques pour ton hub
+      servers:
+        label: Serveurs connectés
+        description: Consulte et gère les ponts actifs entre serveurs Discord
     announce:
       errors:
-        invalidDuration: Invalid duration format.
+        invalidDuration: Format de durée invalide.
       success:
-        queued: Your broadcast has been queued.
+        queued: Ta diffusion a été mise en file d'attente.
   all:
-    title: InterChat Hubs
-    description: Search through a list of all our hubs!
-    filteredBy: "Results filtered by: {filter}"
+    title: Hubs InterChat
+    description: Parcours une liste de tous nos hubs !
+    createHint: "Envie de ton propre salon partagé ? Utilise `/hub create`."
+    filteredBy: "Résultats filtrés par : {filter}"
     errors:
-      notFound: Uh oh! I was unable to find any hubs.
-      invalidFilter: Crickets... no hubs match your filter.
+      notFound: "Oups ! Je n'ai trouvé aucun hub. Tu peux créer le tien avec `/hub create`."
+      invalidFilter: "Silence radio... aucun hub ne correspond à ton filtre. Envie du tien ? Utilise `/hub create`."
     modal:
-      title: Search Filter
+      title: Filtre de recherche
       searchFilter:
-        label: Filter
+        label: Filtre
         placeholder: InterChat Central
+
 connection:
   title: Gestion des connexions
-  description: Configurez et administrez toutes les connexions hub au sein de ce serveur.
-  removeConnection: Remove Connection
-  broadcastState: Toggle Broadcast ({state})
+  description: Configure et administre toutes les connexions de hub de ce serveur.
+  removeConnection: Supprimer la connexion
+  broadcastState: Basculer la diffusion ({state})
   states:
-    start: Start
-    pause: Pause
-    active: Active
-    paused: Paused
+    start: *btn_start
+    pause: Mettre en pause
+    active: Actif
+    paused: En pause
   select:
-    placeholder: Select a connection to manage...
+    placeholder: Sélectionne une connexion à gérer...
   fields:
-    state: State
+    state: État
   messages:
-    disconnected: Successfully disconnected from this hub.
+    disconnected: Déconnecté de ce hub avec succès.
   errors:
-    notFound: Connection not found.
-    serverOnly: This command can only be used in a server.
+    notFound: Connexion introuvable.
+    serverOnly: Cette commande ne peut être utilisée que dans un serveur.
     limitReached:
-      title: Connection limit reached
-      upgrade: Upgrade to Plus or Pro to unlock more connections per server.
-      disconnect: Disconnect an existing connection before adding a new one.
+      title: Limite de connexions atteinte
+      upgrade: Passe à Plus ou Pro pour débloquer plus de connexions par serveur.
+      disconnect: Déconnecte une connexion existante avant d'en ajouter une nouvelle.
   fixAll:
-    label: Fix All Connections
+    label: Réparer toutes les connexions
   manage:
-    placeholder: Select a connection to manage
+    placeholder: Sélectionne une connexion à gérer
   selected:
-    description: You may now edit this connection.
+    description: Tu peux maintenant modifier cette connexion.
     state:
-      enabled: Les diffusions sont désormais **actives**.
-      disabled: Les diffusions sont désormais **en pause**.
+      enabled: Les diffusions sont maintenant **actives**.
+      disabled: Les diffusions sont maintenant **en pause**.
   fix:
-    title: Validation de la connexion
-    description: All connections within this guild have been validated.
+    title: Validation des connexions
+    description: Toutes les connexions de cette guilde ont été validées.
     responses:
       success:
-        fixed: Connexion fixée!
-        valid: Aucune issue a été trouvée.
+        fixed: Connexion réparée !
+        valid: Aucun problème trouvé.
       errors:
-        channelDeleted: The channel associated with this hub has been deleted.
-        permissionsWebhook: I am unable to use webhooks.
-        permissionsSend: Bot Missing Permissions! I am unable to send messages in that channel.
-        permissionsGeneral: I'm missing permissions in that channel. Ensure I have `Manage Webhooks`, `View Channel` and `Send Message` permissions.
+        channelDeleted: Le salon associé à ce hub a été supprimé.
+        permissionsWebhook: Je ne peux pas utiliser les webhooks.
+        permissionsSend: Il manque des autorisations au bot ! Je ne peux pas envoyer de messages dans ce salon.
+        permissionsGeneral: Il me manque des autorisations dans ce salon. Vérifie que j'ai `Gérer les webhooks`, `Voir le salon` et `Envoyer des messages`.
+
 messageInfo:
   tabs:
     message:
-      title: Message Information
+      title: Informations sur le message
       button: Message
     user:
-      title: User Information
-      button: User
+      title: Informations sur l'utilisateur
+      button: Utilisateur
     server:
-      title: Server Information
-      button: Server
+      title: Informations sur le serveur
+      button: Serveur
   fields:
-    messageId: Message ID
-    server: Server
-    author: Author
+    messageId: ID du message
+    server: Serveur
+    author: Auteur
     hub: Hub
-    content: Content
-    timestamp: Timestamp
-    username: Username
-    accountCreated: Account Created
+    content: Contenu
+    timestamp: Horodatage
+    username: Nom d'utilisateur
+    accountCreated: Compte créé
     badges: Badges
-    serverName: Server Name
-    connectionChannel: Connection Channel
-    connectedSince: Connected Since
+    serverName: Nom du serveur
+    connectionChannel: Salon de connexion
+    connectedSince: Connecté depuis
   status:
-    connected: Connected
-    disconnected: Disconnected
+    connected: Connecté
+    disconnected: Déconnecté
   buttons:
-    profile: Profile
+    profile: Profil
   unknown:
-    server: Unknown Server
-  noBadges: No badges to display
-  noConnection: No connection information available
+    server: Serveur inconnu
+  noBadges: Aucun badge à afficher
+  noConnection: Aucune information de connexion disponible
+
 leaderboard:
-  title: Leaderboard
-  noActivity: No Activity
-  noActivityDescription: No activity recorded for this period.
+  title: Classement
+  noActivity: Pas encore d'activité
+  noActivityDescription: Rien d'enregistré sur cette période. Sois le premier !
+  users: Utilisateurs
+  servers: Serveurs
+  streaks: Séries
   messages: messages
-  calls: calls
-  votes: votes
-  streak: day streak
-  selectPeriod: Select time period
-  selectType: Select leaderboard type
-  yourRank: Your Rank
+  unit:
+    calls: appels
+    votes: votes
+    streak: jours de série
+  calls: Appels
+  votes: Votes
+  selectPeriod: Sélectionne la période
+  selectType: Afficher…
   periods:
-    thisMonth: This Month
-    thisMonth.description: Current month statistics
-    lastMonth: Last Month
-    lastMonth.description: Previous month statistics
-    allTime: All Time
-    allTime.description: All-time statistics
+    thisMonth: Ce mois-ci
+    thisMonth.description: Statistiques du mois en cours
+    lastMonth: Mois dernier
+    lastMonth.description: Statistiques du mois précédent
+    allTime: Depuis toujours
+    allTime.description: Statistiques de tous les temps
   buttons:
-    users: Users
-    servers: Servers
-    calls: Calls
-    votes: Votes
-    streaks: Streaks
+    users: Utilisateurs
+    servers: Serveurs
   errors:
-    alreadyShowingUsers: Already showing users leaderboard.
-    alreadyShowingServers: Already showing servers leaderboard.
-    alreadyShowingPeriod: Already showing this time period.
-    alreadyShowingType: Already showing this leaderboard type.
+    alreadyShowingUsers: Le classement des utilisateurs est déjà affiché.
+    alreadyShowingServers: Le classement des serveurs est déjà affiché.
+    alreadyShowingPeriod: Cette période est déjà affichée.
+    alreadyShowingType: Ce classement est déjà affiché.
+    unavailable: Les classements sont indisponibles pour le moment. Réessaie dans un instant.
+
 profile:
   achievements:
-    placeholder: Achievements here
+    placeholder: Succès ici
+
+passportCard:
+  suspended: Passeport suspendu
+  active: Actif aujourd'hui
+  inactive: Inactif aujourd'hui
+  traveler: Voyageur {traveler}
+  remembered: gardé en mémoire par {count} personnes
+  milesTravelled: "{miles} miles parcourus"
+  breakdown: "{stamps} tampons · {gold} or · {silver} argent · {bronze} bronze"
+  recent: "les {shown} plus récents sur {total}"
+  noneTitle: Aucun tampon collecté pour l'instant
+  noneBody: Termine un appel entre serveurs pour qu'on se souvienne de toi.
+  nextAt: prochain titre à {count} tampons
+  ladder: Échelle de campagne
+  tiers: Répartition des paliers
+  total: "{count} au total"
+  moreTo: "Encore {count} pour {title}"
+  topReached: titre maximal atteint
+  calls: "{count} appels"
+  lastCall: "dernier appel {when}"
+  tier:
+    gold: Or
+    silver: Argent
+    bronze: Bronze
+  field:
+    stamps: Tampons
+    miles: Miles
+    calls: Appels
+    gold: Or
+    silver: Argent
+    bronze: Bronze
+
 my:
   hubs:
-    title: Vos hubs
-    description: "Voici les hubs que vous possédez ou modérez :"
+    title: Tes hubs
+    description: "Voici les hubs que tu possèdes ou modères :"
+    serverOne: serveur
+    servers: serveurs
+    messagesOne: message
+    messages: messages
+    visibility:
+      public: Public
+      private: Privé
+      unlisted: Non listé
+    locked: Verrouillé
+    nsfw: NSFW
+    unavailable: Ce hub n'est plus disponible.
+    filters:
+      all: Toutes
+      owned: Possédés
+      staff: Équipe
+    picker:
+      placeholder: Sélectionne un hub à gérer...
+    empty:
+      title: Aucun hub pour l'instant
+      description: "Tu ne possèdes ni ne modères aucun hub. Utilise `/hub create` pour en créer un, ou `/hub browse` pour trouver une communauté à aider."
+    filtered:
+      title: Aucun hub {filter}
+      description: "Aucun de tes hubs ne correspond à ce filtre. Essaie **Tous** pour voir tout ce que tu possèdes et modères."
+    loading: Chargement de tes hubs...
+  activity:
+    day: "{count} jour"
+    days: "{count} jours"
+    unranked: Non classé
+    closed: Tableau de bord d'activité fermé.
+    utcFooter: Les séries quotidiennes utilisent l'UTC.
+    tabs:
+      overview: Aperçu
+      hubs: Hubs
+      calls: Appels
+    timeline:
+      day: "JOUR {count}"
+      today: AUJOURD'HUI
+    overview:
+      title: GARDE LA CONNEXION ACTIVE
+      securedTitle: LA CONNEXION D'AUJOURD'HUI EST TERMINÉE
+      startTitle: COMMENCE UNE NOUVELLE CONNEXION
+      securedSummary: "Ta série est de {streak}. Reviens demain pour la faire continuer."
+      activeSummary: "Ta série est de {streak}. Un jour actif de plus la maintient en vie."
+      freezeSummary: "Ta série de {streak} peut encore être sauvée. Remplis les conditions aujourd'hui pour utiliser un gel."
+      inactiveSummary: "Ta série précédente était de {streak}. Remplis les conditions aujourd'hui pour recommencer."
+      newSummary: Un jour actif lance ta première série InterChat.
+      stats: "❄️ {freezes} gels · Meilleure série : {best}\n:trophy_icon: Rang de série : {rank}"
+    path:
+      title: LE PARCOURS D'AUJOURD'HUI
+      hubs: "Envoie des messages de hub  **{current}/{threshold}**"
+      call: Termine un appel de plus de 60 secondes
+      unavailable: La progression des messages de hub est temporairement indisponible
+      secured: La série d'aujourd'hui est sécurisée
+      tomorrow: Ta prochaine fenêtre de série commence demain.
+      freeze: Remplir les conditions aujourd'hui utilisera un gel et préservera ta série.
+      nextMessages: "Ta prochaine étape : envoie encore {count} messages de hub."
+      nextStart: "Envoie 5 messages de hub ou termine un appel de plus de 60 secondes."
+      nextUnavailable: Un appel de plus de 60 secondes compte toujours aujourd'hui.
+    hubs:
+      title: TON PASSEPORT DE HUBS
+      messages: "{count} messages"
+      places: LES ENDROITS QUE TES MOTS ONT VISITÉS
+      homeBase: TA BASE
+      homeStats: "{count} messages · {share} % de ce mois"
+      otherPlaces: AUTRES ENDROITS
+      empty: Envoie des messages de hub acceptés et les endroits que tu visites apparaîtront ici.
+      summary: "{count} hubs actifs ce mois-ci\n:trophy_icon: Rang mondial des messages : {rank}"
+      delay: Les chiffres peuvent avoir environ 30 secondes de retard.
+    calls:
+      title: GARDE LA CONVERSATION ACTIVE
+      completed: APPELS TERMINÉS
+      status: ÉTAT DE LA CONNEXION
+      qualifies: Un appel valide sécurise la série d'aujourd'hui.
+      currentStreak: Série actuelle
+      previousStreak: Série précédente
+      stats: ":trophy_icon: Rang d'appels : {rank}\n:fire_icon: {streakLabel} : {streak}\n❄️ Gels disponibles : {freezes}"
+      shared: Les appels et les messages de hub partagent une seule série.
+
 stats:
-  title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
-  footer: InterChat | Version {version}
+  title: InterChat
+  description: Les chiffres en direct de tout le réseau.
+  network: En ce moment
+  networkValue: "> **Serveurs** {servers}\n> **Membres** {members}\n> **Hubs** {hubs}"
+  bot: Ce bot
+  botValue: "> **Ping** {ping}ms · **Disponibilité** <t:{uptime}:R> · **v{version}**"
+  footer: InterChat • v{version}
   shard:
-    title: Informations sur les éclats
+    title: Informations sur le shard
+    row: "> **Shard #{id}** : {status}\n> **Ping** {ping}ms · **Serveurs** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **Cœurs CPU** {cores}\n> **RAM** {ram}MB"
     statusReady: Prêt
-    statusProvisioning: Provisioning
-    current: "Current Shard: {id}"
+    statusProvisioning: En cours de provisionnement
+    current: "Tu es sur le shard #{id}"
+
 invite:
-  title: Hey!
-  description: Thanks for choosing InterChat. Need help? Join our support server.
+  title: Ajoute InterChat à ton serveur
+  description: C'est gratuit et ça prend environ une minute.
+  steps: |-
+    > **1.** Appuie sur **Ajouter au serveur** ci-dessous
+    > **2.** Choisis ton serveur
+    > **3.** Lance `/setup` dans le salon que tu veux utiliser
+  footer: Il te faut **Gérer le serveur** sur le serveur que tu choisis.
+
+rules:
+  title: Règles d'InterChat
+  body: Ces règles s'appliquent partout où tu utilises InterChat, dans les hubs comme dans les appels.
+  tabs:
+    short: Les règles
+    full: Règles complètes
+    moderation: Modération
+  short: |-
+    > **1.** Traite les gens avec respect. Si quelqu'un dit stop, arrête.
+    > **2.** N'attaque pas les gens pour ce qu'ils sont. Pas d'insultes discriminatoires.
+    > **3.** Pas de menaces, et ne partage pas d'informations privées.
+    > **4.** Pas de contenu sexuel. Jamais impliquant des mineurs.
+    > **5.** Pas de spam, et ne gâche pas la conversation.
+    > **6.** Ne contourne pas les bannissements et n'envoie pas de faux signalements.
+    > **7.** Les noms doivent aussi respecter ces règles.
+  rules:
+    title: Les règles
+    commonSense: |
+      ## Utilise ton bon sens
+      Ces règles ne peuvent pas couvrir toutes les situations possibles.
+
+      Si quelque chose est manifestement fait pour blesser, menacer, harceler, sexualiser ou perturber gravement une autre personne, ne pars pas du principe que c'est autorisé simplement parce que tu ne trouves pas la formulation exacte dans ces règles.
+    body: |
+      ### 1. Traite les gens avec respect
+      **Le chambrage est permis. Le harcèlement non.**
+      - Plaisanter et chambrer, c'est bien, mais n'en fais pas des insultes répétées, du harcèlement ou des tentatives délibérées de contrarier quelqu'un.
+      - Si quelqu'un te demande d'arrêter, **arrête**.
+      - Ne provoque, ne te moque et n'attaque pas quelqu'un de façon répétée, surtout après qu'il t'a demandé d'arrêter.
+      ### 2. N'attaque pas les gens pour ce qu'ils sont
+      **L'intolérance n'est pas permise.**
+      - N'attaque pas, n'insulte pas et ne rabaisse pas quelqu'un à cause de sa race, son origine ethnique, sa nationalité, sa religion, son genre, sa sexualité, son handicap ou des caractéristiques similaires.
+      - Les insultes discriminatoires ne sont pas permises, même si tu prétends pouvoir les utiliser parce qu'elles s'appliquent à toi.
+      ### 3. Protège les gens
+      **Pas de menaces ni de comportements dangereux.**
+      - Ne menace pas de blesser, de tuer ou d'agresser sexuellement quelqu'un.
+      - N'encourage personne à se faire du mal.
+      - N'encourage pas et n'aide pas quelqu'un à faire du doxing, du swatting, à attaquer ou à nuire de toute autre manière à une autre personne.
+
+      **Ne partage pas d'informations privées.**
+      - Ne publie pas et ne menace pas de publier l'adresse, le numéro de téléphone, le vrai nom, la localisation, l'adresse IP ou d'autres informations privées de quelqu'un.
+      ### 4. Garde un contenu sexuel approprié
+      **Ne sexualise pas les mineurs.**
+      - Les blagues, histoires, commentaires ou conversations sexuels impliquant des mineurs ne sont pas permis.
+      - Le grooming, la tentative d'obtenir du contenu sexuel d'un mineur ou tout autre comportement sexuel dirigé vers des mineurs est traité avec une gravité particulière.
+
+      **Garde le contenu sexuel explicite hors d'InterChat.**
+      - Pas de sexting, de jeu de rôle sexuel, de messages sexuels explicites ou de contenu similaire.
+      - Flirter, c'est bien quand c'est bienvenu. Si quelqu'un n'est pas intéressé, **arrête**.
+      ### 5. Ne gâche pas la conversation
+      **Pas de spam ni de perturbation délibérée.**
+      - N'inonde pas les discussions, n'envoie pas d'énormes pavés de texte, ne spamme pas de messages ou d'émojis et ne rends pas volontairement une conversation inutilisable.
+      ### 6. N'entrave pas la modération
+      **Ne contourne pas la modération.**
+      - N'utilise pas un autre compte ou une autre méthode pour contourner un bannissement ou une restriction actifs.
+
+      **N'abuse pas du système de signalement.**
+      - Les signalements doivent être honnêtes et faits de bonne foi.
+      - Ne fais pas de faux signalements pour faire punir quelqu'un.
+      ### 7. Garde une identité appropriée
+      **Les noms doivent aussi respecter les règles.**
+      - Les noms d'utilisateur, pseudos, noms de serveur et autres noms affichés via InterChat doivent respecter ces règles.
+
+  enforcement: |
+    ## Comment fonctionne la modération
+    Les modérateurs examinent **ce qui s'est passé, la gravité, si c'était intentionnel, qui était visé, si la personne s'est arrêtée quand on le lui a demandé, et son historique récent.**
+    ### L'échelle des sanctions est :
+    ```Avertissement → 6h → 24h → 7j → 14j → 30j → Permanent```
+    *Les sanctions ne sont pas toujours linéaires et dépendent souvent de la gravité et du contexte de l'infraction. Les infractions normales de plus de 90 jours devraient en général expirer automatiquement et ne pas aggraver une sanction.*
+
+startHere:
+  nav:
+    help: Aide
+    invite: Inviter
+    dashboard: Tableau de bord
+    stats: Statistiques
+    about: À propos
+  descriptions:
+    help: Découvre toutes les commandes d'InterChat.
+    about: Ce qu'est InterChat et comment ça marche.
+    invite: Ajoute InterChat à ton serveur.
+    rules: Lis les règles des hubs et des appels.
+    stats: Consulte les chiffres en direct d'InterChat.
+    feedback: Envoie une suggestion ou un rapport de bug.
+    report: Apprends à signaler un message.
+    dashboard: Ouvre le tableau de bord web.
+    leaderboard: Vois les meilleurs appelants et serveurs.
+    prefix: Change le préfixe de commande de ce serveur.
+    vote: Vote pour InterChat, gagne un badge et choisis de te reconnecter ou non après un saut ou un raccrochage.
+
+dashboard:
+  description: Gère tes hubs, serveurs et appels depuis ton navigateur. Aucune commande nécessaire.
+
+prefix:
+  updatedTitle: Préfixe mis à jour
+  updated: Ce serveur utilise maintenant `{prefix}`. Essaie `/help`.
+  resetTitle: Préfixe réinitialisé
+  reset: Ce serveur est revenu au préfixe par défaut `{prefix}`.
+  error:
+    guildOnly: Les préfixes sont propres à chaque serveur, donc ça ne fonctionne qu'à l'intérieur d'un serveur.
+    tooLong: Un préfixe peut faire 10 caractères au maximum.
+
+vote:
+  title: Vote pour InterChat
+  description: Ça prend 10 secondes et ça aide plus de serveurs à nous trouver.
+  rewards: |-
+    ## Ce que tu obtiens pendant 12 heures
+    > **Émojis de serveur** : utilise n'importe quel émoji dans tes messages
+    > **Badge de votant** : affiché sur ton profil InterChat
+    > **Appariement automatique personnel** : choisis si tu es réapparié quand ton partenaire passe ou raccroche
+  alreadyVoted: |-
+    ## :party_popper: Merci d'avoir voté !
+    Tu pourras voter à nouveau **{next}**.
+    Règle tes choix personnels d'appariement automatique pour quand ton partenaire passe ou raccroche dans `/my settings`.
+  thanks:
+    title: Merci d'avoir voté !
+    intro: Ton vote aide plus de serveurs à trouver InterChat. Merci d'avoir pris ces 10 secondes. Il te permet aussi de choisir, pendant 12 heures, si tu es réapparié quand ton partenaire passe ou raccroche ; règle-le dans `/my settings`.
+    activeHeading: Actif pendant les 12 prochaines heures
+    emojiTitle: Émojis de serveur
+    emojiBody: Utilise les émojis de n'importe quel serveur dans tes messages.
+    roleTitle: Rôle de votant
+    roleBody: Attribué sur le serveur de support et retiré à l'expiration de ton vote, donc revote pour le garder.
+    keepHeading: À toi pour de bon
+    badgeTitle: Badge de votant
+    badgeBody: Maintenant sur ton profil InterChat.
+    freezeTitle: Un gel de série
+    freezeBody: Mis de côté pour un jour manqué, jusqu'à 2.
+    supportButton: Serveur de support
+    footer: "Vote n° {count} · prochain vote disponible {next}"
+
 services:
   hub:
     validation:
-      invalidName: The provided hub name is invalid.
-      nameTaken: That hub name is already taken.
+      invalidName: Le nom de hub fourni n'est pas valide.
+      nameTaken: Ce nom de hub est déjà pris.
     defaults:
-      noDescription: No description provided.
+      noDescription: Aucune description fournie.
   moderation:
     defaults:
-      noReason: No Reason
+      noReason: *no_reason
+
 support:
   priority:
     standard: Standard
+
 badges:
   developer:
-    title: InterChat Developer
-    description: Core developer of InterChat
+    title: Développeur d'InterChat
+    description: Développeur principal d'InterChat
   staff:
-    title: InterChat Staff
-    description: InterChat staff member
+    title: Équipe InterChat
+    description: Membre de l'équipe InterChat
   owner:
-    title: Hub Owner
-    description: Owner of the hub "{hubName}"
+    title: Propriétaire du hub
+    description: Propriétaire du hub « {hubName} »
   moderator:
-    title: Hub Moderator
-    description: Moderator of the hub "{hubName}"
+    title: Modérateur du hub
+    description: Modérateur du hub « {hubName} »
   manager:
-    title: Hub Manager
-    description: Manager of the hub "{hubName}"
+    title: Gestionnaire du hub
+    description: Gestionnaire du hub « {hubName} »
+
 broadcast:
   spam:
-    mutedMessage: You have been temporarily muted for {minutes} minutes due to spam.
-    warningMessage: "⚠️ You are sending messages too quickly!"
-    autoMuteReason: "Auto-Mute: Spam detected"
-    autoWarnReason: "Auto-Warn: Spam detected"
+    mutedMessage: Tu as été mis en sourdine temporairement pendant {minutes} minutes pour spam.
+    warningMessage: ':alert_icon: Tu envoies des messages trop vite !'
+    autoMuteReason: "Sourdine automatique : spam détecté"
+    autoWarnReason: "Avertissement automatique : spam détecté"
   validation:
     accountAge:
-      message: Your account is too new to send messages through InterChat.
-      reason: Account too new
+      message: Ton compte est trop récent pour envoyer des messages via InterChat.
+      reason: Compte trop récent
     hubLock:
-      message: This hub is currently locked.
-      reason: Hub is currently locked
+      message: Ce hub est actuellement verrouillé.
+      reason: Le hub est actuellement verrouillé
     invites:
-      message: "🚫 Discord invite links are not allowed in this hub."
+      message: ':ban: Les liens d''invitation Discord ne sont pas autorisés dans ce hub.'
     nsfw:
-      message: "🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)"
+      message: ':ban: Ton message a été bloqué par les filtres d''InterChat (raison : détection NSFW)'
     profanity:
-      message: "🚫 Your message was blocked by the hub's profanity filter."
-      reason: Profanity filter blocked message
+      message: ':ban: Ton message a été bloqué par le filtre de vulgarité du hub.'
+      reason: Message bloqué par le filtre de vulgarité
     videos:
-      message: "🚫 Video attachments are not allowed in this hub."
+      message: ':ban: Les vidéos en pièce jointe ne sont pas autorisées dans ce hub.'
     messageLength:
-      reason: Message Length
-      message: Your message length is too long. Please shorten it.
+      reason: Longueur du message
+      message: Ton message est trop long. Raccourcis-le, s'il te plaît.
     spam:
-      reason: Spam detected
+      reason: Spam détecté
     accessRestriction:
-      prefix: "Access restricted: "
-      reason: Active restriction
+      prefix: "Accès restreint :"
+      reason: Restriction active
+
 blacklist:
   add:
-    title: Add to Blocklist
+    title: Ajouter à la liste de blocage
     type:
       label: Type
-      description: Specify whether you are blocking a User or a Server.
+      description: Précise si tu bloques un utilisateur ou un serveur.
       options:
-        userDesc: Block a specific user.
-        serverDesc: Block an entire server.
+        userDesc: Bloquer un utilisateur précis.
+        serverDesc: Bloquer un serveur entier.
     id:
-      label: User or Server ID to Block
-      placeholder: Enter the User ID or Server ID
+      label: ID de l'utilisateur ou du serveur à bloquer
+      placeholder: Saisis l'ID de l'utilisateur ou du serveur
     reason:
-      label: Note (optional)
-      description: A small note helps you remember why you've blocked.
-      placeholder: E.g., Spammer, Annoying, Toxic etc.
+      label: Note (facultatif)
+      description: Une petite note t'aide à te rappeler pourquoi tu as bloqué.
+      placeholder: 'Ex. : spammeur, agaçant, toxique, etc.'
     messages:
-      success: "Blocked {id} with reason: {reason}"
+      success: "{id} bloqué. Raison : {reason}"
     errors:
-      selfBlock: "{cross} You cannot block this server itself."
-      selfUserBlock: "{cross} You cannot block yourself."
-      failed: "Failed to block {id}."
+      selfBlock: "{cross} Tu ne peux pas bloquer ce serveur lui-même."
+      selfUserBlock: "{cross} Tu ne peux pas te bloquer toi-même."
+      failed: "Impossible de bloquer {id}."
   list:
     filters:
-      all: "All ({count})"
-      users: Users
-      servers: Servers
+      all: "Tous ({count})"
+      users: Utilisateurs
+      servers: Serveurs
     empty:
-      all: "You're too nice! Block some servers/users to see them here."
-      users: "No blocked users found."
-      servers: "No blocked servers found."
-    instructions: 'You can add servers or users to the blocklist using the "Add to Blocklist" button.'
+      all: "Tu es trop gentil ! Bloque quelques serveurs/utilisateurs pour les voir ici."
+      users: "Aucun utilisateur bloqué trouvé."
+      servers: "Aucun serveur bloqué trouvé."
+    instructions: 'Tu peux ajouter des serveurs ou des utilisateurs à la liste de blocage avec le bouton « Ajouter à la liste de blocage ».'
     errors:
-      notFound: "{cross} Item not found or already removed."
-      removeFailed: "{cross} Error removing item: {error}"
+      notFound: "{cross} Élément introuvable ou déjà supprimé."
+      removeFailed: "{cross} Erreur lors de la suppression de l'élément : {error}"
+
 commands:
   suggestion:
-    title: Suggestion / Bug Report
+    title: Envoyer un retour
     overview:
-      label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      label: Résumé
+      placeholder: "Une ligne : ce qui n'a pas marché, ou ce que tu voudrais"
     description:
-      label: Description
-      placeholder: Provide full details of your suggestion or bug...
+      label: *label_description
+      placeholder: "Raconte-nous ce qui s'est passé, étape par étape"
     category:
-      label: Category
+      label: "De quoi s'agit-il ?"
       options:
-        bug: Bug Report
-        bugDesc: Report an issue you've found
-        suggestion: Suggestion
-        suggestionDesc: Suggest a new feature or improvement
+        bug: Quelque chose est cassé
+        bugDesc: Signale un problème que tu as rencontré
+        suggestion: J'ai une idée
+        suggestionDesc: Suggère une fonctionnalité ou une amélioration
     errorId:
-      label: Error ID (if applicable)
-      placeholder: Paste the error ID here...
+      label: ID d'erreur (facultatif)
+      placeholder: Colle l'ID d'erreur du message d'erreur
     messages:
-      submitted: Your feedback has been received and will be reviewed.
-      success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
+      success: "{tick} Merci ! Ton retour a été envoyé à l'équipe InterChat."
   report:
-    title: How to Report
-    description: "Right-click on a message and select **Apps → Report**."
-    loadingGif: The GIF above may take a moment to load.
+    title: Comment signaler un message
+    description: |-
+      > **1.** Fais un clic droit sur le message
+      > **2.** Va dans **Applications → Signaler**
+      > **3.** Choisis une raison. Nous l'enverrons à la bonne équipe
+    footer: Les signalements vont aux modérateurs du hub ou à l'équipe d'InterChat.
+    loadingGif: Le GIF ci-dessus peut mettre un moment à charger.
+
 userphone:
   commands:
     start:
-      description: Start a userphone call and connect to another server
+      description: Lance un appel Userphone et connecte-toi à un autre serveur
     end:
-      description: End the current userphone call
+      description: Termine l'appel Userphone en cours
     skip:
-      description: Skip the current call and look for a new partner
+      description: Passe l'appel en cours et cherche un nouveau partenaire
     block:
-      description: Block a user from connecting to you via userphone
+      description: Empêche un utilisateur de se connecter à toi via Userphone
     unblock:
-      description: Unblock a user from userphone
+      description: Débloque un utilisateur sur Userphone
     report:
-      description: Report the user you are connected with
+      description: Signale l'utilisateur auquel tu es connecté
     stats:
-      description: View your userphone statistics
+      description: Consulte tes statistiques Userphone
   status:
-    alreadyInCall: "{cross} This channel is already in a userphone call. Use `/userphone end` to disconnect first."
-    alreadyInCallDuration: "{cross} This channel is already in a userphone call. Current duration: **{duration}**."
-    connected: "{tick} **Connected!** You're now chatting with another server. Say hi! 👋"
-    searching: "**Searching...** Looking for someone to connect with. Hang tight!"
-    notInCall: "{cross} This channel is not in a userphone call."
-    notInCallHint: "{cross} You're not in a call. Use `/call` to start one!"
-    ended: "{tick} Call ended. Thanks for chatting!"
-    disconnected: You've been disconnected from the call.
-    hungUp: "{info} **They hung up.** The call has ended."
-    partnerDisconnected: "{info} **Your partner disconnected.** They're no longer available."
-    skipped: "{info} **Skipped!** Your partner moved on to a new call."
-    searchingAfterSkip: "{loading} **Searching again...** Looking for a new partner now!"
-    waitingInQueue: Waiting in queue for a match...
+    alreadyInCall: "{cross} Ce salon est déjà dans un appel Userphone. Utilise d'abord `/userphone end` pour te déconnecter."
+    alreadyInCallDuration: "{cross} Ce salon est déjà dans un appel Userphone. Durée actuelle : **{duration}**."
+    connected: "{tick} **Connecté !** Tu discutes maintenant avec un autre serveur. Dis bonjour ! 👋"
+    searching: "**Recherche en cours...** On cherche quelqu'un avec qui te connecter. Patiente un instant !"
+    notInCall: "{cross} Ce salon n'est pas dans un appel Userphone."
+    notInCallHint: "{cross} Tu n'es pas dans un appel. Utilise `/call` pour en lancer un !"
+    ended: "{tick} Appel terminé. Merci d'avoir discuté !"
+    disconnected: Tu as été déconnecté de l'appel.
+    hungUp: "{info} **Ils ont raccroché.** L'appel est terminé."
+    partnerDisconnected: "{info} **Ton partenaire s'est déconnecté.** Il n'est plus disponible."
+    skipped: "{info} **Passé !** Ton partenaire est passé à un nouvel appel."
+    searchingAfterSkip: "{loading} **Nouvelle recherche...** On cherche un nouveau partenaire !"
+    waitingInQueue: En file d'attente pour un appariement...
   embed:
-    skippedTitle: Call Skipped
-    duration: Duration
-    startNewCall: Want to chat more? Use `/call` to start another!
-    searchingTitle: Searching for a Call
-    matchNotification: We will notify you as soon as a match is found.
-    cancelHint: Use `/hangup` to stop searching.
-    connectedTitle: Userphone Connected
-    howItWorks: How it works
-    sendMessages: Send messages here to chat with the other server.
-    imagesSupported: Images are supported during userphone calls.
-    hangupHint: Use `/hangup` to end the call.
-    skipHint: Use `/skip` to move to a new partner.
-    endedTitle: Call Ended
-    statsTitle: Your Userphone Stats
-    totalCalls: Total Calls
-    totalTalkTime: Total Talk Time
-    averageCall: Average Call Length
+    skippedTitle: Appel passé
+    duration: Durée
+    startNewCall: Envie de discuter encore ? Utilise `/call` pour en lancer un autre !
+    searchingTitle: Recherche d'un appel
+    matchNotification: On te préviendra dès qu'un appariement sera trouvé.
+    cancelHint: Utilise `/hangup` pour arrêter la recherche.
+    connectedTitle: Userphone connecté
+    howItWorks: Comment ça marche
+    sendMessages: Envoie des messages ici pour discuter avec l'autre serveur.
+    imagesSupported: Les images sont prises en charge pendant les appels Userphone.
+    hangupHint: Utilise `/hangup` pour terminer l'appel.
+    skipHint: Utilise `/skip` pour passer à un nouveau partenaire.
+    endedTitle: Appel terminé
+    statsTitle: Tes statistiques Userphone
+    totalCalls: Appels au total
+    totalTalkTime: Temps de conversation total
+    averageCall: Durée moyenne d'appel
+  errors:
+    wrongChannel:
+      title: Utilise un salon désigné
+      intro: Les commandes de lobby comme `/call`, `/skip` et `/hangup` ne fonctionnent que dans les salons de lobby de ce serveur.
+      hereLabel: Tu es ici
+      allowedLabel: "**Utilise plutôt l'un de ceux-ci :**"
+      moreChannels: "-# …et {count} de plus."
+      modHint: "Modérateurs : modifie ça dans `/server manage` → Paramètres Userphone → Salons de lobby autorisés."
   block:
-    selfBlock: "{cross} You cannot block yourself."
-    alreadyBlocked: "{cross} You have already blocked {user}."
-    success: "{tick} Successfully blocked {user} from userphone calls."
-    unblockSuccess: "{tick} Successfully unblocked {user}."
-    notBlocked: "{cross} {user} is not blocked."
+    selfBlock: "{cross} Tu ne peux pas te bloquer toi-même."
+    alreadyBlocked: "{cross} Tu as déjà bloqué {user}."
+    success: "{tick} {user} a bien été bloqué pour les appels Userphone."
+    unblockSuccess: "{tick} {user} a bien été débloqué."
+    notBlocked: "{cross} {user} n'est pas bloqué."
   report:
-    transcriptTitle: "Userphone transcript | Server: {server} | Channel: #{channel}"
-    transcriptAttachments: "Attachments:"
-    transcriptNoMessages: No recent user messages were available.
-    modalTitle: Report Userphone Call
-    reasonLabel: Reason for Report
-    reasonPlaceholder: Describe what happened during the call...
-    callEnded: The call has been ended automatically.
-    buttonLabel: Report User
-    success: "{tick} Your report has been submitted. Our staff will review it shortly."
-    noRecentCall: "{cross} No recent userphone call found to report. You can only report during or shortly after a call."
+    transcriptTitle: "Transcription Userphone | Serveur : {server} | Salon : #{channel}"
+    transcriptAttachments: "Pièces jointes :"
+    transcriptNoMessages: Aucun message récent d'utilisateur n'était disponible.
+    modalTitle: Signaler l'appel Userphone
+    reasonLabel: Raison du signalement
+    reasonPlaceholder: Décris ce qui s'est passé pendant l'appel...
+    callEnded: L'appel a été terminé automatiquement.
+    buttonLabel: Signaler l'utilisateur
+    success: "{tick} Ton signalement a été envoyé. Notre équipe l'examinera sous peu."
+    noRecentCall: "{cross} Aucun appel Userphone récent à signaler. Tu ne peux signaler que pendant un appel ou peu après."
   staff:
     reports:
-      staffDescription: Review pending userphone reports
-      title: Pending Userphone Reports
-      empty: "{tick} No pending userphone reports at this time."
-      entry: "**Reporter:** <@{reporter}>\n**Reported:** <@{reported}>\n**Reason:** {reason}\n**Call ID:** {call_id}"
-      footer: "Showing {count} pending report(s)"
-      resolveSuccess: "{tick} Report `{id}` has been marked as resolved."
+      staffDescription: Examiner les signalements Userphone en attente
+      title: Signalements Userphone en attente
+      empty: "{tick} Aucun signalement Userphone en attente pour le moment."
+      entry: "**Auteur du signalement :** <@{reporter}>\n**Signalé :** <@{reported}>\n**Raison :** {reason}\n**ID d'appel :** {call_id}"
+      footer: "Affichage de {count} signalement(s) en attente"
+      resolveSuccess: "{tick} Le signalement `{id}` a été marqué comme résolu."
+
 server:
   settings:
-    title: Server Settings
-    comingSoon: Advanced server settings (language, default filters, fallback channel) will be available in a future update.
+    title: Paramètres du serveur
+    comingSoon: Les paramètres avancés du serveur (langue, filtres par défaut, salon de secours) seront disponibles dans une future mise à jour.
   automod:
-    title: "Server Profanity Filter"
-    sectionDescription: "Configure bad word filters specifically for this server in calls."
-    buttonLabel: "Profanity Filter"
+    title: "Filtre de vulgarité du serveur"
+    sectionDescription: "Configure des filtres de gros mots propres à ce serveur pour les appels."
+    buttonLabel: "Filtre de vulgarité"
   userphone:
-    title: Userphone Settings
-    sectionDescription: Configure how your server behaves in calls.
-    buttonLabel: Userphone Settings
+    title: Paramètres Userphone
+    sectionDescription: Configure le comportement de ton serveur pendant les appels.
+    buttonLabel: Paramètres Userphone
     hideServerName:
-      title: Hide Server Name
-      description: Hides other servers' names from the webhook username in **group calls**. (Always hidden in 1v1 calls).
+      title: Masquer le nom du serveur
+      description: Masque les noms des autres serveurs dans le nom d'utilisateur du webhook lors des **appels de groupe**. (Toujours masqués dans les appels en tête-à-tête).
     pingOnMatch:
-      title: Ping on Match
-      description: Send a ping in your channel when a 1v1 call match is found.
+      title: Ping à l'appariement
+      description: Envoie un ping dans ton salon quand un appariement d'appel en tête-à-tête est trouvé.
     autoRequeueOnSkip:
-      title: Auto Requeue on Skip
-      description: Automatically start a new call when the other side skips. Only works if you were recently active in the call.
+      title: Remise en file auto après un saut
+      description: Lance automatiquement un nouvel appel quand l'autre côté passe. Ne fonctionne que si tu as été actif récemment dans l'appel.
     autoRequeueOnHangup:
-      title: Auto Requeue on Hangup
-      description: Automatically start a new call when the other side hangs up. Only works if you were recently active in the call.
-      ignoreSuccess: "{tick} Report `{id}` has been marked as ignored."
+      title: Remise en file auto après un raccrochage
+      description: Lance automatiquement un nouvel appel quand l'autre côté raccroche. Ne fonctionne que si tu as été actif récemment dans l'appel.
+      ignoreSuccess: "{tick} Le signalement `{id}` a été marqué comme ignoré."
+    lobbyChannels:
+      title: Salons de lobby autorisés
+      description: Limite les commandes d'appel, de saut et de raccrochage aux salons textuels sélectionnés. Si aucun salon n'est sélectionné, ces commandes fonctionnent partout.
+      selectPlaceholder: Sélectionne des salons textuels
+      currentlyAllowed: Commandes actuellement autorisées dans
+      everywhere: Les commandes de lobby fonctionnent dans tous les salons textuels quand aucun salon n'est sélectionné.
+      unsaved: 'Modifications non enregistrées : appuie sur Enregistrer les modifications pour les appliquer.'
+      saved: Restrictions des salons de lobby enregistrées.
+      manageChannelsRequired: Il te faut la permission Gérer les salons pour modifier les salons de lobby.
+
+achievementsCard:
+  title: Succès
+  handle: "@{name}"
+  summary: "{unlocked} sur {total} débloqués"
+  page: "Page {page} sur {total}"
+  unlocked: Débloqué
+  progress: "{current} sur {threshold} {unit}"
+  closest: Palier le plus proche
+  toGo: "{name} — encore {n} {unit}"
+  allDone: Tous les paliers obtenus
+  noneTitle: Aucun palier pour l'instant
+  noneBody: Termine un appel entre serveurs pour obtenir le premier.
+  track:
+    calls: Appels
+    messages: Messages
+    hubs: Hubs
+    stamps: Tampons
+  unit:
+    calls: appels
+    messages: messages
+    hubs: hubs
+    stamps: tampons
+  one:
+    calls: appel
+    messages: message
+    hubs: hub
+    stamps: tampon
+
+profileCard:
+  messages: Messages envoyés dans les hubs
+  calls: Appels
+  hubs: Hubs rejoints
+  rank: Classement
+  votes: Votes au total
+  streak: Plus longue série
+  achievements: Succès
+  days: "{count} jours"
+  dayOne: "{count} jour"
+  achievementsDone: "{done} / {total} terminés"
+  memberSince: "Membre depuis {when}"
+  voter: Votant
+  rankTitle: "Rang {rank}"
+  resonanceNext: "{done} / {total} miles pour le rang {next}"
+  resonanceTier: "{tier} au rang {rank}"
+  resonanceTop: Palier le plus élevé atteint
+  role:
+    hubOwner: Propriétaire du hub
+    hubModerator: Modérateur du hub
+    hubManager: Gestionnaire du hub
+    staff: Équipe
+    developer: Développeur
+    betaTester: Bêta-testeur
+    bugHunter: Chasseur de bugs
+    goldBugHunter: Chasseur de bugs en or
+    topChatter: Grand bavard
+    translator: Traducteur
+    voter: Votant
+    supporter: Soutien
+calls:
+  searching:
+    first: "{icon} Recherche de quelqu'un…"
+    afterSkip: "{icon} Recherche de quelqu'un de nouveau…"
+    partnerSkipped: "{icon} L'autre a passé. Recherche de quelqu'un de nouveau…"
+    partnerLeft: "{icon} L'autre a raccroché. Recherche de quelqu'un de nouveau…"
+  connected:
+    title: "{icon} Connecté avec **{name}**. Dis bonjour !"
+    body: C'est un chat textuel. Les messages ici sont partagés avec cette personne jusqu'à ce que quelqu'un utilise `/hangup`.
+    someone: quelqu'un
+  hint: "`/topic` suggère un sujet de conversation, `/skip` trouve quelqu'un de nouveau, `/hangup` quitte l'appel."
+  ended:
+    byYou: "{icon} **Appel terminé** · {duration}"
+    byPartner: "{icon} **L'autre a raccroché** · {duration}"
+    byNamedPartner: "{icon} **{name}** a raccroché de l'autre côté · {duration}"
+    partnerSkipped: "{icon} **L'autre a passé** · {duration}"
+    inactivity: "{icon} L'appel s'est terminé car un côté est resté inactif pendant 2 minutes. Lances-en un autre quand tu veux."
+  # Spoken duration units used in postCall.summary.
+  # Each unit has a form for exactly one and a form for every other count.
+  duration:
+    secondsOne: 1 seconde
+    secondsOther: "{count} secondes"
+    minutesOne: 1 minute
+    minutesOther: "{count} minutes"
+    hoursOne: 1 heure
+    hoursOther: "{count} heures"
+    hoursAndMinutes: "{hours} et {minutes}"
+  timeout: "{icon} Aucun appariement trouvé. Recherche arrêtée."
+  # Shown in place of the Call again button when a closing message can only go out as plain text.
+  startAnother: "{command} pour te reconnecter."
+  buttons:
+    callAgain: Rappeler
+    searchAgain: Chercher à nouveau
+    findGroup: Trouver un autre groupe
+  group:
+    waiting: "{icon} En attente d'autres serveurs… **{count}/{max}**"
+    connected: "{icon} Appel de groupe connecté · **{count} serveurs**"
+    joined: "{icon} **{name}** a rejoint · {count} serveurs dans cet appel"
+    someoneJoined: "{icon} Quelqu'un de nouveau a rejoint · {count} serveurs dans cet appel"
+    youLeft: "{icon} Appel de groupe quitté · {count} serveurs restants"
+  errors:
+    serverTextOnly: Les appels ne fonctionnent que dans les salons textuels de serveur.
+    wrongChannel: "Les appels de ce serveur se font dans {channel}."
+    notInCall: Il n'y a aucun appel dans ce salon. Lances-en un avec `/call`.
+    alreadyInCall: Ce salon est déjà dans un appel. Utilise d'abord `/hangup` pour le terminer.
+    hubChannel: Ce salon est lié à un hub, il ne peut donc pas héberger d'appels. Utilise un autre salon, ou dissocie-le avec `/hub disconnect`.
+    accountAge: "Les appels sont ouverts aux comptes Discord après {days} jours. Le tien sera éligible le {date}."
+    restricted: "Tu ne peux pas utiliser les appels pour le moment à cause d'une restriction active. Si tu penses que c'est une erreur, contacte le support : {support}"
+    unavailable: Les appels sont brièvement indisponibles. Réessaie dans une minute.
+    cooldown: Tu pourras lancer un autre appel dans {seconds}s.
+    profileRequired: Choisis ton profil d'appel dans `/my settings` avant de lancer un appel.
+    profileTimedOut: Aucun profil d'appel n'a été choisi, donc je n'ai pas lancé l'appel. Utilise de nouveau `/call` quand tu es prêt.
+    skipGroup: Passer est réservé aux appels en tête-à-tête. Pour quitter un appel de groupe, utilise `/hangup`.
+    skipWaiting: Tu attends encore un appariement, il n'y a donc personne à passer pour l'instant.
+    skipTooSoon: "Patiente un instant : tu pourras passer dans {seconds}s, ou après {messages} messages de plus."
+    skipPermissions: J'ai besoin de **Voir le salon**, **Envoyer des messages** et **Gérer les webhooks** dans ce salon pour te trouver un nouvel appariement.
+    noOneElse: Il n'y a personne d'autre dans cet appel pour le moment.
+  friendRequest:
+    broadcast: "{icon} **{name}** aimerait devenir ton ami sur Discord. Son nom d'utilisateur est `{username}`."
+    sent: "{icon} Ton nom d'utilisateur Discord a été partagé avec l'appel."
+    cooldown: Tu pourras partager à nouveau ton nom d'utilisateur dans {seconds}s.
+  actions:
+    cooldown: Tu pourras envoyer une autre action dans {seconds}s.
+    gifUnavailable: Je n'ai pas pu charger de GIF pour le moment. Réessaie dans un instant.
+    sent: "{icon} Envoyé à tout le monde dans ton appel."
+    unknown: "Il n'existe pas d'action nommée `{name}`. Essaie l'une de celles-ci : {options}"
+  media:
+    attachments: "Ton message n'a pas été envoyé : les envois de fichiers ne sont pas pris en charge dans les appels. Les GIF Tenor, Giphy et Klipy et les stickers par défaut fonctionnent."
+    imageLinks: "Ton message n'a pas été envoyé : les liens d'images ne sont pas pris en charge dans les appels."
+    links: "Ton message n'a pas été envoyé : les liens ne sont pas pris en charge dans les appels."
+    gifProvider: "Ton message n'a pas été envoyé : seuls les GIF Tenor, Giphy et Klipy fonctionnent dans les appels."
+    customStickers: "Ton message n'a pas été envoyé : les stickers personnalisés ne sont pas pris en charge dans les appels. Les stickers Discord par défaut fonctionnent."
+    voteRequired: "{icon} Ton message n'a pas été envoyé : les émojis de serveur dans les appels sont un avantage réservé aux votants. Vote pour les débloquer pendant 12 heures, ou renvoie le message sans eux."
+  postCall:
+    summary: "{icon} **Appel terminé · {duration} · {messages} messages**"
+    question: Quelqu'un a-t-il fait de cet échange un super chat ?
+    highlightButton: Donner un coup de cœur
+    pickTitle: "## 🌟 Donner un coup de cœur"
+    pickDescription: Qui a rendu cette conversation géniale ?
+    rankLine: "-# {icon}Résonance {rank} · {done}/{total} pour le rang {next}"
+    skipButton: Pas cette fois
+    skipped: Pas de coup de cœur cette fois.
+    recorded: "{icon} **Coup de cœur envoyé.** Merci d'avoir remercié **{name}**. Ses tampons et son passeport sont à jour."
+    notSpeaker: Les coups de cœur sont réservés aux personnes qui ont participé à la conversation. Envoie quelques messages lors du prochain appel pour les débloquer.
+    noCandidates: Personne d'autre n'a assez parlé dans cet appel pour recevoir un coup de cœur.
+    failed: Je n'ai pas pu enregistrer ton coup de cœur. Réessaie.
+    fallbackName: voyageur

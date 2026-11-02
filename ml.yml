@@ -1,264 +1,490 @@
 common:
   titles:
-    error: പിശക്!
-    success: വിജയം!
+    error: &title_error പിശക്!
+    success: &title_success വിജയം!
     cancelled: റദ്ദാക്കി!
-    feedback: Feedback Received
-    validationError: Validation Error
+    feedback: ഫീഡ്‌ബാക്ക് ലഭിച്ചു
+    validationError: സാധൂകരണ പിശക്
+    slowDown: പതുക്കെ!
   labels:
     date: തീയതി
-    loading: ലോഡുചെയ്യുന്നു...
-    pleaseWait: ദയവായി കാത്തിരിക്കൂ...
+    loading: ലോഡ് ചെയ്യുന്നു...
+    pleaseWait: ദയവായി കാത്തിരിക്കുക...
     lastActive: അവസാനം സജീവമായത്
     unknown: അജ്ഞാതം
-    unknownHub: Unknown Hub
-    language: Language
-    locked: ലോക്ക് ചെയ്തു
+    unknownHub: അജ്ഞാത ഹബ്
+    language: ഭാഷ
+    locked: ലോക്ക് ചെയ്തത്
     nsfw: NSFW
-    visibility: Visibility
-    "yes": "Yes"
-    "no": "No"
+    visibility: ദൃശ്യത
+    "yes": "അതെ"
+    "no": "അല്ല"
     none: ഒന്നുമില്ല
-    noneSpecified: None Specified
-    tryAgain: Please try again
-    noReason: No Reason
+    noneSpecified: ഒന്നും വ്യക്തമാക്കിയിട്ടില്ല
+    tryAgain: ദയവായി വീണ്ടും ശ്രമിക്കുക
+    noReason: &no_reason കാരണമില്ല
     roles:
-      owner: Owner
-      member: മെമ്പർ
+      owner: ഉടമ
+      member: അംഗം
       moderator: മോഡറേറ്റർ
-    note: Note
+      manager: മാനേജർ
+      staff: സ്റ്റാഫ്
+    note: കുറിപ്പ്
     never: ഒരിക്കലുമില്ല
-    lastUpdated: Last Updated
-    enabled: Enabled
-    disabled: Disabled
+    lastUpdated: അവസാനം അപ്‌ഡേറ്റ് ചെയ്തത്
+    enabled: പ്രവർത്തനക്ഷമം
+    disabled: പ്രവർത്തനരഹിതം
+  imageAlt:
+    welcomeBanner: InterChat വഴി ബന്ധിപ്പിച്ച Discord സെർവറുകളുടെ ഒരു ഭൂപടം
   buttons:
-    back: പിന്നിലേക്ക്
-    next: അടുത്തത്
-    previous: മുൻപുള്ളത്
-    cancel: റദ്ദാക്കുക
+    back: &btn_back തിരികെ
+    next: &btn_next അടുത്തത്
+    previous: മുമ്പത്തേത്
+    cancel: &btn_cancel റദ്ദാക്കുക
     confirm: സ്ഥിരീകരിക്കുക
     create: സൃഷ്ടിക്കുക
     refresh: പുതുക്കുക
     delete: ഇല്ലാതാക്കുക
-    open: Open
-    vote: Top.gg-ൽ വോട്ട് ചെയ്യുക
-    invite: ഇന്റർചാറ്റിനെ ക്ഷണിക്കുക
+    open: തുറക്കുക
+    edit: എഡിറ്റ് ചെയ്യുക
+    add: ചേർക്കുക
+    vote: top.gg-ൽ വോട്ട് ചെയ്യുക
+    invite: InterChat-നെ ക്ഷണിക്കുക
     dashboard: ഡാഷ്‌ബോർഡ് തുറക്കുക
     support: സപ്പോർട്ടിൽ ചേരുക
-    edit: Edit
-    save: Save
-    apply: Apply Changes
-    close: Close
-    search: Search
-    jumpToMessage: Jump to Message
-    maybeLater: Maybe Later
-    show: Show
-    hide: Hide
-    enable: Enable
-    disable: Disable
-    continue: Continue
-    start: Start
-    stop: Stop
-    join: Join
-    accept: Accept
-    decline: Decline
+    discord: Discord-ൽ ചേരുക
+    kofi: Ko-fi
+    edit: &btn_edit എഡിറ്റ് ചെയ്യുക
+    save: &btn_save സേവ് ചെയ്യുക
+    apply: മാറ്റങ്ങൾ പ്രയോഗിക്കുക
+    close: അടയ്ക്കുക
+    search: തിരയുക
+    jumpToMessage: സന്ദേശത്തിലേക്ക് പോകുക
+    maybeLater: പിന്നീടാകാം
+    show: കാണിക്കുക
+    hide: മറയ്ക്കുക
+    enable: പ്രവർത്തനക്ഷമമാക്കുക
+    disable: പ്രവർത്തനരഹിതമാക്കുക
+    continue: തുടരുക
+    start: &btn_start ആരംഭിക്കുക
+    stop: നിർത്തുക
+    join: ചേരുക
+    accept: അംഗീകരിക്കുക
+    decline: നിരസിക്കുക
   pagination:
-    footer: "Page {current} of {total} • {count} total items"
+    footer: "പേജ് {current} / {total} • ആകെ {count} ഇനങ്ങൾ"
     errors:
-      firstPage: "You're already on the first page."
-      lastPage: "You're already on the last page."
+      firstPage: "നിങ്ങൾ ഇതിനകം ആദ്യ പേജിലാണ്."
+      lastPage: "നിങ്ങൾ ഇതിനകം അവസാന പേജിലാണ്."
     page: പേജ് {current}/{total}
-    pageOf: Page {current} of {total}
-    alreadyFirst: Already on the first page.
-    alreadyLast: Already on the last page.
+    pageOf: പേജ് {current} / {total}
+    alreadyFirst: ഇതിനകം ആദ്യ പേജിലാണ്.
+    alreadyLast: ഇതിനകം അവസാന പേജിലാണ്.
   placeholders:
     select: ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക
     type: ഇവിടെ ടൈപ്പ് ചെയ്യുക...
   visibility:
-    public: പബ്ലിക്
-    publicDesc: Discoverable on the hub directory.
-    private: പ്രൈവറ്റ്
-    privateDesc: Invite-only, not listed publicly.
-    unlisted: അൺലിസ്റ്റഡ്
-    unlistedDesc: Not in directory but anyone can join via ID/link.
+    public: &vis_public പബ്ലിക്
+    publicDesc: &vis_public_desc ഹബ് ഡയറക്ടറിയിൽ കണ്ടെത്താം.
+    private: &vis_private പ്രൈവറ്റ്
+    privateDesc: &vis_private_desc ക്ഷണം വഴി മാത്രം, പരസ്യമായി ലിസ്റ്റ് ചെയ്യില്ല.
+    unlisted: &vis_unlisted ലിസ്റ്റ് ചെയ്യാത്തത്
+    unlistedDesc: &vis_unlisted_desc ഡയറക്ടറിയിൽ ഇല്ല, പക്ഷേ ID/ലിങ്ക് വഴി ആർക്കും ചേരാം.
   entities:
     user: ഉപയോക്താവ്
     server: സെർവർ
     hub: ഹബ്
-    unknownUser: Unknown User
+    unknownUser: അജ്ഞാത ഉപയോക്താവ്
     unknownServer: അജ്ഞാത സെർവർ
   messages:
     notImplemented: ഇതുവരെ നടപ്പിലാക്കിയിട്ടില്ല.
-    defaultSuccess: Action completed successfully.
-    actionCancelled: Action cancelled.
-    hubNotFound: ഹബ് കണ്ടെത്തിയില്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.
+    defaultSuccess: പ്രവർത്തനം വിജയകരമായി പൂർത്തിയായി.
+    actionCancelled: &msg_cancelled പ്രവർത്തനം റദ്ദാക്കി.
+    hubNotFound: "ഹബ് കണ്ടെത്തിയില്ല. ഒരു ഹബ് കണ്ടെത്താൻ `/hub browse` ഉപയോഗിക്കുക, അല്ലെങ്കിൽ സ്വന്തമായി തുടങ്ങാൻ `/hub create` ഉപയോഗിക്കുക."
+    hubNotFoundNamed: '**{hub}** എന്ന പേരിൽ ഒരു ഹബ്ബും നിങ്ങൾക്ക് ദൃശ്യമല്ല. അക്ഷരത്തെറ്റ് പരിശോധിക്കുക, അല്ലെങ്കിൽ ഒന്ന് കണ്ടെത്താൻ `/hub browse` ഉപയോഗിക്കുക.'
     serverNotFound: സെർവർ കണ്ടെത്തിയില്ല.
     userNotFound: ഉപയോക്താവിനെ കണ്ടെത്തിയില്ല.
     notSpecified: വ്യക്തമാക്കിയിട്ടില്ല
-    interfacePermission: നിങ്ങൾക്ക് ഈ ഇന്റർഫേസ് ഉപയോഗിക്കാൻ കഴിയില്ല.
-    hubUpdateFailed: ഹബ് ക്രമീകരണങ്ങൾ അപ്‌ഡേറ്റ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.
+    interfacePermission: ഈ ഇന്റർഫേസ് ഉപയോഗിക്കാൻ നിങ്ങൾക്ക് കഴിയില്ല.
+    hubUpdateFailed: ഹബ് ക്രമീകരണങ്ങൾ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.
   footer:
-    submittedBy: "Submitted by {user}"
+    submittedBy: "{user} സമർപ്പിച്ചത്"
   states:
-    enabled: Enabled
-    disabled: Disabled
+    enabled: പ്രവർത്തനക്ഷമം
+    disabled: പ്രവർത്തനരഹിതം
   fields:
-    id: "{type} ഐഡി"
+    id: "{type} ID"
     name: "{type} പേര്"
-    reason: കാരണം
-    description: വിവരണം
+    reason: &label_reason കാരണം
+    description: &label_description വിവരണം
     created: സൃഷ്ടിച്ചത്
-    status: നില
-    channel: Channel
+    status: സ്ഥിതി
+    channel: ചാനൽ
   errors:
-    commandNotFound: Command not found.
-    notYourMenu: ഇത് നിങ്ങളുടെ മെനുവല്ല.
-    cannotControlPagination: നിങ്ങൾക്ക് ഈ പേജിനേഷൻ നിയന്ത്രിക്കാനാവില്ല.
-    generic: Oops! Something went wrong while processing your request.
-    processing: An error occurred while processing your request. Please try again.
+    commandNotFound: കമാൻഡ് കണ്ടെത്തിയില്ല.
+    notYourMenu: ഇത് നിങ്ങളുടെ മെനു അല്ല.
+    cannotControlPagination: ഈ പേജിനേഷൻ നിയന്ത്രിക്കാൻ നിങ്ങൾക്ക് കഴിയില്ല.
+    generic: &err_generic അയ്യോ! നിങ്ങളുടെ അഭ്യർത്ഥന പ്രോസസ്സ് ചെയ്യുമ്പോൾ എന്തോ കുഴപ്പം സംഭവിച്ചു.
+    processing: &err_processing നിങ്ങളുടെ അഭ്യർത്ഥന പ്രോസസ്സ് ചെയ്യുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു. ദയവായി വീണ്ടും ശ്രമിക്കുക.
     invalidSelection: അസാധുവായ തിരഞ്ഞെടുപ്പ്.
-    interactionCheck: നിങ്ങൾ ഈ ഇടപെടൽ ഉപയോഗിച്ചിട്ടില്ലാത്തതിനാൽ, നിങ്ങൾക്ക് അത് ഉപയോഗിക്കാൻ കഴിയില്ല.
-    rateLimited: നിങ്ങളുടെ നിരക്ക് പരിമിതപ്പെടുത്തിയിരിക്കുന്നു. അൽപസമയം കാത്തിരിക്കൂ.
-    webhookRateLimit: നിങ്ങൾ വെബ്‌ഹുക്ക് സൃഷ്ടിക്കൽ നിരക്ക് പരിധിയിലെത്തി.
-    invalidInput: നിങ്ങൾ സാധുവായ ഒരു ഇൻപുട്ട് നൽകിയിട്ടില്ല.
-    invalidInvite: ഈ ക്ഷണം അസാധുവാണ്, അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു.
-    webhookError: വെബ്‌ഹുക്ക് സൃഷ്ടിക്കുന്നതിൽ പരാജയപ്പെട്ടു.
-    notConnected: ഈ ചാനലിൽ കണക്റ്റ് ചെയ്ത ഹബ്ബ് എനിക്ക് കണ്ടെത്താനായില്ല.
-    notConnectedServer: "{cross} ഈ സെർവറിനുള്ള കണക്ഷനുകളൊന്നും എനിക്ക് കണ്ടെത്താൻ കഴിഞ്ഞില്ല."
+    interactionCheck: ഈ ഇന്ററാക്ഷൻ ആരംഭിച്ചത് നിങ്ങളല്ലാത്തതിനാൽ ഇത് ഉപയോഗിക്കാൻ നിങ്ങൾക്ക് അനുവാദമില്ല.
+    rateLimited: നിങ്ങൾക്ക് റേറ്റ് ലിമിറ്റ് ബാധകമായിരിക്കുന്നു. ഒന്ന് ശാന്തമാകൂ.
+    webhookRateLimit: വെബ്ഹുക്ക് സൃഷ്ടിക്കാനുള്ള പരിധിയിൽ നിങ്ങൾ എത്തിയിരിക്കുന്നു.
+    invalidInput: &err_invalid_input നിങ്ങൾ സാധുവായ ഇൻപുട്ട് നൽകിയിട്ടില്ല.
+    invalidInvite: ഈ ക്ഷണം അസാധുവാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു.
+    webhookError: വെബ്ഹുക്ക് സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല.
+    notConnected: &err_not_connected ഈ ചാനലിൽ ബന്ധിപ്പിച്ച ഹബ് ഒന്നും എനിക്ക് കണ്ടെത്താനായില്ല.
+    notConnectedServer: "ഈ സെർവറിന് ബന്ധങ്ങളൊന്നും എനിക്ക് കണ്ടെത്താനായില്ല."
     noInteraction: ഈ കമാൻഡ് സ്ലാഷ് കമാൻഡുകൾ മാത്രമേ പിന്തുണയ്ക്കൂ.
-    missingAppealReference: അപ്പീൽ റഫറൻസ് വിട്ടുപോയിരിക്കുന്നു.
-    missingArgument: "വിട്ടുപോയ ആർഗ്യുമെന്റ്: `{param}`."
-    accessDenied: പ്രവേശനം തടയപ്പെട്ടു
-    invalidId: "{cross} Please provide a valid User ID or Server ID."
+    checkFailed: ഇവിടെ ഈ കമാൻഡ് ഉപയോഗിക്കാനുള്ള ആവശ്യകതകൾ നിങ്ങൾ പാലിക്കുന്നില്ല.
+    missingAppealReference: അപ്പീൽ റഫറൻസ് കാണുന്നില്ല.
+    missingArgument: "ആർഗ്യുമെന്റ് കാണുന്നില്ല: `{param}`."
+    accessDenied: ആക്‌സസ് നിഷേധിച്ചു
+    invalidId: "{cross} ദയവായി സാധുവായ ഒരു ഉപയോക്തൃ ID അല്ലെങ്കിൽ സെർവർ ID നൽകുക."
+
 about:
-  title: ഇന്റർചാറ്റിനെക്കുറിച്ച്
-  description: |
-    InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
+  title: InterChat-നെക്കുറിച്ച്
+  tagline: സെർവറുകൾ, ബന്ധിപ്പിച്ചത്.
+  description: |-
+    വ്യത്യസ്ത സെർവറുകളിലെ ആളുകൾക്ക് പരസ്പരം സംസാരിക്കാൻ കഴിയുംവിധം InterChat Discord സെർവറുകളെ ബന്ധിപ്പിക്കുന്നു.
 
-    ## What do we offer?
-    - **Hubs:** persistent cross-server rooms with AutoMod, granular moderator roles, audit logs, announcements (+ scheduling), public discovery, custom badges, leaderboards, a web dashboard, etc.
-    - **Calls:** one-to-one or group bridges with per-server profanity filters
-    - **Leaderboards:** compete for top spot across hubs or calls
-    - **Moderation tools:** dedicated commands for hub staff & InterChat staff
-    - **Modern web dashboard:** manage everything from the browser
-    - **Earnable badges:** show off your activity in calls & hubs
-    ## Who is InterChat for?
-    - The bored and the curious, anyone who wants random, lively conversations.
-    - Server owners who want to build lasting bridges (gaming clans, study groups, partnerships, etc.).
-    ## Getting Started:
-    ### Calls
-    Use `/call` to instantly connect your channel with another server.
-    ### Hubs
-    1. Choose a channel you want linked **at all times**.
-    2. Browse `/hub directory` to find a hub you like (they're made by users just like you!).
-    3. Click **Join**, you're now connected to all servers in that hub.
-      Already know the hub? Use `/hub connect` with its name or invite code.
-    ## Useful Links
-  closingText: '-# Made with ❤️ by Sidequest Labs'
+    **ഹബ്ബുകൾ** പല സെർവറുകളും സന്ദേശമയയ്ക്കുന്ന പങ്കിട്ട ചാനലുകളാണ്. ചാറ്റ് ഒരിക്കലും നിശ്ശബ്ദമാകില്ല.
+
+    **കോളുകൾ** നിങ്ങൾ രണ്ടുപേരും ആഗ്രഹിക്കുന്നത്രയും സമയം മറ്റൊരാളുമായി സ്വകാര്യമായി ബന്ധിപ്പിക്കുന്നു.
+  examples: |-
+    > **/call**: ഇപ്പോൾത്തന്നെ പുതിയൊരാളോട് സംസാരിക്കൂ
+    > **/hub directory**: ഒരു ഹബ്ബിൽ ചേർന്ന് പല സെർവറുകളുമായി ചാറ്റ് ചെയ്യൂ
+
+  closingText: InterChat ടീം നിർമ്മിച്ചത്.
   buttons:
-    shardInfo: ഷാർഡ് വിവരം
+    shardInfo: ഷാർഡ് വിവരങ്ങൾ
+
 botLanding:
-  title: Your server, connected. 🌐 Let's go cross-server!
+  title: 'നിങ്ങളുടെ സെർവർ, ബന്ധിപ്പിച്ചത്. :globe_icon: ക്രോസ്-സെർവർ ആയി മുന്നേറാം!'
   description: |
-    Hi, I'm InterChat. With me, you can have conversations with people all around discord, all from the comfort of this server. Cool? Wait until you hear what I do:
+    ഹായ്, ഞാൻ InterChat ആണ്. ഞാൻ ഈ സെർവറിനെ Discord-ലെ ഉടനീളമുള്ള സംഭാഷണങ്ങളുമായി ബന്ധിപ്പിക്കുന്നു.
 
-    ## :telephone: 1:1 Calls & Group calls
-    With the tap of one command you instantly get connected to another server, or multiple servers (in group calls!). Instant gratification at your fing
+    ## 📞 1:1 കോളുകളും ഗ്രൂപ്പ് കോളുകളും
+    ഒരു കോൾ തുടങ്ങി നിമിഷങ്ങൾക്കുള്ളിൽ മറ്റൊരു സെർവറുമായി ബന്ധപ്പെടൂ. ഗ്രൂപ്പ് കോളുകൾ ഒന്നിലധികം സെർവറുകളെ ഒരേ സംഭാഷണത്തിലേക്ക് കൊണ്ടുവരുന്നു.
 
-    Use `/call`, `/skip`, `/hangup`. And rank higher in `/leaderboard` :sunglasses:
+    `/call`, `/skip`, `/hangup` എന്നിവ ഉപയോഗിക്കൂ. ഓരോ കോളും നിങ്ങളെ `/leaderboard`-ൽ മുകളിലേക്ക് എത്തിക്കും. 😎
   hubs: |
-    ## 🏡 Hubs (where we stand out the most! ✨)
-    So you've seen calls, but *what if* you could make **cross-server** communities? It works by connecting multiple servers into one space!
+    ## :house_icon: ഹബ്ബുകൾ
+    ഹബ്ബുകൾ സ്ഥിരമായ, **ക്രോസ്-സെർവർ** കമ്മ്യൂണിറ്റികളാണ്. പല സെർവറുകളെ സംഭാഷണങ്ങൾക്കിടയിലും തുറന്നിരിക്കുന്ന ഒരു പങ്കിട്ട ഇടത്തേക്ക് ബന്ധിപ്പിക്കൂ.
 
-    - 📌 **Create:** `/hub create` (Make your own hub)
-    - 🧭 **Explore:** `/hub directory` (Find public hubs)
-    - 🔗 **Connect:** `/hub connect` (Join an existing hub)
-    - ⚙️ **Manage:** `/hub manage` (Admin settings)
-    > Use `/help` for the full list.
+    - :pin: **സൃഷ്ടിക്കുക:** `/hub create` - സ്വന്തമായി ഒരു ഹബ് ഉണ്ടാക്കൂ
+    - :compass: **പര്യവേക്ഷണം ചെയ്യുക:** `/hub browse` - പബ്ലിക് ഹബ്ബുകൾ കണ്ടെത്തൂ
+    - :link_icon: **ബന്ധിപ്പിക്കുക:** `/hub connect` - നിലവിലുള്ള ഒരു ഹബ്ബിൽ ചേരൂ
+    - ⚙️ **മാനേജ് ചെയ്യുക:** `/hub manage` - നിങ്ങളുടെ ഹബ് ക്രമീകരണങ്ങൾ തുറക്കൂ
+    > എല്ലാ കമാൻഡുകളും കാണാൻ `/help` ഉപയോഗിക്കൂ.
+
   closing: |
-    **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
+    **മറ്റൊരു സെർവറിനെ പരിചയപ്പെടാൻ തയ്യാറാണോ? ഒരു കോൾ പരീക്ഷിക്കൂ, ഒരു ഹബ് കണ്ടെത്തൂ, അല്ലെങ്കിൽ താഴെ സ്വന്തമായി ഒന്ന് സൃഷ്ടിക്കൂ.**
 
-    -# Made with ❤️ by Sidequest Labs
+    -# Sidequest Labs :heart: കൊണ്ട് നിർമ്മിച്ചത്
+
+onboarding:
+  # Copy shared by Calls started outside /call.
+  call:
+    profileNotSent: "{user}, നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല. കോളുകളിൽ നിങ്ങൾ എങ്ങനെ കാണപ്പെടണമെന്ന് താഴെ തിരഞ്ഞെടുത്ത് വീണ്ടും അയയ്ക്കൂ."
+    errors:
+      botPermissions: "{channel}-ൽ എനിക്ക് ചാനൽ കാണുക, സന്ദേശങ്ങൾ അയയ്ക്കുക, വെബ്ഹുക്കുകൾ മാനേജ് ചെയ്യുക എന്നീ അനുമതികൾ വേണം."
+      webhook: "{channel}-ൽ കോൾ വെബ്ഹുക്ക് സൃഷ്ടിക്കാൻ എനിക്ക് കഴിഞ്ഞില്ല."
+      busy: ലൈനുകൾ ഇപ്പോൾ തിരക്കിലാണ്. ദയവായി കുറച്ച് സെക്കൻഡുകൾക്ക് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+
 setup:
+  # Shared with the language picker, the Hub directory, and the Hub create wizard.
   select:
     placeholder: ഒരു ഭാഷ തിരഞ്ഞെടുക്കുക
   locale:
-    successDescription: "{tick} നിങ്ങളുടെ ഭാഷ ഇതായി സജ്ജീകരിച്ചിരിക്കുന്നു **{locale_name}**"
-  buttons:
-    getStarted: സജ്ജീകരണ വിസാർഡ് ആരംഭിക്കുക
-    connectHere: Connect Here
-    createHub: ഹബ് സൃഷ്ടിക്കുക
-    discoverHubs: പബ്ലിക് ഹബ്ബുകൾ കണ്ടെത്തുക
-    useDefault: ഡിഫോൾട്ട് ഉപയോഗിക്കുക
-    skipForNow: തൽക്കാലം ഒഴിവാക്കുക
+    successDescription: "{tick} നിങ്ങളുടെ ഭാഷ **{locale_name}** ആയി സജ്ജീകരിച്ചു"
+  directory:
+    connecting: "താഴെ ഒരു ഹബ് തിരഞ്ഞെടുക്കൂ. ഞാൻ അത് {channel}-മായി ബന്ധിപ്പിക്കാം."
+  channel:
+    createPlaceholder: ബന്ധിപ്പിക്കാൻ ഒരു ചാനൽ തിരഞ്ഞെടുക്കുക
+    selected: "ഹബ് തയ്യാറാകുമ്പോൾ ഞാൻ {channel} ബന്ധിപ്പിക്കാം."
+  # The /setup panel.
+  flow:
+    title: InterChat സജ്ജീകരിക്കുക
+    stepLabel: "ഘട്ടം {step} / 3 · {name}"
+    steps:
+      channel: ചാനൽ
+      hub: ഹബ്
+      connect: ബന്ധിപ്പിക്കുക
+    startedBy: "**{user}** ആരംഭിച്ചത് · അവർക്ക് മാത്രമേ ഈ ബട്ടണുകൾ ഉപയോഗിക്കാനാകൂ"
+    expired: "15 മിനിറ്റ് പ്രവർത്തനമില്ലാത്തതിനാൽ ഈ സജ്ജീകരണം കാലഹരണപ്പെട്ടു. വീണ്ടും തുടങ്ങാൻ `/setup` പ്രവർത്തിപ്പിക്കുക."
+    replaced: ഈ സജ്ജീകരണത്തിന് പകരം പുതിയൊരെണ്ണം വന്നു.
+    notOwner: "ഈ സജ്ജീകരണം ആരംഭിച്ചത് **{user}** ആയതിനാൽ അവർക്ക് മാത്രമേ ഈ ബട്ടണുകൾ ഉപയോഗിക്കാനാകൂ. സ്വന്തം സജ്ജീകരണം തുടങ്ങാൻ `/setup` പ്രവർത്തിപ്പിക്കുക."
+    managersOnly: '**സെർവർ മാനേജ് ചെയ്യുക**, **ചാനലുകൾ മാനേജ് ചെയ്യുക** എന്നിവയുള്ള അംഗങ്ങൾക്ക് മാത്രമേ InterChat സജ്ജീകരിക്കാനാകൂ. ഒരു ചാനൽ ബന്ധിപ്പിക്കണമെങ്കിൽ സെർവർ അഡ്മിനോട് ചോദിക്കുക.'
+    cancel: റദ്ദാക്കുക
+    back: തിരികെ
+    actionFailed: ഞങ്ങളുടെ ഭാഗത്ത് എന്തോ കുഴപ്പം സംഭവിച്ചു. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+    channel:
+      intro: മറ്റ് സെർവറുകളിൽ നിന്നുള്ള സന്ദേശങ്ങൾ കാണിക്കേണ്ട ചാനൽ തിരഞ്ഞെടുക്കുക.
+      createTitle: "#{name} സൃഷ്ടിക്കുക"
+      createDescription: പ്രത്യേക ചാനൽ ക്രോസ്-സെർവർ ചാറ്റിനെ നിങ്ങളുടെ മറ്റ് ചാനലുകളിൽ നിന്ന് വേർതിരിച്ചു നിർത്തുന്നു. അതിന്റെ അനുമതികൾ ഞാൻ സജ്ജീകരിക്കാം.
+      createButton: ചാനൽ സൃഷ്ടിക്കുക
+      creating: സൃഷ്ടിക്കുന്നു…
+      existing: അല്ലെങ്കിൽ നിലവിലുള്ള ഒരു ചാനൽ ഉപയോഗിക്കുക
+      placeholder: ഒരു ചാനൽ തിരഞ്ഞെടുക്കുക
+      continue: തുടരുക
+      recheck: വീണ്ടും പരിശോധിക്കുക
+      checking: പരിശോധിക്കുന്നു…
+      permissions:
+        view_channel: ചാനൽ കാണുക
+        send_messages: സന്ദേശങ്ങൾ അയയ്ക്കുക
+        manage_webhooks: വെബ്ഹുക്കുകൾ മാനേജ് ചെയ്യുക
+      missing: "**എനിക്ക് ഇതുവരെ {channel} ഉപയോഗിക്കാനാകില്ല.** മറ്റ് സെർവറുകളിൽ നിന്നുള്ള സന്ദേശങ്ങൾ അവരുടെ പേരുകളും അവതാറുകളും സഹിതം കാണിക്കാൻ മുകളിൽ അടയാളപ്പെടുത്തിയ അനുമതികൾ എനിക്ക് വേണം. ചാനൽ ക്രമീകരണങ്ങൾ തുറന്ന് **അനുമതികൾ** എന്നതിലേക്ക് പോകുക, InterChat റോളിന് കുറവുള്ളവ നൽകുക, തുടർന്ന് **വീണ്ടും പരിശോധിക്കുക** അമർത്തുക."
+      alreadyConnected: "{channel} ഇതിനകം **{hub}**-മായി ബന്ധിപ്പിച്ചിരിക്കുന്നു. മറ്റൊരു ചാനൽ തിരഞ്ഞെടുക്കുക."
+      inCall: "{channel}-ൽ ഒരു കോൾ നടക്കുന്നുണ്ട്. `/hangup` ഉപയോഗിച്ച് അത് അവസാനിപ്പിക്കുക, അല്ലെങ്കിൽ മറ്റൊരു ചാനൽ തിരഞ്ഞെടുക്കുക."
+      unsupported: ഒരു സാധാരണ ടെക്സ്റ്റ് ചാനൽ തിരഞ്ഞെടുക്കുക.
+      topic: ഇവിടെയുള്ള സന്ദേശങ്ങൾ InterChat വഴി മറ്റ് സെർവറുകളുമായി പങ്കിടുന്നു.
+      auditReason: "{user} /setup ഉപയോഗിച്ച് സൃഷ്ടിച്ചത്"
+      createFailed: എനിക്ക് ചാനൽ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. ഈ സെർവറിൽ InterChat റോളിന് **ചാനലുകൾ മാനേജ് ചെയ്യുക** അനുമതി നൽകി വീണ്ടും ശ്രമിക്കുക, അല്ലെങ്കിൽ നിലവിലുള്ള ഒരു ചാനൽ തിരഞ്ഞെടുക്കുക.
+      createdNote: "{channel} സൃഷ്ടിച്ചു, അവിടെ എനിക്ക് ആവശ്യമായ അനുമതികളും നൽകി."
+    hub:
+      title: "{channel}-നായി ഒരു ഹബ് തിരഞ്ഞെടുക്കുക"
+      intro: ഒരു ഹബ് പല സെർവറുകളിലെ ഓരോ ചാനലിനെ ബന്ധിപ്പിക്കുന്നു, അങ്ങനെ എല്ലാവരും ഒരേ സംഭാഷണത്തിൽ സംസാരിക്കുന്നു.
+      suggestionsIn: "ഇവയാണ് ഇപ്പോൾ {language} ഭാഷയിലെ ഏറ്റവും സജീവമായ ഹബ്ബുകൾ."
+      suggestions: ഇവയാണ് ഇപ്പോൾ ഏറ്റവും സജീവമായ ഹബ്ബുകൾ.
+      yoursFirst: നിങ്ങളുടെ ഉടമസ്ഥതയിലുള്ള ഹബ്ബുകൾ ആദ്യം, പിന്നാലെ ഏറ്റവും സജീവമായവ.
+      yours: "നിങ്ങളുടെ ഹബ് · {count} സെർവറുകൾ"
+      yoursOne: നിങ്ങളുടെ ഹബ് · 1 സെർവർ
+      choose: തിരഞ്ഞെടുക്കുക
+      browse: എല്ലാ ഹബ്ബുകളും ബ്രൗസ് ചെയ്യുക
+      metrics: "{count} സെർവറുകൾ · {activity}"
+      activity:
+        high: വളരെ സജീവം
+        medium: സജീവം
+        low: ശാന്തം
+      unavailable: ഇപ്പോൾ ഹബ്ബുകൾ ലോഡ് ചെയ്യാൻ എനിക്ക് കഴിഞ്ഞില്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+      empty: ഇപ്പോൾ ചേരാൻ തുറന്നിരിക്കുന്ന പബ്ലിക് ഹബ്ബുകളൊന്നുമില്ല. പകരം ഒരു ക്വിക്ക് കോൾ പരീക്ഷിക്കൂ.
+      retry: വീണ്ടും ശ്രമിക്കുക
+      callTitle: ഒന്ന് പരീക്ഷിച്ചു നോക്കണോ?
+      callDescription: "ഒരു ക്വിക്ക് കോൾ തുടങ്ങൂ: ആരെങ്കിലും ഹാങ് അപ്പ് ചെയ്യുന്നതുവരെ {channel} മറ്റൊരു സെർവറുമായി ചാറ്റ് ചെയ്യും. ഒന്നും ബന്ധിപ്പിച്ചു നിൽക്കില്ല."
+      callButton: കോൾ ആരംഭിക്കുക
+      callStarting: ആരംഭിക്കുന്നു…
+    browse:
+      title: എല്ലാ ഹബ്ബുകളും
+      intro: "ഏറ്റവും സജീവമായ {count} പബ്ലിക് ഹബ്ബുകൾ. തിരയാനും ഫിൽട്ടർ ചെയ്യാനും സജ്ജീകരണത്തിന് ശേഷം {command} ഉപയോഗിക്കുക."
+      placeholder: ഒരു ഹബ് തിരഞ്ഞെടുക്കുക
+      backToSuggestions: നിർദ്ദേശങ്ങളിലേക്ക് മടങ്ങുക
+    confirm:
+      title: "{channel}-നെ {hub}-മായി ബന്ധിപ്പിക്കണോ?"
+      rulesTitle: "{hub} നിയമങ്ങൾ"
+      noRules: ഈ ഹബ് ഇതുവരെ നിയമങ്ങൾ പോസ്റ്റ് ചെയ്തിട്ടില്ല.
+      rulesNote: "{channel}-ൽ ആദ്യ സന്ദേശത്തിന് മുമ്പ് അംഗങ്ങൾ ഈ നിയമങ്ങൾ കാണും."
+      connect: ബന്ധിപ്പിക്കുക
+      connecting: ബന്ധിപ്പിക്കുന്നു…
+      unavailable: ഈ ഹബ്ബിന്റെ വിശദാംശങ്ങൾ ലോഡ് ചെയ്യാൻ എനിക്ക് കഴിഞ്ഞില്ല. തിരികെ പോയി വീണ്ടും തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ മറ്റൊരു ഹബ് തിരഞ്ഞെടുക്കുക.
+    failed:
+      title: "{hub}-മായി ബന്ധിപ്പിക്കാൻ കഴിഞ്ഞില്ല"
+      retry: വീണ്ടും ശ്രമിക്കുക
+      otherHub: മറ്റൊരു ഹബ് തിരഞ്ഞെടുക്കുക
+      generic: ഞങ്ങളുടെ ഭാഗത്ത് എന്തോ കുഴപ്പം സംഭവിച്ചു, ഒന്നും ബന്ധിപ്പിച്ചിട്ടില്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+    live:
+      title: "{channel} ലൈവ് ആണ്"
+      description: "ഇത് **{hub}**-മായി ബന്ധിപ്പിച്ചിരിക്കുന്നു. അവിടെ അയയ്ക്കുന്ന സന്ദേശങ്ങൾ ഇപ്പോൾ {count} സെർവറുകളിൽ എത്തുന്നു, അവരുടേത് നിങ്ങൾക്കും കാണാം."
+      goTo: "#{name}-ലേക്ക് പോകുക"
+    call:
+      title: നിങ്ങളുടെ കോൾ ആരംഭിച്ചു
+      description: "ഞാൻ {channel}-നായി ഒരു സെർവർ തിരയുകയാണ്. ആരെങ്കിലും ചേർന്നാൽ അവിടെ സംസാരിക്കൂ, മറ്റൊരു സെർവറിന് `/skip` ഉപയോഗിക്കൂ, കോൾ അവസാനിപ്പിക്കാൻ `/hangup` ഉപയോഗിക്കൂ."
+      stayTitle: നിലനിൽക്കുന്ന എന്തെങ്കിലും വേണോ?
+      stayDescription: "കോൾ അവസാനിച്ചതിന് ശേഷവും ഒരു ഹബ് {channel}-നെ പല സെർവറുകളുമായി ബന്ധിപ്പിച്ച് നിർത്തും."
+      stayButton: ഒരു ഹബ് കണ്ടെത്തുക
+      wrongChannel: "ഈ സെർവറിലെ കോളുകൾ {channel}-ൽ നടക്കുന്നു. അവിടെ `/call` ഉപയോഗിച്ച് ഒന്ന് തുടങ്ങൂ."
+      profileNeeded: കോളുകളിൽ നിങ്ങൾ എങ്ങനെ കാണപ്പെടണമെന്ന് തിരഞ്ഞെടുക്കുക, തുടർന്ന് **കോൾ ആരംഭിക്കുക** വീണ്ടും അമർത്തുക.
+      announceFailed: "ഞാൻ കോൾ ആരംഭിച്ചെങ്കിലും {channel}-ൽ പോസ്റ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല, അതിനാൽ അത് റദ്ദാക്കി. അവിടെ എന്റെ അനുമതികൾ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക."
+      unavailable: കോളുകൾ ഇപ്പോഴും ആരംഭിക്കുകയാണ്. കുറച്ച് സെക്കൻഡുകൾക്ക് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+    status:
+      title: InterChat സജ്ജീകരിച്ചു
+      intro: "**{server}**-ൽ ബന്ധിപ്പിച്ചിരിക്കുന്നത് ഇതാ."
+      connected: "{channel} → **{hub}**"
+      paused: "{channel} → **{hub}** · താൽക്കാലികമായി നിർത്തി"
+      more: "…കൂടാതെ {count} എണ്ണം കൂടി. എല്ലാം കാണാൻ {command} ഉപയോഗിക്കുക."
+    next:
+      title: അടുത്തത് എന്ത്
+      anotherTitle: മറ്റൊരു ചാനൽ ബന്ധിപ്പിക്കുക
+      anotherDescription: രണ്ടാമത്തെ ചാനലിനെ മറ്റൊരു ഹബ്ബിലേക്ക് ചേർക്കുക.
+      anotherButton: മറ്റൊന്ന് ബന്ധിപ്പിക്കുക
+      settings: "{command} ഉപയോഗിച്ച് കോൾ സ്വഭാവം, ബ്ലോക്കുകൾ, ചാനൽ ഓപ്ഷനുകൾ എന്നിവ മാറ്റുക."
+      createHub: "{command} ഉപയോഗിച്ച് നിങ്ങളുടെ സ്വന്തം കമ്മ്യൂണിറ്റിക്കായി ഒരു ഹബ് തുടങ്ങൂ."
+    cancelled:
+      nothingChanged: "**സജ്ജീകരണം റദ്ദാക്കി.** ഒന്നും മാറ്റിയിട്ടില്ല. തയ്യാറാകുമ്പോൾ `/setup` പ്രവർത്തിപ്പിക്കുക."
+      keptChannel: "**സജ്ജീകരണം റദ്ദാക്കി.** {channel} നിലനിർത്തിയിട്ടുണ്ട്, അടുത്ത തവണ ഉപയോഗിക്കാം, അല്ലെങ്കിൽ ഇല്ലാതാക്കാം. തയ്യാറാകുമ്പോൾ `/setup` പ്രവർത്തിപ്പിക്കുക."
+    welcome:
+      title: InterChat ചേർത്തതിന് നന്ദി
+      description: ഒരു ചാനലിനെ ഹബ്ബുമായി ബന്ധിപ്പിച്ചാൽ നിങ്ങളുടെ അംഗങ്ങൾക്ക് മറ്റ് കമ്മ്യൂണിറ്റികളുമായി സംസാരിക്കാം. സജ്ജീകരണത്തിന് ഏകദേശം ഒരു മിനിറ്റ് എടുക്കും.
+      start: സജ്ജീകരണം ആരംഭിക്കുക
+      whatIsHub: എന്താണ് ഹബ്?
+      whoCanSetUp: സെർവർ മാനേജ് ചെയ്യുക, ചാനലുകൾ മാനേജ് ചെയ്യുക എന്നിവയുള്ള അംഗങ്ങൾക്കുള്ളതാണ് സജ്ജീകരണം.
+      hubExplainer: "**ഹബ് എന്നത് പല സെർവറുകളിലായി പങ്കിടുന്ന ഒരു ചാനലാണ്.** നിങ്ങളുടെ ഒരു ചാനൽ ബന്ധിപ്പിച്ചാൽ അതിലെ സന്ദേശങ്ങൾ ഹബ്ബിലെ മറ്റെല്ലാ സെർവറുകളിലേക്കും പോകും, അവരുടെ മറുപടികൾ നിങ്ങൾക്കും ലഭിക്കും. `/hub leave` ഉപയോഗിച്ച് എപ്പോൾ വേണമെങ്കിലും ഹബ് വിടാം."
+      dmFallback: "ഞാൻ **{server}**-ൽ ചേർന്നു, പക്ഷേ അതിലെ ഒരു ചാനലിലും എനിക്ക് പോസ്റ്റ് ചെയ്യാൻ കഴിയില്ല. എവിടെയെങ്കിലും InterChat-ന് **ചാനൽ കാണുക**, **സന്ദേശങ്ങൾ അയയ്ക്കുക**, **ഫയലുകൾ അറ്റാച്ച് ചെയ്യുക** എന്നിവ അനുവദിച്ച് അവിടെ `/setup` പ്രവർത്തിപ്പിക്കുക."
+
 help:
-  title: ഇന്റർചാറ്റ് കമാൻഡുകൾ
-  description: Explore our wide range of commands to help you connect with others.
-  name: സഹായം
+  title: സഹായം
+  description: InterChat-ലെ എല്ലാ കമാൻഡുകളും പര്യവേക്ഷണം ചെയ്യുക.
+  browserDescription: താഴെ ഒരു തുടക്കം തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ വിഭാഗം അനുസരിച്ച് എല്ലാ കമാൻഡുകളും ബ്രൗസ് ചെയ്യുക. എല്ലാ കമാൻഡുകളും തൽക്ഷണം തിരയാൻ ബോക്സിൽ / ടൈപ്പ് ചെയ്യുക.
+  gettingStarted: തുടങ്ങാം
+  home:
+    moreAvailable: "വിഭാഗ പട്ടികയിൽ +{count} തുടക്കങ്ങൾ കൂടി ലഭ്യമാണ്."
+  category:
+    moreOnThisPage: "Discord പരിധിക്ക് ഒതുങ്ങാൻ ഈ പേജിലെ +{count} കമാൻഡുകൾ കൂടി മറച്ചിരിക്കുന്നു."
+  categorySummary: "{count} കമാൻഡ് · പേജ് {page}/{pages}"
+  select:
+    category: ഒരു കമാൻഡ് വിഭാഗം തിരഞ്ഞെടുക്കുക
+  buttons:
+    view: തുറക്കുക
+    home: ഹോം
+  expired:
+    title: സഹായ സെഷൻ കാലഹരണപ്പെട്ടു
+    description: പുതിയ കമാൻഡ് ഗൈഡ് തുറക്കാൻ {command} വീണ്ടും പ്രവർത്തിപ്പിക്കുക.
+    button: കാലഹരണപ്പെട്ടു
+  categories:
+    startHere: ഇവിടെ തുടങ്ങുക
+    calls: കോളുകൾ
+    social: സോഷ്യൽ
+    hubs: ഹബ്ബുകൾ
+    account: അക്കൗണ്ട്
+    server: സെർവർ സജ്ജീകരണം
+    moderation: മോഡറേഷൻ
+    safety: സുരക്ഷ
+    other: മറ്റുള്ളവ
+  categoryBlurbs:
+    startHere: "ആദ്യ ചുവടുകളും ദൈനംദിന അടിസ്ഥാനങ്ങളും · {count} കമാൻഡ്"
+    calls: "കോളുകൾ ആരംഭിക്കുക, ചേരുക, വിടുക · {count} കമാൻഡ്"
+    social: "നിങ്ങളുടെ കോളിലേക്ക് രസകരമായ പ്രവർത്തനങ്ങൾ അയയ്ക്കുക · {count} കമാൻഡ്"
+    hubs: "സെർവറുകൾ ബന്ധിപ്പിക്കുക, സന്ദേശങ്ങൾ റിലേ ചെയ്യുക · {count} കമാൻഡ്"
+    account: "പ്രൊഫൈൽ, ക്രമീകരണങ്ങൾ, മുൻഗണനകൾ · {count} കമാൻഡ്"
+    server: "ഒരു സെർവറിൽ InterChat സജ്ജീകരിക്കുക · {count} കമാൻഡ്"
+    moderation: "ഉപയോക്താക്കളെയും സന്ദേശങ്ങളെയും മോഡറേറ്റ് ചെയ്യുക · {count} കമാൻഡ്"
+    safety: "റിപ്പോർട്ടുകൾ, ബ്ലോക്ക് ചെയ്യൽ, ട്രസ്റ്റ് ആൻഡ് സേഫ്റ്റി · {count} കമാൻഡ്"
+    other: "മറ്റെല്ലാം · {count} കമാൻഡ്"
+  commandTypes:
+    hybrid: ഹൈബ്രിഡ്
+    prefix: പ്രിഫിക്സ്
+    slash: സ്ലാഷ്
+  fields:
+    slashUsage: സ്ലാഷ് ഉപയോഗം
+    prefixUsage: പ്രിഫിക്സ് ഉപയോഗം
+    commandType: കമാൻഡ് തരം
+    aliases: അപരനാമങ്ങൾ
+    userPermissions: ഉപയോക്തൃ അനുമതികൾ
+    botPermissions: ബോട്ട് അനുമതികൾ
+    hubPermission: ഹബ് അനുമതി
+    availability: ലഭ്യത
+    subcommands: സബ്കമാൻഡുകൾ
+    options: ഓപ്ഷനുകൾ
+    examples: ഉദാഹരണങ്ങൾ
+  availability:
+    serverOnly: സെർവർ ചാനലുകൾ മാത്രം
+    nsfwOnly: NSFW ചാനലുകൾ മാത്രം
+  option:
+    required: നിർബന്ധം
+    optional: ഓപ്ഷണൽ
+    default: ഡിഫോൾട്ട്
+    choices: തിരഞ്ഞെടുപ്പുകൾ
+    range: പരിധി
+    length: ദൈർഘ്യം
+    channels: ചാനലുകൾ
+    autocomplete: "ഓട്ടോകംപ്ലീറ്റ്: പ്രവർത്തനക്ഷമം"
+    to: മുതൽ
+  types:
+    subcommand: സബ്കമാൻഡ്
+    subcommandGroup: സബ്കമാൻഡ് ഗ്രൂപ്പ്
+    string: സ്ട്രിംഗ്
+    integer: പൂർണ്ണസംഖ്യ
+    boolean: ബൂളിയൻ
+    user: ഉപയോക്താവ്
+    member: അംഗം
+    channel: ചാനൽ
+    textChannel: ടെക്സ്റ്റ് ചാനൽ
+    voiceChannel: വോയ്സ് ചാനൽ
+    role: റോൾ
+    mentionable: പരാമർശിക്കാവുന്നത്
+    number: സംഖ്യ
+    attachment: അറ്റാച്ച്മെന്റ്
+  recovery:
+    tooManyArguments: വളരെയധികം ആർഗ്യുമെന്റുകൾ നൽകി. അധിക മൂല്യങ്ങൾ നീക്കം ചെയ്ത് വീണ്ടും ശ്രമിക്കുക.
+    badArgument: ഒരു ആർഗ്യുമെന്റ് മനസ്സിലാക്കാൻ കഴിഞ്ഞില്ല. അതിന്റെ തരം പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.
+    parsingError: കമാൻഡ് ആർഗ്യുമെന്റുകൾ പാഴ്സ് ചെയ്യാൻ കഴിഞ്ഞില്ല. താഴെയുള്ള ഉപയോഗം പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.
+    userPermissions: ഈ കമാൻഡ് പ്രവർത്തിപ്പിക്കാൻ നിങ്ങൾക്ക് {permissions} അനുമതി(കൾ) വേണം.
+    botPermissions: ഈ കമാൻഡ് പ്രവർത്തിപ്പിക്കാൻ എനിക്ക് {permissions} അനുമതി(കൾ) വേണം.
+    serverOnly: ഈ കമാൻഡ് ഒരു സെർവറിനുള്ളിൽ മാത്രമേ ഉപയോഗിക്കാനാകൂ.
+    missingRole: ഈ കമാൻഡ് പ്രവർത്തിപ്പിക്കാൻ ആവശ്യമായ റോൾ നിങ്ങൾക്കില്ല.
+    missingSubcommand: താഴെ പട്ടികപ്പെടുത്തിയ സബ്കമാൻഡുകളിൽ ഒന്ന് തിരഞ്ഞെടുക്കുക.
+    unknownSubcommand: "അജ്ഞാത സബ്കമാൻഡ്: `{subcommand}`. താഴെ ലഭ്യമായ സബ്കമാൻഡുകളിൽ ഒന്ന് തിരഞ്ഞെടുക്കുക."
+    hubPermission: "{error} താഴെ പട്ടികപ്പെടുത്തിയ ഹബ് അനുമതി പരിശോധിക്കുക."
+    invalidInput: "{error} താഴെയുള്ള സ്വീകാര്യമായ ആർഗ്യുമെന്റ് തരങ്ങളും തിരഞ്ഞെടുപ്പുകളും പരിശോധിക്കുക."
+    commandNotFound: ആ കമാൻഡോ സബ്കമാൻഡോ കണ്ടെത്തിയില്ല. ഏറ്റവും അടുത്ത സഹായ പേജ് ഇതാ.
+    generic: കമാൻഡ് ഉപയോഗിക്കാൻ കഴിഞ്ഞില്ല. താഴെയുള്ള ഉപയോഗവും ആവശ്യകതകളും പരിശോധിക്കുക.
+
 preferences:
   title: ഉപയോക്തൃ മുൻഗണനകൾ
-  description: Edit your personal global settings.
+  description: നിങ്ങളുടെ വ്യക്തിഗത ഗ്ലോബൽ ക്രമീകരണങ്ങൾ എഡിറ്റ് ചെയ്യുക.
   replyMentions:
-    title: "മുൻഗണനകൾ: മറുപടി മെൻഷനുകൾ"
-    description: You will now be **{status}** when someone replies to your messages.
-    currentDescription: Currently you are **{status}** when replied to.
-    mentioned: മെൻഷൻ
-    notMentioned: മെൻഷൻ ചെയ്യുന്നില്ല
+    title: "മുൻഗണനകൾ: മറുപടി പരാമർശങ്ങൾ"
+    description: ആരെങ്കിലും നിങ്ങളുടെ സന്ദേശങ്ങൾക്ക് മറുപടി നൽകുമ്പോൾ ഇനി നിങ്ങളെ **{status}**.
+    currentDescription: നിലവിൽ മറുപടി ലഭിക്കുമ്പോൾ നിങ്ങളെ **{status}**.
+    mentioned: പരാമർശിക്കും
+    notMentioned: പരാമർശിക്കില്ല
   general:
-    title: പൊതുവായ മുൻഗണനകൾ
-    description: Configure general preferences within InterChat.
+    title: പൊതു മുൻഗണനകൾ
+    description: InterChat-ലെ പൊതു മുൻഗണനകൾ ക്രമീകരിക്കുക.
   locale:
-    title: ഭാഷ തിരഞ്ഞെടുക്കുക
-    description: ഇന്റർചാറ്റിനായി നിങ്ങളുടെ ഇഷ്ടപ്പെട്ട ഭാഷ തിരഞ്ഞെടുക്കുക.
+    title: ഭാഷ തിരഞ്ഞെടുക്കൽ
+    description: InterChat-നായി നിങ്ങളുടെ ഇഷ്ട ഭാഷ തിരഞ്ഞെടുക്കുക.
   select:
     category: ഒരു വിഭാഗം തിരഞ്ഞെടുക്കുക
   badges:
     title: "മുൻഗണനകൾ: ബാഡ്ജുകൾ"
-    description: Your badges are now **{status}** within your messages.
-    currentDescription: Currently your badges are **{status}** within your messages.
+    description: നിങ്ങളുടെ ബാഡ്ജുകൾ ഇനി സന്ദേശങ്ങളിലും ലീഡർബോർഡുകളിലും പ്രൊഫൈലിലും **{status}**.
+    currentDescription: നിലവിൽ നിങ്ങളുടെ ബാഡ്ജുകൾ സന്ദേശങ്ങളിലും ലീഡർബോർഡുകളിലും പ്രൊഫൈലിലും **{status}**.
     visible: ദൃശ്യമാണ്
     hidden: മറച്ചിരിക്കുന്നു
   voteReminders:
     title: "മുൻഗണനകൾ: വോട്ട് ഓർമ്മപ്പെടുത്തലുകൾ"
-    description: ഇന്റർചാറ്റിൽ നിന്നുള്ള വോട്ട് ഓർമ്മപ്പെടുത്തൽ അറിയിപ്പുകൾ ടോഗിൾ ചെയ്യുക.
-    enabled: പ്രവർത്തനക്ഷമമാണ്
-    disabled: പ്രവർത്തനരഹിതമാണ്
+    description: വോട്ട് ഓർമ്മപ്പെടുത്തലുകൾ ഓണോ ഓഫോ ആക്കുക. വോട്ട് ചെയ്യുന്നത് നിങ്ങളുടെ പങ്കാളി സ്കിപ്പ് ചെയ്യുകയോ ഹാങ് അപ്പ് ചെയ്യുകയോ ചെയ്ത ശേഷം 12 മണിക്കൂർ നേരത്തേക്ക് വ്യക്തിഗത ഓട്ടോ-മാച്ചും അൺലോക്ക് ചെയ്യും.
+    enabled: പ്രവർത്തനക്ഷമം
+    disabled: പ്രവർത്തനരഹിതം
     dm:
-      title: ഇന്റർചാറ്റിന് വോട്ട് ചെയ്യാനുള്ള സമയം!
-      description: നിങ്ങളുടെ പിന്തുണ ഇന്റർചാറ്റിനെ വളർത്താനും കൂടുതൽ കമ്മ്യൂണിറ്റികളിലേക്ക് എത്താനും സഹായിക്കുന്നു. ഞങ്ങളെ സഹായിക്കാൻ top.gg-ൽ വോട്ടുചെയ്യുക!
-      reminderInfo: You receive this reminder because you've voted before.
+      title: InterChat-നായി വോട്ട് ചെയ്യാനുള്ള സമയം!
+      description: നിങ്ങളുടെ പിന്തുണ InterChat-നെ വളരാൻ സഹായിക്കുന്നു! ഞങ്ങളെ സഹായിക്കാൻ top.gg-ൽ വോട്ട് ചെയ്യൂ. പങ്കാളി സ്കിപ്പ് ചെയ്യുകയോ ഹാങ് അപ്പ് ചെയ്യുകയോ ചെയ്ത ശേഷം വീണ്ടും മാച്ച് ചെയ്യണോ എന്നും നിങ്ങൾക്ക് തിരഞ്ഞെടുക്കാം.
+      reminderInfo: വോട്ടിന് ശേഷം നിങ്ങളുടെ ഓട്ടോ-മാച്ച് തിരഞ്ഞെടുപ്പുകൾ 12 മണിക്കൂർ സജീവമായിരിക്കും. `/my settings`-ൽ അവ മാനേജ് ചെയ്യാം.
       disableConfirm:
         title: വോട്ട് ഓർമ്മപ്പെടുത്തലുകൾ പ്രവർത്തനരഹിതമാക്കി
-        description: You will no longer receive vote reminder DMs.
+        description: ഇനി നിങ്ങൾക്ക് വോട്ട് ഓർമ്മപ്പെടുത്തൽ DM-കൾ ലഭിക്കില്ല. പങ്കാളി സ്കിപ്പ് ചെയ്യുകയോ ഹാങ് അപ്പ് ചെയ്യുകയോ ചെയ്ത ശേഷം വോട്ട് ചെയ്യുന്നത് 12 മണിക്കൂർ നേരത്തേക്ക് വ്യക്തിഗത ഓട്ടോ-മാച്ച് അൺലോക്ക് ചെയ്യും.
   errors:
-    noPreferences: നിങ്ങൾക്കിതുവരെ മുൻഗണനകളൊന്നും സജ്ജീകരിച്ചിട്ടില്ല.
+    noPreferences: നിങ്ങൾ ഇതുവരെ ഒരു മുൻഗണനയും സജ്ജീകരിച്ചിട്ടില്ല.
+
 appeal:
-  title: അപ്പീൽ ചെയ്യാവുന്ന ലംഘനങ്ങൾ
-  description: Select an infraction below to submit an appeal.
+  title: നിങ്ങളുടെ അപ്പീൽ ചെയ്യാവുന്ന ലംഘനങ്ങൾ
+  description: അപ്പീൽ സമർപ്പിക്കാൻ താഴെ ഒരു ലംഘനം തിരഞ്ഞെടുക്കുക.
   noInfractions:
-    title: സ്ക്വീക്കി ക്ലീൻ!
-    description: അപ്പീൽ ചെയ്യാവുന്ന ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
-  notAppealable: ഈ ലംഘനം ഇനി അപ്പീൽ ചെയ്യാവുന്നതല്ല.
+    title: സജീവ ലംഘനങ്ങളില്ല
+    description: അപ്പീൽ ചെയ്യാവുന്ന സജീവ ലംഘനങ്ങളൊന്നും നിങ്ങൾക്കില്ല.
+  notAppealable: ഈ ലംഘനം ഇനി അപ്പീൽ ചെയ്യാനാകില്ല.
+  notOpenYet: "{opens_at} മുതൽ നിങ്ങൾക്ക് അപ്പീൽ ചെയ്യാം"
   select:
-    placeholder: അപ്പീൽ നൽകാൻ ഒരു ലംഘനം തിരഞ്ഞെടുക്കുക
+    placeholder: അപ്പീൽ ചെയ്യാൻ ഒരു ലംഘനം തിരഞ്ഞെടുക്കുക
   modal:
     title: അപ്പീൽ സമർപ്പിക്കുക
-    q1: ഈ നടപടി തെറ്റാണെന്ന് നിങ്ങൾ വിശ്വസിക്കുന്നത് എന്തുകൊണ്ട്?
-    q2: സാഹചര്യത്തെക്കുറിച്ച് ഞങ്ങളോട് പറയുക
-    q3: കൂടുതൽ വിവരങ്ങൾ
+    q1: ഈ നടപടി തെറ്റായിരുന്നുവെന്ന് നിങ്ങൾ വിശ്വസിക്കുന്നത് എന്തുകൊണ്ട്?
+    q2: സാഹചര്യത്തെക്കുറിച്ച് ഞങ്ങളോട് പറയൂ
+    q3: അധിക വിവരങ്ങൾ
   success:
-    submitted: "{tick} നിങ്ങളുടെ അപ്പീൽ അവലോകനത്തിനായി സമർപ്പിച്ചു."
+    submitted: "{tick} നിങ്ങളുടെ അപ്പീൽ പരിശോധനയ്ക്കായി സമർപ്പിച്ചു."
   viewInfractions:
-    title: സമീപകാല ഉപയോക്തൃ ലംഘനങ്ങൾ
-    empty: ഈ ഉപയോക്താവിനായി ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
+    title: ഉപയോക്താവിന്റെ സമീപകാല ലംഘനങ്ങൾ
+    empty: ഈ ഉപയോക്താവിന് ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
   status:
-    acceptedBy: അംഗീകരിച്ചത് @{name}
-    rejectedBy: നിരസിച്ചത് @{name}
-    pending: മറുപടിക്കായി കാത്തിരിക്കുന്നു
+    acceptedBy: '@{name} അംഗീകരിച്ചു'
+    rejectedBy: '@{name} നിരസിച്ചു'
+    pending: മറുപടി ലഭിക്കാനുണ്ട്
     cooldown: കൂൾഡൗൺ
     canAppeal: അപ്പീൽ ചെയ്യാവുന്നത്
   constants:
-    noReason: No Reason
+    noReason: *no_reason
   fields:
     date: "തീയതി:"
     reason: "കാരണം:"
@@ -268,275 +494,465 @@ appeal:
       label: കാരണം (ഓപ്ഷണൽ)
       placeholder: നിങ്ങളുടെ തീരുമാനം വിശദീകരിക്കുക...
   dm:
-    accepted: Your appeal regarding a moderation action{hubName} has been accepted.
-    declined: Your appeal regarding a moderation action{hubName} has been declined.
-    moderatorNote: "മോഡറേറ്റർ കുറിപ്പ്: {reason}"
+    accepted: ഒരു മോഡറേഷൻ നടപടി{hubName} സംബന്ധിച്ച നിങ്ങളുടെ അപ്പീൽ അംഗീകരിച്ചു.
+    declined: ഒരു മോഡറേഷൻ നടപടി{hubName} സംബന്ധിച്ച നിങ്ങളുടെ അപ്പീൽ നിരസിച്ചു.
+    moderatorNote: "മോഡറേറ്ററുടെ കുറിപ്പ്: {reason}"
   embed:
     noInfractions:
-      title: സ്ക്വീക്കി ക്ലീൻ!
+      title: തീർത്തും ക്ലീൻ!
       description: അപ്പീൽ ചെയ്യാവുന്ന ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
     footer:
-      canAppeal: '💡 നിങ്ങൾക്ക് {count} ലംഘനങ്ങൾക്കെതിരെ അപ്പീൽ നൽകാം. താഴെയുള്ള സെലക്ട് മെനു ഉപയോഗിക്കുക.'
-      checkLater: '💡 കൂൾഡൗണുകൾ അവസാനിക്കുമ്പോഴോ അപ്പീലുകൾ അവലോകനം ചെയ്യുമ്പോഴോ പിന്നീട് പരിശോധിക്കുക.'
+      canAppeal: ':lightbulb_icon: നിങ്ങൾക്ക് {count} ലംഘനം(ങ്ങൾ) അപ്പീൽ ചെയ്യാം. താഴെയുള്ള സെലക്ട് മെനു ഉപയോഗിക്കുക.'
+      checkLater: ':lightbulb_icon: കൂൾഡൗണുകൾ അവസാനിക്കുമ്പോഴോ അപ്പീലുകൾ പരിശോധിക്കുമ്പോഴോ പിന്നീട് നോക്കുക.'
   errors:
     nothingSelected: ഒന്നും തിരഞ്ഞെടുത്തിട്ടില്ല.
-    modalError: അപ്പീൽ മോഡൽ തുറക്കുന്നതിൽ പരാജയപ്പെട്ടു.
-    recordFailed: "തീരുമാനം രേഖപ്പെടുത്തുന്നതിൽ പരാജയപ്പെട്ടു: {error}"
+    modalError: അപ്പീൽ മോഡൽ തുറക്കാൻ കഴിഞ്ഞില്ല.
+    recordFailed: "തീരുമാനം രേഖപ്പെടുത്താൻ കഴിഞ്ഞില്ല: {error}"
     notFoundOrDeleted: അപ്പീൽ കണ്ടെത്തിയില്ല അല്ലെങ്കിൽ ഇല്ലാതാക്കി.
-    updateFailed: അപ്പീൽ അപ്ഡേറ്റ് ചെയ്യാനായില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക.
+    updateFailed: അപ്പീൽ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല. ദയവായി പിന്നീട് വീണ്ടും ശ്രമിക്കുക.
+
+automod:
+  actionsDefault: Automod ഡിഫോൾട്ട് ഉപയോഗിക്കുക
+  actionsDefaultHint: Automod പേജിൽ സജ്ജീകരിക്കുക
+  actionsLabel: പൊരുത്തം കണ്ടെത്തിയാൽ എന്ത് സംഭവിക്കണം?
+  actionsTitle: എന്ത് സംഭവിക്കും?
+  addWords: വാക്കുകൾ ചേർക്കുക
+  applyDraft: എന്റെ ഡ്രാഫ്റ്റ് പ്രയോഗിക്കുക
+  changeApplied: ':tick_icon: നിങ്ങളുടെ മാറ്റം പ്രയോഗിച്ചു.'
+  changeApplying: ⏳ സേവ് ചെയ്യുന്നു…
+  changeBlocked: ':alert_icon: മുമ്പത്തെ ഒരു മാറ്റം പരിശോധനയ്ക്കായി കാത്തിരിക്കുന്നതിനാൽ പുതിയ മാറ്റങ്ങൾ തൽക്കാലം നിർത്തിവച്ചിരിക്കുന്നു.'
+  changeFailedConflict: നിങ്ങളുടെ മാറ്റം പ്രയോഗിക്കുന്നതിനിടയിൽ മറ്റൊരാൾ Automod മാറ്റിയതിനാൽ അത് പ്രയോഗിച്ചില്ല. നിങ്ങളുടെ ഡ്രാഫ്റ്റ് ഏറ്റവും പുതിയ പതിപ്പിന് മുകളിൽ പ്രയോഗിക്കാൻ എന്റെ മാറ്റങ്ങൾ താരതമ്യം ചെയ്യുക ഉപയോഗിക്കുക.
+  changeFailedGeneric: ഈ മാറ്റം സ്ഥിരീകരിച്ചിട്ടില്ല. ഇവിടെ കാണിച്ച നിയമങ്ങൾ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.
+  changeFailedGone: ഈ Automod ഇനി ലഭ്യമല്ല, അതിനാൽ മാറ്റം പ്രയോഗിച്ചില്ല.
+  changeFailedNotSent: മാറ്റം സുരക്ഷാ സേവനത്തിൽ എത്തിയതേയില്ല, അതിനാൽ ഒന്നും പ്രയോഗിച്ചില്ല. വീണ്ടും ശ്രമിക്കുക.
+  changeFailedPermission: ഈ Automod മാറ്റാനുള്ള നിങ്ങളുടെ അനുമതി പ്രയോഗിക്കുന്നതിന് മുമ്പ് നീക്കം ചെയ്തു, അതിനാൽ ഒന്നും സേവ് ചെയ്തില്ല.
+  changeFailedRefused: 'Automod ഈ മാറ്റം നിരസിച്ചു, അതിനാൽ പ്രയോഗിച്ചില്ല: {reason}'
+  changeFailedRejected: സുരക്ഷാ സേവനം ഈ മാറ്റം നിരസിച്ചു, അതിനാൽ പ്രയോഗിച്ചില്ല.
+  changeFailedService: സുരക്ഷാ സേവനം ഈ മാറ്റം നിരസിച്ചു, ഇത് സേവനത്തിലെ പ്രശ്നമാണെന്ന് തോന്നുന്നു. ഒന്നും പ്രയോഗിച്ചില്ല; ദയവായി റിപ്പോർട്ട് ചെയ്യുക.
+  changeFailedUnknown: ഈ മാറ്റം പ്രയോഗിച്ചോ എന്ന് സ്ഥിരീകരിക്കാൻ ഞങ്ങൾക്ക് കഴിഞ്ഞില്ല, അതിനാൽ പരിശോധന ആവശ്യമാണ്. ഇവിടെ കാണിച്ച നിയമങ്ങൾ പരിശോധിച്ച്, ആവശ്യമെങ്കിൽ വീണ്ടും സേവ് ചെയ്യുക.
+  changeFailedUnreadable: സേവ് ചെയ്ത മാറ്റം തിരികെ വായിക്കാൻ കഴിഞ്ഞില്ല, അതിനാൽ അത് അയച്ചതേയില്ല. വീണ്ടും സേവ് ചെയ്യുക.
+  changeStillApplying: ⏳ ഇപ്പോഴും പ്രയോഗിക്കുകയാണ്. ഫലം കാണാൻ അൽപസമയം കഴിഞ്ഞ് പുതുക്കുക അമർത്തുക.
+  confirmChange: മാറ്റം സ്ഥിരീകരിക്കുക
+  confirmEffect: ഇത് {scope}-ലെ എല്ലാവർക്കും ഉടൻ പ്രാബല്യത്തിൽ വരും.
+  confirmOff: തൽക്കാലം ഓഫായി നിർത്തുക
+  confirmOn: ഇപ്പോൾ ഓണാക്കുക
+  confirmTitle: '"{name}" ഓണാക്കണോ?'
+  conflictBanner: ':alert_icon: നിങ്ങൾ പ്രവർത്തിക്കുന്നതിനിടയിൽ മറ്റൊരാൾ Automod എഡിറ്റ് ചെയ്തു. നിങ്ങളുടെ മാറ്റം ഡ്രാഫ്റ്റായി സൂക്ഷിച്ചു.'
+  conflictCurrent: 'ഏറ്റവും പുതിയ പതിപ്പ്: {rules} നിയമങ്ങൾ, {patterns} വാക്കുകൾ'
+  conflictDraft: 'നിങ്ങളുടെ ഡ്രാഫ്റ്റ്: {rules} നിയമങ്ങൾ, {patterns} വാക്കുകൾ'
+  conflictNote: പ്രയോഗിക്കുമ്പോൾ എല്ലാ നിയമങ്ങളും നിങ്ങളുടെ ഡ്രാഫ്റ്റ് കൊണ്ട് മാറ്റപ്പെടും.
+  conflictReviewTitle: എന്റെ മാറ്റങ്ങൾ താരതമ്യം ചെയ്യുക
+  conflictToast: ഇപ്പോൾത്തന്നെ മറ്റൊരാൾ Automod എഡിറ്റ് ചെയ്തു. ഏറ്റവും പുതിയ പതിപ്പ് ലോഡ് ചെയ്തു, നിങ്ങളുടെ മാറ്റം പ്രയോഗിച്ചില്ല. പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.
+  deleteConfirm: '"{name}" ഇല്ലാതാക്കണോ?'
+  detailsDescription: വിവരണം
+  detailsName: പേര്
+  detailsReason: പിടിക്കപ്പെടുമ്പോൾ കാണിക്കുന്ന സന്ദേശം
+  detailsReasonHint: ഈ നിയമം ഉപയോക്താവിനെ പിടികൂടുമ്പോൾ അവർക്ക് ഇത് കാണിക്കും.
+  detailsTitle: പേരും കാരണവും
+  dialLabel: ഒരു നിയമം എന്തെങ്കിലും പിടികൂടുമ്പോൾ…
+  dialMixed: മിശ്രിതം (ഓരോ നിയമത്തിനും സജ്ജീകരിച്ചത്)
+  disableRule: '"{name}" ഓഫാക്കണോ?'
+  disabled: പ്രവർത്തനരഹിതം
+  discard: ഉപേക്ഷിക്കുക
+  discardBanner: നിങ്ങളുടെ എഡിറ്റുകൾ ഇതുവരെ പ്രയോഗിച്ചിട്ടില്ല.
+  discardConfirm: മാറ്റങ്ങൾ ഉപേക്ഷിക്കുക
+  discardDraft: എന്റെ ഡ്രാഫ്റ്റ് ഉപേക്ഷിക്കുക
+  discardTitle: സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ ഉപേക്ഷിക്കണോ?
+  durationError: 30m, 1h, 2d പോലുള്ള ദൈർഘ്യം ഉപയോഗിക്കുക.
+  durationLabel: '{action} ദൈർഘ്യം'
+  durationPlaceholder: ഉദാ. 30m, 1h, 2d
+  editActions: എന്ത് സംഭവിക്കും
+  editDetails: പേരും കാരണവും
+  editSurfaces: എവിടെ പരിശോധിക്കണം
+  enableRule: '"{name}" ഓണാക്കണോ?'
+  enabled: പ്രവർത്തനക്ഷമം
+  errorTitle: ':alert_icon: Automod ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല.'
+  keepEditing: എഡിറ്റിംഗ് തുടരുക
+  loadDenied: ഇവിടെ Automod കാണാൻ നിങ്ങൾക്ക് അനുമതിയില്ല.
+  loadFailed: Automod ഇപ്പോൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. {reason}
+  loadGone: ഈ Automod കണ്ടെത്തിയില്ല.
+  loadUnavailable: സുരക്ഷാ സേവനവുമായി ബന്ധപ്പെടാൻ കഴിഞ്ഞില്ല. വീണ്ടും ശ്രമിക്കാൻ പുതുക്കുക അമർത്തുക.
+  newRule: പുതിയ നിയമം
+  newRuleModalTitle: പുതിയ നിയമം
+  newRuleName: പേര്
+  noRules: ഇതുവരെ നിയമങ്ങളില്ല. തുടങ്ങാൻ ആദ്യ നിയമം സൃഷ്ടിക്കുക.
+  page: പേജ് {current}/{total}
+  parameters: പ്രവർത്തന ക്രമീകരണങ്ങൾ
+  pause: Automod താൽക്കാലികമായി നിർത്തുക
+  pauseConfirm: Automod താൽക്കാലികമായി നിർത്തണോ? നിങ്ങൾ പുനരാരംഭിക്കുന്നതുവരെ നിയമങ്ങൾ നടപ്പിലാക്കില്ല.
+  pickRule: മാറ്റാൻ ഒരു നിയമം തിരഞ്ഞെടുക്കുക…
+  rejected: 'Automod ഈ മാറ്റം നിരസിച്ചു: {error}'
+  removeSelect: നീക്കം ചെയ്യാൻ വാക്കുകൾ തിരഞ്ഞെടുക്കുക…
+  removeTitle: വാക്കുകൾ നീക്കം ചെയ്യുക
+  removeWords: വാക്കുകൾ നീക്കം ചെയ്യുക
+  replaceAll: എല്ലാം മാറ്റിസ്ഥാപിക്കുക
+  replacementLabel: സുരക്ഷിത പകരം വെക്കലിന്റെ പേര്
+  replacesNote: ഇത് മുഴുവൻ Automod കോൺഫിഗറേഷനും മാറ്റിസ്ഥാപിക്കും.
+  resume: Automod പുനരാരംഭിക്കുക
+  resumeConfirm: Automod വീണ്ടും ഓണാക്കണോ?
+  reviewDraft: എന്റെ മാറ്റങ്ങൾ താരതമ്യം ചെയ്യുക
+  ruleDescription: '{status} · {count} വാക്കുകൾ'
+  ruleTitle: ':pencil_line: {name} · {status}'
+  rulesOn: '{total} നിയമങ്ങളിൽ {enabled} ഓണാണ്'
+  saveBusy: മറ്റൊരു Automod മാറ്റം ഇതിനകം പ്രയോഗിച്ചുകൊണ്ടിരിക്കുകയാണ്. അത് പൂർത്തിയാകുന്നതുവരെ കാത്തിരുന്ന് വീണ്ടും സേവ് ചെയ്യുക.
+  saveDenied: ഈ Automod മാറ്റാൻ നിങ്ങൾക്ക് ഇനി അനുമതിയില്ല.
+  saveFailed: 'ഈ മാറ്റം സേവ് ചെയ്യാൻ കഴിഞ്ഞില്ല: {reason}'
+  saveGone: ഈ Automod ഇനി ലഭ്യമല്ല, അതിനാൽ ഒന്നും മാറ്റിയില്ല.
+  saveUnavailable: സുരക്ഷാ സേവനവുമായി ബന്ധപ്പെടാൻ കഴിഞ്ഞില്ല, അതിനാൽ ഒന്നും മാറ്റിയില്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+  serverNote: മുന്നറിയിപ്പുകൾ, മ്യൂട്ടുകൾ, ബാനുകൾ എന്നിവ ഹബ് ഉപകരണങ്ങളാണ്. ഈ സെർവർ ഒരു ഹബ്ബിൽ ചേരുമ്പോൾ അവ ബാധകമാകും.
+  statusOff: 'ഓഫ്'
+  statusOn: 'ഓൺ'
+  surfacesLabel: ഇവ എവിടെയാണ് പരിശോധിക്കേണ്ടത്?
+  surfacesTitle: എവിടെ പരിശോധിക്കണം
+  test: പരീക്ഷിക്കുക
+  testCaught: ':alert_icon: "{rule}" ഇത് പിടികൂടും. പരിണതഫലം: {actions}.'
+  testClean: ':tick_icon: ഒന്നും പിടികൂടില്ല.'
+  testDisclaimer: പ്രിവ്യൂ മാത്രം. അന്തിമ തീരുമാനം എടുക്കുന്നത് നിർവഹണ സേവനമാണ്.
+  testEmpty: ഇതുവരെ നിയമങ്ങളൊന്നും ഓണല്ല, അതിനാൽ ഒന്നും പിടികൂടില്ല.
+  testFor: 🧪 "{message}" എന്നതിനുള്ള പരീക്ഷണ ഫലം
+  testLabel: ഒരു ഉപയോക്താവ് അയയ്ക്കുന്നതുപോലെ ഒരു സന്ദേശം ടൈപ്പ് ചെയ്യുക
+  testModalTitle: Automod പരീക്ഷിക്കുക
+  testNoSurface: ഈ നിയമം സന്ദേശത്തിന്റെ ഉള്ളടക്കം പരിശോധിക്കുന്നില്ല, അതിനാൽ സന്ദേശ പരീക്ഷണത്തിന് നോക്കാൻ ഒന്നുമില്ല.
+  testRule: ഈ നിയമം പരീക്ഷിക്കുക
+  title: ':shield_alert_icon: Automod · {scope}'
+  turnOff: ഓഫാക്കുക
+  turnOn: ഓണാക്കുക
+  unsaved: ':alert_icon: സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ'
+  wordSlots: '{limit} വാക്ക് സ്ലോട്ടുകളിൽ {used} ഉപയോഗിച്ചു'
+  wordsCount: '{count} വാക്കുകൾ'
+  wordsHint: ഭാഗികമായി പൊരുത്തപ്പെടാൻ തുടക്കത്തിലോ അവസാനത്തിലോ * ഉപയോഗിക്കുക. വാക്യങ്ങൾ "ഇരട്ട ഉദ്ധരണികളിൽ" ഇടുക. പരമാവധി 4000 അക്ഷരങ്ങൾ.
+  wordsLabel: പിടികൂടേണ്ട വാക്കുകൾ, ഒരു വരിയിൽ ഒന്ന്
+  wordsReplaceTitle: എല്ലാ വാക്കുകളും മാറ്റിസ്ഥാപിക്കുക
+  wordsTitle: വാക്കുകൾ ചേർക്കുക
 report:
-  title: റിപ്പോർട്ട് സന്ദേശം
-  footer: ഇന്റർചാറ്റ് എല്ലാവർക്കും സുരക്ഷിതമായി നിലനിർത്താൻ റിപ്പോർട്ടുകൾ സഹായിക്കുന്നു
-  description: Report {user} to Hub Staff or InterChat Staff.
+  title: സന്ദേശം റിപ്പോർട്ട് ചെയ്യുക
+  footer: റിപ്പോർട്ടുകൾ InterChat-നെ എല്ലാവർക്കും സുരക്ഷിതമായി നിലനിർത്താൻ സഹായിക്കുന്നു
+  prompt: ഈ സന്ദേശം ഞങ്ങളുടെ മോഡറേഷൻ ടീമിന് റിപ്പോർട്ട് ചെയ്യുക.
   buttons:
-    toStaff: സ്റ്റാഫിനെ അറിയിക്കുക
-    toHub: ഹബ്ബിനെ അറിയിക്കുക
+    toStaff: സ്റ്റാഫിന് റിപ്പോർട്ട് ചെയ്യുക
+    toHub: ഹബ്ബിന് റിപ്പോർട്ട് ചെയ്യുക
   modal:
     toStaff:
-      title: ഇന്റർചാറ്റ് സ്റ്റാഫിന് റിപ്പോർട്ട് ചെയ്യുക
+      title: InterChat സ്റ്റാഫിന് റിപ്പോർട്ട് ചെയ്യുക
     toHub:
       title: ഹബ് മോഡറേറ്റർമാർക്ക് റിപ്പോർട്ട് ചെയ്യുക
     reason:
-      label: റിപ്പോർട്ടിനുള്ള കാരണം
-      placeholder: എന്തുകൊണ്ടാണ് നിങ്ങൾ ഈ സന്ദേശം റിപ്പോർട്ട് ചെയ്യുന്നതെന്ന് വിവരിക്കുക...
+      label: റിപ്പോർട്ടിന്റെ കാരണം
+      placeholder: ഈ സന്ദേശം നിങ്ങൾ റിപ്പോർട്ട് ചെയ്യുന്നത് എന്തുകൊണ്ടെന്ന് വിവരിക്കുക...
     context:
-      label: Context (Entire call history is sent)
-      placeholder: Add any additional context or details for staff...
+      label: സന്ദർഭം (മുഴുവൻ കോൾ ചരിത്രവും അയയ്ക്കും)
+      placeholder: സ്റ്റാഫിനായി അധിക സന്ദർഭമോ വിശദാംശങ്ങളോ ചേർക്കുക...
+    reasons:
+      nsfwImages: NSFW ചിത്രങ്ങൾ
+      gore: ഗോർ
+      childSexualization: പീഡോഫിലിക് പെരുമാറ്റം / കുട്ടികളെ ലൈംഗികവൽക്കരിക്കൽ
+      sexualThreats: ബലാത്സംഗ ഭീഷണികൾ / ലൈംഗിക ഭീഷണികൾ
+      doxxing: ഡോക്സിംഗ്
+      hardRuleName: ഉപയോക്തൃനാമത്തിൽ / സെർവർ പേരിൽ Hard-R
+      spam: സ്പാം
+      suggestiveMessages: അശ്ലീല സൂചനയുള്ള സന്ദേശങ്ങൾ
+      nsfwMessages: NSFW സന്ദേശങ്ങൾ
+      casualSlurs: സാധാരണ അധിക്ഷേപ വാക്കുകൾ
+      targetedSlurs: ലക്ഷ്യമിട്ടുള്ള അധിക്ഷേപ വാക്കുകൾ / അതിരൂക്ഷ അധിക്ഷേപ വാക്കുകൾ
+      mildToxicity: നേരിയ വിഷലിപ്ത പെരുമാറ്റം
+      moderateToxicity: മിതമായ വിഷലിപ്ത പെരുമാറ്റം
+      severeToxicity: ഗുരുതരമായ വിഷലിപ്ത പെരുമാറ്റം
+      harassment: ഉപദ്രവം
+      mildHateSpeech: നേരിയ വിദ്വേഷ പ്രസംഗം
+      severeHateSpeech: ഗുരുതരമായ വിദ്വേഷ പ്രസംഗം
+      other: മറ്റുള്ളവ
   success:
     title: റിപ്പോർട്ട് സമർപ്പിച്ചു
-    toStaff: "{tick} Your report has been sent to InterChat staff."
-    toHub: "{tick} Your report has been sent to hub moderators."
+    toStaff: "{tick} നിങ്ങളുടെ റിപ്പോർട്ട് InterChat സ്റ്റാഫിന് അയച്ചു."
+    toHub: "{tick} നിങ്ങളുടെ റിപ്പോർട്ട് ഹബ് മോഡറേറ്റർമാർക്ക് അയച്ചു."
   errors:
-    hubMessageOnly: "{x_icon} ഇന്റർചാറ്റ് ഹബ്ബുകൾ വഴി മാത്രമേ നിങ്ങൾക്ക് സന്ദേശങ്ങൾ റിപ്പോർട്ട് ചെയ്യാൻ കഴിയൂ."
+    hubMessageOnly: "{x_icon} InterChat ഹബ്ബുകൾ വഴി അയച്ച സന്ദേശങ്ങൾ മാത്രമേ നിങ്ങൾക്ക് റിപ്പോർട്ട് ചെയ്യാനാകൂ."
     cannotReportSelf: "{x_icon} നിങ്ങളുടെ സ്വന്തം സന്ദേശങ്ങൾ റിപ്പോർട്ട് ചെയ്യാൻ കഴിയില്ല."
-    outOfScope: "{x_icon} This message cannot be reported. You can only report messages sent inside InterChat Hubs and Calls."
-    alreadyReportedCall: "{x_icon} You have already reported this call. When you submit a report, the entire call history is sent to staff, so there is no need to report multiple times."
+    outOfScope: "{x_icon} ഈ സന്ദേശം റിപ്പോർട്ട് ചെയ്യാനാകില്ല. InterChat ഹബ്ബുകളിലും കോളുകളിലും അയച്ച സന്ദേശങ്ങൾ മാത്രമേ നിങ്ങൾക്ക് റിപ്പോർട്ട് ചെയ്യാനാകൂ."
+    alreadyReportedCall: "{x_icon} നിങ്ങൾ ഈ കോൾ ഇതിനകം റിപ്പോർട്ട് ചെയ്തിട്ടുണ്ട്. റിപ്പോർട്ട് സമർപ്പിക്കുമ്പോൾ മുഴുവൻ കോൾ ചരിത്രവും സ്റ്റാഫിന് അയയ്ക്കും, അതിനാൽ പലതവണ റിപ്പോർട്ട് ചെയ്യേണ്ടതില്ല."
+
 hubConfig:
   general:
-    placeholder: Select a setting to configure...
-    summaryDescription: A summary of your hub's general settings.
-    hubIdentity: Hub Identity
+    placeholder: ക്രമീകരിക്കാൻ ഒരു ക്രമീകരണം തിരഞ്ഞെടുക്കുക...
+    summaryDescription: നിങ്ങളുടെ ഹബ്ബിന്റെ പൊതു ക്രമീകരണങ്ങളുടെ സംഗ്രഹം.
+    hubIdentity: ഹബ് ഐഡന്റിറ്റി
     fields:
-      name: "Name:"
-      description: "Description:"
-      rating: "Rating:"
-      visibility: "Visibility:"
-    editOnDashboard: Edit on Dashboard
-    noDescription: "*No description set.*"
-    properties: Properties
-    nsfw: '🔞 NSFW'
-    familyFriendly: '✅ Family Friendly'
-    lastUpdated: "Last Updated:"
-    descriptionUpdated: Description Updated!
-    descriptionSuccess: Your hub description has been successfully updated.
-    nameUpdated: Name Updated!
-    nameSuccess: Your hub has been renamed to **{name}**.
-    nameCooldownNote: '⚠️ Hub names can only be changed once every 10 days.'
-    welcomeUpdated: Welcome Message Updated!
-    welcomeSuccess: Your hub welcome message has been successfully updated.
-    nsfwUpdated: NSFW Setting Updated!
-    nsfwWarning: '⚠️ Important'
-    nsfwWarningDesc: Your hub is now marked as NSFW and may be filtered from searches.
-    sfwConfirmDesc: Your hub is now marked as safe for work.
-    visibilityUpdated: Visibility Updated!
-    visibilitySuccess: "Your hub is now: **{status}**"
-    visibilityMeaning: ℹ️ What this means
+      name: "പേര്:"
+      description: "വിവരണം:"
+      rating: "റേറ്റിംഗ്:"
+      visibility: "ദൃശ്യത:"
+    editOnDashboard: ഡാഷ്‌ബോർഡിൽ എഡിറ്റ് ചെയ്യുക
+    noDescription: "*വിവരണം സജ്ജീകരിച്ചിട്ടില്ല.*"
+    properties: സവിശേഷതകൾ
+    nsfw: ':eye_off: NSFW'
+    familyFriendly: ':tick_icon: കുടുംബത്തിന് അനുയോജ്യം'
+    lastUpdated: "അവസാനം അപ്‌ഡേറ്റ് ചെയ്തത്:"
+    descriptionUpdated: വിവരണം അപ്‌ഡേറ്റ് ചെയ്തു!
+    descriptionSuccess: നിങ്ങളുടെ ഹബ് വിവരണം വിജയകരമായി അപ്‌ഡേറ്റ് ചെയ്തു.
+    nameUpdated: പേര് അപ്‌ഡേറ്റ് ചെയ്തു!
+    nameSuccess: നിങ്ങളുടെ ഹബ്ബിന്റെ പേര് **{name}** എന്നാക്കി മാറ്റി.
+    nameCooldownNote: ':alert_icon: ഹബ് പേരുകൾ 10 ദിവസത്തിലൊരിക്കൽ മാത്രമേ മാറ്റാനാകൂ.'
+    welcomeUpdated: സ്വാഗത സന്ദേശം അപ്‌ഡേറ്റ് ചെയ്തു!
+    welcomeSuccess: നിങ്ങളുടെ ഹബ് സ്വാഗത സന്ദേശം വിജയകരമായി അപ്‌ഡേറ്റ് ചെയ്തു.
+    nsfwUpdated: NSFW ക്രമീകരണം അപ്‌ഡേറ്റ് ചെയ്തു!
+    nsfwWarning: ':alert_icon: പ്രധാനം'
+    nsfwWarningDesc: നിങ്ങളുടെ ഹബ് ഇപ്പോൾ NSFW ആയി അടയാളപ്പെടുത്തിയിരിക്കുന്നു, തിരയലുകളിൽ നിന്ന് ഫിൽട്ടർ ചെയ്യപ്പെട്ടേക്കാം.
+    sfwConfirmDesc: നിങ്ങളുടെ ഹബ് ഇപ്പോൾ ജോലിസ്ഥലത്ത് സുരക്ഷിതമെന്ന് (SFW) അടയാളപ്പെടുത്തിയിരിക്കുന്നു.
+    visibilityUpdated: ദൃശ്യത അപ്‌ഡേറ്റ് ചെയ്തു!
+    visibilitySuccess: "നിങ്ങളുടെ ഹബ് ഇപ്പോൾ: **{status}**"
+    visibilityMeaning: ℹ️ ഇതിന്റെ അർത്ഥം
     visibility:
-      public: '🌐 പബ്ലിക്'
-      publicDesc: Discoverable on the hub directory.
-      unlisted: '👁️ അൺലിസ്റ്റഡ്'
-      unlistedDesc: Not in directory but anyone can join via ID/link.
-      private: '🔒 പ്രൈവറ്റ്'
-      privateDesc: Invite-only, not listed publicly.
+      public: ':globe_icon: പബ്ലിക്'
+      publicDesc: *vis_public_desc
+      unlisted: 👁️ ലിസ്റ്റ് ചെയ്യാത്തത്
+      unlistedDesc: *vis_unlisted_desc
+      private: ':lock_icon: പ്രൈവറ്റ്'
+      privateDesc: *vis_private_desc
     editDescription:
       label: വിവരണം എഡിറ്റ് ചെയ്യുക
-      description: Change your hub's description
-      title: Edit Hub Description
-      labelInput: Hub Description
-      placeholder: Describe what your hub is about...
+      description: നിങ്ങളുടെ ഹബ്ബിന്റെ വിവരണം മാറ്റുക
+      title: ഹബ് വിവരണം എഡിറ്റ് ചെയ്യുക
+      labelInput: ഹബ് വിവരണം
+      placeholder: നിങ്ങളുടെ ഹബ് എന്തിനെക്കുറിച്ചാണെന്ന് വിവരിക്കുക...
     editName:
-      label: Edit Name
-      description: Change your hub's display name
-      title: Edit Hub Name
+      label: പേര് എഡിറ്റ് ചെയ്യുക
+      description: നിങ്ങളുടെ ഹബ്ബിന്റെ പ്രദർശന നാമം മാറ്റുക
+      title: ഹബ് പേര് എഡിറ്റ് ചെയ്യുക
       labelInput: ഹബ് പേര്
-      placeholder: Enter a new name for your hub...
+      placeholder: നിങ്ങളുടെ ഹബ്ബിന് ഒരു പുതിയ പേര് നൽകുക...
     welcomeMessage:
       label: സ്വാഗത സന്ദേശം
-      description: Set a message sent to new members
-      title: Edit Welcome Message
+      description: പുതിയ അംഗങ്ങൾക്ക് അയയ്ക്കുന്ന ഒരു സന്ദേശം സജ്ജീകരിക്കുക
+      title: സ്വാഗത സന്ദേശം എഡിറ്റ് ചെയ്യുക
       labelInput: സ്വാഗത സന്ദേശം
-      placeholder: Welcome! Enjoy your stay...
+      placeholder: സ്വാഗതം! ഇവിടെ സുഖമായിരിക്കൂ...
     toggleNsfw:
-      label: NSFW ടോഗിൾ
-      description: Toggle between Safe for Work and NSFW
+      label: NSFW ടോഗിൾ ചെയ്യുക
+      description: സുരക്ഷിതം (SFW), NSFW എന്നിവയ്ക്കിടയിൽ മാറുക
     changeVisibility:
-      label: വിസിബിലിറ്റി മാറ്റുക
-      description: പബ്ലിക്, അൺലിസ്റ്റഡ് അല്ലെങ്കിൽ പ്രൈവറ്റ് എന്നിവയ്ക്കിടയിൽ മാറ്റുക
-      title: '🔐 Change Hub Visibility'
-      desc: "Select the visibility level for your hub:"
+      label: ദൃശ്യത മാറ്റുക
+      description: പബ്ലിക്, ലിസ്റ്റ് ചെയ്യാത്തത്, പ്രൈവറ്റ് എന്നിവയ്ക്കിടയിൽ മാറുക
+      title: 🔐 ഹബ് ദൃശ്യത മാറ്റുക
+      desc: "നിങ്ങളുടെ ഹബ്ബിന്റെ ദൃശ്യതാ നില തിരഞ്ഞെടുക്കുക:"
+    console:
+      brandingTab: ബ്രാൻഡിംഗ്
+      settingsTab: ക്രമീകരണങ്ങൾ
+      identityGroup: "-# **ഐഡന്റിറ്റി**"
+      artworkGroup: "-# **ആർട്ട്‌വർക്ക്**"
+      discoveryGroup: "-# **കണ്ടെത്തൽ**"
+      contentGroup: "-# **ഉള്ളടക്കം**"
+      moderationGroup: "-# **മോഡറേഷൻ**"
+      brandingSummary: "-# ഈ ഹബ് കണ്ടെത്തുന്നവർക്ക് ഇത് എങ്ങനെ കാണപ്പെടുന്നു."
+      settingsSummary: "-# ഈ ഹബ് എങ്ങനെ പ്രവർത്തിക്കുന്നു: കണ്ടെത്തൽ, ഉള്ളടക്കം, അപ്പീലുകൾ."
+      preview:
+        defaultName: പേരില്ലാത്ത ഹബ്
+        noTagline: ടാഗ്‌ലൈൻ സജ്ജീകരിച്ചിട്ടില്ല
+        noDescription: വിവരണം സജ്ജീകരിച്ചിട്ടില്ല
+        noWelcome: സ്വാഗത സന്ദേശം സജ്ജീകരിച്ചിട്ടില്ല
+        stats: "{connections} സെർവറുകൾ · ആഴ്ചയിൽ {messages} സന്ദേശങ്ങൾ · {upvotes} അപ്‌വോട്ടുകൾ"
+      fields:
+        name: പേര്
+        tagline: ചെറിയ ടാഗ്‌ലൈൻ
+        description: വിവരണം
+        welcome: സ്വാഗത സന്ദേശം
+        icon: ഹബ് ഐക്കൺ
+        banner: ഹബ് ബാനർ
+        visibility: ദൃശ്യത
+        nsfw: ഉള്ളടക്ക റേറ്റിംഗ്
+        cooldown: അപ്പീൽ കൂൾഡൗൺ
+        rules: ഹബ് നിയമങ്ങൾ
+      hints:
+        tagline: ലിസ്റ്റിംഗുകളിൽ ഹബ് പേരിന് താഴെ കാണിക്കുന്ന ഒരു വരി
+        taglineEmpty: സജ്ജീകരിച്ചിട്ടില്ല, അതിനാൽ ലിസ്റ്റിംഗുകൾ ഹബ് പേര് മാത്രം കാണിക്കുന്നു
+        description: ഹബ് തുറക്കുമ്പോൾ അംഗങ്ങൾ വായിക്കുന്ന നീണ്ട വാചകം
+        descriptionEmpty: സജ്ജീകരിച്ചിട്ടില്ല, അതിനാൽ ഹബ് തുറക്കുമ്പോൾ അംഗങ്ങൾ ഒന്നും കാണുന്നില്ല
+        welcome: ഒരു സെർവർ ബന്ധിപ്പിക്കുമ്പോൾ കാണിക്കുന്ന ഇഷ്ടാനുസൃത അഭിവാദ്യം
+        welcomeEmpty: പുതിയ കണക്ഷനുകൾക്ക് ഇഷ്ടാനുസൃത അഭിവാദ്യമൊന്നും സജ്ജീകരിച്ചിട്ടില്ല
+        icon: അംഗങ്ങൾ എല്ലായിടത്തും കാണുന്ന ചതുരാകൃതിയിലുള്ള അവതാർ
+        banner: നിങ്ങളുടെ ഹബ്ബിന്റെ ഹെഡറിന് പിന്നിലെ വീതിയുള്ള ചിത്രം
+        visibility: ആർക്കൊക്കെ ഈ ഹബ് കണ്ടെത്താനും ചേരാനും കഴിയും
+        nsfw: ഈ ഹബ് NSFW ആയോ കുടുംബത്തിന് അനുയോജ്യമായോ അടയാളപ്പെടുത്തുക
+        cooldown: ഒരു ലംഘനത്തിന് അപ്പീൽ ചെയ്യുന്നതിന് മുമ്പ് എത്ര നേരം കാത്തിരിക്കണം
+      values:
+        servers: സെർവറുകൾ
+        notSet: "സജ്ജീകരിച്ചിട്ടില്ല"
+        unlisted: ലിസ്റ്റ് ചെയ്യാത്തത്
+        private: പ്രൈവറ്റ്
+        iconCustom: "ഇഷ്ടാനുസൃതം"
+        iconDefault: "ഡിഫോൾട്ട്"
+        bannerSet: "സജ്ജീകരിച്ചു"
+        bannerUnset: "സജ്ജീകരിച്ചിട്ടില്ല"
+        cooldown: "{hours} മണിക്കൂർ"
+        cooldownWithDays: "{hours} മണിക്കൂർ · {days} ദിവസം"
+        rulesConfigured: "{count} ക്രമീകരിച്ചു"
+        rulesEmpty: "ഇതുവരെ ഇല്ല"
+      manage:
+        rulesAdd: നിയമങ്ങൾ ചേർക്കുക
+        rulesEdit: എഡിറ്റ് ചെയ്യുക
     errors:
-      nameCooldown: Name Change on Cooldown
-      nameCooldownDesc: You can change your hub name again in **{days} days**.
-      invalidName: Invalid Name
-      invalidNameDesc: Hub name cannot be empty.
-      nameTaken: Name Already Taken
-      nameTakenDesc: The name **{name}** is already used.
-    rulesCount: "{count}/{max} rules configured"
+      nameCooldown: പേര് മാറ്റൽ കൂൾഡൗണിലാണ്
+      nameCooldownDesc: '**{days} ദിവസത്തിന്** ശേഷം നിങ്ങൾക്ക് ഹബ് പേര് വീണ്ടും മാറ്റാം.'
+      invalidName: അസാധുവായ പേര്
+      invalidNameDesc: ഹബ് പേര് ശൂന്യമാകരുത്.
+      nameTaken: പേര് ഇതിനകം എടുത്തിട്ടുണ്ട്
+      nameTakenDesc: '**{name}** എന്ന പേര് ഇതിനകം ഉപയോഗത്തിലുണ്ട്.'
+    rulesCount: "{count}/{max} നിയമങ്ങൾ ക്രമീകരിച്ചു"
   permissions:
     remove:
       label: നീക്കം ചെയ്യുക
     moderator:
       label: മോഡറേറ്റർ
-      description: സന്ദേശങ്ങൾ നിയന്ത്രിക്കുക, ഉപയോക്താക്കളെ മോഡറേറ്റ് ചെയ്യുക, റിപ്പോർട്ടുകളും അപ്പീലുകളും കൈകാര്യം ചെയ്യുക
+      description: സന്ദേശങ്ങൾ മാനേജ് ചെയ്യുക, ഉപയോക്താക്കളെ മോഡറേറ്റ് ചെയ്യുക, റിപ്പോർട്ടുകളും അപ്പീലുകളും കൈകാര്യം ചെയ്യുക
     manager:
       label: മാനേജർ
-      description: ഹബ് ക്രമീകരണങ്ങൾ നിയന്ത്രിക്കുക കൂടാതെ മോഡറേറ്റർമാർക്ക് ചെയ്യാൻ കഴിയുന്നതെല്ലാം
+      description: ഹബ് ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക, കൂടാതെ മോഡറേറ്റർമാർക്ക് ചെയ്യാവുന്ന എല്ലാം
     managerOnly:
-      description: ഹബ് ക്രമീകരണങ്ങൾ നിയന്ത്രിക്കുക
+      description: ഹബ് ക്രമീകരണങ്ങൾ മാനേജ് ചെയ്യുക
   modules:
     reactions:
       label: റിയാക്ഷനുകൾ
       description: സന്ദേശങ്ങളിൽ റിയാക്ഷൻ അടിസ്ഥാനമാക്കിയുള്ള ഇടപെടലുകൾ അനുവദിക്കുക
     hideLinks:
       label: ലിങ്കുകൾ മറയ്ക്കുക
-      description: ഹബ് സന്ദേശങ്ങളിൽ ലിങ്ക് പ്രിവ്യൂകൾ മറയ്ക്കുക
+      description: ഹബ് സന്ദേശങ്ങളിലെ ലിങ്ക് പ്രിവ്യൂകൾ മറയ്ക്കുക
     spamFilter:
       label: സ്പാം ഫിൽട്ടർ
       description: സ്പാമും അനാവശ്യ ഉള്ളടക്കവും സ്വയമേവ ഫിൽട്ടർ ചെയ്യുക
     blockInvites:
-      label: ഇൻവൈറ്റുകൾ തടയുക
-      description: സന്ദേശങ്ങളിൽ ഡിസ്‌കോർഡ് സെർവർ ഇൻവൈറ്റുകൾ തടയുക
+      label: ക്ഷണങ്ങൾ തടയുക
+      description: സന്ദേശങ്ങളിൽ Discord സെർവർ ക്ഷണങ്ങൾ തടയുക
     useNicknames:
-      label: നിക്ക്-നെയിമുകൾ ഉപയോഗിക്കുക
-      description: ഉപയോക്തൃനാമങ്ങൾക്ക് പകരം നിക്ക്-നെയിമുകൾ പ്രദർശിപ്പിക്കുക
+      label: വിളിപ്പേരുകൾ ഉപയോഗിക്കുക
+      description: ഉപയോക്തൃനാമങ്ങൾക്ക് പകരം ഉപയോക്താക്കളുടെ വിളിപ്പേരുകൾ കാണിക്കുക
     blockNsfw:
-      description: Block NSFW content even in NSFW hubs
+      description: NSFW ഹബ്ബുകളിൽ പോലും NSFW ഉള്ളടക്കം തടയുക
     allowVideos:
-      description: Allow video attachments in messages
+      description: സന്ദേശങ്ങളിൽ വീഡിയോ അറ്റാച്ച്മെന്റുകൾ അനുവദിക്കുക
     blockAttachments:
-      description: Block file attachments in messages
+      description: സന്ദേശങ്ങളിൽ ഫയൽ അറ്റാച്ച്മെന്റുകൾ തടയുക
     blockTenorGifs:
-      description: Block Tenor GIFs in messages
-    title: Hub Modules
-    description: Configure additional features and moderation tools for your hub
-    enabled: Enabled **{module}**
-    disabled: Disabled **{module}**
+      description: സന്ദേശങ്ങളിൽ Tenor GIF-കൾ തടയുക
+    title: ഹബ് മോഡ്യൂളുകൾ
+    description: നിങ്ങളുടെ ഹബ്ബിനായി അധിക ഫീച്ചറുകളും മോഡറേഷൻ ടൂളുകളും ക്രമീകരിക്കുക
+    enabled: '**{module}** പ്രവർത്തനക്ഷമമാക്കി'
+    disabled: '**{module}** പ്രവർത്തനരഹിതമാക്കി'
     success:
-      title: Modules Updated!
+      title: മോഡ്യൂളുകൾ അപ്‌ഡേറ്റ് ചെയ്തു!
     errors:
-      updateFailed: "An error occurred: {error}"
+      updateFailed: "ഒരു പിശക് സംഭവിച്ചു: {error}"
   badges:
     owner:
-      label: Owner Badge
-      description: This badge is displayed on the user who owns the hub.
+      label: ഉടമയുടെ ബാഡ്ജ്
+      description: ഹബ്ബിന്റെ ഉടമയായ ഉപയോക്താവിൽ ഈ ബാഡ്ജ് പ്രദർശിപ്പിക്കും.
     manager:
-      label: Manager Badge
-      description: This badge is displayed on the users who manage this hub.
+      label: മാനേജർ ബാഡ്ജ്
+      description: ഈ ഹബ് മാനേജ് ചെയ്യുന്ന ഉപയോക്താക്കളിൽ ഈ ബാഡ്ജ് പ്രദർശിപ്പിക്കും.
     moderator:
-      label: Moderator Badge
-      description: This badge is displayed on the users who moderate this hub.
-    selectPlaceholder: Select a badge to configure
+      label: മോഡറേറ്റർ ബാഡ്ജ്
+      description: ഈ ഹബ് മോഡറേറ്റ് ചെയ്യുന്ന ഉപയോക്താക്കളിൽ ഈ ബാഡ്ജ് പ്രദർശിപ്പിക്കും.
+    selectPlaceholder: ക്രമീകരിക്കാൻ ഒരു ബാഡ്ജ് തിരഞ്ഞെടുക്കുക
   logging:
     moderationLogs: മോഡറേഷൻ ലോഗുകൾ
-    joinLeaveLogs: ചേരുക/പോവുക ലോഗുകൾ
+    joinLeaveLogs: ചേരൽ/വിടൽ ലോഗുകൾ
     appealsChannel: അപ്പീൽ ചാനൽ
     reportsChannel: റിപ്പോർട്ട് ചാനൽ
     networkAlerts: നെറ്റ്‌വർക്ക് അലേർട്ടുകൾ
-    messageModeration: മെസ്സേജ് മോഡറേഷൻ
-    title: Hub Logging Configuration
-    description: Configure logging channels and notification roles.
-    selectPlaceholder: Select logging type to configure...
-    selectChannel: Select a channel for logging...
-    selectRole: Select a role for notifications (optional)...
-    notConfigured: കോൺഫിഗർ ചെയ്തിട്ടില്ല
-    noRole: No role
-    role: Role
-    currentConfig: Current Configuration
-    footerHint: Select a logging type above to configure
-    configureTitle: Configure {type}
-    configureDescription: Select a channel and optionally a role for notifications below.
+    messageModeration: സന്ദേശ മോഡറേഷൻ
+    title: ഹബ് ലോഗിംഗ് കോൺഫിഗറേഷൻ
+    description: ലോഗിംഗ് ചാനലുകളും അറിയിപ്പ് റോളുകളും ക്രമീകരിക്കുക.
+    selectPlaceholder: ക്രമീകരിക്കാൻ ലോഗിംഗ് തരം തിരഞ്ഞെടുക്കുക...
+    selectChannel: ലോഗിംഗിനായി ഒരു ചാനൽ തിരഞ്ഞെടുക്കുക...
+    selectRole: അറിയിപ്പുകൾക്കായി ഒരു റോൾ തിരഞ്ഞെടുക്കുക (ഓപ്ഷണൽ)...
+    notConfigured: ക്രമീകരിച്ചിട്ടില്ല
+    noRole: റോൾ ഇല്ല
+    role: റോൾ
+    currentConfig: നിലവിലെ കോൺഫിഗറേഷൻ
+    footerHint: ക്രമീകരിക്കാൻ മുകളിൽ ഒരു ലോഗിംഗ് തരം തിരഞ്ഞെടുക്കുക
+    configureTitle: '{type} ക്രമീകരിക്കുക'
+    configureDescription: താഴെ ഒരു ചാനലും ആവശ്യമെങ്കിൽ അറിയിപ്പുകൾക്കായി ഒരു റോളും തിരഞ്ഞെടുക്കുക.
     descriptions:
-      moderation: Channel for moderation actions (warns, bans, mutes)
-      joinLeave: Channel for hub connection events
-      appeals: Channel for appeal notifications
-      reports: Channel for user reports
-      networkAlerts: Channel for network-wide alerts and issues
-      messageModeration: Channel for message edit/delete logs
+      moderation: മോഡറേഷൻ നടപടികൾക്കുള്ള ചാനൽ (മുന്നറിയിപ്പുകൾ, ബാനുകൾ, മ്യൂട്ടുകൾ)
+      joinLeave: ഹബ് കണക്ഷൻ ഇവന്റുകൾക്കുള്ള ചാനൽ
+      appeals: അപ്പീൽ അറിയിപ്പുകൾക്കുള്ള ചാനൽ
+      reports: ഉപയോക്തൃ റിപ്പോർട്ടുകൾക്കുള്ള ചാനൽ
+      networkAlerts: നെറ്റ്‌വർക്ക് മുഴുവനുമുള്ള അലേർട്ടുകൾക്കും പ്രശ്നങ്ങൾക്കുമുള്ള ചാനൽ
+      messageModeration: സന്ദേശം എഡിറ്റ്/ഡിലീറ്റ് ലോഗുകൾക്കുള്ള ചാനൽ
     success:
-      updated: "{type} configuration updated!"
-      updatedDesc: "Logging for **{type}** has been updated successfully."
-      cleared: "{type} configuration cleared!"
-      clearedDesc: "Logging for **{type}** has been cleared."
+      updated: "{type} കോൺഫിഗറേഷൻ അപ്‌ഡേറ്റ് ചെയ്തു!"
+      updatedDesc: "**{type}**-ന്റെ ലോഗിംഗ് വിജയകരമായി അപ്‌ഡേറ്റ് ചെയ്തു."
+      cleared: "{type} കോൺഫിഗറേഷൻ മായ്ച്ചു!"
+      clearedDesc: "**{type}**-ന്റെ ലോഗിംഗ് മായ്ച്ചു."
     errors:
-      selectFirst: Please select a logging type first.
-      updateFailed: Failed to update logging configuration.
-      clearFailed: Failed to clear logging configuration.
+      selectFirst: ദയവായി ആദ്യം ഒരു ലോഗിംഗ് തരം തിരഞ്ഞെടുക്കുക.
+      updateFailed: ലോഗിംഗ് കോൺഫിഗറേഷൻ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.
+      clearFailed: ലോഗിംഗ് കോൺഫിഗറേഷൻ മായ്ക്കാൻ കഴിഞ്ഞില്ല.
   invites:
     create:
       title: ഇൻപുട്ട് ആവശ്യമാണ്
       customCode:
-        label: കസ്റ്റം കോഡ്
+        label: ഇഷ്ടാനുസൃത കോഡ്
         placeholder: abc123
       uses:
         label: ഉപയോഗങ്ങൾ
-        placeholder: അനന്തമായതിന് എന്നെ വെറുതെ വിടുക
+        placeholder: പരിധിയില്ലാതെ വേണമെങ്കിൽ എന്നെ ശൂന്യമായി വിടുക
       expiry:
-        label: കാലാവധി
-        placeholder: 1w, 3d, 12h (കാലാവധി ഇല്ലെങ്കിൽ വെറുതെ വിടുക)
+        label: കാലഹരണം
+        placeholder: 1w, 3d, 12h (കാലഹരണം വേണ്ടെങ്കിൽ എന്നെ ശൂന്യമായി വിടുക)
     errors:
-      invalidUses: Please enter a whole number for uses (or leave blank).
-      invalidExpiry: "Invalid expiry format. Examples: 1w, 3d, 12h."
+      invalidUses: ഉപയോഗങ്ങൾക്കായി ഒരു പൂർണ്ണസംഖ്യ നൽകുക (അല്ലെങ്കിൽ ശൂന്യമായി വിടുക).
+      invalidExpiry: "അസാധുവായ കാലഹരണ ഫോർമാറ്റ്. ഉദാഹരണങ്ങൾ: 1w, 3d, 12h."
   automod:
     createRule:
-      namePlaceholder: Enter rule name...
-      actionDescription: What should happen when this rule is triggered?
-      actionPlaceholder: Select an action...
+      namePlaceholder: നിയമത്തിന്റെ പേര് നൽകുക...
+      actionDescription: ഈ നിയമം ട്രിഗർ ആകുമ്പോൾ എന്ത് സംഭവിക്കണം?
+      actionPlaceholder: ഒരു പ്രവർത്തനം തിരഞ്ഞെടുക്കുക...
     actions:
-      delete: Block Message
-      deleteDescription: Block the message from being relayed
-      warn: Warn User
-      warnDescription: Issue a warning to the user
-      alert: Send Alert
-      alertDescription: Send an alert to the logging channel
-      censor: Censor Message
-      censorDescription: 'Censors the matched word with hashes (#)'
-    ruleCreated: Rule '{name}' has been created successfully!
+      delete: സന്ദേശം തടയുക
+      deleteDescription: സന്ദേശം റിലേ ചെയ്യുന്നത് തടയുക
+      warn: ഉപയോക്താവിന് മുന്നറിയിപ്പ് നൽകുക
+      warnDescription: ഉപയോക്താവിന് ഒരു മുന്നറിയിപ്പ് നൽകുക
+      alert: അലേർട്ട് അയയ്ക്കുക
+      alertDescription: ലോഗിംഗ് ചാനലിലേക്ക് ഒരു അലേർട്ട് അയയ്ക്കുക
+      censor: സന്ദേശം സെൻസർ ചെയ്യുക
+      censorDescription: പൊരുത്തപ്പെട്ട വാക്ക് ഹാഷുകൾ (#) ഉപയോഗിച്ച് സെൻസർ ചെയ്യുക
+    ruleCreated: '''{name}'' എന്ന നിയമം വിജയകരമായി സൃഷ്ടിച്ചു!'
     errors:
-      createFailed: Failed to create rule. Please try again.
-      updatePatterns: Failed to update patterns.
-      addWhitelist: Failed to add to safe list.
+      createFailed: നിയമം സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.
+      updatePatterns: പാറ്റേണുകൾ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല.
+      addWhitelist: സുരക്ഷിത പട്ടികയിലേക്ക് ചേർക്കാൻ കഴിഞ്ഞില്ല.
     editPatterns:
-      description: Enter patterns separated by commas. Use * for wildcards (e.g. bad*, *word*, *bad)
-      placeholder: Enter patterns...
-    patternsSaved: Saved {count} pattern{s}.
+      description: പാറ്റേണുകൾ കോമ കൊണ്ട് വേർതിരിച്ച് നൽകുക. വൈൽഡ്കാർഡിന് * ഉപയോഗിക്കുക (ഉദാ. bad*, *word*, *bad)
+      placeholder: പാറ്റേണുകൾ നൽകുക...
+    patternsSaved: '{count} പാറ്റേണുകൾ സേവ് ചെയ്തു.'
     whitelist:
-      description: Enter a word to add to the safe list
-      added: Added '{word}' to the safe list.
-      noneToRemove: No safe words to remove
-      selectRemove: Select words to remove...
-      removed: Removed {count} word(s) from the safe list.
-    proOnly: "Advanced AutoMod is available for Pro hubs only. Upgrade your hub to Pro to configure these rules."
+      description: സുരക്ഷിത പട്ടികയിലേക്ക് ചേർക്കാൻ ഒരു വാക്ക് നൽകുക
+      added: '''{word}'' സുരക്ഷിത പട്ടികയിലേക്ക് ചേർത്തു.'
+      noneToRemove: നീക്കം ചെയ്യാൻ സുരക്ഷിത വാക്കുകളില്ല
+      selectRemove: നീക്കം ചെയ്യാൻ വാക്കുകൾ തിരഞ്ഞെടുക്കുക...
+      removed: സുരക്ഷിത പട്ടികയിൽ നിന്ന് {count} വാക്ക്(കൾ) നീക്കം ചെയ്തു.
+    proOnly: "അഡ്വാൻസ്ഡ് AutoMod പ്രോ ഹബ്ബുകൾക്ക് മാത്രമേ ലഭ്യമാകൂ. ഈ നിയമങ്ങൾ ക്രമീകരിക്കാൻ നിങ്ങളുടെ ഹബ് പ്രോയിലേക്ക് അപ്ഗ്രേഡ് ചെയ്യുക."
     deleteRule:
-      title: Delete Rule
-      description: Are you sure you want to delete **{ruleName}**?
-      success: Rule **{ruleName}** has been deleted.
-      cancelled: Rule deletion cancelled.
+      title: നിയമം ഇല്ലാതാക്കുക
+      description: '**{ruleName}** ഇല്ലാതാക്കണമെന്ന് ഉറപ്പാണോ?'
+      success: '**{ruleName}** എന്ന നിയമം ഇല്ലാതാക്കി.'
+      cancelled: നിയമം ഇല്ലാതാക്കൽ റദ്ദാക്കി.
+
 moderation:
   notifications:
-    title: "Moderation Notice"
-    description: "You have received a moderation action in the hub **{hubName}**."
-    warnTitle: "⚠️ You have been Warned"
-    muteTitle: "🔇 You have been Muted"
-    banTitle: "🔨 You have been Banned"
-    unmuteTitle: "🔊 You have been Unmuted"
-    unbanTitle: "🔊 You have been Unbanned"
-    fieldAction: "Action"
+    title: "മോഡറേഷൻ അറിയിപ്പ്"
+    description: "**{hubName}** ഹബ്ബിൽ നിങ്ങൾക്ക് ഒരു മോഡറേഷൻ നടപടി ലഭിച്ചു."
+    warnTitle: ':alert_icon: നിങ്ങൾക്ക് മുന്നറിയിപ്പ് നൽകി'
+    muteTitle: ':volume_off: നിങ്ങളെ മ്യൂട്ട് ചെയ്തു'
+    banTitle: ':hammer_icon: നിങ്ങളെ ബാൻ ചെയ്തു'
+    unmuteTitle: ':volume_2: നിങ്ങളെ അൺമ്യൂട്ട് ചെയ്തു'
+    unbanTitle: ':volume_2: നിങ്ങളെ അൺബാൻ ചെയ്തു'
+    fieldAction: "നടപടി"
     fieldReason: "കാരണം"
-    fieldDuration: "കാലാവധി"
-    fieldExpires: "അവസാനിക്കുന്നത്"
-    appealHint: "If you believe this was an error, you can submit an appeal using `/appeal` in any server connected to this hub."
+    fieldDuration: "ദൈർഘ്യം"
+    fieldExpires: "കാലഹരണപ്പെടുന്നത്"
+    appealHint: "ഇതൊരു പിശകാണെന്ന് നിങ്ങൾ കരുതുന്നുവെങ്കിൽ, ഈ ഹബ്ബുമായി ബന്ധിപ്പിച്ച ഏതൊരു സെർവറിലും `/appeal` ഉപയോഗിച്ച് അപ്പീൽ സമർപ്പിക്കാം."
   footer:
-    actionedBy: "Actioned by {user}"
+    actionedBy: "നടപടി എടുത്തത് {user}"
   actionNames:
     warned: മുന്നറിയിപ്പ് നൽകി
     muted: മ്യൂട്ട് ചെയ്തു
@@ -545,151 +961,170 @@ moderation:
     mute: മ്യൂട്ട്
     ban: ബാൻ
   prep:
-    in: '-ൽ'
-    from: '-ൽ നിന്ന്'
+    in: -ൽ
+    from: -ൽ നിന്ന്
   permissions:
-    managerRequired: മാനേജർ+ അനുമതികൾ ആവശ്യമാണ്.
+    managerRequired: മാനേജർ അല്ലെങ്കിൽ ഉയർന്ന അനുമതികൾ ആവശ്യമാണ്.
   target:
-    both: ദയവായി ഒരു ഉപയോക്താവിനെയോ സെർവറിനെയോ വ്യക്തമാക്കുക, രണ്ടും അല്ല.
-    missing: ദയവായി ഒരു ഉപയോക്താവിനെയോ സെർവറിനെയോ വ്യക്തമാക്കുക.
+    both: ദയവായി ഒരു ഉപയോക്താവിനെയോ ഒരു സെർവറിനെയോ വ്യക്തമാക്കുക, രണ്ടും വേണ്ട.
+    missing: ദയവായി ഒരു ഉപയോക്താവിനെയോ ഒരു സെർവറിനെയോ വ്യക്തമാക്കുക.
   revoke:
     noActive: സജീവമായ {action} ഒന്നും കണ്ടെത്തിയില്ല.
     success: '{action} റദ്ദാക്കി.'
   delete:
     success: ബന്ധിപ്പിച്ച എല്ലാ ഹബ്ബുകളിൽ നിന്നും സന്ദേശം ഇല്ലാതാക്കി.
-    notInterChatMessage: ഈ സന്ദേശം ഒരു ഇന്റർചാറ്റ് സന്ദേശമല്ല അല്ലെങ്കിൽ ഇതിനകം ഇല്ലാതാക്കി.
+    notInterChatMessage: ഈ സന്ദേശം InterChat സന്ദേശമല്ല അല്ലെങ്കിൽ ഇതിനകം ഇല്ലാതാക്കിയിരിക്കുന്നു.
   blacklist:
-    permissionDenied: ഒരു ആഗോള ബ്ലാക്ക്‌ലിസ്റ്റ് പുറപ്പെടുവിക്കാൻ നിങ്ങൾക്ക് ഇന്റർചാറ്റ് സ്റ്റാഫ് അനുമതിയില്ല.
-    alreadyActive: ടാർഗെറ്റിന് ഇതിനകം തന്നെ സജീവമായ ഒരു ആഗോള ബ്ലാക്ക്‌ലിസ്റ്റ് ഉണ്ട്.
-    success: ആഗോളതലത്തിൽ കരിമ്പട്ടികയിൽ പെടുത്തിയിരിക്കുന്നു {target}.
+    permissionDenied: ഗ്ലോബൽ ബ്ലാക്ക്‌ലിസ്റ്റ് നൽകാൻ നിങ്ങൾക്ക് InterChat സ്റ്റാഫ് അനുമതികളില്ല.
+    alreadyActive: ലക്ഷ്യത്തിന് ഇതിനകം സജീവമായ ഗ്ലോബൽ ബ്ലാക്ക്‌ലിസ്റ്റ് ഉണ്ട്.
+    success: '{target}-നെ ഗ്ലോബലായി ബ്ലാക്ക്‌ലിസ്റ്റ് ചെയ്തു.'
   success:
-    action: "{target} എന്നത് {action} {prep} {hubName} ആയി മാറിയിരിക്കുന്നു"
+    action: "{target}-നെ {hubName}{prep} {action}"
   actions:
     warn:
-      label: മുന്നറിയിപ്പ്
+      label: മുന്നറിയിപ്പ് നൽകുക
       description: തിരഞ്ഞെടുത്ത ലക്ഷ്യത്തിന് മുന്നറിയിപ്പ് നൽകുക
     mute:
-      label: മ്യൂട്ട്
-      description: ഒരു ഹബ്ബിൽ നിന്ന് ഒരു ഉപയോക്താവിനെയോ സെർവറിനെയോ മ്യൂട്ട് ചെയ്യുക
+      label: മ്യൂട്ട് ചെയ്യുക
+      description: വ്യക്തമാക്കിയ ഹബ്ബിൽ ഒരു ഉപയോക്താവിനെ/സെർവറിനെ മ്യൂട്ട് ചെയ്യുക
     ban:
-      label: ബാൻ
-      description: ഒരു ഹബ്ബിൽ നിന്ന് ഒരു ഉപയോക്താവിനെയോ സെർവറിനെയോ ബാൻ ചെയ്യുക
+      label: ബാൻ ചെയ്യുക
+      description: വ്യക്തമാക്കിയ ഹബ്ബിൽ നിന്ന് ഒരു ഉപയോക്താവിനെ/സെർവറിനെ ബാൻ ചെയ്യുക
     unmute:
-      label: അൺമ്യൂട്ട്
+      label: അൺമ്യൂട്ട് ചെയ്യുക
       description: സജീവമായ മ്യൂട്ട് ലംഘനങ്ങൾ റദ്ദാക്കുക
     unban:
-      label: അൺബാൻ
+      label: അൺബാൻ ചെയ്യുക
       description: സജീവമായ ബാൻ ലംഘനങ്ങൾ റദ്ദാക്കുക
     blacklist:
-      label: കരിമ്പട്ടിക
-      description: ഇന്റർചാറ്റ് വൈഡ് ബ്ലാക്ക്‌ലിസ്റ്റ് നൽകുക (യൂസർ/സെർവർ)
+      label: ബ്ലാക്ക്‌ലിസ്റ്റ്
+      description: InterChat മുഴുവൻ ബാധകമായ ബ്ലാക്ക്‌ലിസ്റ്റ് നൽകുക (ഉപയോക്താവ്/സെർവർ)
     history:
-      label: History
-      description: View infraction and report history for the target
+      label: ചരിത്രം
+      description: ലക്ഷ്യത്തിന്റെ ലംഘന, റിപ്പോർട്ട് ചരിത്രം കാണുക
     delete:
       label: ഇല്ലാതാക്കുക
-      description: ബന്ധിപ്പിച്ച എല്ലാ ഹബ്ബുകളിലും തിരഞ്ഞെടുത്ത സന്ദേശം ഇല്ലാതാക്കുക
+      description: തിരഞ്ഞെടുത്ത സന്ദേശം ബന്ധിപ്പിച്ച എല്ലാ ഹബ്ബുകളിൽ നിന്നും ഇല്ലാതാക്കുക
   modal:
     title: മോഡറേഷൻ നടപടി
     reason:
-      placeholder: ചുരുക്കത്തിൽ കാരണം നൽകുക{optional}
+      placeholder: ഒരു ചുരുക്കമായ ന്യായീകരണം നൽകുക{optional}
     duration:
-      label: കാലാവധി
+      label: ദൈർഘ്യം
       placeholder: ഉദാ. 30m, 2h, 1d
   hubSelect:
     placeholder: മോഡറേറ്റ് ചെയ്യാൻ ഒരു ഹബ് തിരഞ്ഞെടുക്കുക...
-    noHubs: No hubs available
-    noHubsDesc: No hubs available for moderation
+    noHubs: ഹബ്ബുകളൊന്നും ലഭ്യമല്ല
+    noHubsDesc: മോഡറേഷന് ഹബ്ബുകളൊന്നും ലഭ്യമല്ല
   hubSelection:
     title: ഹബ് തിരഞ്ഞെടുക്കൽ
     description: നിങ്ങൾ മോഡറേറ്റ് ചെയ്യാൻ ആഗ്രഹിക്കുന്ന ഹബ് തിരഞ്ഞെടുക്കുക.
     fieldHubLabel: ഹബ്
     fieldHubPrompt: തിരഞ്ഞെടുത്ത ഹബ്
   targetSelection:
-    title: ടാർഗെറ്റ് തിരഞ്ഞെടുക്കൽ
-    description: നിങ്ങൾ ആരെയാണ് {action} ചെയ്യാൻ ആഗ്രഹിക്കുന്നത്?
-    user: Act on User
-    server: Act on Server
+    title: ലക്ഷ്യം തിരഞ്ഞെടുക്കൽ
+    description: നിങ്ങൾ ആരെ {action} ചെയ്യാൻ ആഗ്രഹിക്കുന്നു?
+    user: ഉപയോക്താവിനെതിരെ നടപടി
+    server: സെർവറിനെതിരെ നടപടി
   actionSelect:
     placeholder: ഒരു മോഡറേഷൻ നടപടി തിരഞ്ഞെടുക്കുക...
   validators:
-    reasonTooShort: "Reason must be at least {min} characters long."
-    reasonTooLong: "Reason must be no more than {max} characters long."
-    durationRequired: "Duration is required for mute actions."
-    durationNotNeeded: "Duration is only needed for mute actions."
-    durationTooShort: "Duration is too short."
-    durationTooLong: "Duration is too long."
-    invalidDurationFormat: "Invalid duration format."
-    noTarget: "No valid target specified for this action."
+    reasonTooShort: "കാരണത്തിന് കുറഞ്ഞത് {min} അക്ഷരങ്ങൾ വേണം."
+    reasonTooLong: "കാരണം {max} അക്ഷരങ്ങളിൽ കൂടരുത്."
+    durationRequired: "മ്യൂട്ട് നടപടികൾക്ക് ദൈർഘ്യം ആവശ്യമാണ്."
+    durationNotNeeded: "ദൈർഘ്യം മ്യൂട്ട് നടപടികൾക്ക് മാത്രമേ ആവശ്യമുള്ളൂ."
+    durationTooShort: "ദൈർഘ്യം വളരെ കുറവാണ്."
+    durationTooLong: "ദൈർഘ്യം വളരെ കൂടുതലാണ്."
+    invalidDurationFormat: "അസാധുവായ ദൈർഘ്യ ഫോർമാറ്റ്."
+    noTarget: "ഈ നടപടിക്ക് സാധുവായ ലക്ഷ്യം വ്യക്തമാക്കിയിട്ടില്ല."
   history:
-    title: "{info_icon} Moderation History"
-    noHubSelected: ഹബ്ബ് തിരഞ്ഞെടുത്തിട്ടില്ല.
-    noTarget: "No target specified."
-    recentInfractions: "Recent Infractions ({count} total)"
-    noInfractions: "No infractions found."
-    recentReports: "Recent Reports ({count} total)"
-    noReports: "No reports found."
-    fetchFailed: "Failed to fetch moderation history."
+    title: "{info_icon} മോഡറേഷൻ ചരിത്രം"
+    noHubSelected: ഹബ് തിരഞ്ഞെടുത്തിട്ടില്ല.
+    noTarget: "ലക്ഷ്യം വ്യക്തമാക്കിയിട്ടില്ല."
+    recentInfractions: "സമീപകാല ലംഘനങ്ങൾ (ആകെ {count})"
+    noInfractions: "ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല."
+    recentReports: "സമീപകാല റിപ്പോർട്ടുകൾ (ആകെ {count})"
+    noReports: "റിപ്പോർട്ടുകളൊന്നും കണ്ടെത്തിയില്ല."
+    fetchFailed: "മോഡറേഷൻ ചരിത്രം ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല."
   report:
-    jumpToMessage: Jump to Message
-    notFound: "Report not found or deleted."
-    noHub: "Unable to determine hub for this report."
-    handledTitle: "Report Handled"
-    handledDesc: "Your report `{id}` has been reviewed and action has been taken."
-    handledFooter: "Thank you for helping keep the hub safe!"
+    jumpToMessage: സന്ദേശത്തിലേക്ക് പോകുക
+    notFound: "റിപ്പോർട്ട് കണ്ടെത്തിയില്ല അല്ലെങ്കിൽ ഇല്ലാതാക്കി."
+    noHub: "ഈ റിപ്പോർട്ടിന്റെ ഹബ് നിർണ്ണയിക്കാൻ കഴിഞ്ഞില്ല."
+    handledTitle: "റിപ്പോർട്ട് കൈകാര്യം ചെയ്തു"
+    handledDesc: "നിങ്ങളുടെ റിപ്പോർട്ട് `{id}` പരിശോധിച്ചു, നടപടി സ്വീകരിച്ചിട്ടുണ്ട്."
+    handledFooter: "ഹബ് സുരക്ഷിതമായി നിലനിർത്താൻ സഹായിച്ചതിന് നന്ദി!"
   errors:
     selectedHubNotFound: തിരഞ്ഞെടുത്ത ഹബ് കണ്ടെത്തിയില്ല.
-    unknownAction: അജ്ഞാത പ്രവർത്തനം.
-    unsupportedAction: പിന്തുണയ്‌ക്കാത്ത പ്രവർത്തന റൂട്ട്.
-    openPanelFailed: Unexpected error opening mod panel.
+    unknownAction: അജ്ഞാത നടപടി.
+    unsupportedAction: പിന്തുണയ്ക്കാത്ത നടപടി റൂട്ട്.
+    openPanelFailed: മോഡ് പാനൽ തുറക്കുമ്പോൾ അപ്രതീക്ഷിത പിശക് സംഭവിച്ചു.
     notModeratorForHub: നിങ്ങൾ ഈ ഹബ്ബിന്റെ മോഡറേറ്റർ അല്ല.
     alreadyState: "{targetType} ഈ ഹബ്ബിൽ ഇതിനകം {state} ആണ്."
     invalidHubData: അസാധുവായ ഹബ് ഡാറ്റ.
-    originalMessageNotFound: ഡാറ്റാബേസിൽ യഥാർത്ഥ സന്ദേശം കണ്ടെത്തിയില്ല.
-    fetchAuthorOrServerFailed: സന്ദേശ രചയിതാവിനെയോ സെർവറിനെയോ കണ്ടെത്താനായില്ല.
-    hubNotFoundForMessage: ഈ സന്ദേശത്തിനുള്ള ഹബ് കണ്ടെത്തിയില്ല.
-    noModeratedHubs: നിങ്ങൾക്ക് ഒരു ഹബ്ബുകളിലും മോഡറേഷൻ അനുമതികളില്ല.
+    originalMessageNotFound: യഥാർത്ഥ സന്ദേശം ഡാറ്റാബേസിൽ കണ്ടെത്തിയില്ല.
+    fetchAuthorOrServerFailed: സന്ദേശത്തിന്റെ രചയിതാവിനെയോ സെർവറിനെയോ ലഭ്യമാക്കാൻ കഴിഞ്ഞില്ല.
+    hubNotFoundForMessage: ഈ സന്ദേശത്തിന് ഹബ് കണ്ടെത്തിയില്ല.
+    noModeratedHubs: ഒരു ഹബ്ബിലും നിങ്ങൾക്ക് മോഡറേഷൻ അനുമതികളില്ല.
     noTarget: ദയവായി ഒരു ലക്ഷ്യം (ഉപയോക്താവ്/സെർവർ) വ്യക്തമാക്കുക അല്ലെങ്കിൽ ഒരു സന്ദേശത്തിന് മറുപടി നൽകുക.
-    actionProcessingFailed: "An error occurred while processing the action."
-    modalOpenFailed: "Failed to open the modal. Please try again."
-    notModerator: "You are not a moderator for any hubs."
-    noHubsAvailable: "No hubs are available for moderation."
+    actionProcessingFailed: "നടപടി പ്രോസസ്സ് ചെയ്യുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു."
+    modalOpenFailed: "മോഡൽ തുറക്കാൻ കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക."
+    notModerator: "നിങ്ങൾ ഒരു ഹബ്ബിന്റെയും മോഡറേറ്റർ അല്ല."
+    noHubsAvailable: "മോഡറേഷന് ഹബ്ബുകളൊന്നും ലഭ്യമല്ല."
     webhooks:
-      noPermission: "You do not have permission to moderate this hub."
+      noPermission: "ഈ ഹബ് മോഡറേറ്റ് ചെയ്യാൻ നിങ്ങൾക്ക് അനുമതിയില്ല."
+conversationIdeas:
+  title: സംഭാഷണ ആശയം
+  description: ഒരു ഹബ്ബിനോ ടെക്സ്റ്റ് കോളിനോ ഒരു സ്വകാര്യ സംഭാഷണ ആശയം നേടുക
+  another: മറ്റൊരു ആശയം
+  hint: "ഇത് നിങ്ങൾക്ക് മാത്രമേ കാണാനാകൂ. ചാറ്റിൽ ചോദിക്കുക അല്ലെങ്കിൽ സ്വന്തം ഉത്തരം പങ്കിടുക. നിങ്ങൾക്ക് വേണ്ടി ഒന്നും അയയ്ക്കില്ല."
+  callHint: "ഇതൊരു ടെക്സ്റ്റ് ചാറ്റാണ്. സ്വകാര്യ സംഭാഷണ ആശയത്തിന് `/topic`, മറ്റൊരു ചാറ്റ് കണ്ടെത്താൻ `/skip`, അല്ലെങ്കിൽ പുറത്തുപോകാൻ `/hangup` ഉപയോഗിക്കുക."
+  prompts:
+    games: "നിങ്ങൾക്ക് എപ്പോഴും വീണ്ടും കളിക്കാൻ തോന്നുന്ന ഗെയിം ഏതാണ്?"
+    music: "ഈയിടെ നിങ്ങൾ വീണ്ടും വീണ്ടും കേൾക്കുന്ന പാട്ട് ഏതാണ്?"
+    hobbies: "പരീക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന ഒരു ഹോബി ഏതാണ്?"
+    skills: "ഒരു കഴിവ് തൽക്ഷണം പഠിക്കാൻ കഴിയുമെങ്കിൽ നിങ്ങൾ ഏത് തിരഞ്ഞെടുക്കും?"
+    fiction: "ഏത് സാങ്കൽപ്പിക ലോകം സന്ദർശിക്കാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നു, എന്തുകൊണ്ട്?"
+    smallJoys: "ഈ ആഴ്ച നിങ്ങളെ ചിരിപ്പിച്ച ഒരു ചെറിയ കാര്യം എന്താണ്?"
+
 welcomeMessage:
-  title: '**{hubName}** എന്ന ഇന്റർചാറ്റ് ഹബ്ബിലേക്ക് സ്വാഗതം!'
-  errorDm: Failed to send welcome message.
-  introText: നിങ്ങൾ ഇപ്പോൾ സെർവറുകളുടെ ഒരു ശൃംഖലയിലേക്ക് കണക്റ്റുചെയ്‌തിരിക്കുന്നു. നിങ്ങൾ ഇവിടെ അയയ്‌ക്കുന്ന സന്ദേശങ്ങൾ ഈ ഹബ്ബിലെ എല്ലാവർക്കും ദൃശ്യമാകും.
+  title: '**{hubName}** എന്ന InterChat ഹബ്ബിലേക്ക് സ്വാഗതം!'
+  errorDm: സ്വാഗത സന്ദേശം അയയ്ക്കാൻ കഴിഞ്ഞില്ല.
+  introText: നിങ്ങൾ ഇപ്പോൾ സെർവറുകളുടെ ഒരു നെറ്റ്‌വർക്കുമായി ബന്ധിപ്പിച്ചിരിക്കുന്നു. നിങ്ങൾ ഇവിടെ അയയ്ക്കുന്ന സന്ദേശങ്ങൾ ഈ ഹബ്ബിലെ എല്ലാവർക്കും കാണാം.
+  startChatting: "ഹായ് പറയൂ, നിങ്ങൾക്ക് ഇഷ്ടമുള്ളത് പങ്കിടൂ, അല്ലെങ്കിൽ ഇതിനകം ചാറ്റ് ചെയ്യുന്ന ആർക്കെങ്കിലും മറുപടി നൽകൂ. തുടങ്ങാൻ ഒരു വഴി വേണോ? താഴെയുള്ള ഒരു സംഭാഷണ ആശയം പരീക്ഷിക്കൂ, അല്ലെങ്കിൽ എപ്പോൾ വേണമെങ്കിലും `/topic` ഉപയോഗിക്കൂ."
   quickActions: ദ്രുത പ്രവർത്തനങ്ങൾ
   buttons:
     rules: നിയമങ്ങൾ
     profile: പ്രൊഫൈൽ
-    hubInfo: ഹബ് വിവരങ്ങൾ
+    hubInfo: ഹബ് വിവരം
     report: എങ്ങനെ റിപ്പോർട്ട് ചെയ്യാം
-    support: പിന്തുണ (Support)
-    disconnect: വിച്ഛേദിക്കുക (Disconnect)
+    support: സപ്പോർട്ട്
+    disconnect: വിച്ഛേദിക്കുക
   hubInfo:
-    connections: '🔗 കണക്ഷനുകൾ'
-    hubPageLabel: "{link_icon} Hub Page"
-    hubPageValue: "[View on InterChat]({hubUrl})"
+    connections: ':link_icon: കണക്ഷനുകൾ'
+    hubPageLabel: "{link_icon} ഹബ് പേജ്"
+    hubPageValue: "[InterChat-ൽ കാണുക]({hubUrl})"
+    createHint: "സ്വന്തമായി തുടങ്ങണോ? `/hub create` ഉപയോഗിക്കൂ."
   rules:
-    title: "{rules_icon} {hubName} - Rules"
-    guidelines: "Please adhere to the guidelines @ {guidelinesUrl}"
+    title: "{rules_icon} {hubName} - നിയമങ്ങൾ"
+    guidelines: "ദയവായി {guidelinesUrl}-ലെ മാർഗ്ഗനിർദ്ദേശങ്ങൾ പാലിക്കുക"
   errors:
     disconnectPermission:
-      title: "{x_icon} Permission Denied"
-      description: You need the **Manage Channels** permission to disconnect from a hub.
+      title: "{x_icon} അനുമതി നിഷേധിച്ചു"
+      description: ഒരു ഹബ്ബിൽ നിന്ന് വിച്ഛേദിക്കാൻ നിങ്ങൾക്ക് **ചാനലുകൾ മാനേജ് ചെയ്യുക** അനുമതി വേണം.
   disconnect:
-    successDescription: Successfully disconnected from **{hubName}**.
-    cancelled: Disconnection cancelled.
+    successDescription: '**{hubName}**-ൽ നിന്ന് വിജയകരമായി വിച്ഛേദിച്ചു.'
+    cancelled: വിച്ഛേദിക്കൽ റദ്ദാക്കി.
   disconnectConfirm:
     title: ഹബ്ബിൽ നിന്ന് വിച്ഛേദിക്കണോ?
-    description: '**{hubName}**-ൽ നിന്ന് വിച്ഛേദിക്കണമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?'
+    description: '**{hubName}**-ൽ നിന്ന് വിച്ഛേദിക്കണമെന്ന് ഉറപ്പാണോ?'
+
 infractions:
-  description: ഉപയോക്താവോ സെർവറോ ഫിൽട്ടർ ചെയ്‌ത ഒരു ഹബ്ബിലെ ലംഘനങ്ങൾ കാണുക.
+  description: ഒരു ഹബ്ബിലെ ലംഘനങ്ങൾ ഉപയോക്താവോ സെർവറോ അനുസരിച്ച് ഫിൽട്ടർ ചെയ്ത് കാണുക.
   buttons:
-    userInfractions: ഉപയോക്തൃ ലംഘനങ്ങൾ
-    serverInfractions: സെർവർ ലംഘനങ്ങൾ
+    allInfractions: എല്ലാം
+    userInfractions: ഉപയോക്താക്കൾ
+    serverInfractions: സെർവറുകൾ
+    clearFilter: ഫിൽട്ടർ നീക്കുക
   titles:
     base: ലംഘനങ്ങൾ · {hubName}
     userList: ഉപയോക്തൃ ലംഘനങ്ങൾ · {hubName}
@@ -697,30 +1132,32 @@ infractions:
     userSpecific: '{user}-ന്റെ ലംഘനങ്ങൾ · {hubName}'
     serverSpecific: സെർവർ {serverId}-ന്റെ ലംഘനങ്ങൾ · {hubName}
   descriptions:
-    base: ഈ ഹബ്ബിനായി കാണേണ്ട ലംഘനങ്ങൾ തിരഞ്ഞെടുക്കുക.
-    userListEmpty: ഈ ഹബ്ബിൽ ഉപയോക്തൃ ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
-    serverListEmpty: ഈ ഹബ്ബിൽ സെർവർ ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
+    base: ഈ ഹബ്ബിനായി ഏത് ലംഘനങ്ങൾ കാണണമെന്ന് തിരഞ്ഞെടുക്കുക.
+    empty: മോഡറേഷൻ രേഖകളൊന്നും കണ്ടെത്തിയില്ല.
+    userListEmpty: ഈ ഹബ്ബിന് ഉപയോക്തൃ ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
+    serverListEmpty: ഈ ഹബ്ബിന് സെർവർ ലംഘനങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
   labels:
-    evidence: Evidence
-    issued: Issued
+    evidence: തെളിവ്
+    issued: നൽകിയത്
   evidence:
     content: ഉള്ളടക്കം
     author: രചയിതാവ്
   errors:
-    noPermission: ഈ ഹബ്ബിലെ നിയമലംഘനങ്ങൾ കാണാൻ നിങ്ങൾക്ക് അനുമതിയില്ല.
-    bothSelection: ദയവായി ഒരു ഉപയോക്താവിനെയോ സെർവറിനെയോ മാത്രം തിരഞ്ഞെടുക്കുക, രണ്ടും വേണ്ട.
-    invalidServerId: അസാധുവായ സെർവർ ഐഡി.
+    noPermission: ഈ ഹബ്ബിന്റെ ലംഘനങ്ങൾ കാണാൻ നിങ്ങൾക്ക് അനുമതിയില്ല.
+    bothSelection: ദയവായി ഒരു ഉപയോക്താവിനെയോ ഒരു സെർവറിനെയോ മാത്രം തിരഞ്ഞെടുക്കുക, രണ്ടും വേണ്ട.
+    invalidServerId: അസാധുവായ സെർവർ ID.
   permissions:
-    insufficient: ഈ ഹബ്ബിൽ നിങ്ങൾക്ക് {permission}+ അനുമതികൾ ആവശ്യമാണ്.
+    insufficient: ഈ ഹബ്ബിൽ നിങ്ങൾക്ക് {permission}+ അനുമതികൾ വേണം.
   delete:
-    notFound: നിയമലംഘനം കണ്ടെത്തിയില്ല.
+    notFound: ലംഘനം കണ്ടെത്തിയില്ല.
     success: ലംഘനം ഇല്ലാതാക്കി.
+
 staff:
   get:
     server:
       description: ഒരു സെർവറിനെക്കുറിച്ചുള്ള വിശദമായ വിവരങ്ങൾ നേടുക
     hub:
-      description: ഒരു ഹബിനെക്കുറിച്ചുള്ള വിശദമായ വിവരങ്ങൾ നേടുക
+      description: ഒരു ഹബ്ബിനെക്കുറിച്ചുള്ള വിശദമായ വിവരങ്ങൾ നേടുക
     user:
       description: ഒരു ഉപയോക്താവിനെക്കുറിച്ചുള്ള വിശദമായ വിവരങ്ങൾ നേടുക
   hub:
@@ -730,56 +1167,56 @@ staff:
       name: പേര്
       messages: സന്ദേശങ്ങൾ
       connections: കണക്ഷനുകൾ
-      upvotes: വോട്ടുകൾ
-      location: സ്ഥലം
+      upvotes: അപ്‌വോട്ടുകൾ
+      location: സ്ഥാനം
       activity: പ്രവർത്തനം
       appealCooldown: അപ്പീൽ കൂൾഡൗൺ
       welcomeMessage: സ്വാഗത സന്ദേശം
-      description: വിവരണം
+      description: *label_description
     values:
-      messagesThisWeek: "**{count}** ഈ ആഴ്ച"
-      connectionsActive: "**{count}** സജീവമാണ്"
-      upvotesTotal: "**{count}** ആകെ"
+      messagesThisWeek: "ഈ ആഴ്ച **{count}**"
+      connectionsActive: "**{count}** സജീവം"
+      upvotesTotal: "ആകെ **{count}**"
     badges:
-      verified: വെരിഫൈഡ്
-      partnered: പാർട്ണർ
-      featured: ഫീച്ചേർഡ്
-      locked: ലോക്ക് ചെയ്തു
+      verified: പരിശോധിച്ചുറപ്പിച്ചത്
+      partnered: പങ്കാളി
+      featured: ഫീച്ചർ ചെയ്തത്
+      locked: ലോക്ക് ചെയ്തത്
       nsfw: NSFW
   server:
     fields:
       name: പേര്
-      inviteCode: ഇൻവൈറ്റ് കോഡ്
+      inviteCode: ക്ഷണ കോഡ്
       messages: സന്ദേശങ്ങൾ
       connections: കണക്ഷനുകൾ
       lastMessage: അവസാന സന്ദേശം
-      updated: അപ്ഡേറ്റ് ചെയ്തത്
+      updated: അപ്‌ഡേറ്റ് ചെയ്തത്
     values:
-      messagesTotal: "**{count}** ആകെ"
-      connectionsActive: "**{count}** സജീവമാണ്"
+      messagesTotal: "ആകെ **{count}**"
+      connectionsActive: "**{count}** സജീവം"
   user:
     inbox:
-      title: Inbox
-      description: We found some messages from our team for you!
-      emptyTitle: All caught up!
-      emptyDescription: We couldn't find any new announcements for you.
+      title: ഇൻബോക്സ്
+      description: ഞങ്ങളുടെ ടീമിൽ നിന്ന് നിങ്ങൾക്കായി ചില സന്ദേശങ്ങൾ കണ്ടെത്തി!
+      emptyTitle: എല്ലാം കണ്ടുകഴിഞ്ഞു!
+      emptyDescription: നിങ്ങൾക്കായി പുതിയ അറിയിപ്പുകളൊന്നും കണ്ടെത്തിയില്ല.
     fields:
       name: പേര്
       messages: സന്ദേശങ്ങൾ
-      reputation: റെപ്പ്യൂട്ടേഷൻ
+      reputation: പ്രശസ്തി
       votes: വോട്ടുകൾ
-      hubJoins: ഹബ് ജോയിനുകൾ
+      hubJoins: ഹബ് ചേരലുകൾ
       engagement: ഇടപെടൽ
-      locale: ഭാഷ (Locale)
+      locale: ഭാഷ
       lastMessage: അവസാന സന്ദേശം
       lastVote: അവസാന വോട്ട്
     values:
       staff: സ്റ്റാഫ്
-      member: മെമ്പർ
+      member: അംഗം
       messagesSent: "**{count}** അയച്ചു"
-      reputationPoints: "**{count}** പോയിന്റ്"
-      votesCast: "**{count}** ചെയ്തു"
-      hubJoinsTotal: "**{count}** ആകെ"
+      reputationPoints: "**{count}** പോയിന്റുകൾ"
+      votesCast: "**{count}** രേഖപ്പെടുത്തി"
+      hubJoinsTotal: "ആകെ **{count}**"
       notSet: സജ്ജീകരിച്ചിട്ടില്ല
       never: ഒരിക്കലുമില്ല
     sections:
@@ -789,13 +1226,13 @@ staff:
       badges: ബാഡ്ജുകൾ
     preferences:
       showBadges: ബാഡ്ജുകൾ കാണിക്കുക
-      mentionOnReply: മറുപടിയിൽ മെൻഷൻ ചെയ്യുക
+      mentionOnReply: മറുപടിയിൽ പരാമർശിക്കുക
       showNsfwHubs: NSFW ഹബ്ബുകൾ കാണിക്കുക
     content:
       hubs: "{count} ഹബ്ബുകൾ"
       modPositions: "{count} മോഡ് സ്ഥാനങ്ങൾ"
-      blockedWords: "{count} തടയപ്പെട്ട വാക്കുകൾ"
-      automodRules: "{count} automod rules"
+      blockedWords: "{count} തടഞ്ഞ വാക്കുകൾ"
+      automodRules: "{count} automod നിയമങ്ങൾ"
     moderation:
       infractionsReceived: "{count} ലംഘനങ്ങൾ ലഭിച്ചു"
       infractionsIssued: "{count} ലംഘനങ്ങൾ നൽകി"
@@ -809,374 +1246,669 @@ staff:
       achievements: "{count} നേട്ടങ്ങൾ"
   blacklist:
     fields:
-      expires: അവസാനിക്കുന്നത്
-    notFound: പൊരുത്തപ്പെടുന്ന ബ്ലാക്ക്‌ലിസ്റ്റ് എൻട്രി കണ്ടെത്തിയില്ല.
-    removed: കരിമ്പട്ടിക എൻട്രി നീക്കം ചെയ്‌തു.
+      expires: കാലഹരണപ്പെടുന്നത്
+    notFound: "പൊരുത്തപ്പെടുന്ന {type} ബ്ലാക്ക്‌ലിസ്റ്റ് എൻട്രി കണ്ടെത്തിയില്ല."
+    removed: ബ്ലാക്ക്‌ലിസ്റ്റ് എൻട്രി നീക്കം ചെയ്തു.
+
 hub:
+  directory:
+    title: "## {globe} ഹബ്ബുകൾ കണ്ടെത്തുക - {sortEmoji} {sort}"
+    page: "പേജ് {current} / {total} • {count} പബ്ലിക് ഹബ്ബുകൾ"
+    searching: 'തിരയുന്നു: "{query}"'
+    connectHint: "ബന്ധിപ്പിക്കുക തിരഞ്ഞെടുക്കുക, അല്ലെങ്കിൽ `/hub connect hub:<പേര്>` ഉപയോഗിക്കുക."
+    connect: ബന്ധിപ്പിക്കുക
+    details: വിശദാംശങ്ങൾ
+    serverOnly: ഒരു ചാനൽ ബന്ധിപ്പിക്കാൻ ഈ ഡയറക്ടറി ഒരു സെർവറിനുള്ളിൽ തുറക്കുക.
+    sortPlaceholder: പബ്ലിക് ഹബ്ബുകൾ ക്രമീകരിക്കുക
+    empty: പബ്ലിക് ഹബ്ബുകളൊന്നും ഇതുവരെ ലഭ്യമല്ല. `/hub create` ഉപയോഗിച്ച് ആദ്യത്തേത് സൃഷ്ടിക്കുക.
+    emptySearch: '"{query}" എന്നതുമായി പൊരുത്തപ്പെടുന്ന പബ്ലിക് ഹബ്ബുകളൊന്നുമില്ല. കൂടുതൽ വിശാലമായി തിരയുക.'
+    search:
+      title: പബ്ലിക് ഹബ്ബുകൾ തിരയുക
+      label: തിരയുക
+      placeholder: പേരുകളിലും വിവരണങ്ങളിലും തിരയുക
+    sorts:
+      alive:
+        label: ശുപാർശ ചെയ്യുന്നത്
+        description: ആരോഗ്യകരമായ സംഭാഷണം, ആളുകൾ, സമീപകാല വളർച്ച
+      active:
+        label: ഇപ്പോൾ സജീവം
+        description: കഴിഞ്ഞ 24 മണിക്കൂറിൽ ഏറ്റവും കൂടുതൽ സംഭാഷണവും ആളുകളും
+      upvoted:
+        label: ഏറ്റവും കൂടുതൽ അപ്‌വോട്ട് ലഭിച്ചത്
+        description: ഏറ്റവും കൂടുതൽ കമ്മ്യൂണിറ്റി അപ്‌വോട്ടുകളുള്ള ഹബ്ബുകൾ
+      big:
+        label: ഏറ്റവും വലുത്
+        description: നിലവിൽ ഏറ്റവും കൂടുതൽ സെർവറുകൾ ബന്ധിപ്പിച്ചത്
+      new:
+        label: പുതിയത്
+        description: അടുത്തിടെ സൃഷ്ടിച്ച പബ്ലിക് കമ്മ്യൂണിറ്റികൾ
+    metrics:
+      servers: "{activity} {count} സെർവറുകൾ"
+      messages: ":chat_icon: ആഴ്ചയിൽ {count}"
+      people: ':users: ദിവസത്തിൽ {count}'
+      growth: "ഈ ആഴ്ച +{count}"
   rules:
     manage:
-      description: Manage your hub's community rules and guidelines below.
-      noRules: No rules have been set for this hub yet.
+      description: നിങ്ങളുടെ ഹബ്ബിന്റെ കമ്മ്യൂണിറ്റി നിയമങ്ങളും മാർഗ്ഗനിർദ്ദേശങ്ങളും താഴെ മാനേജ് ചെയ്യുക.
+      noRules: ഈ ഹബ്ബിന് ഇതുവരെ നിയമങ്ങളൊന്നും സജ്ജീകരിച്ചിട്ടില്ല.
       addRule:
-        label: Add Rule
+        label: നിയമം ചേർക്കുക
         modal:
-          title: Add New Rule
-          placeholder: Enter your new rule here...
+          title: പുതിയ നിയമം ചേർക്കുക
+          placeholder: നിങ്ങളുടെ പുതിയ നിയമം ഇവിടെ നൽകുക...
       editRule:
-        label: Edit
+        label: *btn_edit
         modal:
-          title: Edit Rule
-          placeholder: Enter your updated rule here...
+          title: നിയമം എഡിറ്റ് ചെയ്യുക
+          placeholder: നിങ്ങളുടെ പുതുക്കിയ നിയമം ഇവിടെ നൽകുക...
       deleteRule:
-        label: Delete Rule
-        confirmation: Are you sure you want to delete this rule?
+        label: നിയമം ഇല്ലാതാക്കുക
+        confirmation: ഈ നിയമം ഇല്ലാതാക്കണമെന്ന് ഉറപ്പാണോ?
       validation:
-        empty: Rule cannot be empty.
-        tooLong: Rule must be {maxLength} characters or less.
-        maxRules: Maximum of {maxRules} rules allowed.
+        empty: നിയമം ശൂന്യമാകരുത്.
+        tooLong: നിയമം {maxLength} അക്ഷരങ്ങളോ അതിൽ കുറവോ ആയിരിക്കണം.
+        maxRules: പരമാവധി {maxRules} നിയമങ്ങൾ അനുവദനീയമാണ്.
       success:
-        added: Rule added successfully!
-        updated: Rule updated successfully!
-        deleted: Rule deleted successfully!
+        added: നിയമം വിജയകരമായി ചേർത്തു!
+        updated: നിയമം വിജയകരമായി അപ്‌ഡേറ്റ് ചെയ്തു!
+        deleted: നിയമം വിജയകരമായി ഇല്ലാതാക്കി!
       errors:
-        ruleNotFound: Invalid rule selection.
-        invalidRuleSelection: Invalid rule selection.
-        processingError: An error occurred while processing your request. Please try again.
-        refreshError: An error occurred while refreshing.
-        deletionCancelled: Cancelled
-        deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: This command must be used in a connected channel or specify a hub name.
-        notConnected: This channel is not connected to any hub.
+        ruleNotFound: അസാധുവായ നിയമ തിരഞ്ഞെടുപ്പ്.
+        invalidRuleSelection: അസാധുവായ നിയമ തിരഞ്ഞെടുപ്പ്.
+        processingError: *err_processing
+        refreshError: പുതുക്കുമ്പോൾ ഒരു പിശക് സംഭവിച്ചു.
+        deletionCancelled: റദ്ദാക്കി
+        deletionCancelledDescription: നിയമം ഇല്ലാതാക്കൽ റദ്ദാക്കി.
+        noHub: "ഈ കമാൻഡിന് ബന്ധിപ്പിച്ച ഒരു ചാനലോ ഹബ് പേരോ വേണം. `/hub browse` ഉപയോഗിച്ച് ബ്രൗസ് ചെയ്യുക, അല്ലെങ്കിൽ `/hub create` ഉപയോഗിച്ച് സ്വന്തമായി ഉണ്ടാക്കുക."
+        notConnected: "ഈ ചാനൽ ഇതുവരെ ഒരു ഹബ്ബുമായി ബന്ധിപ്പിച്ചിട്ടില്ല. `/hub browse` ഉപയോഗിച്ച് ബ്രൗസ് ചെയ്യുക, അല്ലെങ്കിൽ `/hub create` ഉപയോഗിച്ച് സ്വന്തമായി ഉണ്ടാക്കുക."
       warnings:
-        deleteWarning: Warning
-        deleteWarningDescription: This action cannot be undone.
+        deleteWarning: മുന്നറിയിപ്പ്
+        deleteWarningDescription: ഈ പ്രവർത്തനം പഴയപടിയാക്കാനാകില്ല.
       display:
-        noRulesTitle: No Rules Set
-        noRulesDescription: No rules have been set for this hub yet.
-        rulesCount: "{count} of {max} rules used"
-        ruleHeading: "Rule {number}"
-        truncated: Full text will be shown when editing
+        noRulesTitle: നിയമങ്ങളൊന്നും സജ്ജീകരിച്ചിട്ടില്ല
+        noRulesDescription: ഈ ഹബ്ബിന് ഇതുവരെ നിയമങ്ങളൊന്നും സജ്ജീകരിച്ചിട്ടില്ല.
+        rulesCount: "{max} നിയമങ്ങളിൽ {count} ഉപയോഗിച്ചു"
+        ruleHeading: "നിയമം {number}"
+        truncated: എഡിറ്റ് ചെയ്യുമ്പോൾ പൂർണ്ണ വാചകം കാണിക്കും
     accept:
       buttons:
-        accept: Accept Rules
+        accept: നിയമങ്ങൾ അംഗീകരിക്കുക
       titles:
-        accepted: Rules Accepted
-        declined: Rules Not Accepted
-        changedMind: '💡 Changed your mind?'
+        accepted: നിയമങ്ങൾ അംഗീകരിച്ചു
+        declined: നിയമങ്ങൾ അംഗീകരിച്ചില്ല
+        changedMind: ':lightbulb_icon: മനസ്സ് മാറിയോ?'
       messages:
-        accepted: "Thank you for accepting the rules for **{hubName}**!"
-        declined: "You have chosen not to accept the rules for **{hubName}** at this time."
-        changedMind: "Send another message in this channel to see the rules again and accept them."
+        accepted: "**{hubName}** നിയമങ്ങൾ അംഗീകരിച്ചതിന് നന്ദി!"
+        declined: "ഇപ്പോൾ **{hubName}** നിയമങ്ങൾ അംഗീകരിക്കേണ്ടെന്ന് നിങ്ങൾ തീരുമാനിച്ചിരിക്കുന്നു."
+        changedMind: "നിയമങ്ങൾ വീണ്ടും കാണാനും അംഗീകരിക്കാനും ഈ ചാനലിൽ മറ്റൊരു സന്ദേശം അയയ്ക്കുക."
       footer:
-        welcome: Welcome to the community!
+        welcome: കമ്മ്യൂണിറ്റിയിലേക്ക് സ്വാഗതം!
       errors:
-        failed: Something went wrong while processing your rule acceptance.
+        failed: നിങ്ങളുടെ നിയമ അംഗീകാരം പ്രോസസ്സ് ചെയ്യുമ്പോൾ എന്തോ കുഴപ്പം സംഭവിച്ചു.
   lock:
     announceTitle: ഹബ് ലോക്ക് ചെയ്തു
-    announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    announceDescription: "ഈ ഹബ് ഒരു മോഡറേറ്റർ ലോക്ക് ചെയ്തിരിക്കുന്നു.\n\nഇനി മോഡറേറ്റർമാർക്ക് മാത്രമേ സന്ദേശങ്ങൾ അയയ്ക്കാനാകൂ."
+    successTitle: ഹബ് ലോക്ക് ചെയ്തു
+    successDescription: "**{hub}** ലോക്ക് ചെയ്തു. പുതിയ അംഗങ്ങൾക്ക് ചേരാൻ കഴിയില്ല, സന്ദേശങ്ങൾ താൽക്കാലികമായി നിർത്തി."
   unlock:
     announceTitle: ഹബ് അൺലോക്ക് ചെയ്തു
-    announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
-    successDescription: "**{hub}** has been unlocked. New members can now join."
+    announceDescription: "ഈ ഹബ് അൺലോക്ക് ചെയ്തു. ക്ഷണങ്ങളും സന്ദേശങ്ങളും ഇപ്പോൾ പ്രവർത്തനക്ഷമമാണ്."
+    successTitle: ഹബ് അൺലോക്ക് ചെയ്തു
+    successDescription: "**{hub}** അൺലോക്ക് ചെയ്തു. പുതിയ അംഗങ്ങൾക്ക് ഇപ്പോൾ ചേരാം."
   announcement:
-    webhookUsername: "{hubName} | Hub Announcement"
-    officialTitle: "{hubName} | Official Hub Announcement"
-    disclaimer: "This announcement was sent by hub officials - not InterChat staff"
+    webhookUsername: "{hubName} | ഹബ് അറിയിപ്പ്"
+    officialTitle: "{hubName} | ഔദ്യോഗിക ഹബ് അറിയിപ്പ്"
+    disclaimer: "ഈ അറിയിപ്പ് അയച്ചത് ഹബ് ഭാരവാഹികളാണ് - InterChat സ്റ്റാഫ് അല്ല"
   invites:
-    title: സജീവ ഇൻവൈറ്റുകൾ
-    description: Create and manage invite codes for your hub
+    title: സജീവ ക്ഷണങ്ങൾ
+    description: നിങ്ങളുടെ ഹബ്ബിനായി ക്ഷണ കോഡുകൾ സൃഷ്ടിക്കുകയും മാനേജ് ചെയ്യുകയും ചെയ്യുക
     noneFound: ഒന്നും കണ്ടെത്തിയില്ല!
     inviteUses: "**ഉപയോഗങ്ങൾ:**"
-    inviteExpire: "**കാലാവധി:**"
+    inviteExpire: "**കാലഹരണം:**"
     titles:
-      generated: Generated!
+      generated: സൃഷ്ടിച്ചു!
     messages:
-      generated: "{tick} `{code}` can now be used {uses} time(s) to join your hub."
-      generatedUnlimited: "{tick} `{code}` can now be used to join your hub."
-      howToUse: "Next step: connect a channel with `/hub connect invite:{code}`"
+      generated: "{tick} `{code}` ഇപ്പോൾ നിങ്ങളുടെ ഹബ്ബിൽ ചേരാൻ {uses} തവണ ഉപയോഗിക്കാം."
+      generatedUnlimited: "{tick} `{code}` ഇപ്പോൾ നിങ്ങളുടെ ഹബ്ബിൽ ചേരാൻ ഉപയോഗിക്കാം."
+      howToUse: "അടുത്ത ഘട്ടം: `/hub connect invite:{code}` ഉപയോഗിച്ച് ഒരു ചാനൽ ബന്ധിപ്പിക്കുക"
     footer:
-      hub: "Hub: {hubName}"
+      hub: "ഹബ്: {hubName}"
   info:
     titles:
-      rules: Rules for {hubName}
-      stats: Stats for {hubName}
+      rules: '{hubName} നിയമങ്ങൾ'
+      stats: '{hubName} സ്ഥിതിവിവരക്കണക്കുകൾ'
     badges:
-      verified: This hub is an official verified hub.
-      partnered: This hub is an official partnered hub.
-    description: View information on this hub! Select an option from below.
-    noRules: No rules have been set for this hub.
-    noDescription: No description provided.
+      verified: ഈ ഹബ് ഒരു ഔദ്യോഗിക പരിശോധിച്ചുറപ്പിച്ച ഹബ് ആണ്.
+      partnered: ഈ ഹബ് ഒരു ഔദ്യോഗിക പങ്കാളി ഹബ് ആണ്.
+    description: ഈ ഹബ്ബിനെക്കുറിച്ചുള്ള വിവരങ്ങൾ കാണുക! താഴെ ഒരു ഓപ്ഷൻ തിരഞ്ഞെടുക്കുക.
+    noRules: ഈ ഹബ്ബിന് നിയമങ്ങളൊന്നും സജ്ജീകരിച്ചിട്ടില്ല.
+    noDescription: വിവരണം നൽകിയിട്ടില്ല.
+    imageAlt:
+      banner: '{hubName}-ന്റെ ബാനർ'
+      icon: '{hubName}-ന്റെ ഐക്കൺ'
   buttons:
     rules: നിയമങ്ങൾ
-    stats: Stats
-    connect: Connect
-    report: Report
-  servers:
-    title: Connected Servers
-    empty: No servers are connected to this hub.
-    confirm:
-      title: Disconnect Server
+    stats: സ്ഥിതിവിവരക്കണക്കുകൾ
+    connect: ബന്ധിപ്പിക്കുക
+    report: റിപ്പോർട്ട് ചെയ്യുക
+  staff:
+    title: സ്റ്റാഫ്
+    assignTitle: സ്റ്റാഫിനെ ചേർക്കുക അല്ലെങ്കിൽ മാറ്റുക
+    empty: ഈ ഹബ്ബിലേക്ക് ഇതുവരെ സ്റ്റാഫിനെ നിയോഗിച്ചിട്ടില്ല. ഈ ഹബ്ബിലേക്ക് പ്രവേശനം നൽകാൻ താഴെ ആരെയെങ്കിലും ചേർക്കുക.
+    loadError: സ്റ്റാഫ് പട്ടിക ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
     errors:
-      noPermission: You must be a hub admin to view this.
+      unavailable: സ്റ്റാഫ് മാനേജ്മെന്റ് താൽക്കാലികമായി ലഭ്യമല്ല.
+      selectFirst: ആദ്യം ഉപയോക്താക്കളെയും ഒരു റോളും തിരഞ്ഞെടുക്കുക.
+      roleGone: ആ റോൾ ഇനി ലഭ്യമല്ല.
+      numericId: ഒരു സംഖ്യാ ഉപയോക്തൃ ID നൽകുക.
+      selfMove: "'സ്റ്റാഫിനെ മാനേജ് ചെയ്യുക' ഇല്ലാത്ത റോളിലേക്ക് നിങ്ങൾക്ക് സ്വയം മാറാൻ കഴിയില്ല."
+      noUsers: നീക്കം ചെയ്യാൻ കുറഞ്ഞത് ഒരു ഉപയോക്താവിനെ തിരഞ്ഞെടുക്കുക.
+      manageStaffProtected: സ്റ്റാഫിനെ മാനേജ് ചെയ്യാൻ കഴിയുന്ന റോളുകൾ ഇല്ലാതാക്കാനാകില്ല.
+      assignFailed: സ്റ്റാഫിനെ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല. Control Plane ലഭ്യമല്ല.
+      removeFailed: സ്റ്റാഫിനെ നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല. Control Plane ലഭ്യമല്ല.
+      roleCreateFailed: റോൾ സൃഷ്ടിക്കാൻ കഴിഞ്ഞില്ല. Control Plane ലഭ്യമല്ല.
+      roleEditFailed: റോൾ അപ്‌ഡേറ്റ് ചെയ്യാൻ കഴിഞ്ഞില്ല. Control Plane ലഭ്യമല്ല.
+      roleDeleteFailed: റോൾ ഇല്ലാതാക്കാൻ കഴിഞ്ഞില്ല. Control Plane ലഭ്യമല്ല.
+      staleRole: നിങ്ങൾ ഈ റോൾ കാണുന്നതിനിടയിൽ ഇത് ഇല്ലാതാക്കപ്പെട്ടു.
+    buttons:
+      enterId: ഉപയോക്തൃ ID നൽകുക
+      userPlaceholder: മാനേജ് ചെയ്യാൻ ഉപയോക്താക്കളെ തിരഞ്ഞെടുക്കുക
+      rolePlaceholder: നൽകാൻ ഒരു റോൾ തിരഞ്ഞെടുക്കുക
+      manageRoles: റോളുകൾ മാനേജ് ചെയ്യുക
+      createRole: റോൾ സൃഷ്ടിക്കുക
+      backToStaff: സ്റ്റാഫിലേക്ക് മടങ്ങുക
+      allRoles: എല്ലാ റോളുകളും
+      editDetails: വിശദാംശങ്ങൾ എഡിറ്റ് ചെയ്യുക
+      deleteRole: റോൾ ഇല്ലാതാക്കുക
+      assign: '{count} പേർക്ക് നൽകുക'
+      remove: സ്റ്റാഫിൽ നിന്ന് {count} പേരെ നീക്കം ചെയ്യുക
+      keepStaff: സ്റ്റാഫിനെ നിലനിർത്തുക
+      confirmRemove: സ്റ്റാഫിൽ നിന്ന് നീക്കം ചെയ്യുക
+    confirm:
+      removeTitle: സ്റ്റാഫിൽ നിന്ന് {count} പേരെ നീക്കം ചെയ്യണോ?
+      removeWarning: അവർക്ക് എല്ലാ ഹബ് റോളുകളും ഉടൻ നഷ്ടപ്പെടും, ഇവിടെ നിന്ന് പുനഃസ്ഥാപിക്കാനാകില്ല.
+    roles:
+      title: റോളുകൾ - {hub}
+      none: ഈ ഹബ്ബിന് ഇതുവരെ റോളുകളൊന്നും നിർവചിച്ചിട്ടില്ല.
+      noPermissions: -# അനുമതികളില്ല
+      assigned: നിയോഗിച്ച സ്റ്റാഫ്
+      assignedNone: ഒന്നുമില്ല
+      morePermissions: +{count} കൂടി
+    results:
+      assigned: '{count} ഉപയോക്താക്കൾക്ക് {role} നൽകി.'
+      removed: സ്റ്റാഫിൽ നിന്ന് {count} ഉപയോക്താക്കളെ നീക്കം ചെയ്തു.
+  servers:
+    title: ബന്ധിപ്പിച്ച സെർവറുകൾ
+    empty: ഈ ഹബ്ബിലേക്ക് സെർവറുകളൊന്നും ബന്ധിപ്പിച്ചിട്ടില്ല.
+    confirm:
+      title: സെർവർ വിച്ഛേദിക്കുക
+    errors:
+      noPermission: ഇത് കാണാൻ നിങ്ങൾ ഹബ് അഡ്മിൻ ആയിരിക്കണം.
+  history:
+    title: "ചരിത്രം - {hubName}"
+    subtitle: എന്താണ് അവലോകനം ചെയ്യേണ്ടതെന്ന് തിരഞ്ഞെടുക്കുക
+    view: കാണുക
+    retry: വീണ്ടും ശ്രമിക്കുക
+    tabs:
+      servers: സെർവറുകൾ
+      config: കോൺഫിഗ്
+      activity: പ്രവർത്തനം
+    cards:
+      servers: സെർവറുകൾ
+      config: കോൺഫിഗ് മാറ്റങ്ങൾ
+      activity: പ്രവർത്തനം
+    descriptions:
+      servers: ബന്ധിപ്പിച്ച സെർവറുകളും അവയുടെ നിലയും
+      config: ക്രമീകരണങ്ങൾ, സ്റ്റാഫ്, നിയമങ്ങൾ
+      activity: ചേരലുകൾ, വിടലുകൾ, പേര് മാറ്റങ്ങൾ
+    requires:
+      manageConnections: കണക്ഷനുകൾ മാനേജ് ചെയ്യാനുള്ള അനുമതി വേണം
+      viewLogs: ലോഗുകൾ കാണാനുള്ള അനുമതി വേണം
+    activity:
+      title: "സെർവർ പ്രവർത്തനം - {hubName}"
+      empty: സെർവർ പ്രവർത്തനങ്ങളൊന്നും ഇതുവരെ ഇല്ല. ഈ ഹബ്ബിലെ സെർവറുകളുടെ ചേരലുകളും വിടലുകളും പേര് മാറ്റങ്ങളും ഇവിടെ കാണിക്കും.
+      error: സെർവർ പ്രവർത്തനം താൽക്കാലികമായി ലഭ്യമല്ല.
+      renamed: പേര് മാറ്റി
+      newOwner: പുതിയ ഉടമ
+      left: InterChat വിട്ടു
   disconnect:
     title: വിച്ഛേദിച്ചു!
     description: ഹബ്ബിൽ നിന്ന് വിച്ഛേദിച്ചു.
     fieldValue: "ബന്ധപ്പെട്ട ചാനൽ: {channel}"
+
     errors:
-      notConnected: This channel isn't connected to any hub.
+      notConnected: ഈ ചാനൽ ഒരു ഹബ്ബുമായും ബന്ധിപ്പിച്ചിട്ടില്ല.
   events:
     serverJoined:
-      title: '🎉 പുതിയ സെർവർ ചേർന്നു!'
-      description: "**{serverName}** has joined the hub!"
+      title: ':party_popper: പുതിയ സെർവർ ചേർന്നു!'
+      description: "**{serverName}** ഹബ്ബിൽ ചേർന്നു!"
       footer: '{hubName}-ലേക്ക് സ്വാഗതം!'
   create:
-    title: Let's Get You Started!
-    description: Pick a name, short-description, description & visibility for your hub.
-    whatsAHub: |
-      ## ❓ What's a Hub, anyway?
-      Think of a Hub as a **room** created by someone.
-      ## 🤨 Okay... how does this "room" work?
-      In real life, a room needs people. In InterChat, multiple servers join the same Hub through a channel in each server.
-      ## 🤔 "Joined"? What's actually connected?
-      Let's zoom in.
-
-      Imagine you're in **Server A**, and there's a channel called **#global** that's connected to a Hub.
-
-      When you send a message in **#global**, that message is forwarded to every other server connected to the same Hub.
-
-      Their messages are then forwarded back to your **#global** channel too.
-      ## 👏 That's it.
-      Hubs are a surprisingly simple concept.
-
-      Let's get started!
-  wizard:
-    start: Start
-    name:
-      description: Pick a unique name for your hub. Max 100 chars.
-    tagline:
-      label: ഹബ് ടാഗ്‌ലൈൻ
-      description: A one-sentence summary of your hub
-    description:
-      label: പൂർണ്ണ വിവരണം
-      description: Describe your hub in detail (20-1000 characters)
-    visibility:
-      unlisted:
-        desc: Not in directory.
-      public:
-        desc: Discoverable.
-      private:
-        desc: Invite-only.
+    title: ഒരു ഹബ് സൃഷ്ടിക്കുക
+    step: "ഘട്ടം {current} / 3 · {label}"
     steps:
-      progress: സ്റ്റെപ്പ് {current}/{total}
-      step1:
-        modalTitle: "Hub Details"
-        visibilityLabel: Hub Visibility
-        visibilityPlaceholder: Select Hub Visibility...
-      step2:
-        title: ഹബ് ലോഗോ
-        description: |
-          Add a logo for your hub!
-
-          -# 💡 *Tip: Use an image URL or choose the default bot avatar.*
-        modalTitle: "സ്റ്റെപ്പ് 2/7: ലോഗോ"
-        logoUrlLabel: ലോഗോ URL
-        logoUrlPlaceholder: https://example.com/logo.png
-        addLogoButton: ലോഗോ ചേർക്കുക
-        invalidUrl: അസാധുവായ ഇമേജ് URL. പകരം ഡിഫോൾട്ട് ബോട്ട് അവതാർ ഉപയോഗിക്കുന്നു.
-      step3:
-        title: Hub Visibility
-        description: "Choose your hub's visibility:\n\n🔓 **Public**: Discoverable.\n👁️ **Unlisted**: Not in directory.\n🔒 **Private**: Invite-only.\n\n-# 💡 *Tip: You can change this later in hub settings.*"
-        requiredPublic: "**Required for public hubs**"
-        optional: (Optional)
-        tip: "-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*"
-        modalTitle: "Step 3/6: Rules"
-        rulesLabel: Hub Rules
-        rulesPlaceholder: |
-          1. Be respectful
-          2. No spam
-          3. Follow Discord ToS
-        addRulesButton: Add Rules
-      step4:
-        title: കമ്മ്യൂണിറ്റി നിയമങ്ങൾ
-        description: "നിങ്ങളുടെ ഹബ്ബിനായി കമ്മ്യൂണിറ്റി മാർഗ്ഗനിർദ്ദേശങ്ങൾ സജ്ജമാക്കുക."
-        modalTitle: "സ്റ്റെപ്പ് 4/7: നിയമങ്ങൾ"
-        welcomePlaceholder: Welcome to {hubName} or our hub!
-        customMessageButton: Custom Message
-      step5:
-        title: സ്വാഗത സന്ദേശം
-        description: "Create a welcome message for new members!\n-# 💡 *Tip: Keep it friendly and informative. Max 500 characters.*"
-        modulesPlaceholder: Select modules to enable...
-      step6:
-        description: "Select features to enable for your hub!\n✅ **Pre-selected**: Reactions, Spam Filter (recommended)\n\n-# 💡 *Tip: You can adjust these anytime.*"
-        selectChannelButton: Select Channel
-        channelSelectTitle: Select Logging Channel
-        channelSelectDescription: "Choose a channel for moderation logs:"
-        channelSelectPlaceholder: Select a logging channel
-    summary:
-      title: ഹബ് കോൺഫിഗറേഷൻ സംഗ്രഹം
-      description: "സൃഷ്ടിക്കുന്നതിന് മുമ്പ് നിങ്ങളുടെ ഹബ് ക്രമീകരണങ്ങൾ അവലോകനം ചെയ്യുക:"
-      nameAndDescription: പേരും വിവരണം
-      rulesCount: "{count} നിയമങ്ങൾ സജ്ജീകരിച്ചു"
-      rulesNone: നിയമങ്ങളില്ല (പിന്നീട് ചേർക്കാം)
-      welcomeDefault: ഡിഫോൾട്ട് സ്വാഗത സന്ദേശം
-      featuresNone: ഒന്നുമില്ല
-      footer: നിങ്ങളുടെ ഹബ് സൃഷ്ടിക്കാൻ തയ്യാറാണോ?
-      dashboardNotice: Icon, rules, modules, and logging can be configured in the dashboard after creation.
-    completion:
-      loading: നിങ്ങളുടെ ഹബ് സൃഷ്‌ടിക്കുന്നു...
-      loadingDescription: ഞങ്ങൾ എല്ലാം സജ്ജീകരിക്കുന്നതുവരെ ദയവായി കാത്തിരിക്കൂ...
-      success: ഹബ് വിജയകരമായി സൃഷ്ടിച്ചു!
-      successDescription: "{hubName} ഇപ്പോൾ ലൈവ് ആണ്! 🎉"
-      dashboardLink: നിങ്ങളുടെ ഹബ് മാനേജ് ചെയ്യുക
-      publicPageLink: ഡയറക്ടറിയിൽ കാണുക
-      nextSteps: അടുത്തത് എന്താണ്?
-      nextStepsPrivate1: "**Create an Invite**: `/hub invite hub:{hubName}`"
-      nextStepsPrivate2: "**Share Code**: Send the invite code to the other server."
-      nextStepsPrivate3: "**Connect**: The other server runs `/hub connect invite:<code>`"
-      nextStepsPublic: "**Connect Channels**: Run `/hub connect hub:{hubName}` to join!"
-      advancedSettings: "**Advanced Settings**: `/hub manage {hubName}`"
-      needHelp: "**Need Help?**: [Join our support server]({supportInvite})"
-    cancelled:
-      description: Your hub was not created.
+      identity: വ്യക്തിത്വം
+      safety: സുരക്ഷ
+      reach: എത്തിച്ചേരൽ
+    notYours: ഈ ഹബ് സെറ്റപ്പ് മറ്റൊരാളുടേതാണ്. സ്വന്തമായത് തുടങ്ങാൻ /hub create പ്രവർത്തിപ്പിക്കുക.
+    cancelled: ഹബ് സൃഷ്ടിക്കൽ റദ്ദാക്കി. ഒന്നും സൃഷ്ടിച്ചിട്ടില്ല.
+    buttons:
+      next: അടുത്തത്
+      back: തിരികെ
+      cancel: റദ്ദാക്കുക
+    identity:
+      noTagline: ടാഗ്‌ലൈൻ ഇതുവരെ ഇല്ല. /hub browse-ൽ പേരിന് താഴെ ഇത് കാണിക്കും.
+      edit: പേരും ടാഗ്‌ലൈനും എഡിറ്റ് ചെയ്യുക
+      language: പ്രധാന ഭാഷ
+      languagePlaceholder: ഒരു ഭാഷ തിരഞ്ഞെടുക്കുക
+      languageHint: "{server}-ന്റെ സെർവർ ഭാഷയിൽ നിന്ന് പൂരിപ്പിച്ചു. ആളുകൾക്ക് സംസാരിക്കാവുന്ന ഹബ്ബുകൾ കണ്ടെത്താൻ ഇത് സഹായിക്കുന്നു."
+      languageHintGeneric: ആളുകൾക്ക് സംസാരിക്കാവുന്ന ഹബ്ബുകൾ കണ്ടെത്താൻ ഇത് സഹായിക്കുന്നു.
+      multi: ഒന്നിലധികം ഭാഷകൾ
+      sfw:
+        title: എല്ലാവർക്കും അനുയോജ്യം
+        description: മിക്ക ഹബ്ബുകളും അങ്ങനെയാണ്. മുതിർന്നവർക്കുള്ള ഉള്ളടക്കമാണ് ഹബ്ബിന്റെ ലക്ഷ്യമെങ്കിൽ മാത്രം 18+ എന്ന് അടയാളപ്പെടുത്തുക.
+        button: 18+ ആയി അടയാളപ്പെടുത്തുക
+      nsfw:
+        title: 18+ ഹബ്
+        description: /hub browse-ൽ ഇതിന് 18+ ലേബൽ ഉണ്ടാകും, എല്ലാവർക്കും അനുയോജ്യമായ തിരച്ചിലുകളിൽ നിന്ന് ഒഴിവാക്കും.
+        button: എല്ലാവർക്കും അനുയോജ്യമാക്കുക
+      needTagline: തുടരാൻ ഒരു ടാഗ്‌ലൈൻ ചേർക്കുക.
+    modal:
+      title: പേരും ടാഗ്‌ലൈനും
+      name: ഹബ്ബിന്റെ പേര്
+      nameHint: 3 മുതൽ 32 വരെ അക്ഷരങ്ങൾ, അക്കങ്ങൾ, സ്പേസുകൾ അല്ലെങ്കിൽ ഹൈഫനുകൾ.
+      tagline: ടാഗ്‌ലൈൻ
+      taglineHint: /hub browse-ൽ പേരിന് താഴെ ഒരു വരി. 5 മുതൽ 100 വരെ അക്ഷരങ്ങൾ.
+      taglinePlaceholder: രാത്രി വൈകി ഉണർന്നിരിക്കുന്നവർക്കായി
+    safety:
+      filter: ഉള്ളടക്ക ഫിൽട്ടർ
+      presetPlaceholder: ഒരു പ്രീസെറ്റ് തിരഞ്ഞെടുക്കുക
+      presets:
+        chill:
+          label: ശാന്തം
+          description: ലഘുവായ നിയന്ത്രണം. മീഡിയയും ലിങ്കുകളും സ്വതന്ത്രമായി ഒഴുകും.
+        balanced:
+          label: സന്തുലിതം
+          description: മിക്ക ഹബ്ബുകൾക്കും ശുപാർശ ചെയ്യുന്നു.
+        strict:
+          label: കർശനം
+          description: ആദ്യം ടെക്സ്റ്റ്. വലിയതോ പ്രായം കുറഞ്ഞവരുള്ളതോ ആയ കമ്മ്യൂണിറ്റികൾക്ക്.
+      switches:
+        spamFilter:
+          'on': സ്പാം ഫിൽട്ടർ
+          'off': സ്പാം ഫിൽട്ടർ ഓഫ്
+        blockInvites:
+          'on': സെർവർ ക്ഷണങ്ങൾ തടഞ്ഞു
+          'off': സെർവർ ക്ഷണങ്ങൾ അനുവദിച്ചു
+        blockNsfw:
+          'on': NSFW ചിത്ര ഫിൽട്ടർ
+          'off': NSFW ചിത്ര ഫിൽട്ടർ ഓഫ്
+        reactions:
+          'on': റിയാക്ഷനുകൾ
+          'off': പ്രതികരണങ്ങൾ ഓഫ്
+        hideLinks:
+          'on': ലിങ്കുകൾ മറച്ചു
+          'off': ലിങ്കുകൾ കാണിക്കുന്നു
+        allowVideos:
+          'on': വീഡിയോകൾ അനുവദിച്ചു
+          'off': വീഡിയോകൾ തടഞ്ഞു
+        blockAttachments:
+          'on': ചിത്രങ്ങളും ഫയലുകളും തടഞ്ഞു
+          'off': ചിത്രങ്ങളും ഫയലുകളും അനുവദിച്ചു
+        blockTenorGifs:
+          'on': Tenor GIF-കൾ തടഞ്ഞു
+          'off': Tenor GIF-കൾ അനുവദിച്ചു
+      switchesHint: ഏതു സ്വിച്ചും പിന്നീട് /hub manage-ൽ മാറ്റാം.
+      nsfwHint: ഇത് 18+ ഹബ് ആയതിനാൽ NSFW ചിത്ര ഫിൽട്ടർ ഓഫ് ആണ്.
+      rules: തുടക്ക നിയമങ്ങൾ
+      rulesPlaceholder: തുടക്ക നിയമങ്ങൾ തിരഞ്ഞെടുക്കുക
+      rulesPicked: "{count} നിയമങ്ങൾ തിരഞ്ഞെടുത്തു"
+      rulesPickedOne: 1 നിയമം തിരഞ്ഞെടുത്തു
+      rulesHint: ചാനൽ ബന്ധിപ്പിക്കുന്നതിന് മുമ്പ് സെർവറുകൾ ഈ നിയമങ്ങൾ അംഗീകരിക്കും. ഇവ എപ്പോൾ വേണമെങ്കിലും എഡിറ്റ് ചെയ്യാം അല്ലെങ്കിൽ സ്വന്തം നിയമങ്ങൾ ചേർക്കാം.
+      appeals: അപ്പീലുകൾ
+      appealsHint: ഹബ്ബിൽ നിന്ന് നിങ്ങൾ തടഞ്ഞ ഒരാൾക്ക് തിരികെ പ്രവേശനം ചോദിക്കാൻ എത്ര തവണ കഴിയും.
+      cooldown: "ഓരോ {duration} കൂടുമ്പോഴും ഒരിക്കൽ"
+      recommended: ശുപാർശ ചെയ്യുന്നത്
+      durations:
+        d1: 1 ദിവസം
+        d3: 3 ദിവസം
+        d7: 7 ദിവസം
+        d14: 14 ദിവസം
+        d30: 30 ദിവസം
+    rules:
+      respect: ബഹുമാനത്തോടെ പെരുമാറുക. ഉപദ്രവമോ വ്യക്തിപരമായ ആക്രമണമോ പാടില്ല.
+      hate: വിദ്വേഷ പ്രസംഗം, അധിക്ഷേപങ്ങൾ, വിവേചനം എന്നിവ പാടില്ല.
+      sfw: എല്ലാവർക്കും അനുയോജ്യമായി നിലനിർത്തുക.
+      age: ഇവിടെ എല്ലാവർക്കും 18 വയസോ അതിൽ കൂടുതലോ ആയിരിക്കണം.
+      spam: സ്പാം, ഫ്ലഡിംഗ്, പരസ്യം എന്നിവ പാടില്ല.
+      invites: സെർവർ ക്ഷണങ്ങളോ സ്വയം പ്രചാരണമോ പാടില്ല.
+      lang: "എല്ലാവർക്കും പിന്തുടരാൻ {language}-ൽ സംസാരിക്കുക."
+      langMulti: ഏത് ഭാഷയും സ്വാഗതം. പരസ്പരം ക്ഷമയോടെ പെരുമാറുക.
+      privacy: വ്യക്തിപരമായ വിവരങ്ങൾ പങ്കിടരുത്, നിങ്ങളുടേതോ മറ്റാരുടെയെങ്കിലുമോ.
+      spoilers: സ്പോയിലറുകൾ അടയാളപ്പെടുത്തുക.
+      tos: Discord-ന്റെ സേവന നിബന്ധനകളും കമ്മ്യൂണിറ്റി മാർഗ്ഗനിർദ്ദേശങ്ങളും പാലിക്കുക.
+    reach:
+      title: "{name} ആർക്കൊക്കെ കണ്ടെത്താം?"
+      public:
+        label: പബ്ലിക്
+        description: ഏത് സെർവറിനും ചേരാം. ഒരു ചെറിയ സെറ്റപ്പ് ചെക്ക്‌ലിസ്റ്റ് പൂർത്തിയാക്കിയാൽ ഇത് സ്വയം /hub browse-ൽ ലിസ്റ്റ് ചെയ്യും.
+      unlisted:
+        label: ലിസ്റ്റ് ചെയ്യാത്തത്
+        description: ലിസ്റ്റ് ചെയ്യില്ല. നിങ്ങളുടെ ക്ഷണ ലിങ്കുള്ള ഏത് സെർവറിനും ചേരാം.
+      private:
+        label: പ്രൈവറ്റ്
+        description: ലിസ്റ്റ് ചെയ്യില്ല. സെർവറുകൾക്ക് നിങ്ങൾ സൃഷ്ടിക്കുന്ന ക്ഷണ ലിങ്ക് വേണം.
+      summary: "{language} · {rating} · {preset} ഫിൽട്ടർ · {rules} · ഓരോ {cooldown} കൂടുമ്പോഴും അപ്പീൽ"
+      rules: "{count} നിയമങ്ങൾ"
+      rulesOne: 1 നിയമം
+      create: "{name} സൃഷ്ടിക്കുക"
+      creating: സൃഷ്ടിക്കുന്നു…
+    rating:
+      sfw: എല്ലാവർക്കും അനുയോജ്യം
+      nsfw: 18+
     errors:
-      cantUseWizard: നിങ്ങൾക്ക് ഈ വിസാർഡ് ഉപയോഗിക്കാൻ കഴിയില്ല.
-      nameAlreadyExists: This name in already in use! Pick a new one.
-      invalidInput: നിങ്ങൾ സാധുവായ ഒരു ഇൻപുട്ട് നൽകിയിട്ടില്ല.
-      uniqueConstraint: Uh oh! That hub name has already been taken.
-      processingError: Something went wrong while creating your hub.
-      hubLimitUpgrade: Upgrade to Core, Plus or Pro to create up to 3 hubs.
-      hubLimitReached: You have reached the maximum number of hubs allowed for your current plan.
+      tagline: ടാഗ്‌ലൈൻ 5 മുതൽ 100 വരെ അക്ഷരങ്ങളാണ്.
+      nameTakenMeanwhile: "മറ്റൊരു ഹബ് ഇപ്പോൾ തന്നെ **{name}** എന്ന പേര് എടുത്തു. പുതിയ പേര് തിരഞ്ഞെടുക്കുക. നിങ്ങൾ തിരഞ്ഞെടുത്ത മറ്റെല്ലാം സൂക്ഷിച്ചിട്ടുണ്ട്."
+      failed: "ഹബ് സൃഷ്ടിച്ചില്ല. InterChat-ന് അതിന്റെ സെർവറുകളിൽ എത്താൻ കഴിഞ്ഞില്ല. നിങ്ങളുടെ തിരഞ്ഞെടുപ്പുകൾ സൂക്ഷിച്ചിട്ടുണ്ട്, വീണ്ടും ശ്രമിക്കാൻ സൃഷ്ടിക്കുക അമർത്തുക."
+
+  home:
+    ready: "{name} തയ്യാറാണ്"
+    meta: "{language} · {rating} · {servers}"
+    servers: "{count} സെർവറുകൾ"
+    serversOne: 1 സെർവർ
+    status:
+      listed: /hub browse-ൽ ലിസ്റ്റ് ചെയ്തു
+      pending: ലിസ്റ്റിംഗ് തീർപ്പാക്കാനുണ്ട്
+      unlisted: ലിസ്റ്റ് ചെയ്യാത്തത്
+      private: പ്രൈവറ്റ്
+    nextSteps: അടുത്ത ഘട്ടങ്ങൾ
+    footer: "ഇത് നിങ്ങൾക്ക് മാത്രമേ കാണാൻ കഴിയൂ. എപ്പോൾ വേണമെങ്കിലും {command} ഉപയോഗിച്ച് ഇവിടേക്ക് മടങ്ങാം."
+    back: തിരികെ
+    flash:
+      linked: "**{channel} ലിങ്ക് ചെയ്തു.** അവിടെ ഹായ് പറയൂ, എന്നിട്ട് മറ്റ് സെർവറുകളെ ക്ഷണിക്കൂ."
+      listed: "**{name} ഇപ്പോൾ ലിസ്റ്റ് ചെയ്തിരിക്കുന്നു.** സെർവറുകൾക്ക് ഇത് /hub browse-ലും /setup-ലും കണ്ടെത്താം."
+      saved: സേവ് ചെയ്തു.
+    steps:
+      link:
+        title: ഒരു ചാനൽ ലിങ്ക് ചെയ്യുക
+        description: ഒരു ഹബ്ബിന് സ്വന്തമായി ചാനൽ ഇല്ല. ഇതിൽ ചാറ്റ് ചെയ്യാൻ ഇവിടെ ഒന്ന് ലിങ്ക് ചെയ്യുക.
+        doneOne: "{channel} ലിങ്ക് ചെയ്തു."
+        done: "ഇവിടത്തെ {count} ചാനലുകൾ ലിങ്ക് ചെയ്തു."
+        doneElsewhere: മറ്റൊരു സെർവറിൽ ലിങ്ക് ചെയ്തു.
+        button: ഒരു ചാനൽ ലിങ്ക് ചെയ്യുക
+        again: മറ്റൊന്ന് ലിങ്ക് ചെയ്യുക
+      discover:
+        title: കണ്ടെത്താൻ എളുപ്പമാക്കുക
+        titlePrivate: സെറ്റപ്പ് പൂർത്തിയാക്കുക
+        progress: "4-ൽ {done} പൂർത്തിയായി. ബാക്കി പൂർത്തിയാക്കിയാൽ ഇത് സ്വയം /hub browse-ൽ ലിസ്റ്റ് ചെയ്യും."
+        progressPrivate: "4-ൽ {done} പൂർത്തിയായി. ഐക്കൺ, വിവരണം, നിയമങ്ങൾ, ഒരു ക്ഷണ ലിങ്ക്."
+        done: പൂർത്തിയായി. ഇത് സ്വയം /hub browse-ൽ ലിസ്റ്റ് ചെയ്യും.
+        donePrivate: പൂർത്തിയായി.
+        button: തുടരുക
+        again: അവലോകനം ചെയ്യുക
+      invite:
+        title: മറ്റ് സെർവറുകളെ ക്ഷണിക്കുക
+        description: മറ്റ് സെർവർ ഉടമകൾക്കായി തയ്യാറാക്കിയ സന്ദേശം നേടുക.
+        doneOne: മറ്റൊരു 1 സെർവർ ചേർന്നു.
+        done: "മറ്റ് {count} സെർവറുകൾ ചേർന്നു."
+        button: ക്ഷണ സന്ദേശം നേടുക
+        again: കൂടുതൽ ക്ഷണിക്കുക
+    link:
+      title: ഒരു ചാനൽ ലിങ്ക് ചെയ്യുക
+      explainer: ഒരു ഹബ്ബിലെ ഓരോ സെർവറും ഒരു ചാനൽ ലിങ്ക് ചെയ്യുന്നു. ലിങ്ക് ചെയ്ത ഏതെങ്കിലും ചാനലിൽ അയയ്ക്കുന്ന സന്ദേശം മറ്റെല്ലാറ്റിലും അയച്ചയാളുടെ പേരും സെർവറും സഹിതം കാണിക്കും.
+      placeholder: ഒരു ചാനൽ തിരഞ്ഞെടുക്കുക
+      footnote: "മറ്റ് സെർവർ ഉടമകൾ അവരുടെ സെർവറിൽ {command} ഉപയോഗിച്ച് ഇതേപോലെ ചെയ്യുന്നു."
+    discover:
+      lead: ഈ നാലും പൂർത്തിയാക്കിയാൽ നിങ്ങളുടെ ഹബ് സ്വയം ലിസ്റ്റ് ചെയ്യും. ആരും അംഗീകരിക്കേണ്ടതില്ല.
+      leadListed: എല്ലാം പൂർത്തിയായി. നിങ്ങളുടെ ഹബ് /hub browse-ൽ ഉണ്ട്.
+      leadExempt: നിങ്ങളുടെ ഹബ് ഇതിനകം /hub browse-ൽ ഉണ്ട്. ഇവ സെർവറുകൾക്ക് ഇതിൽ വിശ്വാസം വരാൻ സഹായിക്കും.
+      leadPrivate: "നിങ്ങളുടെ ഹബ് {visibility} ആയതിനാൽ ഇവ ലിസ്റ്റിംഗിനെ ബാധിക്കില്ല, പക്ഷേ സെർവറുകൾക്ക് വിശ്വാസം വരാൻ സഹായിക്കും."
+      optional: ഓപ്ഷണൽ
+      region: പ്രദേശം
+      logs: ലോഗ് ചാനൽ
+      managers: സഹ-മാനേജർമാർ
+      art:
+        title: ഐക്കണും ബാനറും
+        description: ഡയറക്ടറിയിലും സ്വാഗത സന്ദേശത്തിലും നിങ്ങളുടെ ഹബ് എങ്ങനെ കാണപ്പെടുന്നു.
+        button: ചേർക്കുക
+        redo: മാറ്റുക
+      text:
+        title: വിവരണവും സ്വാഗത സന്ദേശവും
+        description: ചാനൽ ലിങ്ക് ചെയ്യുന്ന ഓരോ സെർവറിനെയും സ്വാഗത സന്ദേശം അഭിവാദ്യം ചെയ്യുന്നു.
+        button: എഴുതുക
+        redo: എഡിറ്റ് ചെയ്യുക
+      rules:
+        title: നിയമങ്ങൾ
+        description: ലിങ്ക് ചെയ്യുന്നതിന് മുമ്പ് സെർവറുകൾ ഇത് അംഗീകരിക്കും.
+        countOne: 1 നിയമം.
+        count: "{count} നിയമങ്ങൾ."
+        button: നിയമങ്ങൾ ചേർക്കുക
+        redo: എഡിറ്റ് ചെയ്യുക
+      invite:
+        title: ക്ഷണ ലിങ്ക്
+        description: ഒരൊറ്റ ലിങ്ക് ഉപയോഗിച്ച് സെർവർ ഉടമകൾക്ക് ചേരാം.
+        button: ലിങ്ക് സൃഷ്ടിക്കുക
+        redo: മാനേജ് ചെയ്യുക
+    artModal:
+      title: ഐക്കണും ബാനറും
+      icon: ഐക്കൺ ചിത്രത്തിന്റെ ലിങ്ക്
+      iconHint: കുറഞ്ഞത് 256 × 256 ഉള്ള ചതുരാകൃതിയിലുള്ള ചിത്രം. സ്ഥിരമായ ലിങ്ക് ഉപയോഗിക്കുക; Discord അറ്റാച്ച്മെന്റ് ലിങ്കുകൾ കാലഹരണപ്പെടും.
+      banner: ബാനർ ചിത്രത്തിന്റെ ലിങ്ക്
+      bannerHint: ഏകദേശം 1600 × 400 ഉള്ള വീതിയുള്ള ചിത്രം.
+      invalid: ചിത്ര ലിങ്കുകൾ https:// കൊണ്ട് തുടങ്ങണം.
+    textModal:
+      title: വിവരണവും സ്വാഗതവും
+      description: വിവരണം
+      descriptionHint: നിങ്ങളുടെ ഹബ് എന്തിനെക്കുറിച്ചാണ്. ഡയറക്ടറി പേജിൽ കാണിക്കും.
+      descriptionPlaceholder: സെർവറുകൾക്കിടയിൽ രാത്രി വൈകിയുള്ള ചാറ്റ്. സംഗീതം, ഗെയിമുകൾ, മനസ്സിലുള്ള എന്തും.
+      welcome: സ്വാഗത സന്ദേശം
+      welcomeHint: "ഒരു സെർവർ ചാനൽ ലിങ്ക് ചെയ്യുമ്പോൾ പോസ്റ്റ് ചെയ്യും. {{serverName}}, {{hubName}} എന്നിവ സ്വയം പൂരിപ്പിക്കും."
+      welcomePlaceholder: "{{hubName}}-ലേക്ക് സ്വാഗതം, {{serverName}}! ഹായ് പറയൂ."
+      sameAsTagline: വിവരണം ടാഗ്‌ലൈനിനേക്കാൾ കൂടുതൽ പറയണം.
+    invite:
+      title: മറ്റ് സെർവറുകളെ ക്ഷണിക്കുക
+      needsLink: "{name} {visibility} ആയതിനാൽ മറ്റ് സെർവറുകൾക്ക് ചേരാൻ ഒരു ക്ഷണ ലിങ്ക് വേണം."
+      createLink: ക്ഷണ ലിങ്ക് സൃഷ്ടിക്കുക
+      lead: നിങ്ങളുടെ ഹബ്ബിൽ വരണമെന്ന് ആഗ്രഹിക്കുന്ന സെർവർ ഉടമകൾക്ക് ഇത് അയയ്ക്കുക.
+      message: |-
+        ഒരു InterChat ഹബ്ബായ {name}-ൽ ഞങ്ങളോടൊപ്പം ചാറ്റ് ചെയ്യാൻ വരൂ. {tagline}
+        ഇവിടെ ചേരൂ: {link}
+      messageByCode: |-
+        ഒരു InterChat ഹബ്ബായ {name}-ൽ ഞങ്ങളോടൊപ്പം ചാറ്റ് ചെയ്യാൻ വരൂ. {tagline}
+        1. നിങ്ങളുടെ സെർവറിലേക്ക് InterChat ചേർക്കുക: {botInvite}
+        2. പങ്കിടാൻ ആഗ്രഹിക്കുന്ന ചാനലിൽ /hub join invite:{code} പ്രവർത്തിപ്പിക്കുക
+      messageByName: |-
+        ഒരു InterChat ഹബ്ബായ {name}-ൽ ഞങ്ങളോടൊപ്പം ചാറ്റ് ചെയ്യാൻ വരൂ. {tagline}
+        1. നിങ്ങളുടെ സെർവറിലേക്ക് InterChat ചേർക്കുക: {botInvite}
+        2. പങ്കിടാൻ ആഗ്രഹിക്കുന്ന ചാനലിൽ /hub join hub:{name} പ്രവർത്തിപ്പിക്കുക
+      hint: ലിങ്കിന്റെ കാലാവധിയും ഉപയോഗങ്ങളും /hub manage-ൽ മാറ്റുക.
+      hintByName: നിങ്ങളുടെ ഹബ് പബ്ലിക് ആയതിനാൽ പേര് മതി. പകരം ഒരു ലിങ്ക് പങ്കിടാൻ ചെക്ക്‌ലിസ്റ്റിൽ ഒരു ക്ഷണ ലിങ്ക് സൃഷ്ടിക്കുക.
+    errors:
+      generic: അത് പ്രവർത്തിച്ചില്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
   delete:
     description: നിങ്ങളുടെ ഹബ് ഇല്ലാതാക്കി.
+  moved:
+    title: ഈ കമാൻഡ് മാറ്റി
+    description: "`{old}` ഇപ്പോൾ `{new}`-ൽ ({section}) ആണ്."
+    button: ഇപ്പോൾ പ്രവർത്തിപ്പിക്കുക
+  manage:
+    sections:
+      delete: ഹബ് ഇല്ലാതാക്കുക
+      invites: ക്ഷണങ്ങൾ
+  mod:
+    sections:
+      ban: ബാൻ ചെയ്യുക
+      mute: മ്യൂട്ട് ചെയ്യുക
+      warn: മുന്നറിയിപ്പ് നൽകുക
+      pardon: മാപ്പ് നൽകുക
+  picker:
+    title: ഹബ് കണ്ടെത്തിയില്ല
+    unresolved: '**{hub}** എന്ന പേരിൽ നിങ്ങൾക്ക് ആക്സസ് ഉള്ള ഒരു ഹബ് കണ്ടെത്താനായില്ല.'
+    choose: "പകരം നിങ്ങൾക്ക് ഉപയോഗിക്കാവുന്ന {count} ഹബ്(ബുകൾ) ഇതാ:"
+    placeholder: ഒരു ഹബ് തിരഞ്ഞെടുക്കുക
+    empty: "നിങ്ങൾ ഇതുവരെ ഒരു ഹബ്ബും മാനേജ് ചെയ്യുന്നില്ല. ഒന്ന് തുടങ്ങാൻ `/hub create` ഉപയോഗിക്കുക, അല്ലെങ്കിൽ പബ്ലിക് ഹബ് കണ്ടെത്താൻ `/hub browse` ഉപയോഗിക്കുക."
   connect:
     success:
-      title: കണക്റ്റഡ്!
-      description: '**{hubName}**-ലേക്ക് കണക്റ്റുചെയ്‌തു - ചാറ്റിംഗ് തുടങ്ങാം!'
-      fieldValue: "കണക്റ്റുചെയ്‌ത ചാനൽ: {channel}"
+      title: ബന്ധിപ്പിച്ചു!
+      description: '**{hubName}**-ലേക്ക് ബന്ധിപ്പിച്ചു - ചാറ്റ് തുടങ്ങൂ!'
+      fieldValue: "ബന്ധിപ്പിച്ച ചാനൽ: {channel}"
     errors:
       alreadyConnected:
-        title: ഈ ഹബ്ബുമായി ഇതിനകം കണക്റ്റുചെയ്‌തു
-        description: It looks like this server is already connected to this hub.
+        title: ഈ ഹബ്ബിലേക്ക് ഇതിനകം ബന്ധിപ്പിച്ചിട്ടുണ്ട്
+        description: ഈ സെർവർ ഇതിനകം {channel}-ൽ ഈ ഹബ്ബിലേക്ക് ബന്ധിപ്പിച്ചിട്ടുണ്ടെന്ന് തോന്നുന്നു.
       missingInput:
-        title: Missing Information
-        description: "Provide a hub name or an invite code.\n\nTry: `/hub connect hub:MyHub` or `/hub connect invite:abc123`"
+        title: വിവരങ്ങൾ കാണുന്നില്ല
+        description: "ഒരു ഹബ് പേരോ ക്ഷണ കോഡോ നൽകുക.\n\nശ്രമിക്കുക: `/hub connect hub:MyHub` അല്ലെങ്കിൽ `/hub connect invite:abc123`. സ്വന്തമായി തുടങ്ങണോ? `/hub create` ഉപയോഗിക്കുക."
       hubNotFound:
-        title: Hub Not Found
-        description: "I couldn't find that hub. Check the name, or use `/hub directory` to browse public hubs."
+        title: ഹബ് കണ്ടെത്തിയില്ല
+        description: "ആ ഹബ് കണ്ടെത്താനായില്ല. പേര് പരിശോധിക്കുക, അല്ലെങ്കിൽ പബ്ലിക് ഹബ്ബുകൾ ബ്രൗസ് ചെയ്യാൻ `/hub browse` ഉപയോഗിക്കുക."
       invalidInvite:
-        title: Invalid Invite
-        description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
+        title: അസാധുവായ ക്ഷണം
+        description: "ആ ക്ഷണ കോഡ് അസാധുവാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു. ഹബ് ഉടമയോട് പുതിയ ക്ഷണം ചോദിച്ച് വീണ്ടും ശ്രമിക്കുക."
       channelNotSupported:
-        title: Unsupported Channel
-        description: "Choose a text channel, thread, or forum channel."
+        title: പിന്തുണയില്ലാത്ത ചാനൽ
+        description: "ഒരു ടെക്സ്റ്റ് ചാനലോ ത്രെഡോ തിരഞ്ഞെടുക്കുക."
       webhookPerms:
-        title: Missing Permissions
-        description: "I couldn't create webhooks in that channel. I need **Manage Webhooks** and **Send Messages** there."
+        title: അനുമതികൾ കാണുന്നില്ല
+        description: "ആ ചാനലിൽ വെബ്ഹൂക്കുകൾ സൃഷ്ടിക്കാനായില്ല. അവിടെ എനിക്ക് **വെബ്ഹൂക്കുകൾ മാനേജ് ചെയ്യുക**, **സന്ദേശങ്ങൾ അയയ്ക്കുക** എന്നിവ വേണം."
       locked:
         title: ഹബ് ലോക്ക് ചെയ്തു
-        description: This hub is currently locked and cannot be joined.
+        description: ഈ ഹബ് ഇപ്പോൾ ലോക്ക് ചെയ്തിരിക്കുന്നു, ചേരാൻ കഴിയില്ല.
+      missingPermissions:
+        title: അനുമതികൾ കാണുന്നില്ല
+        description: "ഒരു ചാനൽ ഹബ്ബിലേക്ക് ബന്ധിപ്പിക്കാൻ ഈ സെർവറിൽ നിങ്ങൾക്ക് **സെർവർ മാനേജ് ചെയ്യുക**, **ചാനലുകൾ മാനേജ് ചെയ്യുക** എന്നീ അനുമതികൾ വേണം."
+      channelAccessDenied:
+        title: അനുമതികൾ കാണുന്നില്ല
+        description: "{channel} ഒരു ഹബ്ബിലേക്ക് ബന്ധിപ്പിക്കാൻ അതിൽ നിങ്ങൾക്ക് **ചാനൽ കാണുക**, **ചാനലുകൾ മാനേജ് ചെയ്യുക** എന്നീ അനുമതികൾ വേണം."
   announcements:
     title: ഹബ് അറിയിപ്പുകൾ
-    description: "Create a **one time** announcement that sends in all connected channels."
+    description: "എല്ലാ ബന്ധിപ്പിച്ച ചാനലുകളിലേക്കും അയയ്ക്കുന്ന **ഒറ്റത്തവണ** അറിയിപ്പ് സൃഷ്ടിക്കുക."
   config:
     title: ഹബ് കോൺഫിഗറേഷൻ
-    description: Customize your InterChat hub for your community.
+    description: നിങ്ങളുടെ കമ്മ്യൂണിറ്റിക്കായി നിങ്ങളുടെ InterChat ഹബ് ഇഷ്ടാനുസൃതമാക്കുക.
+    more:
+      title: "### മറ്റെല്ലാം"
+      placeholder: "ബാക്കിയുള്ള {count}-ൽ ഏതെങ്കിലും തുറക്കുക…"
+    footer: "-# ലൈവ് വരികൾ `/hub manage` ഇതിനകം എടുത്ത അവസ്ഥ വായിക്കുന്നു. `manage` · `configure` · `edit`"
+    state:
+      enabled: "ഓൺ"
+      set: "സജ്ജമാക്കി"
+      missing: "ഇല്ല"
+      modules:
+        empty: "ഒന്നും പ്രവർത്തനക്ഷമമല്ല · അംഗങ്ങൾക്ക് സാധാരണ ടെക്സ്റ്റ് മാത്രം"
+      rules:
+        set: "{count} നിയമങ്ങൾ പ്രസിദ്ധീകരിച്ചു · എല്ലാവർക്കും കാണാം"
+        empty: "ഇതുവരെ നിയമങ്ങളില്ല · ചേരുമ്പോൾ അതിഥികൾ ഒന്നും കാണില്ല"
+      identity:
+        icon: ഐക്കൺ സജ്ജമാക്കി
+        noIcon: ഐക്കൺ ഇല്ല
+      visibility:
+        public: പബ്ലിക്
     catalog:
-      editInfo: Edit Info
-      appearance: Appearance
-      settings: Settings
-      invites: Invites
-      moderators: Moderators
-      deleteHub: Delete Hub
+      editInfo: വിവരങ്ങൾ എഡിറ്റ് ചെയ്യുക
+      appearance: രൂപഭാവം
+      settings: ക്രമീകരണങ്ങൾ
+      invites: ക്ഷണങ്ങൾ
+      moderators: മോഡറേറ്റർമാർ
+      deleteHub: ഹബ് ഇല്ലാതാക്കുക
     options:
       general:
-        label: പൊതുവായ ക്രമീകരണങ്ങൾ
-        description: നിങ്ങളുടെ ഹബ്ബിന്റെ രൂപം, നിയമങ്ങൾ എന്നിവയും മറ്റും ഇഷ്‌ടാനുസൃതമാക്കുക
+        label: പൊതു ക്രമീകരണങ്ങൾ
+        description: നിങ്ങളുടെ ഹബ്ബിന്റെ രൂപഭാവം, നിയമങ്ങൾ എന്നിവയും മറ്റും ഇഷ്ടാനുസൃതമാക്കുക
       rules:
         label: ഹബ് നിയമങ്ങൾ
-        description: നിങ്ങളുടെ ഹബ്ബിന്റെ കമ്മ്യൂണിറ്റി നിയമങ്ങളും മാർഗ്ഗനിർദ്ദേശങ്ങളും നിയന്ത്രിക്കുക
-      team:
-        label: ടീം മാനേജ്‌മെന്റ്
-        description: നിങ്ങളുടെ ഹബ്ബിന്റെ ടീമിനെയും സ്റ്റാഫ് അനുമതികളെയും നിയന്ത്രിക്കുക
+        description: നിങ്ങളുടെ ഹബ്ബിന്റെ കമ്മ്യൂണിറ്റി നിയമങ്ങളും മാർഗ്ഗനിർദ്ദേശങ്ങളും മാനേജ് ചെയ്യുക
+      staff:
+        label: സ്റ്റാഫ്
+        description: നിങ്ങളുടെ ഹബ്ബിന്റെ സ്റ്റാഫിനെയും റോളുകളും മാനേജ് ചെയ്യുക
       modules:
         label: മൊഡ്യൂളുകൾ
-        description: നിങ്ങളുടെ ഹബ്ബിനുള്ളിൽ അധിക മൊഡ്യൂളുകൾ പ്രവർത്തനക്ഷമമാക്കുകയോ പ്രവർത്തനരഹിതമാക്കുകയോ ചെയ്യുക
+        description: നിങ്ങളുടെ ഹബ്ബിലെ അധിക മൊഡ്യൂളുകൾ പ്രവർത്തനക്ഷമമാക്കുക അല്ലെങ്കിൽ പ്രവർത്തനരഹിതമാക്കുക
       logging:
         label: ലോഗിംഗ് കോൺഫിഗറേഷൻ
-        description: നിങ്ങളുടെ ഹബ്ബിനായി ലോഗിംഗ് ചാനലുകളും നോട്ടിഫിക്കേഷൻ റോളുകളും കോൺഫിഗർ ചെയ്യുക
+        description: നിങ്ങളുടെ ഹബ്ബിനായി ലോഗിംഗ് ചാനലുകളും അറിയിപ്പ് റോളുകളും കോൺഫിഗർ ചെയ്യുക
       automod:
         label: AutoMod
-        description: Manage anti-swear rules, patterns, and safe list
+        description: ശകാരവാക്ക് വിരുദ്ധ നിയമങ്ങൾ, പാറ്റേണുകൾ, സുരക്ഷിത പട്ടിക എന്നിവ മാനേജ് ചെയ്യുക
       badges:
-        label: Custom Badges
-        description: Configure custom badge visibility
+        label: ഇഷ്ടാനുസൃത ബാഡ്ജുകൾ
+        description: ഇഷ്ടാനുസൃത ബാഡ്ജുകളുടെ ദൃശ്യത കോൺഫിഗർ ചെയ്യുക
       transfer:
         label: ഉടമസ്ഥാവകാശം കൈമാറുക
-        description: നിങ്ങളുടെ ഹബ്ബിന്റെ ഉടമസ്ഥാവകാശം മറ്റൊരു വ്യക്തിക്ക് കൈമാറുക
+        description: നിങ്ങളുടെ ഹബ്ബിന്റെ ഉടമസ്ഥാവകാശം മറ്റൊരാൾക്ക് കൈമാറുക
+      delete:
+        label: ഹബ് ഇല്ലാതാക്കുക
+        description: ഈ ഹബ് ശാശ്വതമായി ഇല്ലാതാക്കുകയും എല്ലാ സെർവറുകളും വിച്ഛേദിക്കുകയും ചെയ്യുക
       announcements:
         label: ഷെഡ്യൂൾ ചെയ്ത അറിയിപ്പുകൾ
-        description: നിങ്ങളുടെ ഹബ്ബിനായി ഓട്ടോമാറ്റിക് ഷെഡ്യൂൾ ചെയ്ത അറിയിപ്പുകൾ കോൺഫിഗർ ചെയ്യുക
+        description: നിങ്ങളുടെ ഹബ്ബിനായി സ്വയമേവ ഷെഡ്യൂൾ ചെയ്ത അറിയിപ്പുകൾ കോൺഫിഗർ ചെയ്യുക
+      servers:
+        label: ബന്ധിപ്പിച്ച സെർവറുകൾ
+        description: സജീവമായ Discord സെർവർ ബ്രിഡ്ജുകൾ കാണുകയും മാനേജ് ചെയ്യുകയും ചെയ്യുക
     announce:
       errors:
-        invalidDuration: Invalid duration format.
+        invalidDuration: അസാധുവായ ദൈർഘ്യ ഫോർമാറ്റ്.
       success:
-        queued: Your broadcast has been queued.
+        queued: നിങ്ങളുടെ ബ്രോഡ്കാസ്റ്റ് ക്യൂവിൽ ചേർത്തു.
   all:
-    title: ഇന്റർചാറ്റ് ഹബ്ബുകൾ
-    description: Search through a list of all our hubs!
+    title: InterChat ഹബ്ബുകൾ
+    description: ഞങ്ങളുടെ എല്ലാ ഹബ്ബുകളുടെയും പട്ടികയിൽ തിരയുക!
+    createHint: "സ്വന്തമായി ഒരു പങ്കിട്ട ചാനൽ വേണോ? `/hub create` ഉപയോഗിക്കുക."
     filteredBy: "ഫലങ്ങൾ ഫിൽട്ടർ ചെയ്തത്: {filter}"
     errors:
-      notFound: Uh oh! I was unable to find any hubs.
-      invalidFilter: ഒന്നും മിണ്ടുന്നില്ല... നിങ്ങളുടെ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഹബ്ബുകളൊന്നുമില്ല.
+      notFound: "അയ്യോ! ഒരു ഹബ്ബും കണ്ടെത്താനായില്ല. `/hub create` ഉപയോഗിച്ച് സ്വന്തമായി സൃഷ്ടിക്കാം."
+      invalidFilter: "ഒരനക്കവുമില്ല... നിങ്ങളുടെ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്ന ഹബ്ബുകളില്ല. സ്വന്തമായി വേണോ? `/hub create` ഉപയോഗിക്കുക."
     modal:
-      title: സെർച്ച് ഫിൽട്ടർ
+      title: തിരയൽ ഫിൽട്ടർ
       searchFilter:
         label: ഫിൽട്ടർ
-        placeholder: ഇന്റർചാറ്റ് സെൻട്രൽ
+        placeholder: InterChat Central
+
 connection:
   title: കണക്ഷൻ മാനേജ്മെന്റ്
-  description: ഈ സെർവറിനുള്ളിലെ എല്ലാ ഹബ് കണക്ഷനുകളും ക്രമീകരിക്കുകയും നിയന്ത്രിക്കുകയും ചെയ്യുക.
-  removeConnection: Remove Connection
-  broadcastState: Toggle Broadcast ({state})
+  description: ഈ സെർവറിലെ എല്ലാ ഹബ് കണക്ഷനുകളും കോൺഫിഗർ ചെയ്യുകയും നിയന്ത്രിക്കുകയും ചെയ്യുക.
+  removeConnection: കണക്ഷൻ നീക്കം ചെയ്യുക
+  broadcastState: ബ്രോഡ്കാസ്റ്റ് മാറ്റുക ({state})
   states:
-    start: Start
-    pause: Pause
-    active: Active
-    paused: Paused
+    start: *btn_start
+    pause: താൽക്കാലികമായി നിർത്തുക
+    active: സജീവം
+    paused: താൽക്കാലികമായി നിർത്തി
   select:
-    placeholder: Select a connection to manage...
+    placeholder: മാനേജ് ചെയ്യാൻ ഒരു കണക്ഷൻ തിരഞ്ഞെടുക്കുക...
   fields:
-    state: State
+    state: നില
   messages:
-    disconnected: Successfully disconnected from this hub.
+    disconnected: ഈ ഹബ്ബിൽ നിന്ന് വിജയകരമായി വിച്ഛേദിച്ചു.
   errors:
-    notFound: Connection not found.
-    serverOnly: This command can only be used in a server.
+    notFound: കണക്ഷൻ കണ്ടെത്തിയില്ല.
+    serverOnly: ഈ കമാൻഡ് ഒരു സെർവറിനുള്ളിൽ മാത്രമേ ഉപയോഗിക്കാനാകൂ.
     limitReached:
-      title: Connection limit reached
-      upgrade: Upgrade to Plus or Pro to unlock more connections per server.
-      disconnect: Disconnect an existing connection before adding a new one.
+      title: കണക്ഷൻ പരിധി എത്തി
+      upgrade: ഒരു സെർവറിൽ കൂടുതൽ കണക്ഷനുകൾ തുറക്കാൻ Plus അല്ലെങ്കിൽ Pro-യിലേക്ക് അപ്ഗ്രേഡ് ചെയ്യുക.
+      disconnect: പുതിയതൊന്ന് ചേർക്കുന്നതിന് മുമ്പ് നിലവിലുള്ള ഒരു കണക്ഷൻ വിച്ഛേദിക്കുക.
   fixAll:
     label: എല്ലാ കണക്ഷനുകളും ശരിയാക്കുക
   manage:
-    placeholder: നിയന്ത്രിക്കാൻ ഒരു കണക്ഷൻ തിരഞ്ഞെടുക്കുക
+    placeholder: മാനേജ് ചെയ്യാൻ ഒരു കണക്ഷൻ തിരഞ്ഞെടുക്കുക
   selected:
-    description: You may now edit this connection.
+    description: ഇനി നിങ്ങൾക്ക് ഈ കണക്ഷൻ എഡിറ്റ് ചെയ്യാം.
     state:
       enabled: ബ്രോഡ്കാസ്റ്റുകൾ ഇപ്പോൾ **സജീവമാണ്**.
-      disabled: ബ്രോഡ്കാസ്റ്റുകൾ ഇപ്പോൾ **താൽക്കാലികമായി നിർത്തിവച്ചിരിക്കുന്നു**.
+      disabled: ബ്രോഡ്കാസ്റ്റുകൾ ഇപ്പോൾ **താൽക്കാലികമായി നിർത്തി**.
   fix:
-    title: കണക്ഷൻ വാലിഡേഷൻ
-    description: All connections within this guild have been validated.
+    title: കണക്ഷൻ സാധുത പരിശോധന
+    description: ഈ ഗിൽഡിലെ എല്ലാ കണക്ഷനുകളും പരിശോധിച്ചുറപ്പിച്ചു.
     responses:
       success:
         fixed: കണക്ഷൻ ശരിയാക്കി!
         valid: പ്രശ്നങ്ങളൊന്നും കണ്ടെത്തിയില്ല.
       errors:
-        channelDeleted: The channel associated with this hub has been deleted.
-        permissionsWebhook: I am unable to use webhooks.
-        permissionsSend: Bot Missing Permissions! I am unable to send messages in that channel.
-        permissionsGeneral: I'm missing permissions in that channel. Ensure I have `Manage Webhooks`, `View Channel` and `Send Message` permissions.
+        channelDeleted: ഈ ഹബ്ബുമായി ബന്ധപ്പെട്ട ചാനൽ ഇല്ലാതാക്കി.
+        permissionsWebhook: എനിക്ക് വെബ്ഹൂക്കുകൾ ഉപയോഗിക്കാൻ കഴിയുന്നില്ല.
+        permissionsSend: ബോട്ടിന് അനുമതികൾ ഇല്ല! ആ ചാനലിൽ എനിക്ക് സന്ദേശങ്ങൾ അയയ്ക്കാൻ കഴിയുന്നില്ല.
+        permissionsGeneral: ആ ചാനലിൽ എനിക്ക് അനുമതികൾ ഇല്ല. എനിക്ക് `വെബ്ഹൂക്കുകൾ മാനേജ് ചെയ്യുക`, `ചാനൽ കാണുക`, `സന്ദേശം അയയ്ക്കുക` എന്നീ അനുമതികൾ ഉണ്ടെന്ന് ഉറപ്പാക്കുക.
+
 messageInfo:
   tabs:
     message:
@@ -1189,296 +1921,720 @@ messageInfo:
       title: സെർവർ വിവരങ്ങൾ
       button: സെർവർ
   fields:
-    messageId: മെസ്സേജ് ഐഡി
+    messageId: സന്ദേശ ID
     server: സെർവർ
     author: രചയിതാവ്
     hub: ഹബ്
     content: ഉള്ളടക്കം
-    timestamp: ടൈംസ്റ്റാമ്പ്
+    timestamp: സമയമുദ്ര
     username: ഉപയോക്തൃനാമം
     accountCreated: അക്കൗണ്ട് സൃഷ്ടിച്ചത്
     badges: ബാഡ്ജുകൾ
-    serverName: സെർവർ നാമം
+    serverName: സെർവറിന്റെ പേര്
     connectionChannel: കണക്ഷൻ ചാനൽ
-    connectedSince: കണക്റ്റുചെയ്‌തത് മുതൽ
+    connectedSince: ബന്ധിപ്പിച്ചത് മുതൽ
   status:
-    connected: കണക്റ്റഡ്
+    connected: ബന്ധിപ്പിച്ചു
     disconnected: വിച്ഛേദിച്ചു
   buttons:
     profile: പ്രൊഫൈൽ
   unknown:
     server: അജ്ഞാത സെർവർ
-  noBadges: പ്രദർശിപ്പിക്കാൻ ബാഡ്ജുകളില്ല
-  noConnection: കണക്ഷൻ വിവരങ്ങളൊന്നും ലഭ്യമല്ല
+  noBadges: കാണിക്കാൻ ബാഡ്ജുകളില്ല
+  noConnection: കണക്ഷൻ വിവരങ്ങൾ ലഭ്യമല്ല
+
 leaderboard:
-  title: Leaderboard
-  noActivity: No Activity
-  noActivityDescription: No activity recorded for this period.
-  messages: messages
-  calls: calls
-  votes: votes
-  streak: day streak
-  selectPeriod: Select time period
-  selectType: Select leaderboard type
-  yourRank: Your Rank
-  periods:
-    thisMonth: This Month
-    thisMonth.description: Current month statistics
-    lastMonth: Last Month
-    lastMonth.description: Previous month statistics
-    allTime: All Time
-    allTime.description: All-time statistics
-  buttons:
-    users: Users
-    servers: Servers
-    calls: Calls
+  title: ലീഡർബോർഡ്
+  noActivity: ഇതുവരെ പ്രവർത്തനമില്ല
+  noActivityDescription: ഈ കാലയളവിൽ ഒന്നും രേഖപ്പെടുത്തിയിട്ടില്ല. ആദ്യത്തെ ആളാകൂ!
+  users: ഉപയോക്താക്കൾ
+  servers: സെർവറുകൾ
+  streaks: സ്ട്രീക്കുകൾ
+  messages: സന്ദേശങ്ങൾ
+  unit:
+    calls: കോളുകൾ
     votes: വോട്ടുകൾ
-    streaks: Streaks
+    streak: ദിവസ സ്ട്രീക്ക്
+  calls: കോളുകൾ
+  votes: വോട്ടുകൾ
+  selectPeriod: സമയ കാലയളവ് തിരഞ്ഞെടുക്കുക
+  selectType: കാണിക്കുക…
+  periods:
+    thisMonth: ഈ മാസം
+    thisMonth.description: നിലവിലെ മാസത്തിലെ കണക്കുകൾ
+    lastMonth: കഴിഞ്ഞ മാസം
+    lastMonth.description: കഴിഞ്ഞ മാസത്തിലെ കണക്കുകൾ
+    allTime: എക്കാലവും
+    allTime.description: എക്കാലത്തെയും കണക്കുകൾ
+  buttons:
+    users: ഉപയോക്താക്കൾ
+    servers: സെർവറുകൾ
   errors:
-    alreadyShowingUsers: Already showing users leaderboard.
-    alreadyShowingServers: Already showing servers leaderboard.
-    alreadyShowingPeriod: Already showing this time period.
-    alreadyShowingType: Already showing this leaderboard type.
+    alreadyShowingUsers: ഉപയോക്താക്കളുടെ ലീഡർബോർഡ് ഇതിനകം കാണിക്കുന്നു.
+    alreadyShowingServers: സെർവറുകളുടെ ലീഡർബോർഡ് ഇതിനകം കാണിക്കുന്നു.
+    alreadyShowingPeriod: ഈ സമയ കാലയളവ് ഇതിനകം കാണിക്കുന്നു.
+    alreadyShowingType: ആ ലീഡർബോർഡ് ഇതിനകം കാണിക്കുന്നു.
+    unavailable: ലീഡർബോർഡുകൾ ഇപ്പോൾ ലഭ്യമല്ല. അൽപസമയത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.
+
 profile:
   achievements:
-    placeholder: ഇവിടെ നേട്ടങ്ങൾ
+    placeholder: നേട്ടങ്ങൾ ഇവിടെ
+
+passportCard:
+  suspended: പാസ്പോർട്ട് സസ്പെൻഡ് ചെയ്തു
+  active: ഇന്ന് സജീവം
+  inactive: ഇന്ന് സജീവമല്ല
+  traveler: സഞ്ചാരി {traveler}
+  remembered: '{count} പേർ ഓർക്കുന്നു'
+  milesTravelled: "{miles} മൈൽ സഞ്ചരിച്ചു"
+  breakdown: "{stamps} സ്റ്റാമ്പുകൾ · {gold} സ്വർണ്ണം · {silver} വെള്ളി · {bronze} വെങ്കലം"
+  recent: "{total}-ൽ ഏറ്റവും പുതിയ {shown}"
+  noneTitle: ഇതുവരെ സ്റ്റാമ്പുകളൊന്നും ശേഖരിച്ചിട്ടില്ല
+  noneBody: ഓർമ്മിക്കപ്പെടാൻ സെർവറുകൾക്കിടയിലുള്ള ഒരു കോൾ പൂർത്തിയാക്കുക.
+  nextAt: അടുത്ത പദവി {count} സ്റ്റാമ്പുകളിൽ
+  ladder: ക്യാമ്പെയ്ൻ ഗോവണി
+  tiers: ടയർ വിതരണം
+  total: "ആകെ {count}"
+  moreTo: "{title} ലഭിക്കാൻ {count} കൂടി"
+  topReached: ഉയർന്ന പദവി നേടി
+  calls: "{count} കോളുകൾ"
+  lastCall: "അവസാന കോൾ {when}"
+  tier:
+    gold: സ്വർണ്ണം
+    silver: വെള്ളി
+    bronze: വെങ്കലം
+  field:
+    stamps: സ്റ്റാമ്പുകൾ
+    miles: മൈലുകൾ
+    calls: കോളുകൾ
+    gold: സ്വർണ്ണം
+    silver: വെള്ളി
+    bronze: വെങ്കലം
+
 my:
   hubs:
-    title: നിങ്ങളുടെ ഹബുകൾ
-    description: "നിങ്ങളുടെ ഉടമസ്ഥതയിലുള്ളതോ മോഡറേറ്റ് ചെയ്യുന്നതോ ആയ ഹബുകൾ ഇതാ:"
+    title: നിങ്ങളുടെ ഹബ്ബുകൾ
+    description: "നിങ്ങൾ ഉടമസ്ഥരായതോ മോഡറേറ്റ് ചെയ്യുന്നതോ ആയ ഹബ്ബുകൾ ഇതാ:"
+    serverOne: സെർവർ
+    servers: സെർവറുകൾ
+    messagesOne: സന്ദേശം
+    messages: സന്ദേശങ്ങൾ
+    visibility:
+      public: പബ്ലിക്
+      private: പ്രൈവറ്റ്
+      unlisted: ലിസ്റ്റ് ചെയ്യാത്തത്
+    locked: ലോക്ക് ചെയ്തത്
+    nsfw: NSFW
+    unavailable: ഈ ഹബ് ഇനി ലഭ്യമല്ല.
+    filters:
+      all: എല്ലാം
+      owned: സ്വന്തം
+      staff: സ്റ്റാഫ്
+    picker:
+      placeholder: മാനേജ് ചെയ്യാൻ ഒരു ഹബ് തിരഞ്ഞെടുക്കുക...
+    empty:
+      title: ഹബ്ബുകളൊന്നുമില്ല
+      description: "നിങ്ങൾ ഒരു ഹബ്ബിന്റെയും ഉടമയോ മോഡറേറ്ററോ അല്ല. ഒന്ന് തുടങ്ങാൻ `/hub create` ഉപയോഗിക്കുക, അല്ലെങ്കിൽ സഹായിക്കാൻ ഒരു കമ്മ്യൂണിറ്റി കണ്ടെത്താൻ `/hub browse` ഉപയോഗിക്കുക."
+    filtered:
+      title: '{filter} ഹബ്ബുകളൊന്നുമില്ല'
+      description: "നിങ്ങളുടെ ഹബ്ബുകളൊന്നും ഈ ഫിൽട്ടറുമായി പൊരുത്തപ്പെടുന്നില്ല. നിങ്ങൾ ഉടമസ്ഥരായതും മോഡറേറ്റ് ചെയ്യുന്നതുമായ എല്ലാം കാണാൻ **എല്ലാം** പരീക്ഷിക്കുക."
+    loading: നിങ്ങളുടെ ഹബ്ബുകൾ ലോഡ് ചെയ്യുന്നു...
+  activity:
+    day: "{count} ദിവസം"
+    days: "{count} ദിവസം"
+    unranked: റാങ്ക് ഇല്ല
+    closed: പ്രവർത്തന ഡാഷ്‌ബോർഡ് അടച്ചു.
+    utcFooter: ദിവസേനയുള്ള സ്ട്രീക്കുകൾ UTC ഉപയോഗിക്കുന്നു.
+    tabs:
+      overview: അവലോകനം
+      hubs: ഹബ്ബുകൾ
+      calls: കോളുകൾ
+    timeline:
+      day: "ദിവസം {count}"
+      today: ഇന്ന്
+    overview:
+      title: കണക്ഷൻ തുടരുക
+      securedTitle: ഇന്നത്തെ കണക്ഷൻ പൂർത്തിയായി
+      startTitle: ഒരു പുതിയ കണക്ഷൻ തുടങ്ങുക
+      securedSummary: "നിങ്ങളുടെ സ്ട്രീക്ക് {streak} ആണ്. അത് തുടരാൻ നാളെ വീണ്ടും വരൂ."
+      activeSummary: "നിങ്ങളുടെ സ്ട്രീക്ക് {streak} ആണ്. ഒരു സജീവ ദിവസം കൂടി അതിനെ നിലനിർത്തും."
+      freezeSummary: "നിങ്ങളുടെ {streak} സ്ട്രീക്ക് ഇപ്പോഴും രക്ഷിക്കാം. ഒരു ഫ്രീസ് ഉപയോഗിക്കാൻ ഇന്ന് യോഗ്യത നേടുക."
+      inactiveSummary: "നിങ്ങളുടെ മുൻ സ്ട്രീക്ക് {streak} ആയിരുന്നു. വീണ്ടും തുടങ്ങാൻ ഇന്ന് യോഗ്യത നേടുക."
+      newSummary: ഒരു സജീവ ദിവസം നിങ്ങളുടെ ആദ്യ InterChat സ്ട്രീക്ക് തുടങ്ങും.
+      stats: "❄️ {freezes} ഫ്രീസുകൾ · മികച്ച സ്ട്രീക്ക്: {best}\n:trophy_icon: സ്ട്രീക്ക് റാങ്ക്: {rank}"
+    path:
+      title: ഇന്നത്തെ വഴി
+      hubs: "ഹബ് സന്ദേശങ്ങൾ അയയ്ക്കുക  **{current}/{threshold}**"
+      call: 60+ സെക്കൻഡ് കോൾ പൂർത്തിയാക്കുക
+      unavailable: ഹബ് സന്ദേശ പുരോഗതി താൽക്കാലികമായി ലഭ്യമല്ല
+      secured: ഇന്നത്തെ സ്ട്രീക്ക് സുരക്ഷിതമാണ്
+      tomorrow: നിങ്ങളുടെ അടുത്ത സ്ട്രീക്ക് വിൻഡോ നാളെ തുടങ്ങും.
+      freeze: ഇന്ന് യോഗ്യത നേടിയാൽ ഒരു ഫ്രീസ് ഉപയോഗിക്കുകയും നിങ്ങളുടെ സ്ട്രീക്ക് നിലനിർത്തുകയും ചെയ്യും.
+      nextMessages: "നിങ്ങളുടെ അടുത്ത നീക്കം: {count} ഹബ് സന്ദേശങ്ങൾ കൂടി അയയ്ക്കുക."
+      nextStart: "5 ഹബ് സന്ദേശങ്ങൾ അയയ്ക്കുക അല്ലെങ്കിൽ 60+ സെക്കൻഡ് കോൾ പൂർത്തിയാക്കുക."
+      nextUnavailable: 60+ സെക്കൻഡ് കോൾ ഇന്നും യോഗ്യമാണ്.
+    hubs:
+      title: നിങ്ങളുടെ ഹബ് പാസ്പോർട്ട്
+      messages: "{count} സന്ദേശങ്ങൾ"
+      places: നിങ്ങളുടെ വാക്കുകൾ സന്ദർശിച്ച സ്ഥലങ്ങൾ
+      homeBase: നിങ്ങളുടെ ഹോം ബേസ്
+      homeStats: "{count} സന്ദേശങ്ങൾ · ഈ മാസത്തിന്റെ {share}%"
+      otherPlaces: മറ്റ് സ്ഥലങ്ങൾ
+      empty: അംഗീകരിച്ച ഹബ് സന്ദേശങ്ങൾ അയയ്ക്കുക, നിങ്ങൾ സന്ദർശിക്കുന്ന സ്ഥലങ്ങൾ ഇവിടെ കാണിക്കും.
+      summary: "ഈ മാസം {count} സജീവ ഹബ്ബുകൾ\n:trophy_icon: ഗ്ലോബൽ സന്ദേശ റാങ്ക്: {rank}"
+      delay: എണ്ണങ്ങൾ ഏകദേശം 30 സെക്കൻഡ് വൈകിയേക്കാം.
+    calls:
+      title: സംഭാഷണം തുടരുക
+      completed: പൂർത്തിയാക്കിയ കോളുകൾ
+      status: കണക്ഷൻ നില
+      qualifies: യോഗ്യമായ ഒരു കോൾ ഇന്നത്തെ സ്ട്രീക്ക് സുരക്ഷിതമാക്കുന്നു.
+      currentStreak: നിലവിലെ സ്ട്രീക്ക്
+      previousStreak: മുൻ സ്ട്രീക്ക്
+      stats: ":trophy_icon: കോൾ റാങ്ക്: {rank}\n:fire_icon: {streakLabel}: {streak}\n❄️ ലഭ്യമായ ഫ്രീസുകൾ: {freezes}"
+      shared: കോളുകളും ഹബ് സന്ദേശങ്ങളും ഒരേ സ്ട്രീക്ക് പങ്കിടുന്നു.
+
 stats:
-  title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
-  footer: InterChat | Version {version}
+  title: InterChat
+  description: നെറ്റ്‌വർക്കിലുടനീളമുള്ള തത്സമയ കണക്കുകൾ.
+  network: ഇപ്പോൾ
+  networkValue: "> **സെർവറുകൾ** {servers}\n> **അംഗങ്ങൾ** {members}\n> **ഹബ്ബുകൾ** {hubs}"
+  bot: ഈ ബോട്ട്
+  botValue: "> **പിംഗ്** {ping}ms · **അപ്‌ടൈം** <t:{uptime}:R> · **v{version}**"
+  footer: InterChat • v{version}
   shard:
     title: ഷാർഡ് വിവരങ്ങൾ
-    statusReady: തയ്യാറാണ്
-    statusProvisioning: Provisioning
-    current: "Current Shard: {id}"
+    row: "> **ഷാർഡ് #{id}**: {status}\n> **പിംഗ്** {ping}ms · **സെർവറുകൾ** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **CPU കോറുകൾ** {cores}\n> **RAM** {ram}MB"
+    statusReady: തയ്യാർ
+    statusProvisioning: സജ്ജമാക്കുന്നു
+    current: "നിങ്ങൾ ഷാർഡ് #{id}-ൽ ആണ്"
+
 invite:
-  title: ഹേയ്!
-  description: Thanks for choosing InterChat. Need help? Join our support server.
+  title: നിങ്ങളുടെ സെർവറിലേക്ക് InterChat ചേർക്കുക
+  description: സൗജന്യമാണ്, ഏകദേശം ഒരു മിനിറ്റ് എടുക്കും.
+  steps: |-
+    > **1.** താഴെയുള്ള **സെർവറിലേക്ക് ചേർക്കുക** അമർത്തുക
+    > **2.** നിങ്ങളുടെ സെർവർ തിരഞ്ഞെടുക്കുക
+    > **3.** ഉപയോഗിക്കാൻ ആഗ്രഹിക്കുന്ന ചാനലിൽ `/setup` പ്രവർത്തിപ്പിക്കുക
+  footer: നിങ്ങൾ തിരഞ്ഞെടുക്കുന്ന സെർവറിൽ നിങ്ങൾക്ക് **സെർവർ മാനേജ് ചെയ്യുക** വേണം.
+
+rules:
+  title: InterChat നിയമങ്ങൾ
+  body: ഈ നിയമങ്ങൾ നിങ്ങൾ InterChat ഉപയോഗിക്കുന്ന എല്ലായിടത്തും ബാധകമാണ്, ഹബ്ബുകളിലും കോളുകളിലും ഒരുപോലെ.
+  tabs:
+    short: നിയമങ്ങൾ
+    full: പൂർണ്ണ മാർഗ്ഗനിർദ്ദേശങ്ങൾ
+    moderation: മോഡറേഷൻ
+  short: |-
+    > **1.** ആളുകളോട് ബഹുമാനത്തോടെ പെരുമാറുക. ആരെങ്കിലും നിർത്തൂ എന്ന് പറഞ്ഞാൽ നിർത്തുക.
+    > **2.** ആളുകളെ അവർ ആരാണ് എന്നതിന്റെ പേരിൽ ആക്രമിക്കരുത്. അധിക്ഷേപ വാക്കുകൾ പാടില്ല.
+    > **3.** ഭീഷണികൾ പാടില്ല, സ്വകാര്യ വിവരങ്ങൾ പങ്കിടരുത്.
+    > **4.** ലൈംഗിക ഉള്ളടക്കം പാടില്ല. പ്രായപൂർത്തിയാകാത്തവരെ ഉൾപ്പെടുത്തുന്നത് ഒരിക്കലും പാടില്ല.
+    > **5.** സ്പാം പാടില്ല, സംഭാഷണം നശിപ്പിക്കരുത്.
+    > **6.** വിലക്കുകൾ മറികടക്കരുത്, വ്യാജ റിപ്പോർട്ടുകൾ അയയ്ക്കരുത്.
+    > **7.** പേരുകളും ഈ നിയമങ്ങൾ പാലിക്കണം.
+  rules:
+    title: നിയമങ്ങൾ
+    commonSense: |
+      ## സാമാന്യബുദ്ധി ഉപയോഗിക്കുക
+      ഈ നിയമങ്ങൾക്ക് സാധ്യമായ എല്ലാ സാഹചര്യങ്ങളും ഉൾക്കൊള്ളാൻ കഴിയില്ല.
+
+      മറ്റൊരാളെ വേദനിപ്പിക്കാനോ ഭീഷണിപ്പെടുത്താനോ ഉപദ്രവിക്കാനോ ലൈംഗികവൽക്കരിക്കാനോ ഗുരുതരമായി തടസ്സപ്പെടുത്താനോ വേണ്ടി എന്തെങ്കിലും ചെയ്യുന്നതായി വ്യക്തമാണെങ്കിൽ, ഈ നിയമങ്ങളിൽ കൃത്യമായ വാക്കുകൾ കണ്ടെത്താൻ കഴിയാത്തതുകൊണ്ട് മാത്രം അത് അനുവദനീയമാണെന്ന് കരുതരുത്.
+    body: |
+      ### 1. ആളുകളോട് ബഹുമാനത്തോടെ പെരുമാറുക
+      **തമാശ അനുവദനീയമാണ്. ഉപദ്രവം അല്ല.**
+      - തമാശയും കളിയാക്കലും കുഴപ്പമില്ല, പക്ഷേ അവയെ ആവർത്തിച്ചുള്ള അധിക്ഷേപങ്ങളോ ഉപദ്രവമോ ഒരാളെ മനഃപൂർവം വിഷമിപ്പിക്കാനുള്ള ശ്രമങ്ങളോ ആക്കി മാറ്റരുത്.
+      - ആരെങ്കിലും നിർത്താൻ ആവശ്യപ്പെട്ടാൽ **നിർത്തുക**.
+      - ഒരാളെ ആവർത്തിച്ച് പ്രകോപിപ്പിക്കുകയോ പരിഹസിക്കുകയോ ആക്രമിക്കുകയോ ചെയ്യരുത്, പ്രത്യേകിച്ച് നിർത്താൻ ആവശ്യപ്പെട്ടതിന് ശേഷം.
+      ### 2. ആളുകളെ അവർ ആരാണ് എന്നതിന്റെ പേരിൽ ആക്രമിക്കരുത്
+      **മതഭ്രാന്തും വിദ്വേഷവും അനുവദനീയമല്ല.**
+      - വംശം, വർഗ്ഗം, ദേശീയത, മതം, ലിംഗം, ലൈംഗികത, വൈകല്യം അല്ലെങ്കിൽ സമാന സവിശേഷതകൾ എന്നിവയുടെ പേരിൽ ആരെയും ആക്രമിക്കുകയോ അപമാനിക്കുകയോ താഴ്ത്തിക്കെട്ടുകയോ ചെയ്യരുത്.
+      - അധിക്ഷേപ വാക്കുകൾ അനുവദനീയമല്ല, അവ നിങ്ങൾക്ക് ബാധകമായതിനാൽ ഉപയോഗിക്കാമെന്ന് നിങ്ങൾ വാദിച്ചാലും.
+      ### 3. ആളുകളെ സുരക്ഷിതരായി നിലനിർത്തുക
+      **ഭീഷണികളോ അപകടകരമായ പെരുമാറ്റമോ പാടില്ല.**
+      - ഒരാളെ വേദനിപ്പിക്കുമെന്നോ കൊല്ലുമെന്നോ ലൈംഗികമായി ആക്രമിക്കുമെന്നോ ഭീഷണിപ്പെടുത്തരുത്.
+      - സ്വയം ഉപദ്രവിക്കാൻ ആരെയും പ്രോത്സാഹിപ്പിക്കരുത്.
+      - ഡോക്സിംഗ്, സ്വാട്ടിംഗ്, ആക്രമണം അല്ലെങ്കിൽ മറ്റൊരാൾക്ക് ദോഷം വരുത്തുന്ന മറ്റ് പ്രവൃത്തികൾ ചെയ്യാൻ ആരെയും പ്രോത്സാഹിപ്പിക്കുകയോ സഹായിക്കുകയോ ചെയ്യരുത്.
+
+      **സ്വകാര്യ വിവരങ്ങൾ പങ്കിടരുത്.**
+      - ഒരാളുടെ വിലാസം, ഫോൺ നമ്പർ, യഥാർത്ഥ പേര്, ലൊക്കേഷൻ, IP വിലാസം അല്ലെങ്കിൽ മറ്റ് സ്വകാര്യ വിവരങ്ങൾ പോസ്റ്റ് ചെയ്യുകയോ പോസ്റ്റ് ചെയ്യുമെന്ന് ഭീഷണിപ്പെടുത്തുകയോ ചെയ്യരുത്.
+      ### 4. ലൈംഗിക ഉള്ളടക്കം ഉചിതമായി നിലനിർത്തുക
+      **പ്രായപൂർത്തിയാകാത്തവരെ ലൈംഗികവൽക്കരിക്കരുത്.**
+      - പ്രായപൂർത്തിയാകാത്തവർ ഉൾപ്പെടുന്ന ലൈംഗിക തമാശകൾ, കഥകൾ, അഭിപ്രായങ്ങൾ, സംഭാഷണങ്ങൾ എന്നിവ അനുവദനീയമല്ല.
+      - ഗ്രൂമിംഗ്, പ്രായപൂർത്തിയാകാത്ത ഒരാളിൽ നിന്ന് ലൈംഗിക ഉള്ളടക്കം നേടാനുള്ള ശ്രമം, അല്ലെങ്കിൽ പ്രായപൂർത്തിയാകാത്തവരോടുള്ള മറ്റ് ലൈംഗിക പെരുമാറ്റം എന്നിവ പ്രത്യേക ഗൗരവത്തോടെ കൈകാര്യം ചെയ്യും.
+
+      **വ്യക്തമായ ലൈംഗിക ഉള്ളടക്കം InterChat-ൽ നിന്ന് ഒഴിവാക്കുക.**
+      - സെക്സ്റ്റിംഗ്, ലൈംഗിക റോൾപ്ലേ, ഗ്രാഫിക് ലൈംഗിക സന്ദേശങ്ങൾ, സമാന ഉള്ളടക്കം എന്നിവ പാടില്ല.
+      - സ്വാഗതം ചെയ്യപ്പെടുമ്പോൾ ഫ്ലർട്ട് ചെയ്യുന്നത് കുഴപ്പമില്ല. ആർക്കെങ്കിലും താൽപ്പര്യമില്ലെങ്കിൽ **നിർത്തുക**.
+      ### 5. സംഭാഷണം നശിപ്പിക്കരുത്
+      **സ്പാമോ മനഃപൂർവമായ തടസ്സപ്പെടുത്തലോ പാടില്ല.**
+      - ചാറ്റുകൾ നിറയ്ക്കുകയോ വലിയ ടെക്സ്റ്റ് മതിലുകൾ അയയ്ക്കുകയോ സന്ദേശങ്ങളോ ഇമോജികളോ സ്പാം ചെയ്യുകയോ ഒരു സംഭാഷണം മനഃപൂർവം ഉപയോഗശൂന്യമാക്കുകയോ ചെയ്യരുത്.
+      ### 6. മോഡറേഷനിൽ ഇടപെടരുത്
+      **മോഡറേഷൻ മറികടക്കരുത്.**
+      - നിലവിലുള്ള വിലക്കോ നിയന്ത്രണമോ മറികടക്കാൻ മറ്റൊരു അക്കൗണ്ടോ മറ്റൊരു രീതിയോ ഉപയോഗിക്കരുത്.
+
+      **റിപ്പോർട്ട് സംവിധാനം ദുരുപയോഗം ചെയ്യരുത്.**
+      - റിപ്പോർട്ടുകൾ സത്യസന്ധവും നല്ല വിശ്വാസത്തോടെയുള്ളതും ആയിരിക്കണം.
+      - ആരെയെങ്കിലും ശിക്ഷിപ്പിക്കാൻ വ്യാജ റിപ്പോർട്ടുകൾ ഉണ്ടാക്കരുത്.
+      ### 7. നിങ്ങളുടെ വ്യക്തിത്വം ഉചിതമായി നിലനിർത്തുക
+      **പേരുകളും നിയമങ്ങൾ പാലിക്കണം.**
+      - InterChat വഴി കാണിക്കുന്ന ഉപയോക്തൃനാമങ്ങൾ, വിളിപ്പേരുകൾ, സെർവർ പേരുകൾ, മറ്റ് പേരുകൾ എന്നിവ ഈ നിയമങ്ങൾ പാലിക്കണം.
+
+  enforcement: |
+    ## മോഡറേഷൻ എങ്ങനെ പ്രവർത്തിക്കുന്നു
+    മോഡറേറ്റർമാർ **എന്താണ് സംഭവിച്ചത്, എത്ര ഗുരുതരമായിരുന്നു, മനഃപൂർവമായിരുന്നോ, ആരെ ലക്ഷ്യമിട്ടായിരുന്നു, ആവശ്യപ്പെട്ടപ്പോൾ ആ വ്യക്തി നിർത്തിയോ, അവരുടെ സമീപകാല ചരിത്രം** എന്നിവ പരിശോധിക്കുന്നു.
+    ### ശിക്ഷയുടെ ഗോവണി ഇതാണ്:
+    ```മുന്നറിയിപ്പ് → 6h → 24h → 7d → 14d → 30d → സ്ഥിരം```
+    *ശിക്ഷകൾ എല്ലായ്പ്പോഴും ക്രമമായിരിക്കണമെന്നില്ല, പലപ്പോഴും ലംഘനത്തിന്റെ ഗൗരവത്തെയും സാഹചര്യത്തെയും ആശ്രയിച്ചിരിക്കും. 90 ദിവസത്തിലധികം പഴക്കമുള്ള സാധാരണ ലംഘനങ്ങൾ പൊതുവെ സ്വയമേവ കാലഹരണപ്പെടുകയും ശിക്ഷ വർദ്ധിപ്പിക്കാതിരിക്കുകയും വേണം.*
+
+startHere:
+  nav:
+    help: സഹായം
+    invite: ക്ഷണിക്കുക
+    dashboard: ഡാഷ്‌ബോർഡ്
+    stats: സ്ഥിതിവിവരക്കണക്കുകൾ
+    about: കുറിച്ച്
+  descriptions:
+    help: InterChat-ലെ എല്ലാ കമാൻഡുകളും പര്യവേക്ഷണം ചെയ്യുക.
+    about: InterChat എന്താണ്, എങ്ങനെ പ്രവർത്തിക്കുന്നു.
+    invite: നിങ്ങളുടെ സെർവറിലേക്ക് InterChat ചേർക്കുക.
+    rules: ഹബ്ബുകൾക്കും കോളുകൾക്കുമുള്ള നിയമങ്ങൾ വായിക്കുക.
+    stats: InterChat-ന്റെ തത്സമയ കണക്കുകൾ കാണുക.
+    feedback: ഒരു നിർദ്ദേശമോ ബഗ് റിപ്പോർട്ടോ അയയ്ക്കുക.
+    report: ഒരു സന്ദേശം എങ്ങനെ റിപ്പോർട്ട് ചെയ്യാമെന്ന് അറിയുക.
+    dashboard: വെബ് ഡാഷ്‌ബോർഡ് തുറക്കുക.
+    leaderboard: മുൻനിര കോളർമാരെയും സെർവറുകളെയും കാണുക.
+    prefix: ഈ സെർവറിന്റെ കമാൻഡ് പ്രിഫിക്സ് മാറ്റുക.
+    vote: InterChat-ന് വോട്ട് ചെയ്യുക, ഒരു ബാഡ്ജ് നേടുക, സ്കിപ്പ് ചെയ്തതിനോ ഹാങ്ങപ്പ് ചെയ്തതിനോ ശേഷം വീണ്ടും മാച്ച് ചെയ്യണോ എന്ന് തിരഞ്ഞെടുക്കുക.
+
+dashboard:
+  description: നിങ്ങളുടെ ബ്രൗസറിൽ നിന്ന് നിങ്ങളുടെ ഹബ്ബുകളും സെർവറുകളും കോളുകളും മാനേജ് ചെയ്യുക. കമാൻഡുകൾ ആവശ്യമില്ല.
+
+prefix:
+  updatedTitle: പ്രിഫിക്സ് അപ്‌ഡേറ്റ് ചെയ്തു
+  updated: ഈ സെർവർ ഇപ്പോൾ `{prefix}` ഉപയോഗിക്കുന്നു. `/help` പരീക്ഷിക്കുക.
+  resetTitle: പ്രിഫിക്സ് റീസെറ്റ് ചെയ്തു
+  reset: ഈ സെർവർ ഡിഫോൾട്ട് പ്രിഫിക്സ് `{prefix}`-ലേക്ക് മടങ്ങി.
+  error:
+    guildOnly: പ്രിഫിക്സുകൾ ഓരോ സെർവറിനും വേറെയാണ്, അതിനാൽ ഇത് ഒരു സെർവറിനുള്ളിൽ മാത്രമേ പ്രവർത്തിക്കൂ.
+    tooLong: ഒരു പ്രിഫിക്സിന് പരമാവധി 10 അക്ഷരങ്ങൾ വരെ ആകാം.
+
+vote:
+  title: InterChat-ന് വോട്ട് ചെയ്യുക
+  description: ഇതിന് 10 സെക്കൻഡ് മതി, കൂടുതൽ സെർവറുകൾക്ക് ഞങ്ങളെ കണ്ടെത്താൻ ഇത് സഹായിക്കുന്നു.
+  rewards: |-
+    ## 12 മണിക്കൂറിന് നിങ്ങൾക്ക് ലഭിക്കുന്നത്
+    > **സെർവർ ഇമോജികൾ**: നിങ്ങളുടെ സന്ദേശങ്ങളിൽ ഏത് ഇമോജിയും ഉപയോഗിക്കുക
+    > **വോട്ടർ ബാഡ്ജ്**: നിങ്ങളുടെ InterChat പ്രൊഫൈലിൽ കാണിക്കും
+    > **വ്യക്തിഗത ഓട്ടോ-മാച്ച്**: പങ്കാളി സ്കിപ്പ് ചെയ്യുകയോ ഹാങ്ങപ്പ് ചെയ്യുകയോ ചെയ്താൽ വീണ്ടും മാച്ച് ചെയ്യണോ എന്ന് തിരഞ്ഞെടുക്കുക
+  alreadyVoted: |-
+    ## :party_popper: വോട്ട് ചെയ്തതിന് നന്ദി!
+    നിങ്ങൾക്ക് **{next}** വീണ്ടും വോട്ട് ചെയ്യാം.
+    പങ്കാളി സ്കിപ്പ് ചെയ്യുമ്പോഴോ ഹാങ്ങപ്പ് ചെയ്യുമ്പോഴോ വേണ്ട വ്യക്തിഗത ഓട്ടോ-മാച്ച് തിരഞ്ഞെടുപ്പുകൾ `/my settings`-ൽ സജ്ജമാക്കുക.
+  thanks:
+    title: വോട്ട് ചെയ്തതിന് നന്ദി!
+    intro: നിങ്ങളുടെ വോട്ട് കൂടുതൽ സെർവറുകൾക്ക് InterChat കണ്ടെത്താൻ സഹായിക്കുന്നു. 10 സെക്കൻഡ് ചെലവഴിച്ചതിന് നന്ദി. പങ്കാളി സ്കിപ്പ് ചെയ്യുകയോ ഹാങ്ങപ്പ് ചെയ്യുകയോ ചെയ്താൽ 12 മണിക്കൂർ വീണ്ടും മാച്ച് ചെയ്യണോ എന്ന് തിരഞ്ഞെടുക്കാനും ഇത് അനുവദിക്കുന്നു; അത് `/my settings`-ൽ സജ്ജമാക്കുക.
+    activeHeading: അടുത്ത 12 മണിക്കൂർ സജീവം
+    emojiTitle: സെർവർ ഇമോജികൾ
+    emojiBody: നിങ്ങളുടെ സന്ദേശങ്ങളിൽ ഏത് സെർവറിലെയും ഇമോജി ഉപയോഗിക്കുക.
+    roleTitle: വോട്ടർ റോൾ
+    roleBody: സപ്പോർട്ട് സെർവറിൽ നൽകുകയും നിങ്ങളുടെ വോട്ട് കാലഹരണപ്പെടുമ്പോൾ നീക്കം ചെയ്യുകയും ചെയ്യും, അതിനാൽ നിലനിർത്താൻ വീണ്ടും വോട്ട് ചെയ്യുക.
+    keepHeading: എന്നും നിങ്ങളുടേത്
+    badgeTitle: വോട്ടർ ബാഡ്ജ്
+    badgeBody: ഇപ്പോൾ നിങ്ങളുടെ InterChat പ്രൊഫൈലിൽ.
+    freezeTitle: ഒരു സ്ട്രീക്ക് ഫ്രീസ്
+    freezeBody: നഷ്ടപ്പെട്ട ദിവസത്തിനായി സൂക്ഷിക്കുന്നു, പരമാവധി 2 വരെ.
+    supportButton: സപ്പോർട്ട് സെർവർ
+    footer: "വോട്ട് #{count} · അടുത്ത വോട്ട് {next} ലഭ്യം"
+
 services:
   hub:
     validation:
-      invalidName: The provided hub name is invalid.
-      nameTaken: That hub name is already taken.
+      invalidName: നൽകിയ ഹബ് പേര് അസാധുവാണ്.
+      nameTaken: ആ ഹബ് പേര് ഇതിനകം എടുത്തിട്ടുണ്ട്.
     defaults:
-      noDescription: No description provided.
+      noDescription: വിവരണം നൽകിയിട്ടില്ല.
   moderation:
     defaults:
-      noReason: No Reason
+      noReason: *no_reason
+
 support:
   priority:
-    standard: Standard
+    standard: സ്റ്റാൻഡേർഡ്
+
 badges:
   developer:
-    title: InterChat Developer
-    description: Core developer of InterChat
+    title: InterChat ഡെവലപ്പർ
+    description: InterChat-ന്റെ കോർ ഡെവലപ്പർ
   staff:
-    title: InterChat Staff
-    description: InterChat staff member
+    title: InterChat സ്റ്റാഫ്
+    description: InterChat സ്റ്റാഫ് അംഗം
   owner:
-    title: Hub Owner
-    description: Owner of the hub "{hubName}"
+    title: ഹബ് ഉടമ
+    description: '"{hubName}" ഹബ്ബിന്റെ ഉടമ'
   moderator:
-    title: Hub Moderator
-    description: Moderator of the hub "{hubName}"
+    title: ഹബ് മോഡറേറ്റർ
+    description: '"{hubName}" ഹബ്ബിന്റെ മോഡറേറ്റർ'
   manager:
-    title: Hub Manager
-    description: Manager of the hub "{hubName}"
+    title: ഹബ് മാനേജർ
+    description: '"{hubName}" ഹബ്ബിന്റെ മാനേജർ'
+
 broadcast:
   spam:
-    mutedMessage: You have been temporarily muted for {minutes} minutes due to spam.
-    warningMessage: '⚠️ You are sending messages too quickly!'
-    autoMuteReason: "Auto-Mute: Spam detected"
-    autoWarnReason: "Auto-Warn: Spam detected"
+    mutedMessage: സ്പാം കാരണം നിങ്ങളെ {minutes} മിനിറ്റ് താൽക്കാലികമായി മ്യൂട്ട് ചെയ്തിരിക്കുന്നു.
+    warningMessage: ':alert_icon: നിങ്ങൾ വളരെ വേഗത്തിൽ സന്ദേശങ്ങൾ അയയ്ക്കുന്നു!'
+    autoMuteReason: "ഓട്ടോ-മ്യൂട്ട്: സ്പാം കണ്ടെത്തി"
+    autoWarnReason: "ഓട്ടോ-മുന്നറിയിപ്പ്: സ്പാം കണ്ടെത്തി"
   validation:
     accountAge:
-      message: Your account is too new to send messages through InterChat.
-      reason: Account too new
+      message: InterChat വഴി സന്ദേശങ്ങൾ അയയ്ക്കാൻ നിങ്ങളുടെ അക്കൗണ്ട് വളരെ പുതിയതാണ്.
+      reason: അക്കൗണ്ട് വളരെ പുതിയത്
     hubLock:
-      message: This hub is currently locked.
-      reason: Hub is currently locked
+      message: ഈ ഹബ് ഇപ്പോൾ ലോക്ക് ചെയ്തിരിക്കുന്നു.
+      reason: ഹബ് ഇപ്പോൾ ലോക്ക് ചെയ്തിരിക്കുന്നു
     invites:
-      message: "🚫 Discord invite links are not allowed in this hub."
+      message: ':ban: ഈ ഹബ്ബിൽ Discord ഇൻവൈറ്റ് ലിങ്കുകൾ അനുവദനീയമല്ല.'
     nsfw:
-      message: "🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)"
+      message: ':ban: നിങ്ങളുടെ സന്ദേശം InterChat ഫിൽട്ടറുകൾ തടഞ്ഞു (കാരണം: NSFW കണ്ടെത്തൽ)'
     profanity:
-      message: '🚫 Your message was blocked by the hub''s profanity filter.'
-      reason: Profanity filter blocked message
+      message: ':ban: നിങ്ങളുടെ സന്ദേശം ഹബ്ബിന്റെ അസഭ്യ പദ ഫിൽട്ടർ തടഞ്ഞു.'
+      reason: അസഭ്യ പദ ഫിൽട്ടർ സന്ദേശം തടഞ്ഞു
     videos:
-      message: '🚫 Video attachments are not allowed in this hub.'
+      message: ':ban: ഈ ഹബ്ബിൽ വീഡിയോ അറ്റാച്ച്മെന്റുകൾ അനുവദനീയമല്ല.'
     messageLength:
-      reason: Message Length
-      message: Your message length is too long. Please shorten it.
+      reason: സന്ദേശ ദൈർഘ്യം
+      message: നിങ്ങളുടെ സന്ദേശം വളരെ നീണ്ടതാണ്. ദയവായി ചുരുക്കുക.
     spam:
-      reason: Spam detected
+      reason: സ്പാം കണ്ടെത്തി
     accessRestriction:
-      prefix: "Access restricted: "
-      reason: Active restriction
+      prefix: "ആക്സസ് നിയന്ത്രിച്ചിരിക്കുന്നു:"
+      reason: സജീവ നിയന്ത്രണം
+
 blacklist:
   add:
-    title: Add to Blocklist
+    title: ബ്ലോക്ക്‌ലിസ്റ്റിലേക്ക് ചേർക്കുക
     type:
-      label: Type
-      description: Specify whether you are blocking a User or a Server.
+      label: തരം
+      description: നിങ്ങൾ ഒരു ഉപയോക്താവിനെയാണോ സെർവറിനെയാണോ ബ്ലോക്ക് ചെയ്യുന്നതെന്ന് വ്യക്തമാക്കുക.
       options:
-        userDesc: Block a specific user.
-        serverDesc: Block an entire server.
+        userDesc: ഒരു പ്രത്യേക ഉപയോക്താവിനെ ബ്ലോക്ക് ചെയ്യുക.
+        serverDesc: ഒരു മുഴുവൻ സെർവറിനെ ബ്ലോക്ക് ചെയ്യുക.
     id:
-      label: User or Server ID to Block
-      placeholder: Enter the User ID or Server ID
+      label: ബ്ലോക്ക് ചെയ്യേണ്ട ഉപയോക്താവിന്റെയോ സെർവറിന്റെയോ ID
+      placeholder: ഉപയോക്താവിന്റെ ID അല്ലെങ്കിൽ സെർവർ ID നൽകുക
     reason:
-      label: Note (optional)
-      description: A small note helps you remember why you've blocked.
-      placeholder: E.g., Spammer, Annoying, Toxic etc.
+      label: കുറിപ്പ് (ഓപ്ഷണൽ)
+      description: ഒരു ചെറിയ കുറിപ്പ് നിങ്ങൾ എന്തിനാണ് ബ്ലോക്ക് ചെയ്തതെന്ന് ഓർമ്മിക്കാൻ സഹായിക്കുന്നു.
+      placeholder: ഉദാ., സ്പാമർ, ശല്യം, ടോക്സിക് തുടങ്ങിയവ.
     messages:
-      success: "Blocked {id} with reason: {reason}"
+      success: "{id} ബ്ലോക്ക് ചെയ്തു, കാരണം: {reason}"
     errors:
-      selfBlock: "{cross} You cannot block this server itself."
-      selfUserBlock: "{cross} You cannot block yourself."
-      failed: "Failed to block {id}."
+      selfBlock: "{cross} ഈ സെർവറിനെ തന്നെ ബ്ലോക്ക് ചെയ്യാൻ കഴിയില്ല."
+      selfUserBlock: "{cross} നിങ്ങളെത്തന്നെ ബ്ലോക്ക് ചെയ്യാൻ കഴിയില്ല."
+      failed: "{id} ബ്ലോക്ക് ചെയ്യാനായില്ല."
   list:
     filters:
-      all: "All ({count})"
-      users: Users
-      servers: Servers
+      all: "എല്ലാം ({count})"
+      users: ഉപയോക്താക്കൾ
+      servers: സെർവറുകൾ
     empty:
-      all: "You're too nice! Block some servers/users to see them here."
-      users: "No blocked users found."
-      servers: "No blocked servers found."
-    instructions: 'You can add servers or users to the blocklist using the "Add to Blocklist" button.'
+      all: "നിങ്ങൾ വളരെ നല്ലവരാണ്! ഇവിടെ കാണാൻ കുറച്ച് സെർവറുകളെ/ഉപയോക്താക്കളെ ബ്ലോക്ക് ചെയ്യുക."
+      users: "ബ്ലോക്ക് ചെയ്ത ഉപയോക്താക്കളെ കണ്ടെത്തിയില്ല."
+      servers: "ബ്ലോക്ക് ചെയ്ത സെർവറുകളെ കണ്ടെത്തിയില്ല."
+    instructions: '"ബ്ലോക്ക്‌ലിസ്റ്റിലേക്ക് ചേർക്കുക" ബട്ടൺ ഉപയോഗിച്ച് നിങ്ങൾക്ക് സെർവറുകളെയോ ഉപയോക്താക്കളെയോ ബ്ലോക്ക്‌ലിസ്റ്റിലേക്ക് ചേർക്കാം.'
     errors:
-      notFound: "{cross} Item not found or already removed."
-      removeFailed: "{cross} Error removing item: {error}"
+      notFound: "{cross} ഇനം കണ്ടെത്തിയില്ല അല്ലെങ്കിൽ ഇതിനകം നീക്കം ചെയ്തു."
+      removeFailed: "{cross} ഇനം നീക്കം ചെയ്യുന്നതിൽ പിശക്: {error}"
+
 commands:
   suggestion:
-    title: Suggestion / Bug Report
+    title: ഫീഡ്ബാക്ക് അയയ്ക്കുക
     overview:
-      label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      label: സംഗ്രഹം
+      placeholder: "ഒരു വരിയിൽ: എന്താണ് തെറ്റിയത്, അല്ലെങ്കിൽ നിങ്ങൾ എന്താണ് ആഗ്രഹിക്കുന്നത്"
     description:
-      label: വിവരണം
-      placeholder: Provide full details of your suggestion or bug...
+      label: *label_description
+      placeholder: "എന്താണ് സംഭവിച്ചതെന്ന് ഘട്ടം ഘട്ടമായി ഞങ്ങളോട് പറയുക"
     category:
-      label: Category
+      label: "ഇത് എന്തിനെക്കുറിച്ചാണ്?"
       options:
-        bug: Bug Report
-        bugDesc: Report an issue you've found
-        suggestion: Suggestion
-        suggestionDesc: Suggest a new feature or improvement
+        bug: എന്തോ തകരാറിലാണ്
+        bugDesc: നിങ്ങൾ നേരിട്ട ഒരു പ്രശ്നം റിപ്പോർട്ട് ചെയ്യുക
+        suggestion: എനിക്കൊരു ആശയമുണ്ട്
+        suggestionDesc: ഒരു ഫീച്ചറോ മെച്ചപ്പെടുത്തലോ നിർദ്ദേശിക്കുക
     errorId:
-      label: Error ID (if applicable)
-      placeholder: Paste the error ID here...
+      label: എറർ ID (ഓപ്ഷണൽ)
+      placeholder: എറർ സന്ദേശത്തിലെ എറർ ID പേസ്റ്റ് ചെയ്യുക
     messages:
-      submitted: Your feedback has been received and will be reviewed.
-      success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
+      success: "{tick} നന്ദി! നിങ്ങളുടെ ഫീഡ്ബാക്ക് InterChat ടീമിന് അയച്ചു."
   report:
-    title: എങ്ങനെ റിപ്പോർട്ട് ചെയ്യാം
-    description: "Right-click on a message and select **Apps → Report**."
-    loadingGif: The GIF above may take a moment to load.
+    title: ഒരു സന്ദേശം എങ്ങനെ റിപ്പോർട്ട് ചെയ്യാം
+    description: |-
+      > **1.** സന്ദേശത്തിൽ റൈറ്റ്-ക്ലിക്ക് ചെയ്യുക
+      > **2.** **ആപ്പുകൾ → റിപ്പോർട്ട്** എന്നതിലേക്ക് പോകുക
+      > **3.** ഒരു കാരണം തിരഞ്ഞെടുക്കുക. ഞങ്ങൾ അത് ശരിയായ ടീമിന് അയയ്ക്കും
+    footer: റിപ്പോർട്ടുകൾ ഹബ്ബിന്റെ മോഡറേറ്റർമാർക്കോ InterChat സ്റ്റാഫിനോ പോകുന്നു.
+    loadingGif: മുകളിലെ GIF ലോഡ് ആകാൻ അൽപ്പം സമയമെടുത്തേക്കാം.
+
 userphone:
   commands:
     start:
-      description: Start a userphone call and connect to another server
+      description: ഒരു Userphone കോൾ തുടങ്ങി മറ്റൊരു സെർവറുമായി ബന്ധപ്പെടുക
     end:
-      description: End the current userphone call
+      description: നിലവിലെ Userphone കോൾ അവസാനിപ്പിക്കുക
     skip:
-      description: Skip the current call and look for a new partner
+      description: നിലവിലെ കോൾ സ്കിപ്പ് ചെയ്ത് പുതിയ പങ്കാളിയെ തിരയുക
     block:
-      description: Block a user from connecting to you via userphone
+      description: Userphone വഴി നിങ്ങളുമായി ബന്ധപ്പെടുന്നതിൽ നിന്ന് ഒരു ഉപയോക്താവിനെ ബ്ലോക്ക് ചെയ്യുക
     unblock:
-      description: Unblock a user from userphone
+      description: Userphone-ൽ ഒരു ഉപയോക്താവിനെ അൺബ്ലോക്ക് ചെയ്യുക
     report:
-      description: Report the user you are connected with
+      description: നിങ്ങൾ ബന്ധപ്പെട്ടിരിക്കുന്ന ഉപയോക്താവിനെ റിപ്പോർട്ട് ചെയ്യുക
     stats:
-      description: View your userphone statistics
+      description: നിങ്ങളുടെ Userphone സ്ഥിതിവിവരക്കണക്കുകൾ കാണുക
   status:
-    alreadyInCall: "{cross} This channel is already in a userphone call. Use `/userphone end` to disconnect first."
-    alreadyInCallDuration: "{cross} This channel is already in a userphone call. Current duration: **{duration}**."
-    connected: "{tick} **Connected!** You're now chatting with another server. Say hi! 👋"
-    searching: "**Searching...** Looking for someone to connect with. Hang tight!"
-    notInCall: "{cross} This channel is not in a userphone call."
-    notInCallHint: "{cross} You're not in a call. Use `/call` to start one!"
-    ended: "{tick} Call ended. Thanks for chatting!"
-    disconnected: You've been disconnected from the call.
-    hungUp: "{info} **They hung up.** The call has ended."
-    partnerDisconnected: "{info} **Your partner disconnected.** They're no longer available."
-    skipped: "{info} **Skipped!** Your partner moved on to a new call."
-    searchingAfterSkip: "{loading} **Searching again...** Looking for a new partner now!"
-    waitingInQueue: Waiting in queue for a match...
+    alreadyInCall: "{cross} ഈ ചാനൽ ഇതിനകം ഒരു Userphone കോളിലാണ്. ആദ്യം വിച്ഛേദിക്കാൻ `/userphone end` ഉപയോഗിക്കുക."
+    alreadyInCallDuration: "{cross} ഈ ചാനൽ ഇതിനകം ഒരു Userphone കോളിലാണ്. നിലവിലെ ദൈർഘ്യം: **{duration}**."
+    connected: "{tick} **ബന്ധപ്പെട്ടു!** നിങ്ങൾ ഇപ്പോൾ മറ്റൊരു സെർവറുമായി ചാറ്റ് ചെയ്യുന്നു. ഹായ് പറയൂ! 👋"
+    searching: "**തിരയുന്നു...** ബന്ധപ്പെടാൻ ആരെയെങ്കിലും തിരയുന്നു. അൽപ്പം കാത്തിരിക്കൂ!"
+    notInCall: "{cross} ഈ ചാനൽ ഒരു Userphone കോളിലല്ല."
+    notInCallHint: "{cross} നിങ്ങൾ ഒരു കോളിലല്ല. ഒന്ന് തുടങ്ങാൻ `/call` ഉപയോഗിക്കുക!"
+    ended: "{tick} കോൾ അവസാനിച്ചു. ചാറ്റ് ചെയ്തതിന് നന്ദി!"
+    disconnected: കോളിൽ നിന്ന് നിങ്ങളെ വിച്ഛേദിച്ചു.
+    hungUp: "{info} **അവർ ഹാങ്ങപ്പ് ചെയ്തു.** കോൾ അവസാനിച്ചു."
+    partnerDisconnected: "{info} **നിങ്ങളുടെ പങ്കാളി വിച്ഛേദിച്ചു.** അവർ ഇനി ലഭ്യമല്ല."
+    skipped: "{info} **സ്കിപ്പ് ചെയ്തു!** നിങ്ങളുടെ പങ്കാളി പുതിയ കോളിലേക്ക് പോയി."
+    searchingAfterSkip: "{loading} **വീണ്ടും തിരയുന്നു...** ഇപ്പോൾ പുതിയ പങ്കാളിയെ തിരയുന്നു!"
+    waitingInQueue: ഒരു മാച്ചിനായി ക്യൂവിൽ കാത്തിരിക്കുന്നു...
   embed:
-    skippedTitle: Call Skipped
-    duration: കാലാവധി
-    startNewCall: Want to chat more? Use `/call` to start another!
-    searchingTitle: Searching for a Call
-    matchNotification: We will notify you as soon as a match is found.
-    cancelHint: Use `/hangup` to stop searching.
-    connectedTitle: Userphone Connected
-    howItWorks: How it works
-    sendMessages: Send messages here to chat with the other server.
-    imagesSupported: Images are supported during userphone calls.
-    hangupHint: Use `/hangup` to end the call.
-    skipHint: Use `/skip` to move to a new partner.
-    endedTitle: Call Ended
-    statsTitle: Your Userphone Stats
-    totalCalls: Total Calls
-    totalTalkTime: Total Talk Time
-    averageCall: Average Call Length
+    skippedTitle: കോൾ സ്കിപ്പ് ചെയ്തു
+    duration: ദൈർഘ്യം
+    startNewCall: കൂടുതൽ ചാറ്റ് ചെയ്യണോ? മറ്റൊന്ന് തുടങ്ങാൻ `/call` ഉപയോഗിക്കുക!
+    searchingTitle: ഒരു കോളിനായി തിരയുന്നു
+    matchNotification: ഒരു മാച്ച് കണ്ടെത്തിയാലുടൻ ഞങ്ങൾ നിങ്ങളെ അറിയിക്കും.
+    cancelHint: തിരയൽ നിർത്താൻ `/hangup` ഉപയോഗിക്കുക.
+    connectedTitle: Userphone ബന്ധപ്പെട്ടു
+    howItWorks: ഇത് എങ്ങനെ പ്രവർത്തിക്കുന്നു
+    sendMessages: മറ്റ് സെർവറുമായി ചാറ്റ് ചെയ്യാൻ ഇവിടെ സന്ദേശങ്ങൾ അയയ്ക്കുക.
+    imagesSupported: Userphone കോളുകളിൽ ചിത്രങ്ങൾ പിന്തുണയ്ക്കുന്നു.
+    hangupHint: കോൾ അവസാനിപ്പിക്കാൻ `/hangup` ഉപയോഗിക്കുക.
+    skipHint: പുതിയ പങ്കാളിയിലേക്ക് മാറാൻ `/skip` ഉപയോഗിക്കുക.
+    endedTitle: കോൾ അവസാനിച്ചു
+    statsTitle: നിങ്ങളുടെ Userphone സ്ഥിതിവിവരക്കണക്കുകൾ
+    totalCalls: ആകെ കോളുകൾ
+    totalTalkTime: ആകെ സംസാര സമയം
+    averageCall: ശരാശരി കോൾ ദൈർഘ്യം
+  errors:
+    wrongChannel:
+      title: നിശ്ചയിച്ച ചാനൽ ഉപയോഗിക്കുക
+      intro: '`/call`, `/skip`, `/hangup` പോലുള്ള ലോബി കമാൻഡുകൾ ഈ സെർവറിന്റെ ലോബി ചാനലുകളിൽ മാത്രമേ പ്രവർത്തിക്കൂ.'
+      hereLabel: നിങ്ങൾ ഇവിടെയാണ്
+      allowedLabel: "**പകരം ഇവയിൽ ഒന്ന് ഉപയോഗിക്കുക:**"
+      moreChannels: "-# …കൂടാതെ {count} എണ്ണം കൂടി."
+      modHint: "മോഡറേറ്റർമാർ: ഇത് `/server manage` → Userphone ക്രമീകരണങ്ങൾ → അനുവദിച്ച ലോബി ചാനലുകൾ എന്നതിൽ മാറ്റുക."
   block:
-    selfBlock: "{cross} You cannot block yourself."
-    alreadyBlocked: "{cross} You have already blocked {user}."
-    success: "{tick} Successfully blocked {user} from userphone calls."
-    unblockSuccess: "{tick} Successfully unblocked {user}."
-    notBlocked: "{cross} {user} is not blocked."
+    selfBlock: "{cross} നിങ്ങളെത്തന്നെ ബ്ലോക്ക് ചെയ്യാൻ കഴിയില്ല."
+    alreadyBlocked: "{cross} നിങ്ങൾ ഇതിനകം {user}-നെ ബ്ലോക്ക് ചെയ്തിട്ടുണ്ട്."
+    success: "{tick} Userphone കോളുകളിൽ നിന്ന് {user}-നെ വിജയകരമായി ബ്ലോക്ക് ചെയ്തു."
+    unblockSuccess: "{tick} {user}-നെ വിജയകരമായി അൺബ്ലോക്ക് ചെയ്തു."
+    notBlocked: "{cross} {user} ബ്ലോക്ക് ചെയ്തിട്ടില്ല."
   report:
-    transcriptTitle: "Userphone transcript | Server: {server} | Channel: #{channel}"
-    transcriptAttachments: "Attachments:"
-    transcriptNoMessages: No recent user messages were available.
-    modalTitle: Report Userphone Call
-    reasonLabel: റിപ്പോർട്ടിനുള്ള കാരണം
-    reasonPlaceholder: Describe what happened during the call...
-    callEnded: The call has been ended automatically.
-    buttonLabel: Report User
-    success: "{tick} Your report has been submitted. Our staff will review it shortly."
-    noRecentCall: "{cross} No recent userphone call found to report. You can only report during or shortly after a call."
+    transcriptTitle: "Userphone ട്രാൻസ്ക്രിപ്റ്റ് | സെർവർ: {server} | ചാനൽ: #{channel}"
+    transcriptAttachments: "അറ്റാച്ച്മെന്റുകൾ:"
+    transcriptNoMessages: സമീപകാല ഉപയോക്തൃ സന്ദേശങ്ങളൊന്നും ലഭ്യമായിരുന്നില്ല.
+    modalTitle: Userphone കോൾ റിപ്പോർട്ട് ചെയ്യുക
+    reasonLabel: റിപ്പോർട്ടിന്റെ കാരണം
+    reasonPlaceholder: കോളിനിടെ എന്താണ് സംഭവിച്ചതെന്ന് വിവരിക്കുക...
+    callEnded: കോൾ സ്വയമേവ അവസാനിപ്പിച്ചു.
+    buttonLabel: ഉപയോക്താവിനെ റിപ്പോർട്ട് ചെയ്യുക
+    success: "{tick} നിങ്ങളുടെ റിപ്പോർട്ട് സമർപ്പിച്ചു. ഞങ്ങളുടെ സ്റ്റാഫ് ഉടൻ അത് അവലോകനം ചെയ്യും."
+    noRecentCall: "{cross} റിപ്പോർട്ട് ചെയ്യാൻ സമീപകാല Userphone കോൾ കണ്ടെത്തിയില്ല. കോളിനിടെയോ അതിന് തൊട്ടുപിന്നാലെയോ മാത്രമേ നിങ്ങൾക്ക് റിപ്പോർട്ട് ചെയ്യാനാകൂ."
   staff:
     reports:
-      staffDescription: Review pending userphone reports
-      title: Pending Userphone Reports
-      empty: "{tick} No pending userphone reports at this time."
-      entry: "**Reporter:** <@{reporter}>\n**Reported:** <@{reported}>\n**Reason:** {reason}\n**Call ID:** {call_id}"
-      footer: "Showing {count} pending report(s)"
-      resolveSuccess: "{tick} Report `{id}` has been marked as resolved."
+      staffDescription: തീർപ്പാക്കാത്ത Userphone റിപ്പോർട്ടുകൾ അവലോകനം ചെയ്യുക
+      title: തീർപ്പാക്കാത്ത Userphone റിപ്പോർട്ടുകൾ
+      empty: "{tick} ഇപ്പോൾ തീർപ്പാക്കാത്ത Userphone റിപ്പോർട്ടുകളൊന്നുമില്ല."
+      entry: "**റിപ്പോർട്ട് ചെയ്തയാൾ:** <@{reporter}>\n**റിപ്പോർട്ട് ചെയ്യപ്പെട്ടയാൾ:** <@{reported}>\n**കാരണം:** {reason}\n**കോൾ ID:** {call_id}"
+      footer: "തീർപ്പാക്കാത്ത {count} റിപ്പോർട്ട്(കൾ) കാണിക്കുന്നു"
+      resolveSuccess: "{tick} റിപ്പോർട്ട് `{id}` പരിഹരിച്ചതായി അടയാളപ്പെടുത്തി."
+
 server:
   settings:
-    title: Server Settings
-    comingSoon: Advanced server settings (language, default filters, fallback channel) will be available in a future update.
+    title: സെർവർ ക്രമീകരണങ്ങൾ
+    comingSoon: വിപുലമായ സെർവർ ക്രമീകരണങ്ങൾ (ഭാഷ, ഡിഫോൾട്ട് ഫിൽട്ടറുകൾ, ഫാൾബാക്ക് ചാനൽ) ഭാവിയിലെ ഒരു അപ്ഡേറ്റിൽ ലഭ്യമാകും.
   automod:
-    title: "Server Profanity Filter"
-    sectionDescription: "Configure bad word filters specifically for this server in calls."
-    buttonLabel: "Profanity Filter"
+    title: "സെർവർ അസഭ്യ പദ ഫിൽട്ടർ"
+    sectionDescription: "കോളുകളിൽ ഈ സെർവറിന് മാത്രമായുള്ള മോശം പദ ഫിൽട്ടറുകൾ ക്രമീകരിക്കുക."
+    buttonLabel: "അസഭ്യ പദ ഫിൽട്ടർ"
   userphone:
-    title: Userphone Settings
-    sectionDescription: Configure how your server behaves in calls.
-    buttonLabel: Userphone Settings
+    title: Userphone ക്രമീകരണങ്ങൾ
+    sectionDescription: കോളുകളിൽ നിങ്ങളുടെ സെർവർ എങ്ങനെ പെരുമാറണമെന്ന് ക്രമീകരിക്കുക.
+    buttonLabel: Userphone ക്രമീകരണങ്ങൾ
     hideServerName:
-      title: Hide Server Name
-      description: Hides other servers' names from the webhook username in **group calls**. (Always hidden in 1v1 calls).
+      title: സെർവർ പേര് മറയ്ക്കുക
+      description: '**ഗ്രൂപ്പ് കോളുകളിൽ** വെബ്ഹുക്ക് ഉപയോക്തൃനാമത്തിൽ നിന്ന് മറ്റ് സെർവറുകളുടെ പേരുകൾ മറയ്ക്കുന്നു. (1v1 കോളുകളിൽ എപ്പോഴും മറച്ചിരിക്കും).'
     pingOnMatch:
-      title: Ping on Match
-      description: Send a ping in your channel when a 1v1 call match is found.
+      title: മാച്ചിൽ പിംഗ്
+      description: 1v1 കോൾ മാച്ച് കണ്ടെത്തുമ്പോൾ നിങ്ങളുടെ ചാനലിൽ ഒരു പിംഗ് അയയ്ക്കുക.
     autoRequeueOnSkip:
-      title: Auto Requeue on Skip
-      description: Automatically start a new call when the other side skips. Only works if you were recently active in the call.
+      title: സ്കിപ്പിൽ ഓട്ടോ റീക്യൂ
+      description: മറുഭാഗം സ്കിപ്പ് ചെയ്യുമ്പോൾ സ്വയമേവ പുതിയ കോൾ തുടങ്ങുന്നു. നിങ്ങൾ അടുത്തിടെ കോളിൽ സജീവമായിരുന്നെങ്കിൽ മാത്രമേ പ്രവർത്തിക്കൂ.
     autoRequeueOnHangup:
-      title: Auto Requeue on Hangup
-      description: Automatically start a new call when the other side hangs up. Only works if you were recently active in the call.
-      ignoreSuccess: "{tick} Report `{id}` has been marked as ignored."
+      title: ഹാങ്ങപ്പിൽ ഓട്ടോ റീക്യൂ
+      description: മറുഭാഗം ഹാങ്ങപ്പ് ചെയ്യുമ്പോൾ സ്വയമേവ പുതിയ കോൾ തുടങ്ങുന്നു. നിങ്ങൾ അടുത്തിടെ കോളിൽ സജീവമായിരുന്നെങ്കിൽ മാത്രമേ പ്രവർത്തിക്കൂ.
+      ignoreSuccess: "{tick} റിപ്പോർട്ട് `{id}` അവഗണിച്ചതായി അടയാളപ്പെടുത്തി."
+    lobbyChannels:
+      title: അനുവദിച്ച ലോബി ചാനലുകൾ
+      description: കോൾ, സ്കിപ്പ്, ഹാങ്ങപ്പ് എന്നിവ തിരഞ്ഞെടുത്ത ടെക്സ്റ്റ് ചാനലുകളിലേക്ക് പരിമിതപ്പെടുത്തുക. ചാനലുകളൊന്നും തിരഞ്ഞെടുക്കാത്തപ്പോൾ ഈ കമാൻഡുകൾ എല്ലായിടത്തും പ്രവർത്തിക്കും.
+      selectPlaceholder: ടെക്സ്റ്റ് ചാനലുകൾ തിരഞ്ഞെടുക്കുക
+      currentlyAllowed: കമാൻഡുകൾ നിലവിൽ അനുവദനീയമായത്
+      everywhere: ചാനലുകളൊന്നും തിരഞ്ഞെടുക്കാത്തപ്പോൾ ലോബി കമാൻഡുകൾ എല്ലാ ടെക്സ്റ്റ് ചാനലിലും പ്രവർത്തിക്കും.
+      unsaved: സേവ് ചെയ്യാത്ത മാറ്റങ്ങൾ - പ്രയോഗിക്കാൻ മാറ്റങ്ങൾ സേവ് ചെയ്യുക അമർത്തുക.
+      saved: ലോബി ചാനൽ നിയന്ത്രണങ്ങൾ സേവ് ചെയ്തു.
+      manageChannelsRequired: ലോബി ചാനലുകൾ എഡിറ്റ് ചെയ്യാൻ നിങ്ങൾക്ക് ചാനലുകൾ മാനേജ് ചെയ്യുക അനുമതി വേണം.
+
+achievementsCard:
+  title: നേട്ടങ്ങൾ
+  handle: "@{name}"
+  summary: "{total}-ൽ {unlocked} അൺലോക്ക് ചെയ്തു"
+  page: "പേജ് {page} / {total}"
+  unlocked: അൺലോക്ക് ചെയ്തു
+  progress: "{threshold} {unit}-ൽ {current}"
+  closest: ഏറ്റവും അടുത്ത നാഴികക്കല്ല്
+  toGo: "{name} — {n} {unit} കൂടി"
+  allDone: എല്ലാ നാഴികക്കല്ലുകളും നേടി
+  noneTitle: ഇതുവരെ നാഴികക്കല്ലുകളില്ല
+  noneBody: ആദ്യത്തേത് നേടാൻ സെർവറുകൾക്കിടയിൽ ഒരു കോൾ പൂർത്തിയാക്കുക.
+  track:
+    calls: കോളുകൾ
+    messages: സന്ദേശങ്ങൾ
+    hubs: ഹബ്ബുകൾ
+    stamps: സ്റ്റാമ്പുകൾ
+  unit:
+    calls: കോളുകൾ
+    messages: സന്ദേശങ്ങൾ
+    hubs: ഹബ്ബുകൾ
+    stamps: സ്റ്റാമ്പുകൾ
+  one:
+    calls: കോൾ
+    messages: സന്ദേശം
+    hubs: ഹബ്
+    stamps: സ്റ്റാമ്പ്
+
+profileCard:
+  messages: എല്ലാ ഹബ്ബുകളിലുമായി അയച്ച സന്ദേശങ്ങൾ
+  calls: കോളുകൾ
+  hubs: ചേർന്ന ഹബ്ബുകൾ
+  rank: ലീഡർബോർഡ്
+  votes: ആകെ വോട്ടുകൾ
+  streak: ഏറ്റവും നീണ്ട സ്ട്രീക്ക്
+  achievements: നേട്ടങ്ങൾ
+  days: "{count} ദിവസം"
+  dayOne: "{count} ദിവസം"
+  achievementsDone: "{done} / {total} പൂർത്തിയായി"
+  memberSince: "{when} മുതൽ അംഗം"
+  voter: വോട്ടർ
+  rankTitle: "റാങ്ക് {rank}"
+  resonanceNext: "റാങ്ക് {next}-ലേക്ക് {done} / {total} മൈൽ"
+  resonanceTier: "റാങ്ക് {rank}-ൽ {tier}"
+  resonanceTop: ഏറ്റവും ഉയർന്ന തലം നേടി
+  role:
+    hubOwner: ഹബ് ഉടമ
+    hubModerator: ഹബ് മോഡറേറ്റർ
+    hubManager: ഹബ് മാനേജർ
+    staff: സ്റ്റാഫ്
+    developer: ഡെവലപ്പർ
+    betaTester: ബീറ്റ ടെസ്റ്റർ
+    bugHunter: ബഗ് ഹണ്ടർ
+    goldBugHunter: ഗോൾഡ് ബഗ് ഹണ്ടർ
+    topChatter: ടോപ്പ് ചാറ്റർ
+    translator: പരിഭാഷകൻ
+    voter: വോട്ടർ
+    supporter: പിന്തുണക്കാരൻ
+calls:
+  searching:
+    first: "{icon} ആരെയെങ്കിലും തിരയുന്നു…"
+    afterSkip: "{icon} പുതിയൊരാളെ കണ്ടെത്തുന്നു…"
+    partnerSkipped: "{icon} അവർ സ്കിപ്പ് ചെയ്തു. പുതിയൊരാളെ കണ്ടെത്തുന്നു…"
+    partnerLeft: "{icon} അവർ ഹാങ്ങപ്പ് ചെയ്തു. പുതിയൊരാളെ കണ്ടെത്തുന്നു…"
+  connected:
+    title: "{icon} **{name}**-മായി ബന്ധപ്പെട്ടു. ഹായ് പറയൂ!"
+    body: ഇതൊരു ടെക്സ്റ്റ് ചാറ്റാണ്. ആരെങ്കിലും `/hangup` ഉപയോഗിക്കുന്നതുവരെ ഇവിടത്തെ സന്ദേശങ്ങൾ അവരുമായി പങ്കിടും.
+    someone: ആരോ
+  hint: "`/topic` സംസാരിക്കാൻ ഒരു വിഷയം നിർദ്ദേശിക്കുന്നു, `/skip` പുതിയൊരാളെ കണ്ടെത്തുന്നു, `/hangup` വിട്ടുപോകുന്നു."
+  ended:
+    byYou: "{icon} **കോൾ അവസാനിച്ചു** · {duration}"
+    byPartner: "{icon} **അവർ ഹാങ്ങപ്പ് ചെയ്തു** · {duration}"
+    byNamedPartner: "{icon} **{name}** മറുഭാഗത്ത് നിന്ന് ഹാങ്ങപ്പ് ചെയ്തു · {duration}"
+    partnerSkipped: "{icon} **അവർ സ്കിപ്പ് ചെയ്തു** · {duration}"
+    inactivity: "{icon} ഒരു ഭാഗം 2 മിനിറ്റ് നിഷ്ക്രിയമായിരുന്നതിനാൽ കോൾ അവസാനിച്ചു. തയ്യാറാകുമ്പോൾ മറ്റൊന്ന് തുടങ്ങുക."
+  # Spoken duration units used in postCall.summary.
+  # Each unit has a form for exactly one and a form for every other count.
+  duration:
+    secondsOne: 1 സെക്കൻഡ്
+    secondsOther: "{count} സെക്കൻഡ്"
+    minutesOne: 1 മിനിറ്റ്
+    minutesOther: "{count} മിനിറ്റ്"
+    hoursOne: 1 മണിക്കൂർ
+    hoursOther: "{count} മണിക്കൂർ"
+    hoursAndMinutes: "{hours} {minutes}"
+  timeout: "{icon} മാച്ച് കണ്ടെത്തിയില്ല. തിരയൽ നിർത്തി."
+  # Shown in place of the Call again button when a closing message can only go out as plain text.
+  startAnother: "വീണ്ടും ബന്ധപ്പെടാൻ {command}."
+  buttons:
+    callAgain: വീണ്ടും വിളിക്കുക
+    searchAgain: വീണ്ടും തിരയുക
+    findGroup: മറ്റൊരു ഗ്രൂപ്പ് കണ്ടെത്തുക
+  group:
+    waiting: "{icon} കൂടുതൽ സെർവറുകൾക്കായി കാത്തിരിക്കുന്നു… **{count}/{max}**"
+    connected: "{icon} ഗ്രൂപ്പ് കോൾ ബന്ധപ്പെട്ടു · **{count} സെർവറുകൾ**"
+    joined: "{icon} **{name}** ചേർന്നു · ഈ കോളിൽ {count} സെർവറുകൾ"
+    someoneJoined: "{icon} പുതിയൊരാൾ ചേർന്നു · ഈ കോളിൽ {count} സെർവറുകൾ"
+    youLeft: "{icon} ഗ്രൂപ്പ് കോൾ വിട്ടു · {count} സെർവറുകൾ ശേഷിക്കുന്നു"
+  errors:
+    serverTextOnly: കോളുകൾ സെർവർ ടെക്സ്റ്റ് ചാനലുകളിൽ മാത്രമേ പ്രവർത്തിക്കൂ.
+    wrongChannel: "ഈ സെർവറിലെ കോളുകൾ {channel}-ൽ നടക്കുന്നു."
+    notInCall: ഈ ചാനലിൽ കോളില്ല. `/call` ഉപയോഗിച്ച് ഒന്ന് തുടങ്ങുക.
+    alreadyInCall: ഈ ചാനൽ ഇതിനകം ഒരു കോളിലാണ്. ആദ്യം അത് അവസാനിപ്പിക്കാൻ `/hangup` ഉപയോഗിക്കുക.
+    hubChannel: ഈ ചാനൽ ഒരു ഹബ്ബുമായി ബന്ധിപ്പിച്ചിരിക്കുന്നതിനാൽ കോളുകൾ ഹോസ്റ്റ് ചെയ്യാൻ കഴിയില്ല. മറ്റൊരു ചാനൽ ഉപയോഗിക്കുക, അല്ലെങ്കിൽ `/hub disconnect` ഉപയോഗിച്ച് ബന്ധം വേർപെടുത്തുക.
+    accountAge: "{days} ദിവസത്തിന് ശേഷമാണ് Discord അക്കൗണ്ടുകൾക്ക് കോളുകൾ തുറക്കുന്നത്. നിങ്ങളുടേത് {date}-ന് യോഗ്യത നേടും."
+    restricted: "സജീവമായ നിയന്ത്രണം കാരണം ഇപ്പോൾ നിങ്ങൾക്ക് കോളുകൾ ഉപയോഗിക്കാനാകില്ല. ഇത് തെറ്റാണെന്ന് തോന്നുന്നുവെങ്കിൽ സപ്പോർട്ടിനെ ബന്ധപ്പെടുക: {support}"
+    unavailable: കോളുകൾ ഇപ്പോൾ അൽപ്പനേരത്തേക്ക് ലഭ്യമല്ല. ഒരു മിനിറ്റിനുശേഷം വീണ്ടും ശ്രമിക്കുക.
+    cooldown: '{seconds}s-ൽ നിങ്ങൾക്ക് മറ്റൊരു കോൾ തുടങ്ങാം.'
+    profileRequired: കോൾ തുടങ്ങുന്നതിന് മുമ്പ് `/my settings`-ൽ നിങ്ങളുടെ കോൾ പ്രൊഫൈൽ തിരഞ്ഞെടുക്കുക.
+    profileTimedOut: കോൾ പ്രൊഫൈൽ തിരഞ്ഞെടുത്തില്ല, അതിനാൽ ഞാൻ കോൾ തുടങ്ങിയില്ല. തയ്യാറാകുമ്പോൾ വീണ്ടും `/call` ഉപയോഗിക്കുക.
+    skipGroup: സ്കിപ്പ് 1-ഓൺ-1 കോളുകൾക്കുള്ളതാണ്. ഗ്രൂപ്പ് കോൾ വിടാൻ `/hangup` ഉപയോഗിക്കുക.
+    skipWaiting: നിങ്ങൾ ഇപ്പോഴും മാച്ചിനായി കാത്തിരിക്കുകയാണ്, അതിനാൽ സ്കിപ്പ് ചെയ്യാൻ ഇതുവരെ ആരുമില്ല.
+    skipTooSoon: "അൽപ്പം കാത്തിരിക്കുക: {seconds}s-ൽ സ്കിപ്പ് ചെയ്യാം, അല്ലെങ്കിൽ {messages} സന്ദേശങ്ങൾ കൂടി കഴിഞ്ഞാൽ."
+    skipPermissions: നിങ്ങൾക്ക് പുതിയ മാച്ച് കണ്ടെത്താൻ എനിക്ക് ഈ ചാനലിൽ **ചാനൽ കാണുക**, **സന്ദേശങ്ങൾ അയയ്ക്കുക**, **വെബ്ഹുക്കുകൾ മാനേജ് ചെയ്യുക** എന്നിവ വേണം.
+    noOneElse: ഇപ്പോൾ ഈ കോളിൽ മറ്റാരുമില്ല.
+  friendRequest:
+    broadcast: "{icon} **{name}** Discord-ൽ സുഹൃത്തുക്കളാകാൻ ആഗ്രഹിക്കുന്നു. അവരുടെ ഉപയോക്തൃനാമം `{username}` ആണ്."
+    sent: "{icon} നിങ്ങളുടെ Discord ഉപയോക്തൃനാമം കോളുമായി പങ്കിട്ടു."
+    cooldown: '{seconds}s-ൽ നിങ്ങൾക്ക് ഉപയോക്തൃനാമം വീണ്ടും പങ്കിടാം.'
+  actions:
+    cooldown: '{seconds}s-ൽ നിങ്ങൾക്ക് മറ്റൊരു ആക്ഷൻ അയയ്ക്കാം.'
+    gifUnavailable: ഇപ്പോൾ ഒരു GIF ലോഡ് ചെയ്യാൻ എനിക്ക് കഴിഞ്ഞില്ല. ദയവായി അൽപ്പം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.
+    sent: "{icon} നിങ്ങളുടെ കോളിലെ എല്ലാവർക്കും അയച്ചു."
+    unknown: "`{name}` എന്ന പേരിൽ ആക്ഷൻ ഇല്ല. ഇവയിൽ ഒന്ന് പരീക്ഷിക്കുക: {options}"
+  media:
+    attachments: "നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല: കോളുകളിൽ ഫയൽ അപ്‌ലോഡുകൾ പിന്തുണയ്ക്കുന്നില്ല. Tenor, Giphy, Klipy GIF-കളും ഡിഫോൾട്ട് സ്റ്റിക്കറുകളും പ്രവർത്തിക്കും."
+    imageLinks: "നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല: കോളുകളിൽ ചിത്ര ലിങ്കുകൾ പിന്തുണയ്ക്കുന്നില്ല."
+    links: "നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല: കോളുകളിൽ ലിങ്കുകൾ പിന്തുണയ്ക്കുന്നില്ല."
+    gifProvider: "നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല: കോളുകളിൽ Tenor, Giphy, Klipy GIF-കൾ മാത്രമേ പ്രവർത്തിക്കൂ."
+    customStickers: "നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല: കോളുകളിൽ ഇഷ്ടാനുസൃത സ്റ്റിക്കറുകൾ പിന്തുണയ്ക്കുന്നില്ല. Discord-ന്റെ ഡിഫോൾട്ട് സ്റ്റിക്കറുകൾ പ്രവർത്തിക്കും."
+    voteRequired: "{icon} നിങ്ങളുടെ സന്ദേശം അയച്ചില്ല: കോളുകളിലെ സെർവർ ഇമോജികൾ വോട്ടർമാർക്കുള്ള ആനുകൂല്യമാണ്. 12 മണിക്കൂറിന് അവ അൺലോക്ക് ചെയ്യാൻ വോട്ട് ചെയ്യുക, അല്ലെങ്കിൽ അവയില്ലാതെ വീണ്ടും അയയ്ക്കുക."
+  postCall:
+    summary: "{icon} **കോൾ അവസാനിച്ചു · {duration} · {messages} സന്ദേശങ്ങൾ**"
+    question: ആരെങ്കിലും ഇതൊരു മികച്ച ചാറ്റാക്കിയോ?
+    highlightButton: ഹൈലൈറ്റ് നൽകുക
+    pickTitle: "## 🌟 ഹൈലൈറ്റ് നൽകുക"
+    pickDescription: ഈ സംഭാഷണം മികച്ചതാക്കിയത് ആരാണ്?
+    rankLine: "-# {icon}റെസണൻസ് {rank} · റാങ്ക് {next}-ലേക്ക് {done}/{total}"
+    skipButton: ഇത്തവണ വേണ്ട
+    skipped: ഇത്തവണ ഹൈലൈറ്റ് ഇല്ല.
+    recorded: "{icon} **ഹൈലൈറ്റ് അയച്ചു.** **{name}**-നെ അംഗീകരിച്ചതിന് നന്ദി. അവരുടെ സ്റ്റാമ്പുകളും പാസ്പോർട്ടും അപ്‌ഡേറ്റ് ചെയ്തു."
+    notSpeaker: ഹൈലൈറ്റുകൾ സംഭാഷണത്തിൽ പങ്കെടുത്തവർക്കുള്ളതാണ്. അവ അൺലോക്ക് ചെയ്യാൻ അടുത്ത കോളിൽ കുറച്ച് സന്ദേശങ്ങൾ അയയ്ക്കുക.
+    noCandidates: ഹൈലൈറ്റ് ചെയ്യാൻ മാത്രം ഈ കോളിൽ മറ്റാരും സംസാരിച്ചില്ല.
+    failed: നിങ്ങളുടെ ഹൈലൈറ്റ് സേവ് ചെയ്യാൻ എനിക്ക് കഴിഞ്ഞില്ല. ദയവായി വീണ്ടും ശ്രമിക്കുക.
+    fallbackName: സഞ്ചാരി

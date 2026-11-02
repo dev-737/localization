@@ -1,264 +1,490 @@
 common:
   titles:
-    error: Kesalahan!
-    success: Berhasil!
+    error: &title_error Error!
+    success: &title_success Berhasil!
     cancelled: Dibatalkan!
-    feedback: Feedback Received
-    validationError: Validation Error
+    feedback: Masukan Diterima
+    validationError: Kesalahan Validasi
+    slowDown: Pelan-pelan!
   labels:
     date: Tanggal
     loading: Memuat...
-    pleaseWait: Mohon tunggu...
+    pleaseWait: Harap tunggu...
     lastActive: Terakhir Aktif
-    unknown: Tidak Diketahui
-    unknownHub: Unknown Hub
-    language: Language
+    unknown: Tidak diketahui
+    unknownHub: Hub Tidak Diketahui
+    language: Bahasa
     locked: Terkunci
     nsfw: NSFW
-    visibility: Visibility
-    "yes": "Yes"
-    "no": "No"
+    visibility: Visibilitas
+    "yes": "Ya"
+    "no": "Tidak"
     none: Tidak ada
-    noneSpecified: None Specified
-    tryAgain: Please try again
-    noReason: No Reason
+    noneSpecified: Tidak Ditentukan
+    tryAgain: Silakan coba lagi
+    noReason: &no_reason Tanpa Alasan
     roles:
-      owner: Owner
+      owner: Pemilik
       member: Anggota
       moderator: Moderator
-    note: Note
+      manager: Manajer
+      staff: Staf
+    note: Catatan
     never: Tidak pernah
-    lastUpdated: Last Updated
-    enabled: Enabled
-    disabled: Disabled
+    lastUpdated: Terakhir Diperbarui
+    enabled: Aktif
+    disabled: Nonaktif
+  imageAlt:
+    welcomeBanner: Peta server Discord yang semuanya terhubung lewat InterChat
   buttons:
-    back: Kembali
-    next: Lanjut
+    back: &btn_back Kembali
+    next: &btn_next Berikutnya
     previous: Sebelumnya
-    cancel: Batal
+    cancel: &btn_cancel Batal
     confirm: Konfirmasi
     create: Buat
     refresh: Segarkan
     delete: Hapus
-    open: Open
+    open: Buka
+    edit: Ubah
+    add: Tambah
     vote: Vote di top.gg
     invite: Undang InterChat
     dashboard: Buka Dasbor
-    support: Gabung Support
-    edit: Edit
-    save: Save
-    apply: Apply Changes
-    close: Close
-    search: Search
-    jumpToMessage: Jump to Message
-    maybeLater: Maybe Later
-    show: Show
-    hide: Hide
-    enable: Enable
-    disable: Disable
-    continue: Continue
-    start: Start
-    stop: Stop
-    join: Join
-    accept: Accept
-    decline: Decline
+    support: Gabung Dukungan
+    discord: Gabung Discord
+    kofi: Ko-fi
+    edit: &btn_edit Ubah
+    save: &btn_save Simpan
+    apply: Terapkan Perubahan
+    close: Tutup
+    search: Cari
+    jumpToMessage: Lompat ke Pesan
+    maybeLater: Mungkin Nanti
+    show: Tampilkan
+    hide: Sembunyikan
+    enable: Aktifkan
+    disable: Nonaktifkan
+    continue: Lanjutkan
+    start: &btn_start Mulai
+    stop: Berhenti
+    join: Gabung
+    accept: Terima
+    decline: Tolak
   pagination:
-    footer: "Page {current} of {total} • {count} total items"
+    footer: "Halaman {current} dari {total} • {count} item"
     errors:
-      firstPage: "You're already on the first page."
-      lastPage: "You're already on the last page."
+      firstPage: "Kamu sudah berada di halaman pertama."
+      lastPage: "Kamu sudah berada di halaman terakhir."
     page: Halaman {current}/{total}
-    pageOf: Page {current} of {total}
-    alreadyFirst: Already on the first page.
-    alreadyLast: Already on the last page.
+    pageOf: Halaman {current} dari {total}
+    alreadyFirst: Sudah di halaman pertama.
+    alreadyLast: Sudah di halaman terakhir.
   placeholders:
-    select: Pilih opsi
+    select: Pilih salah satu opsi
     type: Ketik di sini...
   visibility:
-    public: Publik
-    publicDesc: Discoverable on the hub directory.
-    private: Pribadi
-    privateDesc: Invite-only, not listed publicly.
-    unlisted: Tidak Terdaftar
-    unlistedDesc: Not in directory but anyone can join via ID/link.
+    public: &vis_public Publik
+    publicDesc: &vis_public_desc Bisa ditemukan di direktori hub.
+    private: &vis_private Privat
+    privateDesc: &vis_private_desc Hanya lewat undangan, tidak dicantumkan secara publik.
+    unlisted: &vis_unlisted Tidak Terdaftar
+    unlistedDesc: &vis_unlisted_desc Tidak ada di direktori, tapi siapa pun bisa bergabung lewat ID/tautan.
   entities:
     user: Pengguna
     server: Server
     hub: Hub
-    unknownUser: Unknown User
+    unknownUser: Pengguna Tidak Diketahui
     unknownServer: Server Tidak Diketahui
   messages:
     notImplemented: Belum diimplementasikan.
-    defaultSuccess: Action completed successfully.
-    actionCancelled: Action cancelled.
-    hubNotFound: Hub tidak ditemukan. Silakan coba lagi nanti.
+    defaultSuccess: Aksi berhasil diselesaikan.
+    actionCancelled: &msg_cancelled Aksi dibatalkan.
+    hubNotFound: "Hub tidak ditemukan. Gunakan `/hub browse` untuk mencari hub, atau `/hub create` untuk membuat hub sendiri."
+    hubNotFoundNamed: 'Tidak ada hub bernama **{hub}** yang terlihat olehmu. Periksa ejaannya, atau gunakan `/hub browse` untuk mencarinya.'
     serverNotFound: Server tidak ditemukan.
     userNotFound: Pengguna tidak ditemukan.
     notSpecified: Tidak ditentukan
-    interfacePermission: Anda tidak dapat menggunakan antarmuka ini.
+    interfacePermission: Kamu tidak bisa menggunakan antarmuka ini.
     hubUpdateFailed: Gagal memperbarui pengaturan hub.
   footer:
-    submittedBy: "Submitted by {user}"
+    submittedBy: "Dikirim oleh {user}"
   states:
-    enabled: Enabled
-    disabled: Disabled
+    enabled: Aktif
+    disabled: Nonaktif
   fields:
     id: "ID {type}"
     name: "Nama {type}"
-    reason: Alasan
-    description: Deskripsi
+    reason: &label_reason Alasan
+    description: &label_description Deskripsi
     created: Dibuat
     status: Status
-    channel: Channel
+    channel: Kanal
   errors:
-    commandNotFound: Command not found.
-    notYourMenu: Ini bukan menu Anda.
-    cannotControlPagination: Anda tidak dapat mengontrol paginasi ini.
-    generic: Oops! Something went wrong while processing your request.
-    processing: An error occurred while processing your request. Please try again.
+    commandNotFound: Perintah tidak ditemukan.
+    notYourMenu: Ini bukan menumu.
+    cannotControlPagination: Kamu tidak bisa mengendalikan pagination ini.
+    generic: &err_generic Ups! Terjadi masalah saat memproses permintaanmu.
+    processing: &err_processing Terjadi kesalahan saat memproses permintaanmu. Silakan coba lagi.
     invalidSelection: Pilihan tidak valid.
-    interactionCheck: Anda tidak boleh menggunakan interaksi ini karena bukan Anda yang memulainya.
-    rateLimited: Anda dibatasi laju (rate limited). Santai dulu.
-    webhookRateLimit: Anda telah mencapai batas pembuatan webhook.
-    invalidInput: Anda tidak memberikan input yang valid.
-    invalidInvite: Undangan ini tidak valid atau kedaluwarsa.
+    interactionCheck: Kamu tidak boleh menggunakan interaksi ini karena bukan kamu yang memulainya.
+    rateLimited: Kamu terkena batas laju (rate limit). Santai dulu ya.
+    webhookRateLimit: Kamu sudah mencapai batas pembuatan webhook.
+    invalidInput: &err_invalid_input Kamu belum memberikan input yang valid.
+    invalidInvite: Undangan ini tidak valid atau sudah kedaluwarsa.
     webhookError: Gagal membuat webhook.
-    notConnected: Saya tidak dapat menemukan hub yang terhubung di channel ini.
-    notConnectedServer: "{cross} Saya tidak dapat menemukan koneksi apa pun untuk server ini."
-    noInteraction: Perintah ini hanya mendukung slash command.
-    missingAppealReference: Referensi banding hilang.
-    missingArgument: "Argumen hilang: `{param}`."
+    notConnected: &err_not_connected Aku tidak menemukan hub yang terhubung di kanal ini.
+    notConnectedServer: "Aku tidak menemukan koneksi apa pun untuk server ini."
+    noInteraction: Perintah ini hanya mendukung perintah slash.
+    checkFailed: Kamu tidak memenuhi syarat untuk menggunakan perintah ini di sini.
+    missingAppealReference: Referensi banding tidak ada.
+    missingArgument: "Argumen tidak ada: `{param}`."
     accessDenied: Akses Ditolak
-    invalidId: "{cross} Please provide a valid User ID or Server ID."
+    invalidId: "{cross} Harap berikan ID Pengguna atau ID Server yang valid."
+
 about:
   title: Tentang InterChat
-  description: |
-    InterChat is the all-in-one cross-server chatting provider on Discord! From 1-on-1 “userphone” calls/groupcalls to "always-on" hub spaces managed by you.
+  tagline: Server, terhubung.
+  description: |-
+    InterChat menghubungkan server-server Discord, sehingga orang dari server berbeda bisa saling mengobrol.
 
-    ## What do we offer?
-    - **Hubs:** persistent cross-server rooms with AutoMod, granular moderator roles, audit logs, announcements (+ scheduling), public discovery, custom badges, leaderboards, a web dashboard, etc.
-    - **Calls:** one-to-one or group bridges with per-server profanity filters
-    - **Leaderboards:** compete for top spot across hubs or calls
-    - **Moderation tools:** dedicated commands for hub staff & InterChat staff
-    - **Modern web dashboard:** manage everything from the browser
-    - **Earnable badges:** show off your activity in calls & hubs
-    ## Who is InterChat for?
-    - The bored and the curious, anyone who wants random, lively conversations.
-    - Server owners who want to build lasting bridges (gaming clans, study groups, partnerships, etc.).
-    ## Getting Started:
-    ### Calls
-    Use `/call` to instantly connect your channel with another server.
-    ### Hubs
-    1. Choose a channel you want linked **at all times**.
-    2. Browse `/hub directory` to find a hub you like (they're made by users just like you!).
-    3. Click **Join**, you're now connected to all servers in that hub.
-      Already know the hub? Use `/hub connect` with its name or invite code.
-    ## Useful Links
-  closingText: '-# Made with ❤️ by Sidequest Labs'
+    **Hub** adalah kanal bersama tempat banyak server mengirim pesan. Obrolannya tidak pernah sepi.
+
+    **Panggilan** menghubungkanmu secara privat dengan satu orang lain, selama kalian berdua mau.
+  examples: |-
+    > **/call**: ngobrol dengan orang baru sekarang juga
+    > **/hub directory**: gabung ke hub dan ngobrol dengan banyak server
+
+  closingText: Dibuat oleh tim InterChat.
   buttons:
-    shardInfo: Info Shard
+    shardInfo: Info shard
+
 botLanding:
-  title: Your server, connected. 🌐 Let's go cross-server!
+  title: 'Servermu, terhubung. :globe_icon: Ayo lintas server!'
   description: |
-    Hi, I'm InterChat. With me, you can have conversations with people all around discord, all from the comfort of this server. Cool? Wait until you hear what I do:
+    Hai, aku InterChat. Aku menghubungkan server ini dengan percakapan di seluruh Discord.
 
-    ## :telephone: 1:1 Calls & Group calls
-    With the tap of one command you instantly get connected to another server, or multiple servers (in group calls!). Instant gratification at your fing
+    ## 📞 Panggilan 1:1 dan panggilan grup
+    Mulai panggilan dan terhubung dengan server lain dalam hitungan detik. Panggilan grup mempertemukan beberapa server dalam satu percakapan.
 
-    Use `/call`, `/skip`, `/hangup`. And rank higher in `/leaderboard` :sunglasses:
+    Gunakan `/call`, `/skip`, dan `/hangup`. Setiap panggilan bisa membawamu naik di `/leaderboard`. 😎
   hubs: |
-    ## 🏡 Hubs (where we stand out the most! ✨)
-    So you've seen calls, but *what if* you could make **cross-server** communities? It works by connecting multiple servers into one space!
+    ## :house_icon: Hub
+    Hub adalah komunitas **lintas server** yang permanen. Hubungkan beberapa server ke satu ruang bersama yang tetap terbuka di antara percakapan.
 
-    - 📌 **Create:** `/hub create` (Make your own hub)
-    - 🧭 **Explore:** `/hub directory` (Find public hubs)
-    - 🔗 **Connect:** `/hub connect` (Join an existing hub)
-    - ⚙️ **Manage:** `/hub manage` (Admin settings)
-    > Use `/help` for the full list.
+    - :pin: **Buat:** `/hub create` - buat hubmu sendiri
+    - :compass: **Jelajahi:** `/hub browse` - temukan hub publik
+    - :link_icon: **Hubungkan:** `/hub connect` - gabung ke hub yang sudah ada
+    - ⚙️ **Kelola:** `/hub manage` - buka pengaturan hubmu
+    > Gunakan `/help` untuk melihat semua perintah.
+
   closing: |
-    **What are you waiting for? Let me show you around! Type `/call` or `/hub directory` to get started.**
+    **Siap bertemu server lain? Coba panggilan, temukan hub, atau buat hubmu sendiri di bawah.**
 
-    -# Made with ❤️ by Sidequest Labs
+    -# Dibuat dengan :heart: oleh Sidequest Labs
+
+onboarding:
+  # Copy shared by Calls started outside /call.
+  call:
+    profileNotSent: "{user}, pesanmu tidak terkirim. Pilih tampilanmu di panggilan di bawah, lalu kirim ulang."
+    errors:
+      botPermissions: "Aku butuh izin Lihat Kanal, Kirim Pesan, dan Kelola Webhook di {channel}."
+      webhook: "Aku tidak bisa membuat webhook panggilan di {channel}."
+      busy: Saluran sedang sibuk. Coba lagi dalam beberapa detik.
+
 setup:
+  # Shared with the language picker, the Hub directory, and the Hub create wizard.
   select:
     placeholder: Pilih bahasa
   locale:
-    successDescription: "{tick} Bahasa Anda telah diatur ke **{locale_name}**"
-  buttons:
-    getStarted: Mulai Panduan Pengaturan
-    connectHere: Connect Here
-    createHub: Buat Hub
-    discoverHubs: Temukan Hub Publik
-    useDefault: Gunakan Default
-    skipForNow: Lewati Sekarang
+    successDescription: "{tick} Bahasamu telah diatur ke **{locale_name}**"
+  directory:
+    connecting: "Pilih Hub di bawah. Aku akan menghubungkannya ke {channel}."
+  channel:
+    createPlaceholder: Pilih kanal untuk dihubungkan
+    selected: "Aku akan menghubungkan {channel} saat Hub siap."
+  # The /setup panel.
+  flow:
+    title: Siapkan InterChat
+    stepLabel: "Langkah {step} dari 3 · {name}"
+    steps:
+      channel: Kanal
+      hub: Hub
+      connect: Hubungkan
+    startedBy: "Dimulai oleh **{user}** · hanya dia yang bisa memakai tombol ini"
+    expired: "Penyiapan ini habis waktu setelah 15 menit tanpa aktivitas. Jalankan `/setup` untuk memulai lagi."
+    replaced: Penyiapan ini telah digantikan oleh yang lebih baru.
+    notOwner: "**{user}** yang memulai penyiapan ini, jadi hanya dia yang bisa memakai tombol ini. Jalankan `/setup` untuk memulai penyiapanmu sendiri."
+    managersOnly: Hanya anggota dengan izin **Kelola Server** dan **Kelola Kanal** yang bisa menyiapkan InterChat. Minta admin server jika kamu ingin menghubungkan sebuah kanal.
+    cancel: Batal
+    back: Kembali
+    actionFailed: Terjadi masalah di pihak kami. Coba lagi sebentar lagi.
+    channel:
+      intro: Pilih kanal tempat pesan dari server lain akan muncul.
+      createTitle: "Buat #{name}"
+      createDescription: Kanal khusus menjaga obrolan lintas server tetap terpisah dari kanalmu yang lain. Aku akan mengatur izinnya untukmu.
+      createButton: Buat kanal
+      creating: Membuat…
+      existing: Atau pakai kanal yang sudah ada
+      placeholder: Pilih kanal
+      continue: Lanjutkan
+      recheck: Periksa lagi
+      checking: Memeriksa…
+      permissions:
+        view_channel: Lihat kanal
+        send_messages: Kirim pesan
+        manage_webhooks: Kelola webhook
+      missing: "**Aku belum bisa memakai {channel}.** Aku butuh izin yang ditandai di atas untuk menampilkan pesan dari server lain beserta nama dan avatarnya. Buka pengaturan kanal, masuk ke **Izin**, berikan peran InterChat izin yang kurang, lalu tekan **Periksa lagi**."
+      alreadyConnected: "{channel} sudah terhubung ke **{hub}**. Pilih kanal lain."
+      inCall: "{channel} sedang ada panggilan. Akhiri dengan `/hangup`, atau pilih kanal lain."
+      unsupported: Pilih kanal teks biasa.
+      topic: Pesan di sini dibagikan ke server lain lewat InterChat.
+      auditReason: "Dibuat dengan /setup oleh {user}"
+      createFailed: Aku tidak bisa membuat kanal. Berikan peran InterChat izin **Kelola Kanal** di server ini lalu coba lagi, atau pilih kanal yang sudah ada.
+      createdNote: "{channel} telah dibuat dan aku sudah memberi diriku izin yang kubutuhkan di sana."
+    hub:
+      title: "Pilih hub untuk {channel}"
+      intro: Hub menghubungkan satu kanal dari banyak server, sehingga semua orang mengobrol dalam percakapan yang sama.
+      suggestionsIn: "Ini hub paling aktif dalam bahasa {language} saat ini."
+      suggestions: Ini hub paling aktif saat ini.
+      yoursFirst: Hub milikmu muncul lebih dulu, lalu yang paling aktif.
+      yours: "Hubmu · {count} server"
+      yoursOne: Hubmu · 1 server
+      choose: Pilih
+      browse: Jelajahi semua hub
+      metrics: "{count} server · {activity}"
+      activity:
+        high: Sangat aktif
+        medium: Aktif
+        low: Sepi
+      unavailable: Aku tidak bisa memuat hub saat ini. Coba lagi sebentar lagi.
+      empty: Saat ini tidak ada hub publik yang terbuka untuk dimasuki. Coba panggilan cepat saja.
+      retry: Coba lagi
+      callTitle: Cuma mau coba-coba?
+      callDescription: "Mulai panggilan cepat: {channel} mengobrol dengan satu server lain sampai ada yang menutup. Tidak ada yang tetap terhubung."
+      callButton: Mulai panggilan
+      callStarting: Memulai…
+    browse:
+      title: Semua hub
+      intro: "{count} hub publik paling aktif. Untuk pencarian dan filter, gunakan {command} setelah penyiapan."
+      placeholder: Pilih hub
+      backToSuggestions: Kembali ke saran
+    confirm:
+      title: "Hubungkan {channel} ke {hub}?"
+      rulesTitle: "Aturan {hub}"
+      noRules: Hub ini belum memposting aturan.
+      rulesNote: "Anggota melihat aturan ini sebelum pesan pertama mereka di {channel}."
+      connect: Hubungkan
+      connecting: Menghubungkan…
+      unavailable: Aku tidak bisa memuat detail hub ini. Kembali dan pilih lagi, atau pilih hub lain.
+    failed:
+      title: "Tidak bisa terhubung ke {hub}"
+      retry: Coba lagi
+      otherHub: Pilih hub lain
+      generic: Terjadi masalah di pihak kami dan tidak ada yang terhubung. Coba lagi sebentar lagi.
+    live:
+      title: "{channel} sudah aktif"
+      description: "Kanal ini terhubung ke **{hub}**. Pesan yang dikirim di sana sekarang sampai ke {count} server, dan pesan mereka muncul untukmu."
+      goTo: "Ke #{name}"
+    call:
+      title: Panggilanmu sedang berjalan
+      description: "Aku sedang mencari server untuk {channel}. Mengobrollah di sana begitu ada yang bergabung, gunakan `/skip` untuk server lain, atau `/hangup` untuk mengakhiri panggilan."
+      stayTitle: Mau sesuatu yang bertahan lama?
+      stayDescription: "Hub menjaga {channel} tetap terhubung ke banyak server setelah panggilan berakhir."
+      stayButton: Cari hub
+      wrongChannel: "Panggilan di server ini berlangsung di {channel}. Mulai satu di sana dengan `/call`."
+      profileNeeded: Pilih tampilanmu di panggilan, lalu tekan **Mulai panggilan** lagi.
+      announceFailed: "Aku memulai panggilan tetapi tidak bisa memposting di {channel}, jadi kubatalkan. Periksa izinku di sana lalu coba lagi."
+      unavailable: Panggilan masih dimulai. Coba lagi dalam beberapa detik.
+    status:
+      title: InterChat sudah disiapkan
+      intro: "Ini yang terhubung di **{server}**."
+      connected: "{channel} → **{hub}**"
+      paused: "{channel} → **{hub}** · dijeda"
+      more: "…dan {count} lainnya. Lihat semuanya dengan {command}."
+    next:
+      title: Selanjutnya
+      anotherTitle: Hubungkan kanal lain
+      anotherDescription: Bawa kanal kedua ke hub yang berbeda.
+      anotherButton: Hubungkan lagi
+      settings: "Ubah perilaku panggilan, blokir, dan opsi kanal dengan {command}."
+      createHub: "Buat hub untuk komunitasmu sendiri dengan {command}."
+    cancelled:
+      nothingChanged: "**Penyiapan dibatalkan.** Tidak ada yang diubah. Jalankan `/setup` kapan pun kamu siap."
+      keptChannel: "**Penyiapan dibatalkan.** {channel} dipertahankan, jadi kamu bisa memakainya lain kali atau menghapusnya. Jalankan `/setup` kapan pun kamu siap."
+    welcome:
+      title: Terima kasih telah menambahkan InterChat
+      description: Hubungkan kanal ke hub dan anggotamu bisa mengobrol dengan komunitas lain. Penyiapan memakan waktu sekitar satu menit.
+      start: Mulai penyiapan
+      whatIsHub: Apa itu hub?
+      whoCanSetUp: Penyiapan untuk anggota dengan izin Kelola Server dan Kelola Kanal.
+      hubExplainer: "**Hub adalah kanal bersama lintas banyak server.** Hubungkan salah satu kanalmu dan pesannya terkirim ke semua server lain di hub, dengan balasan mereka kembali kepadamu. Kamu bisa keluar dari hub kapan saja dengan `/hub leave`."
+      dmFallback: "Aku bergabung ke **{server}**, tetapi tidak bisa memposting di kanal mana pun. Beri InterChat izin **Lihat Kanal**, **Kirim Pesan**, dan **Lampirkan File** di suatu kanal, lalu jalankan `/setup` di sana."
+
 help:
-  title: Perintah InterChat
-  description: Explore our wide range of commands to help you connect with others.
-  name: Bantuan
+  title: Bantuan
+  description: Jelajahi semua perintah InterChat.
+  browserDescription: Pilih titik awal di bawah, atau telusuri semua perintah per kategori. Ketik / di kotak untuk mencari semua perintah secara instan.
+  gettingStarted: Memulai
+  home:
+    moreAvailable: "+{count} titik awal lagi tersedia di daftar kategori."
+  category:
+    moreOnThisPage: "+{count} perintah lagi di halaman ini disembunyikan agar sesuai batas Discord."
+  categorySummary: "{count} perintah · halaman {page}/{pages}"
+  select:
+    category: Pilih kategori perintah
+  buttons:
+    view: Buka
+    home: Beranda
+  expired:
+    title: Sesi bantuan kedaluwarsa
+    description: Jalankan {command} lagi untuk membuka panduan perintah yang baru.
+    button: Kedaluwarsa
+  categories:
+    startHere: Mulai Di Sini
+    calls: Panggilan
+    social: Sosial
+    hubs: Hub
+    account: Akun
+    server: Penyiapan Server
+    moderation: Moderasi
+    safety: Keamanan
+    other: Lainnya
+  categoryBlurbs:
+    startHere: "Langkah pertama dan dasar sehari-hari · {count} perintah"
+    calls: "Mulai, gabung, dan tinggalkan panggilan · {count} perintah"
+    social: "Kirim aksi seru ke panggilanmu · {count} perintah"
+    hubs: "Hubungkan server dan teruskan pesan · {count} perintah"
+    account: "Profil, pengaturan, dan preferensi · {count} perintah"
+    server: "Siapkan InterChat di server · {count} perintah"
+    moderation: "Moderasi pengguna dan pesan · {count} perintah"
+    safety: "Laporan, pemblokiran, serta kepercayaan dan keamanan · {count} perintah"
+    other: "Semua yang lain · {count} perintah"
+  commandTypes:
+    hybrid: Hibrida
+    prefix: Prefiks
+    slash: Slash
+  fields:
+    slashUsage: Penggunaan slash
+    prefixUsage: Penggunaan prefiks
+    commandType: Jenis perintah
+    aliases: Alias
+    userPermissions: Izin pengguna
+    botPermissions: Izin bot
+    hubPermission: Izin hub
+    availability: Ketersediaan
+    subcommands: Subperintah
+    options: Opsi
+    examples: Contoh
+  availability:
+    serverOnly: Hanya kanal server
+    nsfwOnly: Hanya kanal NSFW
+  option:
+    required: wajib
+    optional: opsional
+    default: Bawaan
+    choices: Pilihan
+    range: Rentang
+    length: Panjang
+    channels: Kanal
+    autocomplete: "Pelengkapan otomatis: aktif"
+    to: sampai
+  types:
+    subcommand: Subperintah
+    subcommandGroup: Grup subperintah
+    string: String
+    integer: Bilangan bulat
+    boolean: Boolean
+    user: Pengguna
+    member: Anggota
+    channel: Kanal
+    textChannel: Kanal teks
+    voiceChannel: Kanal suara
+    role: Peran
+    mentionable: Dapat disebut
+    number: Angka
+    attachment: Lampiran
+  recovery:
+    tooManyArguments: Terlalu banyak argumen yang diberikan. Hapus nilai berlebih dan coba lagi.
+    badArgument: Salah satu argumen tidak dapat dipahami. Periksa jenisnya dan coba lagi.
+    parsingError: Argumen perintah tidak dapat diurai. Periksa penggunaan di bawah dan coba lagi.
+    userPermissions: Kamu memerlukan izin {permissions} untuk menjalankan perintah ini.
+    botPermissions: Aku memerlukan izin {permissions} untuk menjalankan perintah ini.
+    serverOnly: Perintah ini hanya bisa digunakan di dalam server.
+    missingRole: Kamu tidak memiliki peran yang diperlukan untuk menjalankan perintah ini.
+    missingSubcommand: Pilih salah satu subperintah yang tercantum di bawah.
+    unknownSubcommand: "Subperintah tidak dikenal: `{subcommand}`. Pilih salah satu subperintah yang tersedia di bawah."
+    hubPermission: "{error} Periksa izin hub yang tercantum di bawah."
+    invalidInput: "{error} Periksa jenis argumen dan pilihan yang diterima di bawah."
+    commandNotFound: Perintah atau subperintah itu tidak ditemukan. Ini halaman bantuan terdekat yang tersedia.
+    generic: Perintah tidak dapat digunakan. Periksa penggunaan dan persyaratan di bawah.
+
 preferences:
   title: Preferensi Pengguna
-  description: Edit your personal global settings.
+  description: Ubah pengaturan global pribadimu.
   replyMentions:
-    title: "Preferensi: Notifikasi Balasan"
-    description: You will now be **{status}** when someone replies to your messages.
-    currentDescription: Currently you are **{status}** when replied to.
-    mentioned: disebut (mentioned)
-    notMentioned: tidak disebut (not mentioned)
+    title: "Preferensi: Sebutan Balasan"
+    description: Sekarang kamu **{status}** saat seseorang membalas pesanmu.
+    currentDescription: Saat ini kamu **{status}** saat dibalas.
+    mentioned: disebut
+    notMentioned: tidak disebut
   general:
     title: Preferensi Umum
-    description: Configure general preferences within InterChat.
+    description: Atur preferensi umum di InterChat.
   locale:
     title: Pilih Bahasa
-    description: Pilih bahasa pilihan Anda untuk InterChat.
+    description: Pilih bahasa favoritmu untuk InterChat.
   select:
     category: Pilih kategori
   badges:
     title: "Preferensi: Lencana"
-    description: Your badges are now **{status}** within your messages.
-    currentDescription: Currently your badges are **{status}** within your messages.
+    description: Lencanamu sekarang **{status}** di pesan, papan peringkat, dan profilmu.
+    currentDescription: Saat ini lencanamu **{status}** di pesan, papan peringkat, dan profilmu.
     visible: terlihat
-    hidden: tersembunyi
+    hidden: disembunyikan
   voteReminders:
     title: "Preferensi: Pengingat Vote"
-    description: Aktifkan/nonaktifkan notifikasi pengingat vote dari InterChat.
-    enabled: diaktifkan
-    disabled: dinonaktifkan
+    description: Aktifkan atau nonaktifkan pengingat vote. Vote juga membuka auto-match pribadi selama 12 jam setelah partnermu melewati atau menutup panggilan.
+    enabled: aktif
+    disabled: nonaktif
     dm:
       title: Saatnya Vote untuk InterChat!
-      description: Dukungan Anda membantu InterChat berkembang! Vote di top.gg untuk membantu kami!
-      reminderInfo: You receive this reminder because you've voted before.
+      description: Dukunganmu membantu InterChat berkembang! Vote di top.gg untuk membantu kami. Kamu juga bisa memilih apakah akan dicocokkan lagi setelah partner melewati atau menutup panggilan.
+      reminderInfo: Pilihan auto-match-mu tetap aktif selama 12 jam setelah vote. Kelola di `/my settings`.
       disableConfirm:
         title: Pengingat Vote Dinonaktifkan
-        description: You will no longer receive vote reminder DMs.
+        description: Kamu tidak akan lagi menerima DM pengingat vote. Vote tetap membuka auto-match pribadi selama 12 jam setelah partner melewati atau menutup panggilan.
   errors:
-    noPreferences: Anda belum memiliki preferensi yang diatur.
+    noPreferences: Kamu belum mengatur preferensi apa pun.
+
 appeal:
-  title: Pelanggaran yang Dapat Dibanding
-  description: Select an infraction below to submit an appeal.
+  title: Pelanggaranmu yang Dapat Diajukan Banding
+  description: Pilih pelanggaran di bawah untuk mengajukan banding.
   noInfractions:
     title: Tidak Ada Pelanggaran Aktif
-    description: Anda tidak memiliki pelanggaran aktif yang dapat dibanding.
-  notAppealable: Pelanggaran ini tidak lagi dapat dibanding.
+    description: Kamu tidak punya pelanggaran aktif yang bisa diajukan banding.
+  notAppealable: Pelanggaran ini tidak bisa lagi diajukan banding.
+  notOpenYet: "Kamu bisa mengajukan banding mulai {opens_at}"
   select:
-    placeholder: Pilih pelanggaran untuk dibanding
+    placeholder: Pilih pelanggaran untuk diajukan banding
   modal:
     title: Ajukan Banding
-    q1: Mengapa Anda yakin tindakan ini salah?
-    q2: Ceritakan tentang situasinya
+    q1: Mengapa kamu yakin tindakan ini keliru?
+    q2: Ceritakan situasinya kepada kami
     q3: Informasi Tambahan
   success:
-    submitted: "{tick} Banding Anda telah dikirim untuk ditinjau."
+    submitted: "{tick} Bandingmu telah diajukan untuk ditinjau."
   viewInfractions:
-    title: Pelanggaran Pengguna Terbaru
-    empty: Tidak ditemukan pelanggaran untuk pengguna ini.
+    title: Pelanggaran Terbaru Pengguna
+    empty: Tidak ada pelanggaran untuk pengguna ini.
   status:
     acceptedBy: Diterima oleh @{name}
     rejectedBy: Ditolak oleh @{name}
     pending: Menunggu Tanggapan
-    cooldown: Cooldown
-    canAppeal: Dapat Dibanding
+    cooldown: Masa Tunggu
+    canAppeal: Dapat Diajukan Banding
   constants:
-    noReason: No Reason
+    noReason: *no_reason
   fields:
     date: "Tanggal:"
     reason: "Alasan:"
@@ -266,122 +492,311 @@ appeal:
     decisionTitle: Keputusan Banding
     reasonOptional:
       label: Alasan (Opsional)
-      placeholder: Jelaskan keputusan Anda...
+      placeholder: Jelaskan keputusanmu...
   dm:
-    accepted: Your appeal regarding a moderation action{hubName} has been accepted.
-    declined: Your appeal regarding a moderation action{hubName} has been declined.
+    accepted: Bandingmu terkait tindakan moderasi{hubName} telah diterima.
+    declined: Bandingmu terkait tindakan moderasi{hubName} telah ditolak.
     moderatorNote: "Catatan moderator: {reason}"
   embed:
     noInfractions:
-      title: Bersih!
-      description: Tidak ditemukan pelanggaran yang dapat dibanding.
+      title: Bersih Banget!
+      description: Tidak ada pelanggaran yang dapat diajukan banding.
     footer:
-      canAppeal: '💡 Anda dapat mengajukan banding atas {count} pelanggaran. Gunakan menu pilihan di bawah.'
-      checkLater: '💡 Periksa kembali nanti saat cooldown berakhir atau banding ditinjau.'
+      canAppeal: ':lightbulb_icon: Kamu bisa mengajukan banding atas {count} pelanggaran. Gunakan menu pilihan di bawah.'
+      checkLater: ':lightbulb_icon: Periksa lagi nanti saat masa tunggu berakhir atau banding sudah ditinjau.'
   errors:
     nothingSelected: Tidak ada yang dipilih.
-    modalError: Gagal membuka modal banding.
+    modalError: Gagal membuka formulir banding.
     recordFailed: "Gagal mencatat keputusan: {error}"
-    notFoundOrDeleted: Banding tidak ditemukan atau telah dihapus.
+    notFoundOrDeleted: Banding tidak ditemukan atau sudah dihapus.
     updateFailed: Gagal memperbarui banding. Silakan coba lagi nanti.
+
+automod:
+  actionsDefault: Gunakan bawaan Automod
+  actionsDefaultHint: Diatur di halaman Automod
+  actionsLabel: Apa yang harus terjadi saat ada kecocokan?
+  actionsTitle: Apa yang terjadi?
+  addWords: Tambah kata
+  applyDraft: Terapkan draf saya
+  changeApplied: ':tick_icon: Perubahanmu telah diterapkan.'
+  changeApplying: ⏳ Menyimpan…
+  changeBlocked: ':alert_icon: Perubahan sebelumnya sedang menunggu peninjauan, jadi perubahan baru dijeda untuk sementara.'
+  changeFailedConflict: Automod diubah orang lain saat perubahanmu sedang diterapkan, jadi perubahanmu tidak diterapkan. Gunakan Bandingkan perubahan saya untuk menerapkan drafmu di atas versi terbaru.
+  changeFailedGeneric: Perubahan ini tidak terkonfirmasi. Periksa aturan yang ditampilkan di sini, lalu coba lagi.
+  changeFailedGone: Automod ini tidak lagi tersedia, jadi perubahan tidak diterapkan.
+  changeFailedNotSent: Perubahan tidak pernah sampai ke layanan keamanan, jadi tidak ada yang diterapkan. Coba lagi.
+  changeFailedPermission: Izinmu untuk mengubah Automod ini dicabut sebelum perubahan diterapkan, jadi tidak ada yang disimpan.
+  changeFailedRefused: 'Automod menolak perubahan ini, jadi tidak diterapkan: {reason}'
+  changeFailedRejected: Layanan keamanan menolak perubahan ini, jadi tidak diterapkan.
+  changeFailedService: Layanan keamanan menolak perubahan ini, yang tampaknya masalah layanan. Tidak ada yang diterapkan; mohon laporkan.
+  changeFailedUnknown: Kami tidak dapat memastikan apakah perubahan ini diterapkan, jadi perlu ditinjau. Periksa aturan yang ditampilkan di sini, lalu simpan lagi jika perlu.
+  changeFailedUnreadable: Perubahan yang disimpan tidak dapat dibaca kembali, jadi tidak pernah dikirim. Simpan lagi.
+  changeStillApplying: ⏳ Masih diterapkan. Tekan Segarkan sebentar lagi untuk melihat hasilnya.
+  confirmChange: Konfirmasi perubahan
+  confirmEffect: Ini berlaku segera untuk semua orang di {scope}.
+  confirmOff: Biarkan nonaktif dulu
+  confirmOn: Aktifkan sekarang
+  confirmTitle: Aktifkan "{name}"?
+  conflictBanner: ':alert_icon: Orang lain mengedit Automod saat kamu bekerja. Perubahanmu disimpan sebagai draf.'
+  conflictCurrent: 'Versi terbaru: {rules} aturan, {patterns} kata'
+  conflictDraft: 'Drafmu: {rules} aturan, {patterns} kata'
+  conflictNote: Menerapkan akan mengganti semua aturan dengan drafmu.
+  conflictReviewTitle: Bandingkan perubahan saya
+  conflictToast: Orang lain baru saja mengedit Automod. Versi terbaru dimuat, perubahanmu tidak diterapkan. Tinjau dan coba lagi.
+  deleteConfirm: Hapus "{name}"?
+  detailsDescription: Deskripsi
+  detailsName: Nama
+  detailsReason: Pesan yang ditampilkan saat terdeteksi
+  detailsReasonHint: Ditampilkan kepada pengguna saat aturan ini mendeteksinya.
+  detailsTitle: Nama dan alasan
+  dialLabel: Saat aturan mendeteksi sesuatu…
+  dialMixed: Campuran (diatur per aturan)
+  disableRule: Nonaktifkan "{name}"?
+  disabled: Nonaktif
+  discard: Buang
+  discardBanner: Suntinganmu belum diterapkan.
+  discardConfirm: Buang perubahan
+  discardDraft: Buang draf saya
+  discardTitle: Buang perubahan yang belum disimpan?
+  durationError: Gunakan durasi seperti 30m, 1h, atau 2d.
+  durationLabel: 'Durasi {action}'
+  durationPlaceholder: mis. 30m, 1h, 2d
+  editActions: Apa yang terjadi
+  editDetails: Nama & alasan
+  editSurfaces: Di mana memeriksa
+  enableRule: Aktifkan "{name}"?
+  enabled: Aktif
+  errorTitle: ':alert_icon: Automod tidak dapat dimuat.'
+  keepEditing: Lanjut mengedit
+  loadDenied: Kamu tidak punya izin untuk melihat Automod di sini.
+  loadFailed: Automod tidak dapat dimuat saat ini. {reason}
+  loadGone: Automod ini tidak ditemukan.
+  loadUnavailable: Layanan keamanan tidak dapat dihubungi. Tekan Segarkan untuk mencoba lagi.
+  newRule: Aturan baru
+  newRuleModalTitle: Aturan baru
+  newRuleName: Nama
+  noRules: Belum ada aturan. Buat aturan pertama untuk memulai.
+  page: Halaman {current}/{total}
+  parameters: Pengaturan aksi
+  pause: Jeda Automod
+  pauseConfirm: Jeda Automod? Aturan tidak diberlakukan sampai kamu melanjutkan.
+  pickRule: Pilih aturan yang akan diubah…
+  rejected: 'Automod menolak perubahan ini: {error}'
+  removeSelect: Pilih kata yang akan dihapus…
+  removeTitle: Hapus kata
+  removeWords: Hapus kata
+  replaceAll: Ganti semua
+  replacementLabel: Nama pengganti aman
+  replacesNote: Ini mengganti seluruh konfigurasi Automod.
+  resume: Lanjutkan Automod
+  resumeConfirm: Aktifkan kembali Automod?
+  reviewDraft: Bandingkan perubahan saya
+  ruleDescription: '{status} · {count} kata'
+  ruleTitle: ':pencil_line: {name} · {status}'
+  rulesOn: '{enabled} dari {total} aturan aktif'
+  saveBusy: Perubahan Automod lain sedang diterapkan. Tunggu sampai selesai, lalu simpan lagi.
+  saveDenied: Kamu tidak lagi punya izin untuk mengubah Automod ini.
+  saveFailed: 'Perubahan ini tidak dapat disimpan: {reason}'
+  saveGone: Automod ini tidak lagi tersedia, jadi tidak ada yang diubah.
+  saveUnavailable: Layanan keamanan tidak dapat dihubungi, jadi tidak ada yang diubah. Coba lagi sebentar lagi.
+  serverNote: Peringatan, bisu, dan ban adalah alat hub. Semuanya berlaku saat server ini bergabung ke hub.
+  statusOff: 'Nonaktif'
+  statusOn: 'Aktif'
+  surfacesLabel: Di mana semua ini harus diperiksa?
+  surfacesTitle: Di mana memeriksa
+  test: Uji
+  testCaught: ':alert_icon: Akan terdeteksi oleh "{rule}". Konsekuensi: {actions}.'
+  testClean: ':tick_icon: Tidak ada yang akan terdeteksi.'
+  testDisclaimer: Hanya pratinjau. Keputusan akhir dibuat oleh layanan penegakan.
+  testEmpty: Belum ada aturan yang aktif, jadi tidak ada yang akan terdeteksi.
+  testFor: 🧪 Hasil uji untuk "{message}"
+  testLabel: Ketik pesan seperti yang akan dikirim pengguna
+  testModalTitle: Uji Automod
+  testNoSurface: Aturan ini tidak memeriksa isi pesan, jadi uji pesan tidak punya apa pun untuk diperiksa.
+  testRule: Uji aturan ini
+  title: ':shield_alert_icon: Automod · {scope}'
+  turnOff: Nonaktifkan
+  turnOn: Aktifkan
+  unsaved: ':alert_icon: Perubahan belum disimpan'
+  wordSlots: '{used} dari {limit} slot kata terpakai'
+  wordsCount: '{count} kata'
+  wordsHint: Gunakan * di awal atau akhir untuk mencocokkan sebagian. Frasa ditaruh dalam "tanda kutip ganda". Maksimal 4000 karakter.
+  wordsLabel: Kata yang akan dideteksi, satu per baris
+  wordsReplaceTitle: Ganti semua kata
+  wordsTitle: Tambah kata
 report:
-  title: Lapor Pesan
-  footer: Laporan membantu menjaga InterChat aman bagi semua orang
-  description: Report {user} to Hub Staff or InterChat Staff.
+  title: Laporkan Pesan
+  footer: Laporan membantu menjaga InterChat tetap aman untuk semua orang
+  prompt: Laporkan pesan ini ke tim moderasi kami.
   buttons:
-    toStaff: Lapor ke Staf
-    toHub: Lapor ke Hub
+    toStaff: Laporkan ke Staf
+    toHub: Laporkan ke Hub
   modal:
     toStaff:
-      title: Lapor ke Staf InterChat
+      title: Laporkan ke Staf InterChat
     toHub:
-      title: Lapor ke Moderator Hub
+      title: Laporkan ke Moderator Hub
     reason:
-      label: Alasan Pelaporan
-      placeholder: Harap jelaskan mengapa Anda melaporkan pesan ini...
+      label: Alasan Laporan
+      placeholder: Jelaskan mengapa kamu melaporkan pesan ini...
     context:
-      label: Context (Entire call history is sent)
-      placeholder: Add any additional context or details for staff...
+      label: Konteks (seluruh riwayat panggilan dikirim)
+      placeholder: Tambahkan konteks atau detail tambahan untuk staf...
+    reasons:
+      nsfwImages: Gambar NSFW
+      gore: Gore
+      childSexualization: Perilaku Pedofilia / Seksualisasi Anak
+      sexualThreats: Ancaman Pemerkosaan / Ancaman Seksual
+      doxxing: Doxxing
+      hardRuleName: Hard-R pada Nama Pengguna / Nama Server
+      spam: Spam
+      suggestiveMessages: Pesan Sugestif
+      nsfwMessages: Pesan NSFW
+      casualSlurs: Umpatan Kasar Biasa
+      targetedSlurs: Umpatan Terarah / Umpatan Ekstrem
+      mildToxicity: Toksisitas Ringan
+      moderateToxicity: Toksisitas Sedang
+      severeToxicity: Toksisitas Berat
+      harassment: Pelecehan
+      mildHateSpeech: Ujaran Kebencian Ringan
+      severeHateSpeech: Ujaran Kebencian Berat
+      other: Lainnya
   success:
-    title: Laporan Dikirim
-    toStaff: "{tick} Your report has been sent to InterChat staff."
-    toHub: "{tick} Your report has been sent to hub moderators."
+    title: Laporan Terkirim
+    toStaff: "{tick} Laporanmu telah dikirim ke staf InterChat."
+    toHub: "{tick} Laporanmu telah dikirim ke moderator hub."
   errors:
-    hubMessageOnly: "{x_icon} Anda hanya dapat melaporkan pesan yang dikirim melalui hub InterChat."
-    cannotReportSelf: "{x_icon} Anda tidak dapat melaporkan pesan Anda sendiri."
-    outOfScope: "{x_icon} This message cannot be reported. You can only report messages sent inside InterChat Hubs and Calls."
-    alreadyReportedCall: "{x_icon} You have already reported this call. When you submit a report, the entire call history is sent to staff, so there is no need to report multiple times."
+    hubMessageOnly: "{x_icon} Kamu hanya bisa melaporkan pesan yang dikirim lewat hub InterChat."
+    cannotReportSelf: "{x_icon} Kamu tidak bisa melaporkan pesanmu sendiri."
+    outOfScope: "{x_icon} Pesan ini tidak bisa dilaporkan. Kamu hanya bisa melaporkan pesan yang dikirim di dalam Hub dan Panggilan InterChat."
+    alreadyReportedCall: "{x_icon} Kamu sudah melaporkan panggilan ini. Saat kamu mengirim laporan, seluruh riwayat panggilan dikirim ke staf, jadi tidak perlu melapor berkali-kali."
+
 hubConfig:
   general:
-    placeholder: Select a setting to configure...
-    summaryDescription: A summary of your hub's general settings.
-    hubIdentity: Hub Identity
+    placeholder: Pilih pengaturan yang akan dikonfigurasi...
+    summaryDescription: Ringkasan pengaturan umum hubmu.
+    hubIdentity: Identitas Hub
     fields:
-      name: "Name:"
-      description: "Description:"
-      rating: "Rating:"
-      visibility: "Visibility:"
-    editOnDashboard: Edit on Dashboard
-    noDescription: "*No description set.*"
-    properties: Properties
-    nsfw: '🔞 NSFW'
-    familyFriendly: '✅ Family Friendly'
-    lastUpdated: "Last Updated:"
-    descriptionUpdated: Description Updated!
-    descriptionSuccess: Your hub description has been successfully updated.
-    nameUpdated: Name Updated!
-    nameSuccess: Your hub has been renamed to **{name}**.
-    nameCooldownNote: '⚠️ Hub names can only be changed once every 10 days.'
-    welcomeUpdated: Welcome Message Updated!
-    welcomeSuccess: Your hub welcome message has been successfully updated.
-    nsfwUpdated: NSFW Setting Updated!
-    nsfwWarning: '⚠️ Important'
-    nsfwWarningDesc: Your hub is now marked as NSFW and may be filtered from searches.
-    sfwConfirmDesc: Your hub is now marked as safe for work.
-    visibilityUpdated: Visibility Updated!
-    visibilitySuccess: "Your hub is now: **{status}**"
-    visibilityMeaning: ℹ️ What this means
+      name: "Nama:"
+      description: "Deskripsi:"
+      rating: "Peringkat:"
+      visibility: "Visibilitas:"
+    editOnDashboard: Edit di Dasbor
+    noDescription: "*Belum ada deskripsi.*"
+    properties: Properti
+    nsfw: ':eye_off: NSFW'
+    familyFriendly: ':tick_icon: Ramah Keluarga'
+    lastUpdated: "Terakhir Diperbarui:"
+    descriptionUpdated: Deskripsi Diperbarui!
+    descriptionSuccess: Deskripsi hubmu berhasil diperbarui.
+    nameUpdated: Nama Diperbarui!
+    nameSuccess: Hubmu telah diganti namanya menjadi **{name}**.
+    nameCooldownNote: ':alert_icon: Nama hub hanya bisa diubah sekali setiap 10 hari.'
+    welcomeUpdated: Pesan Selamat Datang Diperbarui!
+    welcomeSuccess: Pesan selamat datang hubmu berhasil diperbarui.
+    nsfwUpdated: Pengaturan NSFW Diperbarui!
+    nsfwWarning: ':alert_icon: Penting'
+    nsfwWarningDesc: Hubmu kini ditandai sebagai NSFW dan mungkin disaring dari hasil pencarian.
+    sfwConfirmDesc: Hubmu kini ditandai aman untuk semua usia.
+    visibilityUpdated: Visibilitas Diperbarui!
+    visibilitySuccess: "Hubmu sekarang: **{status}**"
+    visibilityMeaning: ℹ️ Artinya apa
     visibility:
-      public: '🌐 Publik'
-      publicDesc: Discoverable on the hub directory.
-      unlisted: '👁️ Tidak Terdaftar'
-      unlistedDesc: Not in directory but anyone can join via ID/link.
-      private: '🔒 Pribadi'
-      privateDesc: Invite-only, not listed publicly.
+      public: ':globe_icon: Publik'
+      publicDesc: *vis_public_desc
+      unlisted: 👁️ Tidak Terdaftar
+      unlistedDesc: *vis_unlisted_desc
+      private: ':lock_icon: Privat'
+      privateDesc: *vis_private_desc
     editDescription:
       label: Edit Deskripsi
-      description: Change your hub's description
-      title: Edit Hub Description
-      labelInput: Hub Description
-      placeholder: Describe what your hub is about...
+      description: Ubah deskripsi hubmu
+      title: Edit Deskripsi Hub
+      labelInput: Deskripsi Hub
+      placeholder: Jelaskan tentang apa hubmu...
     editName:
-      label: Edit Name
-      description: Change your hub's display name
-      title: Edit Hub Name
+      label: Edit Nama
+      description: Ubah nama tampilan hubmu
+      title: Edit Nama Hub
       labelInput: Nama Hub
-      placeholder: Enter a new name for your hub...
+      placeholder: Masukkan nama baru untuk hubmu...
     welcomeMessage:
       label: Pesan Selamat Datang
-      description: Set a message sent to new members
-      title: Edit Welcome Message
+      description: Atur pesan yang dikirim ke anggota baru
+      title: Edit Pesan Selamat Datang
       labelInput: Pesan Selamat Datang
-      placeholder: Welcome! Enjoy your stay...
+      placeholder: Selamat datang! Semoga betah...
     toggleNsfw:
-      label: Toggle NSFW
-      description: Toggle between Safe for Work and NSFW
+      label: Alihkan NSFW
+      description: Beralih antara aman untuk semua usia dan NSFW
     changeVisibility:
       label: Ubah Visibilitas
-      description: Beralih antara Publik, Tidak Terdaftar, atau Pribadi
-      title: '🔐 Change Hub Visibility'
-      desc: "Select the visibility level for your hub:"
+      description: Beralih antara Publik, Tidak Terdaftar, atau Privat
+      title: 🔐 Ubah Visibilitas Hub
+      desc: "Pilih tingkat visibilitas untuk hubmu:"
+    console:
+      brandingTab: Branding
+      settingsTab: Pengaturan
+      identityGroup: "-# **Identitas**"
+      artworkGroup: "-# **Gambar**"
+      discoveryGroup: "-# **Penemuan**"
+      contentGroup: "-# **Konten**"
+      moderationGroup: "-# **Moderasi**"
+      brandingSummary: "-# Bagaimana hub ini terlihat oleh orang yang menemukannya."
+      settingsSummary: "-# Bagaimana hub ini bekerja: penemuan, konten, dan banding."
+      preview:
+        defaultName: Hub Tanpa Nama
+        noTagline: Belum ada tagline
+        noDescription: Belum ada deskripsi
+        noWelcome: Belum ada pesan selamat datang
+        stats: "{connections} server · {messages} pesan/mgg · {upvotes} upvote"
+      fields:
+        name: Nama
+        tagline: Tagline singkat
+        description: Deskripsi
+        welcome: Pesan selamat datang
+        icon: Ikon hub
+        banner: Banner hub
+        visibility: Visibilitas
+        nsfw: Peringkat konten
+        cooldown: Masa tunggu banding
+        rules: Aturan hub
+      hints:
+        tagline: Satu baris yang tampil di bawah nama hub dalam daftar
+        taglineEmpty: Belum diatur, jadi daftar hanya menampilkan nama hub
+        description: Teks panjang yang dibaca anggota saat membuka hub
+        descriptionEmpty: Belum diatur, jadi anggota tidak melihat apa-apa saat membuka hub
+        welcome: Sapaan khusus yang ditampilkan saat server terhubung
+        welcomeEmpty: Belum ada sapaan khusus untuk koneksi baru
+        icon: Avatar persegi yang dilihat anggota di mana-mana
+        banner: Gambar lebar di belakang header hubmu
+        visibility: Siapa yang bisa menemukan dan bergabung ke hub ini
+        nsfw: Tandai hub ini sebagai NSFW atau ramah keluarga
+        cooldown: Berapa lama harus menunggu sebelum mengajukan banding atas pelanggaran
+      values:
+        servers: server
+        notSet: "Belum diatur"
+        unlisted: Tidak Terdaftar
+        private: Privat
+        iconCustom: "Kustom"
+        iconDefault: "Bawaan"
+        bannerSet: "Sudah diatur"
+        bannerUnset: "Belum diatur"
+        cooldown: "{hours} jam"
+        cooldownWithDays: "{hours} jam · {days} hari"
+        rulesConfigured: "{count} dikonfigurasi"
+        rulesEmpty: "Belum ada"
+      manage:
+        rulesAdd: Tambah aturan
+        rulesEdit: Ubah
     errors:
-      nameCooldown: Name Change on Cooldown
-      nameCooldownDesc: You can change your hub name again in **{days} days**.
-      invalidName: Invalid Name
-      invalidNameDesc: Hub name cannot be empty.
-      nameTaken: Name Already Taken
-      nameTakenDesc: The name **{name}** is already used.
-    rulesCount: "{count}/{max} rules configured"
+      nameCooldown: Pergantian Nama dalam Masa Tunggu
+      nameCooldownDesc: Kamu bisa mengubah nama hubmu lagi dalam **{days} hari**.
+      invalidName: Nama Tidak Valid
+      invalidNameDesc: Nama hub tidak boleh kosong.
+      nameTaken: Nama Sudah Dipakai
+      nameTakenDesc: Nama **{name}** sudah digunakan.
+    rulesCount: "{count}/{max} aturan dikonfigurasi"
   permissions:
     remove:
       label: Hapus
@@ -390,7 +805,7 @@ hubConfig:
       description: Kelola pesan, moderasi pengguna, tangani laporan & banding
     manager:
       label: Manajer
-      description: Kelola pengaturan hub serta semua yang dapat dilakukan moderator
+      description: Kelola pengaturan hub plus semua yang bisa dilakukan moderator
     managerOnly:
       description: Kelola pengaturan hub
   modules:
@@ -402,75 +817,75 @@ hubConfig:
       description: Sembunyikan pratinjau tautan di pesan hub
     spamFilter:
       label: Filter Spam
-      description: Secara otomatis memfilter spam dan konten yang tidak diinginkan
+      description: Saring spam dan konten yang tidak diinginkan secara otomatis
     blockInvites:
       label: Blokir Undangan
-      description: Blokir undangan server Discord dalam pesan
+      description: Blokir undangan server Discord di pesan
     useNicknames:
       label: Gunakan Nama Panggilan
-      description: Tampilkan nama panggilan pengguna (nickname) alih-alih nama pengguna
+      description: Tampilkan nama panggilan pengguna, bukan nama pengguna
     blockNsfw:
-      description: Block NSFW content even in NSFW hubs
+      description: Blokir konten NSFW bahkan di hub NSFW
     allowVideos:
-      description: Allow video attachments in messages
+      description: Izinkan lampiran video di pesan
     blockAttachments:
-      description: Block file attachments in messages
+      description: Blokir lampiran file di pesan
     blockTenorGifs:
-      description: Block Tenor GIFs in messages
-    title: Hub Modules
-    description: Configure additional features and moderation tools for your hub
-    enabled: Enabled **{module}**
-    disabled: Disabled **{module}**
+      description: Blokir GIF Tenor di pesan
+    title: Modul Hub
+    description: Atur fitur tambahan dan alat moderasi untuk hubmu
+    enabled: '**{module}** diaktifkan'
+    disabled: '**{module}** dinonaktifkan'
     success:
-      title: Modules Updated!
+      title: Modul Diperbarui!
     errors:
-      updateFailed: "An error occurred: {error}"
+      updateFailed: "Terjadi kesalahan: {error}"
   badges:
     owner:
-      label: Owner Badge
-      description: This badge is displayed on the user who owns the hub.
+      label: Lencana Pemilik
+      description: Lencana ini ditampilkan pada pengguna yang memiliki hub.
     manager:
-      label: Manager Badge
-      description: This badge is displayed on the users who manage this hub.
+      label: Lencana Manajer
+      description: Lencana ini ditampilkan pada pengguna yang mengelola hub ini.
     moderator:
-      label: Moderator Badge
-      description: This badge is displayed on the users who moderate this hub.
-    selectPlaceholder: Select a badge to configure
+      label: Lencana Moderator
+      description: Lencana ini ditampilkan pada pengguna yang memoderasi hub ini.
+    selectPlaceholder: Pilih lencana untuk dikonfigurasi
   logging:
     moderationLogs: Log Moderasi
     joinLeaveLogs: Log Gabung/Keluar
-    appealsChannel: Channel Banding
-    reportsChannel: Channel Laporan
+    appealsChannel: Kanal Banding
+    reportsChannel: Kanal Laporan
     networkAlerts: Peringatan Jaringan
     messageModeration: Moderasi Pesan
-    title: Hub Logging Configuration
-    description: Configure logging channels and notification roles.
-    selectPlaceholder: Select logging type to configure...
-    selectChannel: Select a channel for logging...
-    selectRole: Select a role for notifications (optional)...
-    notConfigured: Tidak dikonfigurasi
-    noRole: No role
-    role: Role
-    currentConfig: Current Configuration
-    footerHint: Select a logging type above to configure
-    configureTitle: Configure {type}
-    configureDescription: Select a channel and optionally a role for notifications below.
+    title: Konfigurasi Log Hub
+    description: Atur kanal log dan peran notifikasi.
+    selectPlaceholder: Pilih jenis log yang akan dikonfigurasi...
+    selectChannel: Pilih kanal untuk log...
+    selectRole: Pilih peran untuk notifikasi (opsional)...
+    notConfigured: Belum dikonfigurasi
+    noRole: Tanpa peran
+    role: Peran
+    currentConfig: Konfigurasi Saat Ini
+    footerHint: Pilih jenis log di atas untuk dikonfigurasi
+    configureTitle: Konfigurasi {type}
+    configureDescription: Pilih kanal dan, jika mau, peran untuk notifikasi di bawah.
     descriptions:
-      moderation: Channel for moderation actions (warns, bans, mutes)
-      joinLeave: Channel for hub connection events
-      appeals: Channel for appeal notifications
-      reports: Channel for user reports
-      networkAlerts: Channel for network-wide alerts and issues
-      messageModeration: Channel for message edit/delete logs
+      moderation: Kanal untuk tindakan moderasi (peringatan, ban, bisu)
+      joinLeave: Kanal untuk kejadian koneksi hub
+      appeals: Kanal untuk notifikasi banding
+      reports: Kanal untuk laporan pengguna
+      networkAlerts: Kanal untuk peringatan dan masalah di seluruh jaringan
+      messageModeration: Kanal untuk log pesan yang diedit/dihapus
     success:
-      updated: "{type} configuration updated!"
-      updatedDesc: "Logging for **{type}** has been updated successfully."
-      cleared: "{type} configuration cleared!"
-      clearedDesc: "Logging for **{type}** has been cleared."
+      updated: "Konfigurasi {type} diperbarui!"
+      updatedDesc: "Log untuk **{type}** berhasil diperbarui."
+      cleared: "Konfigurasi {type} dihapus!"
+      clearedDesc: "Log untuk **{type}** telah dihapus."
     errors:
-      selectFirst: Please select a logging type first.
-      updateFailed: Failed to update logging configuration.
-      clearFailed: Failed to clear logging configuration.
+      selectFirst: Pilih jenis log terlebih dahulu.
+      updateFailed: Gagal memperbarui konfigurasi log.
+      clearFailed: Gagal menghapus konfigurasi log.
   invites:
     create:
       title: Input Diperlukan
@@ -479,89 +894,90 @@ hubConfig:
         placeholder: abc123
       uses:
         label: Penggunaan
-        placeholder: Biarkan kosong untuk tak terbatas
+        placeholder: Kosongkan aku untuk tak terbatas
       expiry:
         label: Kedaluwarsa
-        placeholder: 1w, 3d, 12h (Biarkan kosong untuk tanpa kedaluwarsa)
+        placeholder: 1w, 3d, 12h (kosongkan aku jika tanpa kedaluwarsa)
     errors:
-      invalidUses: Please enter a whole number for uses (or leave blank).
-      invalidExpiry: "Invalid expiry format. Examples: 1w, 3d, 12h."
+      invalidUses: Masukkan bilangan bulat untuk penggunaan (atau kosongkan).
+      invalidExpiry: "Format kedaluwarsa tidak valid. Contoh: 1w, 3d, 12h."
   automod:
     createRule:
-      namePlaceholder: Enter rule name...
-      actionDescription: What should happen when this rule is triggered?
-      actionPlaceholder: Select an action...
+      namePlaceholder: Masukkan nama aturan...
+      actionDescription: Apa yang harus terjadi saat aturan ini terpicu?
+      actionPlaceholder: Pilih aksi...
     actions:
       delete: Blokir Pesan
-      deleteDescription: Blokir pesan agar tidak diteruskan
-      warn: Warn User
-      warnDescription: Issue a warning to the user
-      alert: Send Alert
-      alertDescription: Send an alert to the logging channel
+      deleteDescription: Mencegah pesan diteruskan
+      warn: Peringatkan Pengguna
+      warnDescription: Berikan peringatan kepada pengguna
+      alert: Kirim Peringatan Dini
+      alertDescription: Kirim peringatan dini ke kanal log
       censor: Sensor Pesan
-      censorDescription: 'Sensor kata yang cocok dengan tanda pagar (#)'
-    ruleCreated: Rule '{name}' has been created successfully!
+      censorDescription: Menyensor kata yang cocok dengan tanda pagar (#)
+    ruleCreated: Aturan '{name}' berhasil dibuat!
     errors:
-      createFailed: Failed to create rule. Please try again.
-      updatePatterns: Failed to update patterns.
-      addWhitelist: Failed to add to safe list.
+      createFailed: Gagal membuat aturan. Silakan coba lagi.
+      updatePatterns: Gagal memperbarui pola.
+      addWhitelist: Gagal menambahkan ke daftar aman.
     editPatterns:
-      description: Enter patterns separated by commas. Use * for wildcards (e.g. bad*, *word*, *bad)
-      placeholder: Enter patterns...
-    patternsSaved: Saved {count} pattern{s}.
+      description: Masukkan pola dipisah koma. Gunakan * sebagai wildcard (mis. bad*, *word*, *bad)
+      placeholder: Masukkan pola...
+    patternsSaved: '{count} pola disimpan.'
     whitelist:
-      description: Enter a word to add to the safe list
-      added: Added '{word}' to the safe list.
-      noneToRemove: No safe words to remove
-      selectRemove: Select words to remove...
-      removed: Removed {count} word(s) from the safe list.
-    proOnly: "Advanced AutoMod is available for Pro hubs only. Upgrade your hub to Pro to configure these rules."
+      description: Masukkan kata untuk ditambahkan ke daftar aman
+      added: '''{word}'' ditambahkan ke daftar aman.'
+      noneToRemove: Tidak ada kata aman untuk dihapus
+      selectRemove: Pilih kata yang akan dihapus...
+      removed: '{count} kata dihapus dari daftar aman.'
+    proOnly: "AutoMod lanjutan hanya tersedia untuk hub Pro. Tingkatkan hubmu ke Pro untuk mengatur aturan ini."
     deleteRule:
-      title: Delete Rule
-      description: Are you sure you want to delete **{ruleName}**?
-      success: Rule **{ruleName}** has been deleted.
-      cancelled: Rule deletion cancelled.
+      title: Hapus Aturan
+      description: Yakin ingin menghapus **{ruleName}**?
+      success: Aturan **{ruleName}** telah dihapus.
+      cancelled: Penghapusan aturan dibatalkan.
+
 moderation:
   notifications:
-    title: "Moderation Notice"
-    description: "You have received a moderation action in the hub **{hubName}**."
-    warnTitle: "⚠️ You have been Warned"
-    muteTitle: "🔇 You have been Muted"
-    banTitle: "🔨 You have been Banned"
-    unmuteTitle: "🔊 You have been Unmuted"
-    unbanTitle: "🔊 You have been Unbanned"
-    fieldAction: "Action"
+    title: "Pemberitahuan Moderasi"
+    description: "Kamu menerima tindakan moderasi di hub **{hubName}**."
+    warnTitle: ':alert_icon: Kamu Telah Diperingatkan'
+    muteTitle: ':volume_off: Kamu Telah Dibisukan'
+    banTitle: ':hammer_icon: Kamu Telah Diban'
+    unmuteTitle: ':volume_2: Bisumu Telah Dicabut'
+    unbanTitle: ':volume_2: Banmu Telah Dicabut'
+    fieldAction: "Tindakan"
     fieldReason: "Alasan"
     fieldDuration: "Durasi"
-    fieldExpires: "Kedaluwarsa"
-    appealHint: "If you believe this was an error, you can submit an appeal using `/appeal` in any server connected to this hub."
+    fieldExpires: "Berakhir"
+    appealHint: "Jika kamu merasa ini keliru, kamu bisa mengajukan banding dengan `/appeal` di server mana pun yang terhubung ke hub ini."
   footer:
-    actionedBy: "Actioned by {user}"
+    actionedBy: "Ditindak oleh {user}"
   actionNames:
     warned: Diperingatkan
-    muted: Di-mute
-    banned: Di-ban
+    muted: Dibisukan
+    banned: Diban
   actionNouns:
-    mute: mute
+    mute: bisu
     ban: ban
   prep:
     in: di
     from: dari
   permissions:
-    managerRequired: Diperlukan izin Manajer+.
+    managerRequired: Dibutuhkan izin Manajer ke atas.
   target:
-    both: Harap tentukan pengguna atau server, bukan keduanya.
-    missing: Harap tentukan pengguna atau server.
+    both: Tentukan pengguna atau server, jangan keduanya.
+    missing: Tentukan pengguna atau server.
   revoke:
-    noActive: Tidak ditemukan {action} aktif.
+    noActive: Tidak ditemukan {action} yang aktif.
     success: '{action} dicabut.'
   delete:
     success: Pesan telah dihapus dari semua hub yang terhubung.
     notInterChatMessage: Pesan ini bukan pesan InterChat atau sudah dihapus.
   blacklist:
-    permissionDenied: Anda tidak memiliki izin staf InterChat untuk mengeluarkan daftar hitam global.
-    alreadyActive: Target sudah memiliki daftar hitam global aktif.
-    success: '{target} berhasil dimasukkan ke daftar hitam global.'
+    permissionDenied: Kamu tidak punya izin staf InterChat untuk menerbitkan blacklist global.
+    alreadyActive: Target sudah memiliki blacklist global yang aktif.
+    success: '{target} telah di-blacklist secara global.'
   success:
     action: "{target} telah {action} {prep} {hubName}"
   actions:
@@ -569,160 +985,181 @@ moderation:
       label: Peringatkan
       description: Berikan peringatan kepada target yang dipilih
     mute:
-      label: Mute
-      description: Mute pengguna/server dari hub yang ditentukan
+      label: Bisukan
+      description: Bisukan pengguna/server dari hub yang ditentukan
     ban:
       label: Ban
       description: Ban pengguna/server dari hub yang ditentukan
     unmute:
-      label: Unmute
-      description: Cabut pelanggaran mute aktif
+      label: Cabut Bisu
+      description: Cabut pelanggaran bisu yang aktif
     unban:
-      label: Unban
-      description: Cabut pelanggaran ban aktif
+      label: Cabut Ban
+      description: Cabut pelanggaran ban yang aktif
     blacklist:
-      label: Daftar Hitam
-      description: Keluarkan daftar hitam global interchat (pengguna/server)
+      label: Blacklist
+      description: Terbitkan blacklist untuk seluruh InterChat (pengguna/server)
     history:
-      label: History
-      description: View infraction and report history for the target
+      label: Riwayat
+      description: Lihat riwayat pelanggaran dan laporan target
     delete:
       label: Hapus
       description: Hapus pesan yang dipilih di semua hub yang terhubung
   modal:
     title: Tindakan Moderasi
     reason:
-      placeholder: Masukkan pembenaran singkat{optional}
+      placeholder: Tulis alasan singkat{optional}
     duration:
       label: Durasi
       placeholder: mis. 30m, 2h, 1d
   hubSelect:
     placeholder: Pilih hub untuk dimoderasi...
-    noHubs: No hubs available
-    noHubsDesc: No hubs available for moderation
+    noHubs: Tidak ada hub tersedia
+    noHubsDesc: Tidak ada hub yang tersedia untuk dimoderasi
   hubSelection:
     title: Pemilihan Hub
-    description: Pilih hub yang ingin Anda moderasi.
+    description: Pilih hub yang ingin kamu moderasi.
     fieldHubLabel: Hub
     fieldHubPrompt: Hub Terpilih
   targetSelection:
     title: Pemilihan Target
-    description: Siapa yang ingin Anda {action}?
-    user: Act on User
-    server: Act on Server
+    description: Siapa yang ingin kamu {action}?
+    user: Tindak Pengguna
+    server: Tindak Server
   actionSelect:
     placeholder: Pilih tindakan moderasi...
   validators:
-    reasonTooShort: "Reason must be at least {min} characters long."
-    reasonTooLong: "Reason must be no more than {max} characters long."
-    durationRequired: "Duration is required for mute actions."
-    durationNotNeeded: "Duration is only needed for mute actions."
-    durationTooShort: "Duration is too short."
-    durationTooLong: "Duration is too long."
-    invalidDurationFormat: "Invalid duration format."
-    noTarget: "No valid target specified for this action."
+    reasonTooShort: "Alasan minimal {min} karakter."
+    reasonTooLong: "Alasan maksimal {max} karakter."
+    durationRequired: "Durasi wajib diisi untuk aksi bisu."
+    durationNotNeeded: "Durasi hanya diperlukan untuk aksi bisu."
+    durationTooShort: "Durasi terlalu pendek."
+    durationTooLong: "Durasi terlalu panjang."
+    invalidDurationFormat: "Format durasi tidak valid."
+    noTarget: "Tidak ada target valid yang ditentukan untuk aksi ini."
   history:
-    title: "{info_icon} Moderation History"
+    title: "{info_icon} Riwayat Moderasi"
     noHubSelected: Tidak ada hub yang dipilih.
-    noTarget: "No target specified."
-    recentInfractions: "Recent Infractions ({count} total)"
-    noInfractions: "No infractions found."
-    recentReports: "Recent Reports ({count} total)"
-    noReports: "No reports found."
-    fetchFailed: "Failed to fetch moderation history."
+    noTarget: "Tidak ada target yang ditentukan."
+    recentInfractions: "Pelanggaran Terbaru (total {count})"
+    noInfractions: "Tidak ada pelanggaran."
+    recentReports: "Laporan Terbaru (total {count})"
+    noReports: "Tidak ada laporan."
+    fetchFailed: "Gagal mengambil riwayat moderasi."
   report:
-    jumpToMessage: Jump to Message
-    notFound: "Report not found or deleted."
-    noHub: "Unable to determine hub for this report."
-    handledTitle: "Report Handled"
-    handledDesc: "Your report `{id}` has been reviewed and action has been taken."
-    handledFooter: "Thank you for helping keep the hub safe!"
+    jumpToMessage: Lompat ke Pesan
+    notFound: "Laporan tidak ditemukan atau sudah dihapus."
+    noHub: "Tidak dapat menentukan hub untuk laporan ini."
+    handledTitle: "Laporan Ditangani"
+    handledDesc: "Laporanmu `{id}` telah ditinjau dan tindakan telah diambil."
+    handledFooter: "Terima kasih telah membantu menjaga hub tetap aman!"
   errors:
     selectedHubNotFound: Hub yang dipilih tidak ditemukan.
-    unknownAction: Tindakan tidak diketahui.
-    unsupportedAction: Rute tindakan tidak didukung.
-    openPanelFailed: Unexpected error opening mod panel.
-    notModeratorForHub: Anda bukan moderator untuk hub ini.
+    unknownAction: Aksi tidak dikenal.
+    unsupportedAction: Rute aksi tidak didukung.
+    openPanelFailed: Kesalahan tak terduga saat membuka panel mod.
+    notModeratorForHub: Kamu bukan moderator hub ini.
     alreadyState: "{targetType} sudah {state} di hub ini."
     invalidHubData: Data hub tidak valid.
     originalMessageNotFound: Pesan asli tidak ditemukan di database.
     fetchAuthorOrServerFailed: Tidak dapat mengambil penulis pesan atau server.
-    hubNotFoundForMessage: Hub tidak ditemukan untuk pesan ini.
-    noModeratedHubs: Anda tidak memiliki izin moderasi di hub mana pun.
-    noTarget: Harap tentukan target (pengguna/server) atau balas pesan.
-    actionProcessingFailed: "An error occurred while processing the action."
-    modalOpenFailed: "Failed to open the modal. Please try again."
-    notModerator: "You are not a moderator for any hubs."
-    noHubsAvailable: "No hubs are available for moderation."
+    hubNotFoundForMessage: Hub untuk pesan ini tidak ditemukan.
+    noModeratedHubs: Kamu tidak punya izin moderasi di hub mana pun.
+    noTarget: Tentukan target (pengguna/server) atau balas sebuah pesan.
+    actionProcessingFailed: "Terjadi kesalahan saat memproses aksi."
+    modalOpenFailed: "Gagal membuka formulir. Silakan coba lagi."
+    notModerator: "Kamu bukan moderator di hub mana pun."
+    noHubsAvailable: "Tidak ada hub yang tersedia untuk dimoderasi."
     webhooks:
-      noPermission: "You do not have permission to moderate this hub."
+      noPermission: "Kamu tidak punya izin untuk memoderasi hub ini."
+conversationIdeas:
+  title: Ide percakapan
+  description: Dapatkan ide percakapan pribadi untuk Hub atau panggilan teks
+  another: Ide lain
+  hint: "Hanya kamu yang bisa melihat ini. Tanyakan di chat atau bagikan jawabanmu sendiri. Tidak ada yang dikirim atas namamu."
+  callHint: "Ini obrolan teks. Gunakan `/topic` untuk ide percakapan pribadi, `/skip` untuk mencari obrolan lain, atau `/hangup` untuk keluar."
+  prompts:
+    games: "Game apa yang selalu bisa kamu mainkan lagi?"
+    music: "Lagu apa yang akhir-akhir ini kamu putar berulang-ulang?"
+    hobbies: "Hobi apa yang ingin kamu coba?"
+    skills: "Kalau kamu bisa langsung menguasai satu keterampilan, apa yang kamu pilih?"
+    fiction: "Dunia fiksi mana yang ingin kamu kunjungi, dan mengapa?"
+    smallJoys: "Hal kecil apa yang membuatmu tersenyum minggu ini?"
+
 welcomeMessage:
   title: Selamat datang di hub InterChat bernama **{hubName}**!
-  errorDm: Failed to send welcome message.
-  introText: Anda sekarang terhubung ke jaringan server. Pesan yang Anda kirim di sini akan terlihat oleh semua orang di hub ini.
-  quickActions: Tindakan Cepat
+  errorDm: Gagal mengirim pesan selamat datang.
+  introText: Kamu sekarang terhubung ke jaringan server. Pesan yang kamu kirim di sini akan terlihat oleh semua orang di hub ini.
+  startChatting: "Sapa, ceritakan hal yang kamu suka, atau balas orang yang sedang mengobrol. Butuh bahan obrolan? Coba ide percakapan di bawah atau gunakan `/topic` kapan saja."
+  quickActions: Aksi Cepat
   buttons:
     rules: Aturan
     profile: Profil
     hubInfo: Info Hub
     report: Cara Melapor
-    support: Bantuan
+    support: Dukungan
     disconnect: Putuskan
   hubInfo:
-    connections: '🔗 Koneksi'
-    hubPageLabel: "{link_icon} Hub Page"
-    hubPageValue: "[View on InterChat]({hubUrl})"
+    connections: ':link_icon: Koneksi'
+    hubPageLabel: "{link_icon} Halaman Hub"
+    hubPageValue: "[Lihat di InterChat]({hubUrl})"
+    createHint: "Mau buat sendiri? Gunakan `/hub create`."
   rules:
-    title: "{rules_icon} {hubName} - Rules"
-    guidelines: "Please adhere to the guidelines @ {guidelinesUrl}"
+    title: "{rules_icon} {hubName} - Aturan"
+    guidelines: "Harap patuhi pedoman di {guidelinesUrl}"
   errors:
     disconnectPermission:
-      title: "{x_icon} Permission Denied"
-      description: You need the **Manage Channels** permission to disconnect from a hub.
+      title: "{x_icon} Izin Ditolak"
+      description: Kamu memerlukan izin **Kelola Kanal** untuk memutuskan koneksi dari hub.
   disconnect:
-    successDescription: Successfully disconnected from **{hubName}**.
-    cancelled: Disconnection cancelled.
+    successDescription: Berhasil memutuskan koneksi dari **{hubName}**.
+    cancelled: Pemutusan koneksi dibatalkan.
   disconnectConfirm:
-    title: Putuskan dari Hub?
-    description: Apakah Anda yakin ingin memutuskan sambungan dari **{hubName}**?
+    title: Putuskan koneksi dari Hub?
+    description: Yakin ingin memutuskan koneksi dari **{hubName}**?
+
 infractions:
-  description: Lihat pelanggaran di hub, difilter berdasarkan pengguna atau server.
+  description: Lihat pelanggaran di sebuah hub, difilter menurut pengguna atau server.
   buttons:
-    userInfractions: Pelanggaran Pengguna
-    serverInfractions: Pelanggaran Server
+    allInfractions: Semua
+    userInfractions: Pengguna
+    serverInfractions: Server
+    clearFilter: Hapus filter
   titles:
     base: Pelanggaran · {hubName}
     userList: Pelanggaran Pengguna · {hubName}
     serverList: Pelanggaran Server · {hubName}
-    userSpecific: Pelanggaran untuk {user} · {hubName}
-    serverSpecific: Pelanggaran untuk Server {serverId} · {hubName}
+    userSpecific: Pelanggaran {user} · {hubName}
+    serverSpecific: Pelanggaran Server {serverId} · {hubName}
   descriptions:
-    base: Pilih pelanggaran mana yang akan dilihat untuk hub ini.
-    userListEmpty: Tidak ditemukan pelanggaran pengguna untuk hub ini.
-    serverListEmpty: Tidak ditemukan pelanggaran server untuk hub ini.
+    base: Pilih pelanggaran mana yang ingin dilihat untuk hub ini.
+    empty: Tidak ada catatan moderasi.
+    userListEmpty: Tidak ada pelanggaran pengguna untuk hub ini.
+    serverListEmpty: Tidak ada pelanggaran server untuk hub ini.
   labels:
-    evidence: Evidence
-    issued: Issued
+    evidence: Bukti
+    issued: Diterbitkan
   evidence:
     content: Konten
     author: Penulis
   errors:
-    noPermission: Anda tidak memiliki izin untuk melihat pelanggaran untuk hub ini.
-    bothSelection: Harap pilih hanya pengguna atau server, bukan keduanya.
+    noPermission: Kamu tidak punya izin untuk melihat pelanggaran hub ini.
+    bothSelection: Pilih hanya pengguna atau server, jangan keduanya.
     invalidServerId: ID server tidak valid.
   permissions:
-    insufficient: Anda memerlukan izin {permission}+ di hub ini.
+    insufficient: Kamu memerlukan izin {permission}+ di hub ini.
   delete:
     notFound: Pelanggaran tidak ditemukan.
     success: Pelanggaran dihapus.
+
 staff:
   get:
     server:
-      description: Dapatkan informasi rinci tentang server
+      description: Dapatkan informasi lengkap tentang sebuah server
     hub:
-      description: Dapatkan informasi rinci tentang hub
+      description: Dapatkan informasi lengkap tentang sebuah hub
     user:
-      description: Dapatkan informasi rinci tentang pengguna
+      description: Dapatkan informasi lengkap tentang seorang pengguna
   hub:
     section:
       moderation: Moderasi
@@ -733,16 +1170,16 @@ staff:
       upvotes: Upvote
       location: Lokasi
       activity: Aktivitas
-      appealCooldown: Cooldown Banding
+      appealCooldown: Masa Tunggu Banding
       welcomeMessage: Pesan Selamat Datang
-      description: Deskripsi
+      description: *label_description
     values:
       messagesThisWeek: "**{count}** minggu ini"
       connectionsActive: "**{count}** aktif"
       upvotesTotal: "**{count}** total"
     badges:
       verified: Terverifikasi
-      partnered: Bermitra
+      partnered: Mitra
       featured: Unggulan
       locked: Terkunci
       nsfw: NSFW
@@ -759,10 +1196,10 @@ staff:
       connectionsActive: "**{count}** aktif"
   user:
     inbox:
-      title: Inbox
-      description: We found some messages from our team for you!
-      emptyTitle: All caught up!
-      emptyDescription: We couldn't find any new announcements for you.
+      title: Kotak Masuk
+      description: Kami menemukan beberapa pesan dari tim kami untukmu!
+      emptyTitle: Sudah terbaca semua!
+      emptyDescription: Kami tidak menemukan pengumuman baru untukmu.
     fields:
       name: Nama
       messages: Pesan
@@ -776,7 +1213,7 @@ staff:
     values:
       staff: Staf
       member: Anggota
-      messagesSent: "**{count}** dikirim"
+      messagesSent: "**{count}** terkirim"
       reputationPoints: "**{count}** poin"
       votesCast: "**{count}** diberikan"
       hubJoinsTotal: "**{count}** total"
@@ -784,399 +1221,694 @@ staff:
       never: Tidak pernah
     sections:
       preferences: Preferensi
-      createdContent: Konten Dibuat
+      createdContent: Konten yang Dibuat
       activity: Aktivitas
       badges: Lencana
     preferences:
       showBadges: Tampilkan lencana
-      mentionOnReply: Mention saat membalas
+      mentionOnReply: Sebut saat membalas
       showNsfwHubs: Tampilkan hub NSFW
     content:
       hubs: "{count} hub"
       modPositions: "{count} posisi mod"
       blockedWords: "{count} kata diblokir"
-      automodRules: "{count} automod rules"
+      automodRules: "{count} aturan automod"
     moderation:
       infractionsReceived: "{count} pelanggaran diterima"
       infractionsIssued: "{count} pelanggaran diterbitkan"
-      blacklistsReceived: "{count} daftar hitam diterima"
-      blacklistsIssued: "{count} daftar hitam diterbitkan"
+      blacklistsReceived: "{count} blacklist diterima"
+      blacklistsIssued: "{count} blacklist diterbitkan"
     activity:
       appeals: "{count} banding"
-      reviews: "{count} ulasan"
+      reviews: "{count} tinjauan"
       reportsMade: "{count} laporan dibuat"
       reportsReceived: "{count} laporan diterima"
       achievements: "{count} pencapaian"
   blacklist:
     fields:
-      expires: Kedaluwarsa
-    notFound: Tidak ditemukan entri daftar hitam yang cocok.
-    removed: Entri daftar hitam dihapus.
+      expires: Berakhir
+    notFound: "Tidak ditemukan entri blacklist {type} yang cocok."
+    removed: Entri blacklist dihapus.
+
 hub:
+  directory:
+    title: "## {globe} Temukan Hub - {sortEmoji} {sort}"
+    page: "Halaman {current} dari {total} • {count} hub publik"
+    searching: 'Mencari: "{query}"'
+    connectHint: "Pilih Hubungkan, atau gunakan `/hub connect hub:<nama>`."
+    connect: Hubungkan
+    details: Detail
+    serverOnly: Buka direktori ini di dalam server untuk menghubungkan kanal.
+    sortPlaceholder: Urutkan hub publik
+    empty: Belum ada hub publik. Buat yang pertama dengan `/hub create`.
+    emptySearch: 'Tidak ada hub publik yang cocok dengan "{query}". Coba pencarian yang lebih luas.'
+    search:
+      title: Cari Hub publik
+      label: Cari
+      placeholder: Cari nama dan deskripsi
+    sorts:
+      alive:
+        label: Direkomendasikan
+        description: Percakapan sehat, orang-orang, dan pertumbuhan terbaru
+      active:
+        label: Aktif sekarang
+        description: Percakapan dan orang terbanyak dalam 24 jam terakhir
+      upvoted:
+        label: Upvote terbanyak
+        description: Hub dengan upvote komunitas terbanyak
+      big:
+        label: Terbesar
+        description: Server terhubung terbanyak saat ini
+      new:
+        label: Baru
+        description: Komunitas publik yang baru dibuat
+    metrics:
+      servers: "{activity} {count} server"
+      messages: ":chat_icon: {count}/minggu"
+      people: ':users: {count}/hari'
+      growth: "+{count} minggu ini"
   rules:
     manage:
-      description: Manage your hub's community rules and guidelines below.
-      noRules: No rules have been set for this hub yet.
+      description: Kelola aturan dan pedoman komunitas hubmu di bawah.
+      noRules: Belum ada aturan yang ditetapkan untuk hub ini.
       addRule:
-        label: Add Rule
+        label: Tambah Aturan
         modal:
-          title: Add New Rule
-          placeholder: Enter your new rule here...
+          title: Tambah Aturan Baru
+          placeholder: Tulis aturan barumu di sini...
       editRule:
-        label: Edit
+        label: *btn_edit
         modal:
-          title: Edit Rule
-          placeholder: Enter your updated rule here...
+          title: Edit Aturan
+          placeholder: Tulis aturan yang diperbarui di sini...
       deleteRule:
-        label: Delete Rule
-        confirmation: Are you sure you want to delete this rule?
+        label: Hapus Aturan
+        confirmation: Yakin ingin menghapus aturan ini?
       validation:
-        empty: Rule cannot be empty.
-        tooLong: Rule must be {maxLength} characters or less.
-        maxRules: Maximum of {maxRules} rules allowed.
+        empty: Aturan tidak boleh kosong.
+        tooLong: Aturan maksimal {maxLength} karakter.
+        maxRules: Maksimal {maxRules} aturan diizinkan.
       success:
-        added: Rule added successfully!
-        updated: Rule updated successfully!
-        deleted: Rule deleted successfully!
+        added: Aturan berhasil ditambahkan!
+        updated: Aturan berhasil diperbarui!
+        deleted: Aturan berhasil dihapus!
       errors:
-        ruleNotFound: Invalid rule selection.
-        invalidRuleSelection: Invalid rule selection.
-        processingError: An error occurred while processing your request. Please try again.
-        refreshError: An error occurred while refreshing.
-        deletionCancelled: Cancelled
-        deletionCancelledDescription: Rule deletion has been cancelled.
-        noHub: This command must be used in a connected channel or specify a hub name.
-        notConnected: This channel is not connected to any hub.
+        ruleNotFound: Pilihan aturan tidak valid.
+        invalidRuleSelection: Pilihan aturan tidak valid.
+        processingError: *err_processing
+        refreshError: Terjadi kesalahan saat menyegarkan.
+        deletionCancelled: Dibatalkan
+        deletionCancelledDescription: Penghapusan aturan telah dibatalkan.
+        noHub: "Perintah ini memerlukan kanal yang terhubung atau nama hub. Jelajahi dengan `/hub browse`, atau buat hubmu sendiri dengan `/hub create`."
+        notConnected: "Kanal ini belum terhubung ke hub. Jelajahi dengan `/hub browse`, atau buat hubmu sendiri dengan `/hub create`."
       warnings:
-        deleteWarning: Warning
-        deleteWarningDescription: This action cannot be undone.
+        deleteWarning: Peringatan
+        deleteWarningDescription: Tindakan ini tidak dapat dibatalkan.
       display:
-        noRulesTitle: No Rules Set
-        noRulesDescription: No rules have been set for this hub yet.
-        rulesCount: "{count} of {max} rules used"
-        ruleHeading: "Rule {number}"
-        truncated: Full text will be shown when editing
+        noRulesTitle: Belum Ada Aturan
+        noRulesDescription: Belum ada aturan yang ditetapkan untuk hub ini.
+        rulesCount: "{count} dari {max} aturan terpakai"
+        ruleHeading: "Aturan {number}"
+        truncated: Teks lengkap akan ditampilkan saat mengedit
     accept:
       buttons:
-        accept: Accept Rules
+        accept: Terima Aturan
       titles:
-        accepted: Rules Accepted
-        declined: Rules Not Accepted
-        changedMind: '💡 Changed your mind?'
+        accepted: Aturan Diterima
+        declined: Aturan Tidak Diterima
+        changedMind: ':lightbulb_icon: Berubah pikiran?'
       messages:
-        accepted: "Thank you for accepting the rules for **{hubName}**!"
-        declined: "You have chosen not to accept the rules for **{hubName}** at this time."
-        changedMind: "Send another message in this channel to see the rules again and accept them."
+        accepted: "Terima kasih telah menerima aturan **{hubName}**!"
+        declined: "Kamu memilih untuk tidak menerima aturan **{hubName}** saat ini."
+        changedMind: "Kirim pesan lagi di kanal ini untuk melihat aturan lagi dan menerimanya."
       footer:
-        welcome: Welcome to the community!
+        welcome: Selamat datang di komunitas!
       errors:
-        failed: Something went wrong while processing your rule acceptance.
+        failed: Terjadi masalah saat memproses persetujuan aturanmu.
   lock:
-    announceTitle: Hub Terkunci
-    announceDescription: "This hub has been locked by a moderator.\n\nOnly moderators can send messages now."
+    announceTitle: Hub Dikunci
+    announceDescription: "Hub ini dikunci oleh moderator.\n\nSekarang hanya moderator yang bisa mengirim pesan."
+    successTitle: Hub Dikunci
+    successDescription: "**{hub}** telah dikunci. Anggota baru tidak bisa bergabung dan pesan dijeda."
   unlock:
-    announceTitle: Hub Terbuka
-    announceDescription: "This hub has been unlocked. Invites and messages are now enabled."
-    successDescription: "**{hub}** has been unlocked. New members can now join."
+    announceTitle: Hub Dibuka
+    announceDescription: "Hub ini sudah dibuka kuncinya. Undangan dan pesan kini aktif."
+    successTitle: Hub Dibuka
+    successDescription: "**{hub}** telah dibuka kuncinya. Anggota baru kini bisa bergabung."
   announcement:
-    webhookUsername: "{hubName} | Hub Announcement"
-    officialTitle: "{hubName} | Official Hub Announcement"
-    disclaimer: "This announcement was sent by hub officials - not InterChat staff"
+    webhookUsername: "{hubName} | Pengumuman Hub"
+    officialTitle: "{hubName} | Pengumuman Resmi Hub"
+    disclaimer: "Pengumuman ini dikirim oleh pengelola hub - bukan staf InterChat"
   invites:
     title: Undangan Aktif
-    description: Create and manage invite codes for your hub
-    noneFound: Tidak ada yang ditemukan!
+    description: Buat dan kelola kode undangan untuk hubmu
+    noneFound: Tidak ditemukan!
     inviteUses: "**Penggunaan:**"
     inviteExpire: "**Kedaluwarsa:**"
     titles:
-      generated: Generated!
+      generated: Dibuat!
     messages:
-      generated: "{tick} `{code}` can now be used {uses} time(s) to join your hub."
-      generatedUnlimited: "{tick} `{code}` can now be used to join your hub."
-      howToUse: "Next step: connect a channel with `/hub connect invite:{code}`"
+      generated: "{tick} `{code}` kini bisa dipakai {uses} kali untuk bergabung ke hubmu."
+      generatedUnlimited: "{tick} `{code}` kini bisa dipakai untuk bergabung ke hubmu."
+      howToUse: "Langkah berikutnya: hubungkan kanal dengan `/hub connect invite:{code}`"
     footer:
       hub: "Hub: {hubName}"
   info:
     titles:
-      rules: Rules for {hubName}
-      stats: Stats for {hubName}
+      rules: Aturan {hubName}
+      stats: Statistik {hubName}
     badges:
-      verified: This hub is an official verified hub.
-      partnered: This hub is an official partnered hub.
-    description: View information on this hub! Select an option from below.
-    noRules: No rules have been set for this hub.
-    noDescription: No description provided.
+      verified: Hub ini adalah hub resmi yang terverifikasi.
+      partnered: Hub ini adalah hub mitra resmi.
+    description: Lihat informasi hub ini! Pilih opsi di bawah.
+    noRules: Belum ada aturan yang ditetapkan untuk hub ini.
+    noDescription: Tidak ada deskripsi.
+    imageAlt:
+      banner: Banner {hubName}
+      icon: Ikon {hubName}
   buttons:
     rules: Aturan
-    stats: Stats
-    connect: Connect
-    report: Report
-  servers:
-    title: Connected Servers
-    empty: No servers are connected to this hub.
-    confirm:
-      title: Disconnect Server
+    stats: Statistik
+    connect: Hubungkan
+    report: Laporkan
+  staff:
+    title: Staf
+    assignTitle: Tambah atau pindahkan staf
+    empty: Belum ada staf yang ditugaskan ke hub ini. Tambahkan seseorang di bawah untuk memberinya akses ke hub ini.
+    loadError: Daftar staf tidak dapat dimuat. Coba lagi sebentar lagi.
     errors:
-      noPermission: You must be a hub admin to view this.
+      unavailable: Pengelolaan staf sementara tidak tersedia.
+      selectFirst: Pilih pengguna dan peran terlebih dahulu.
+      roleGone: Peran itu tidak lagi tersedia.
+      numericId: Masukkan ID pengguna berupa angka.
+      selfMove: "Kamu tidak bisa memindahkan dirimu ke peran tanpa 'Kelola Staf'."
+      noUsers: Pilih setidaknya satu pengguna untuk dihapus.
+      manageStaffProtected: Peran yang dapat mengelola staf tidak dapat dihapus.
+      assignFailed: Staf tidak dapat diperbarui. Control Plane tidak tersedia.
+      removeFailed: Staf tidak dapat dihapus. Control Plane tidak tersedia.
+      roleCreateFailed: Peran tidak dapat dibuat. Control Plane tidak tersedia.
+      roleEditFailed: Peran tidak dapat diperbarui. Control Plane tidak tersedia.
+      roleDeleteFailed: Peran tidak dapat dihapus. Control Plane tidak tersedia.
+      staleRole: Peran ini dihapus saat kamu sedang melihatnya.
+    buttons:
+      enterId: Masukkan ID Pengguna
+      userPlaceholder: Pilih pengguna untuk dikelola
+      rolePlaceholder: Pilih peran untuk ditugaskan
+      manageRoles: Kelola Peran
+      createRole: Buat Peran
+      backToStaff: Kembali ke staf
+      allRoles: Semua peran
+      editDetails: Edit detail
+      deleteRole: Hapus peran
+      assign: Tugaskan ke {count}
+      remove: Hapus {count} dari staf
+      keepStaff: Pertahankan staf
+      confirmRemove: Hapus dari staf
+    confirm:
+      removeTitle: Hapus {count} dari staf?
+      removeWarning: Mereka langsung kehilangan semua peran hub dan tidak dapat dipulihkan dari sini.
+    roles:
+      title: Peran - {hub}
+      none: Belum ada peran yang ditentukan untuk hub ini.
+      noPermissions: -# tanpa izin
+      assigned: Staf yang ditugaskan
+      assignedNone: Tidak ada
+      morePermissions: +{count} lagi
+    results:
+      assigned: '{role} ditugaskan ke {count} pengguna.'
+      removed: '{count} pengguna dihapus dari staf.'
+  servers:
+    title: Server Terhubung
+    empty: Tidak ada server yang terhubung ke hub ini.
+    confirm:
+      title: Putuskan Server
+    errors:
+      noPermission: Kamu harus menjadi admin hub untuk melihat ini.
+  history:
+    title: "Riwayat - {hubName}"
+    subtitle: Pilih apa yang ingin ditinjau
+    view: Lihat
+    retry: Coba lagi
+    tabs:
+      servers: Server
+      config: Konfigurasi
+      activity: Aktivitas
+    cards:
+      servers: Server
+      config: Perubahan konfigurasi
+      activity: Aktivitas
+    descriptions:
+      servers: Server terhubung dan kondisinya
+      config: Pengaturan, staf, dan aturan
+      activity: Bergabung, keluar, dan ganti nama
+    requires:
+      manageConnections: Memerlukan Kelola Koneksi
+      viewLogs: Memerlukan Lihat Log
+    activity:
+      title: "Aktivitas server - {hubName}"
+      empty: Belum ada aktivitas server. Server yang bergabung, keluar, atau berganti nama di hub ini akan muncul di sini.
+      error: Aktivitas server sementara tidak tersedia.
+      renamed: Diganti nama
+      newOwner: Pemilik baru
+      left: Keluar dari InterChat
   disconnect:
     title: Terputus!
     description: Terputus dari hub.
-    fieldValue: "Channel Terkait: {channel}"
+    fieldValue: "Kanal terkait: {channel}"
+
     errors:
-      notConnected: This channel isn't connected to any hub.
+      notConnected: Kanal ini tidak terhubung ke hub mana pun.
   events:
     serverJoined:
-      title: '🎉 Server Baru Bergabung!'
-      description: "**{serverName}** has joined the hub!"
+      title: ':party_popper: Server Baru Bergabung!'
+      description: "**{serverName}** telah bergabung dengan hub!"
       footer: Selamat datang di {hubName}!
   create:
-    title: Let's Get You Started!
-    description: Pick a name, short-description, description & visibility for your hub.
-    whatsAHub: |
-      ## ❓ What's a Hub, anyway?
-      Think of a Hub as a **room** created by someone.
-      ## 🤨 Okay... how does this "room" work?
-      In real life, a room needs people. In InterChat, multiple servers join the same Hub through a channel in each server.
-      ## 🤔 "Joined"? What's actually connected?
-      Let's zoom in.
-
-      Imagine you're in **Server A**, and there's a channel called **#global** that's connected to a Hub.
-
-      When you send a message in **#global**, that message is forwarded to every other server connected to the same Hub.
-
-      Their messages are then forwarded back to your **#global** channel too.
-      ## 👏 That's it.
-      Hubs are a surprisingly simple concept.
-
-      Let's get started!
-  wizard:
-    start: Start
-    name:
-      description: Pick a unique name for your hub. Max 100 chars.
-    tagline:
-      label: Tagline Hub
-      description: A one-sentence summary of your hub
-    description:
-      label: Deskripsi Lengkap
-      description: Describe your hub in detail (20-1000 characters)
-    visibility:
-      unlisted:
-        desc: Not in directory.
-      public:
-        desc: Discoverable.
-      private:
-        desc: Invite-only.
+    title: Buat hub
+    step: "Langkah {current} dari 3 · {label}"
     steps:
-      progress: Langkah {current}/{total}
-      step1:
-        modalTitle: "Hub Details"
-        visibilityLabel: Hub Visibility
-        visibilityPlaceholder: Select Hub Visibility...
-      step2:
-        title: Logo Hub
-        description: |
-          Add a logo for your hub!
-
-          -# 💡 *Tip: Use an image URL or choose the default bot avatar.*
-        modalTitle: "Langkah 2/7: Logo"
-        logoUrlLabel: URL Logo
-        logoUrlPlaceholder: https://contoh.com/logo.png
-        addLogoButton: Tambah Logo
-        invalidUrl: URL gambar tidak valid. Menggunakan avatar bot default sebagai gantinya.
-      step3:
-        title: Hub Visibility
-        description: "Choose your hub's visibility:\n\n🔓 **Public**: Discoverable.\n👁️ **Unlisted**: Not in directory.\n🔒 **Private**: Invite-only.\n\n-# 💡 *Tip: You can change this later in hub settings.*"
-        requiredPublic: "**Required for public hubs**"
-        optional: (Optional)
-        tip: "-# 💡 *Tip: Add one rule per line. You can add up to 25 rules.*"
-        modalTitle: "Step 3/6: Rules"
-        rulesLabel: Hub Rules
-        rulesPlaceholder: |
-          1. Be respectful
-          2. No spam
-          3. Follow Discord ToS
-        addRulesButton: Add Rules
-      step4:
-        title: Aturan Komunitas
-        description: "Tetapkan pedoman komunitas untuk hub Anda."
-        modalTitle: "Langkah 4/7: Aturan"
-        welcomePlaceholder: Welcome to {hubName} or our hub!
-        customMessageButton: Custom Message
-      step5:
-        title: Pesan Selamat Datang
-        description: "Create a welcome message for new members!\n-# 💡 *Tip: Keep it friendly and informative. Max 500 characters.*"
-        modulesPlaceholder: Select modules to enable...
-      step6:
-        description: "Select features to enable for your hub!\n✅ **Pre-selected**: Reactions, Spam Filter (recommended)\n\n-# 💡 *Tip: You can adjust these anytime.*"
-        selectChannelButton: Select Channel
-        channelSelectTitle: Select Logging Channel
-        channelSelectDescription: "Choose a channel for moderation logs:"
-        channelSelectPlaceholder: Select a logging channel
-    summary:
-      title: Ringkasan Konfigurasi Hub
-      description: "Tinjau pengaturan hub Anda sebelum membuat:"
-      nameAndDescription: Nama & Deskripsi
-      rulesCount: "{count} aturan ditetapkan"
-      rulesNone: Tidak ada aturan (dapat ditambahkan nanti)
-      welcomeDefault: Pesan selamat datang default
-      featuresNone: Tidak ada
-      footer: Siap membuat hub Anda?
-      dashboardNotice: Icon, rules, modules, and logging can be configured in the dashboard after creation.
-    completion:
-      loading: Membuat Hub Anda...
-      loadingDescription: Mohon tunggu sementara kami menyiapkan semuanya...
-      success: Hub Berhasil Dibuat!
-      successDescription: "{hubName} sekarang aktif! 🎉"
-      dashboardLink: Kelola hub Anda
-      publicPageLink: Lihat di direktori
-      nextSteps: Apa Selanjutnya?
-      nextStepsPrivate1: "**Create an Invite**: `/hub invite hub:{hubName}`"
-      nextStepsPrivate2: "**Share Code**: Send the invite code to the other server."
-      nextStepsPrivate3: "**Connect**: The other server runs `/hub connect invite:<code>`"
-      nextStepsPublic: "**Connect Channels**: Run `/hub connect hub:{hubName}` to join!"
-      advancedSettings: "**Advanced Settings**: `/hub manage {hubName}`"
-      needHelp: "**Need Help?**: [Join our support server]({supportInvite})"
-    cancelled:
-      description: Your hub was not created.
+      identity: Identitas
+      safety: Keamanan
+      reach: Jangkauan
+    notYours: Pengaturan hub ini milik orang lain. Jalankan /hub create untuk memulai hubmu sendiri.
+    cancelled: Pembuatan hub dibatalkan. Tidak ada yang dibuat.
+    buttons:
+      next: Berikutnya
+      back: Kembali
+      cancel: Batal
+    identity:
+      noTagline: Belum ada tagline. Tagline tampil di bawah nama di /hub browse.
+      edit: Edit nama dan tagline
+      language: Bahasa utama
+      languagePlaceholder: Pilih bahasa
+      languageHint: "Diisi dari bahasa server {server}. Membantu orang menemukan hub tempat mereka bisa mengobrol."
+      languageHintGeneric: Membantu orang menemukan hub tempat mereka bisa mengobrol.
+      multi: Beberapa bahasa
+      sfw:
+        title: Aman untuk semua umur
+        description: Kebanyakan hub begitu. Tandai 18+ hanya jika konten dewasa adalah inti hub ini.
+        button: Tandai sebagai 18+
+      nsfw:
+        title: Hub 18+
+        description: Diberi label 18+ di /hub browse dan tidak muncul di pencarian aman untuk semua umur.
+        button: Jadikan aman untuk semua umur
+      needTagline: Tambahkan tagline untuk melanjutkan.
+    modal:
+      title: Nama dan tagline
+      name: Nama hub
+      nameHint: 3 sampai 32 huruf, angka, spasi, atau tanda hubung.
+      tagline: Tagline
+      taglineHint: Satu baris di bawah nama di /hub browse. 5 sampai 100 karakter.
+      taglinePlaceholder: Untuk yang begadang
+    safety:
+      filter: Filter konten
+      presetPlaceholder: Pilih preset
+      presets:
+        chill:
+          label: Santai
+          description: Sentuhan ringan. Media dan tautan mengalir bebas.
+        balanced:
+          label: Seimbang
+          description: Direkomendasikan untuk kebanyakan hub.
+        strict:
+          label: Ketat
+          description: Teks lebih dulu. Untuk komunitas besar atau yang lebih muda.
+      switches:
+        spamFilter:
+          'on': Filter spam
+          'off': Filter spam mati
+        blockInvites:
+          'on': Undangan server diblokir
+          'off': Undangan server diizinkan
+        blockNsfw:
+          'on': Filter gambar NSFW
+          'off': Filter gambar NSFW mati
+        reactions:
+          'on': Reaksi
+          'off': Reaksi mati
+        hideLinks:
+          'on': Tautan disembunyikan
+          'off': Tautan ditampilkan
+        allowVideos:
+          'on': Video diizinkan
+          'off': Video diblokir
+        blockAttachments:
+          'on': Gambar dan file diblokir
+          'off': Gambar dan file diizinkan
+        blockTenorGifs:
+          'on': GIF Tenor diblokir
+          'off': GIF Tenor diizinkan
+      switchesHint: Kamu bisa mengubah sakelar apa pun nanti di /hub manage.
+      nsfwHint: Filter gambar NSFW mati karena ini hub 18+.
+      rules: Aturan awal
+      rulesPlaceholder: Pilih aturan awal
+      rulesPicked: "{count} aturan dipilih"
+      rulesPickedOne: 1 aturan dipilih
+      rulesHint: Server menerima aturan ini sebelum bisa menautkan kanal. Edit atau tambahkan aturanmu sendiri kapan saja.
+      appeals: Banding
+      appealsHint: Seberapa sering orang yang kamu blokir dari hub boleh meminta diterima kembali.
+      cooldown: "Sekali setiap {duration}"
+      recommended: Direkomendasikan
+      durations:
+        d1: 1 hari
+        d3: 3 hari
+        d7: 7 hari
+        d14: 14 hari
+        d30: 30 hari
+    rules:
+      respect: Bersikaplah sopan. Tidak ada pelecehan atau serangan pribadi.
+      hate: Tidak ada ujaran kebencian, hinaan, atau diskriminasi.
+      sfw: Tetap aman untuk semua umur.
+      age: Semua orang di sini harus berusia 18 tahun atau lebih.
+      spam: Tidak ada spam, flooding, atau iklan.
+      invites: Tidak ada undangan server atau promosi diri.
+      lang: "Mohon mengobrol dalam bahasa {language} agar semua bisa mengikuti."
+      langMulti: Bahasa apa pun diterima. Bersabarlah satu sama lain.
+      privacy: Jangan bagikan informasi pribadi, baik milikmu maupun orang lain.
+      spoilers: Tandai spoiler.
+      tos: Patuhi Ketentuan Layanan dan Pedoman Komunitas Discord.
+    reach:
+      title: "Siapa yang bisa menemukan {name}?"
+      public:
+        label: Publik
+        description: Server mana pun bisa bergabung. Hub ini mendaftarkan dirinya di /hub browse setelah kamu menyelesaikan daftar periksa pengaturan singkat.
+      unlisted:
+        label: Tidak Terdaftar
+        description: Tidak terdaftar. Server mana pun dengan tautan undanganmu bisa bergabung.
+      private:
+        label: Privat
+        description: Tidak terdaftar. Server memerlukan tautan undangan yang kamu buat.
+      summary: "{language} · {rating} · filter {preset} · {rules} · banding setiap {cooldown}"
+      rules: "{count} aturan"
+      rulesOne: 1 aturan
+      create: "Buat {name}"
+      creating: Membuat…
+    rating:
+      sfw: Aman untuk semua umur
+      nsfw: 18+
     errors:
-      cantUseWizard: Anda tidak dapat menggunakan panduan ini.
-      nameAlreadyExists: This name in already in use! Pick a new one.
-      invalidInput: Anda tidak memberikan input yang valid.
-      uniqueConstraint: Uh oh! That hub name has already been taken.
-      processingError: Something went wrong while creating your hub.
-      hubLimitUpgrade: Upgrade to Core, Plus or Pro to create up to 3 hubs.
-      hubLimitReached: You have reached the maximum number of hubs allowed for your current plan.
+      tagline: Tagline berisi 5 sampai 100 karakter.
+      nameTakenMeanwhile: "Hub lain baru saja memakai nama **{name}**. Pilih nama baru. Semua pilihanmu yang lain tetap tersimpan."
+      failed: "Hub tidak dibuat. InterChat tidak bisa menjangkau servernya. Pilihanmu tetap tersimpan, jadi tekan Buat untuk mencoba lagi."
+
+  home:
+    ready: "{name} siap"
+    meta: "{language} · {rating} · {servers}"
+    servers: "{count} server"
+    serversOne: 1 server
+    status:
+      listed: Terdaftar di /hub browse
+      pending: Pendaftaran tertunda
+      unlisted: Tidak Terdaftar
+      private: Privat
+    nextSteps: Langkah berikutnya
+    footer: "Hanya kamu yang bisa melihat ini. Kembali kapan saja dengan {command}."
+    back: Kembali
+    flash:
+      linked: "**{channel} tertaut.** Sapa di sana, lalu undang server lain."
+      listed: "**{name} kini terdaftar.** Server bisa menemukannya di /hub browse dan /setup."
+      saved: Tersimpan.
+    steps:
+      link:
+        title: Tautkan kanal
+        description: Hub tidak punya kanal sendiri. Tautkan satu di sini agar kamu bisa mengobrol di dalamnya.
+        doneOne: "{channel} tertaut."
+        done: "{count} kanal di sini tertaut."
+        doneElsewhere: Tertaut di server lain.
+        button: Tautkan kanal
+        again: Tautkan yang lain
+      discover:
+        title: Buat mudah ditemukan
+        titlePrivate: Selesaikan pengaturan
+        progress: "{done} dari 4 selesai. Selesaikan sisanya dan hub ini mendaftarkan dirinya di /hub browse."
+        progressPrivate: "{done} dari 4 selesai. Ikon, deskripsi, aturan, dan tautan undangan."
+        done: Selesai. Hub ini mendaftarkan dirinya di /hub browse.
+        donePrivate: Selesai.
+        button: Lanjutkan
+        again: Tinjau
+      invite:
+        title: Undang server lain
+        description: Dapatkan pesan siap pakai untuk pemilik server lain.
+        doneOne: 1 server lain telah bergabung.
+        done: "{count} server lain telah bergabung."
+        button: Dapatkan pesan undangan
+        again: Undang lebih banyak
+    link:
+      title: Tautkan kanal
+      explainer: Setiap server dalam hub menautkan satu kanal. Pesan yang dikirim di kanal tertaut mana pun muncul di semua kanal lainnya, lengkap dengan nama pengirim dan servernya.
+      placeholder: Pilih kanal
+      footnote: "Pemilik server lain melakukan hal yang sama di server mereka dengan {command}."
+    discover:
+      lead: Selesaikan keempatnya dan hubmu mendaftarkan dirinya sendiri. Tidak perlu persetujuan siapa pun.
+      leadListed: Semua selesai. Hubmu ada di /hub browse.
+      leadExempt: Hubmu sudah ada di /hub browse. Ini membantu server memercayainya.
+      leadPrivate: "Hubmu {visibility}, jadi ini tidak memengaruhi pendaftaran, tetapi membantu server memercayainya."
+      optional: Opsional
+      region: Wilayah
+      logs: Kanal log
+      managers: Pengelola bersama
+      art:
+        title: Ikon dan banner
+        description: Tampilan hubmu di direktori dan pada pesan sambutannya.
+        button: Tambah
+        redo: Ubah
+      text:
+        title: Deskripsi dan pesan sambutan
+        description: Pesan sambutan menyapa setiap server yang menautkan kanal.
+        button: Tulis
+        redo: Ubah
+      rules:
+        title: Aturan
+        description: Server menerima ini sebelum menautkan.
+        countOne: 1 aturan.
+        count: "{count} aturan."
+        button: Tambah aturan
+        redo: Ubah
+      invite:
+        title: Tautan undangan
+        description: Memungkinkan pemilik server bergabung dengan satu tautan.
+        button: Buat tautan
+        redo: Kelola
+    artModal:
+      title: Ikon dan banner
+      icon: Tautan gambar ikon
+      iconHint: Gambar persegi, minimal 256 × 256. Gunakan tautan permanen; tautan lampiran Discord kedaluwarsa.
+      banner: Tautan gambar banner
+      bannerHint: Gambar lebar, sekitar 1600 × 400.
+      invalid: Tautan gambar harus diawali https://.
+    textModal:
+      title: Deskripsi dan sambutan
+      description: Deskripsi
+      descriptionHint: Tentang apa hubmu. Ditampilkan di halaman direktorinya.
+      descriptionPlaceholder: Obrolan larut malam lintas server. Musik, game, dan apa pun yang ada di pikiranmu.
+      welcome: Pesan selamat datang
+      welcomeHint: "Diposting saat server menautkan kanal. {{serverName}} dan {{hubName}} terisi otomatis."
+      welcomePlaceholder: "Selamat datang di {{hubName}}, {{serverName}}! Sapa dulu."
+      sameAsTagline: Deskripsi harus menjelaskan lebih dari tagline.
+    invite:
+      title: Undang server lain
+      needsLink: "{name} bersifat {visibility}, jadi server lain memerlukan tautan undangan untuk bergabung."
+      createLink: Buat tautan undangan
+      lead: Kirim ini ke pemilik server yang ingin kamu ajak ke hubmu.
+      message: |-
+        Yuk, ngobrol bareng kami di {name}, sebuah hub InterChat. {tagline}
+        Gabung di sini: {link}
+      messageByCode: |-
+        Yuk, ngobrol bareng kami di {name}, sebuah hub InterChat. {tagline}
+        1. Tambahkan InterChat ke servermu: {botInvite}
+        2. Di kanal yang ingin kamu bagikan, jalankan /hub join invite:{code}
+      messageByName: |-
+        Yuk, ngobrol bareng kami di {name}, sebuah hub InterChat. {tagline}
+        1. Tambahkan InterChat ke servermu: {botInvite}
+        2. Di kanal yang ingin kamu bagikan, jalankan /hub join hub:{name}
+      hint: Ubah masa berlaku dan jumlah penggunaan tautan di /hub manage.
+      hintByName: Hubmu publik, jadi namanya sudah cukup. Buat tautan undangan di daftar periksa untuk membagikan satu tautan saja.
+    errors:
+      generic: Gagal. Coba lagi sebentar lagi.
   delete:
-    description: Hub Anda telah dihapus.
+    description: Hubmu telah dihapus.
+  moved:
+    title: Perintah Ini Pindah
+    description: "`{old}` kini ada di `{new}` ({section})."
+    button: Jalankan sekarang
+  manage:
+    sections:
+      delete: Hapus hub
+      invites: Undangan
+  mod:
+    sections:
+      ban: Ban
+      mute: Bisukan
+      warn: Peringatkan
+      pardon: Ampuni
+  picker:
+    title: Hub Tidak Ditemukan
+    unresolved: 'Aku tidak menemukan hub bernama **{hub}** yang bisa kamu akses.'
+    choose: "Ini {count} hub yang bisa kamu gunakan sebagai gantinya:"
+    placeholder: Pilih hub
+    empty: "Kamu belum mengelola hub apa pun. Gunakan `/hub create` untuk membuatnya, atau `/hub browse` untuk menemukan hub publik."
   connect:
     success:
       title: Terhubung!
-      description: Terhubung ke **{hubName}** - ayo mengobrol!
-      fieldValue: "Channel Terhubung: {channel}"
+      description: Terhubung ke **{hubName}** - ayo mulai ngobrol!
+      fieldValue: "Kanal Terhubung: {channel}"
     errors:
       alreadyConnected:
         title: Sudah Terhubung ke hub ini
-        description: It looks like this server is already connected to this hub.
+        description: Sepertinya server ini sudah terhubung ke hub ini di {channel}.
       missingInput:
-        title: Missing Information
-        description: "Provide a hub name or an invite code.\n\nTry: `/hub connect hub:MyHub` or `/hub connect invite:abc123`"
+        title: Informasi Kurang
+        description: "Berikan nama hub atau kode undangan.\n\nCoba: `/hub connect hub:MyHub` atau `/hub connect invite:abc123`. Ingin membuat sendiri? Gunakan `/hub create`."
       hubNotFound:
-        title: Hub Not Found
-        description: "I couldn't find that hub. Check the name, or use `/hub directory` to browse public hubs."
+        title: Hub Tidak Ditemukan
+        description: "Aku tidak menemukan hub itu. Periksa namanya, atau gunakan `/hub browse` untuk menjelajahi hub publik."
       invalidInvite:
-        title: Invalid Invite
-        description: "That invite code is invalid or expired. Ask the hub owner for a new invite and try again."
+        title: Undangan Tidak Valid
+        description: "Kode undangan itu tidak valid atau sudah kedaluwarsa. Minta undangan baru ke pemilik hub lalu coba lagi."
       channelNotSupported:
-        title: Unsupported Channel
-        description: "Choose a text channel, thread, or forum channel."
+        title: Kanal Tidak Didukung
+        description: "Pilih kanal teks atau thread."
       webhookPerms:
-        title: Missing Permissions
-        description: "I couldn't create webhooks in that channel. I need **Manage Webhooks** and **Send Messages** there."
+        title: Izin Kurang
+        description: "Aku tidak bisa membuat webhook di kanal itu. Aku butuh **Kelola Webhook** dan **Kirim Pesan** di sana."
       locked:
-        title: Hub Terkunci
-        description: This hub is currently locked and cannot be joined.
+        title: Hub Dikunci
+        description: Hub ini sedang dikunci dan tidak bisa dimasuki.
+      missingPermissions:
+        title: Izin Kurang
+        description: "Kamu memerlukan izin **Kelola Server** dan **Kelola Kanal** di server ini untuk menghubungkan kanal ke hub."
+      channelAccessDenied:
+        title: Izin Kurang
+        description: "Kamu memerlukan izin **Lihat Kanal** dan **Kelola Kanal** di {channel} untuk menghubungkannya ke hub."
   announcements:
     title: Pengumuman Hub
-    description: "Create a **one time** announcement that sends in all connected channels."
+    description: "Buat pengumuman **sekali kirim** yang dikirim ke semua kanal terhubung."
   config:
     title: Konfigurasi Hub
-    description: Customize your InterChat hub for your community.
+    description: Sesuaikan hub InterChat-mu untuk komunitasmu.
+    more:
+      title: "### Lainnya"
+      placeholder: "Buka salah satu dari {count} lainnya…"
+    footer: "-# Baris langsung membaca status yang sudah diambil oleh `/hub manage`. `manage` · `configure` · `edit`"
+    state:
+      enabled: "aktif"
+      set: "diatur"
+      missing: "belum ada"
+      modules:
+        empty: "Tidak ada yang aktif · anggota hanya mendapat teks biasa"
+      rules:
+        set: "{count} aturan dipublikasikan · terlihat oleh semua orang"
+        empty: "Belum ada aturan · tamu tidak melihat apa pun saat bergabung"
+      identity:
+        icon: Ikon sudah diatur
+        noIcon: Tanpa ikon
+      visibility:
+        public: Publik
     catalog:
       editInfo: Edit Info
-      appearance: Appearance
-      settings: Settings
-      invites: Invites
-      moderators: Moderators
-      deleteHub: Delete Hub
+      appearance: Tampilan
+      settings: Pengaturan
+      invites: Undangan
+      moderators: Moderator
+      deleteHub: Hapus Hub
     options:
       general:
         label: Pengaturan Umum
-        description: Sesuaikan tampilan hub, aturan, dan lainnya
+        description: Sesuaikan tampilan, aturan, dan lainnya untuk hubmu
       rules:
         label: Aturan Hub
-        description: Kelola aturan dan pedoman komunitas hub Anda
-      team:
-        label: Manajemen Tim
-        description: Kelola tim hub dan izin staf Anda
+        description: Kelola aturan dan pedoman komunitas hubmu
+      staff:
+        label: Staf
+        description: Kelola staf dan peran hubmu
       modules:
         label: Modul
-        description: Aktifkan atau nonaktifkan modul tambahan dalam hub Anda
+        description: Aktifkan atau nonaktifkan modul tambahan di hubmu
       logging:
-        label: Konfigurasi Logging
-        description: Konfigurasikan channel logging dan peran notifikasi untuk hub Anda
+        label: Konfigurasi Log
+        description: Atur kanal log dan peran notifikasi untuk hubmu
       automod:
         label: AutoMod
-        description: Manage anti-swear rules, patterns, and safe list
+        description: Kelola aturan anti-umpatan, pola, dan daftar aman
       badges:
-        label: Custom Badges
-        description: Configure custom badge visibility
+        label: Lencana Kustom
+        description: Atur visibilitas lencana kustom
       transfer:
         label: Transfer Kepemilikan
-        description: Transfer kepemilikan hub Anda ke orang lain
+        description: Transfer kepemilikan hubmu ke orang lain
+      delete:
+        label: Hapus hub
+        description: Hapus hub ini secara permanen dan putuskan semua server
       announcements:
         label: Pengumuman Terjadwal
-        description: Konfigurasikan pengumuman terjadwal otomatis untuk hub Anda
+        description: Atur pengumuman terjadwal otomatis untuk hubmu
+      servers:
+        label: Server terhubung
+        description: Lihat dan kelola jembatan server Discord yang aktif
     announce:
       errors:
-        invalidDuration: Invalid duration format.
+        invalidDuration: Format durasi tidak valid.
       success:
-        queued: Your broadcast has been queued.
+        queued: Siarannya sudah masuk antrean.
   all:
     title: Hub InterChat
-    description: Search through a list of all our hubs!
-    filteredBy: "Hasil difilter oleh: {filter}"
+    description: Cari di daftar semua hub kami!
+    createHint: "Mau kanal bersama sendiri? Gunakan `/hub create`."
+    filteredBy: "Hasil difilter berdasarkan: {filter}"
     errors:
-      notFound: Uh oh! I was unable to find any hubs.
-      invalidFilter: Jangkrik... tidak ada hub yang cocok dengan filter Anda.
+      notFound: "Aduh! Aku tidak menemukan hub apa pun. Kamu bisa membuat sendiri dengan `/hub create`."
+      invalidFilter: "Sepi banget... tidak ada hub yang cocok dengan filtermu. Mau buat sendiri? Gunakan `/hub create`."
     modal:
       title: Filter Pencarian
       searchFilter:
         label: Filter
         placeholder: InterChat Central
+
 connection:
   title: Manajemen Koneksi
-  description: Konfigurasikan, dan administrasi semua koneksi hub dalam server ini.
-  removeConnection: Remove Connection
-  broadcastState: Toggle Broadcast ({state})
+  description: Atur dan kelola semua koneksi hub di server ini.
+  removeConnection: Hapus Koneksi
+  broadcastState: Alihkan Siaran ({state})
   states:
-    start: Start
-    pause: Pause
-    active: Active
-    paused: Paused
+    start: *btn_start
+    pause: Jeda
+    active: Aktif
+    paused: Dijeda
   select:
-    placeholder: Select a connection to manage...
+    placeholder: Pilih koneksi untuk dikelola...
   fields:
-    state: State
+    state: Status
   messages:
-    disconnected: Successfully disconnected from this hub.
+    disconnected: Berhasil terputus dari hub ini.
   errors:
-    notFound: Connection not found.
-    serverOnly: This command can only be used in a server.
+    notFound: Koneksi tidak ditemukan.
+    serverOnly: Perintah ini hanya bisa digunakan di server.
     limitReached:
-      title: Connection limit reached
-      upgrade: Upgrade to Plus or Pro to unlock more connections per server.
-      disconnect: Disconnect an existing connection before adding a new one.
+      title: Batas koneksi tercapai
+      upgrade: Upgrade ke Plus atau Pro untuk membuka lebih banyak koneksi per server.
+      disconnect: Putuskan koneksi yang ada sebelum menambahkan yang baru.
   fixAll:
     label: Perbaiki Semua Koneksi
   manage:
     placeholder: Pilih koneksi untuk dikelola
   selected:
-    description: You may now edit this connection.
+    description: Sekarang kamu bisa mengedit koneksi ini.
     state:
       enabled: Siaran sekarang **aktif**.
       disabled: Siaran sekarang **dijeda**.
   fix:
     title: Validasi Koneksi
-    description: All connections within this guild have been validated.
+    description: Semua koneksi di guild ini sudah divalidasi.
     responses:
       success:
         fixed: Koneksi diperbaiki!
-        valid: Tidak ditemukan masalah.
+        valid: Tidak ada masalah ditemukan.
       errors:
-        channelDeleted: The channel associated with this hub has been deleted.
-        permissionsWebhook: I am unable to use webhooks.
-        permissionsSend: I am unable to send messages.
-        permissionsGeneral: I'm missing permissions in that channel. Ensure I have `Manage Webhooks`, `View Channel` and `Send Message` permissions.
+        channelDeleted: Kanal yang terkait dengan hub ini telah dihapus.
+        permissionsWebhook: Aku tidak bisa menggunakan webhook.
+        permissionsSend: Bot kekurangan izin! Aku tidak bisa mengirim pesan di kanal itu.
+        permissionsGeneral: Aku kekurangan izin di kanal itu. Pastikan aku punya izin `Kelola Webhook`, `Lihat Kanal`, dan `Kirim Pesan`.
+
 messageInfo:
   tabs:
     message:
@@ -1194,12 +1926,12 @@ messageInfo:
     author: Penulis
     hub: Hub
     content: Konten
-    timestamp: Timestamp
+    timestamp: Stempel Waktu
     username: Nama Pengguna
     accountCreated: Akun Dibuat
     badges: Lencana
     serverName: Nama Server
-    connectionChannel: Channel Koneksi
+    connectionChannel: Kanal Koneksi
     connectedSince: Terhubung Sejak
   status:
     connected: Terhubung
@@ -1209,276 +1941,700 @@ messageInfo:
   unknown:
     server: Server Tidak Diketahui
   noBadges: Tidak ada lencana untuk ditampilkan
-  noConnection: Tidak ada informasi koneksi yang tersedia
+  noConnection: Informasi koneksi tidak tersedia
+
 leaderboard:
-  title: Leaderboard
-  noActivity: No Activity
-  noActivityDescription: No activity recorded for this period.
-  messages: messages
-  calls: calls
-  votes: votes
-  streak: day streak
-  selectPeriod: Select time period
-  selectType: Select leaderboard type
-  yourRank: Your Rank
+  title: Papan Peringkat
+  noActivity: Belum ada aktivitas
+  noActivityDescription: Belum ada yang tercatat untuk periode ini. Jadilah yang pertama!
+  users: Pengguna
+  servers: Server
+  streaks: Streak
+  messages: pesan
+  unit:
+    calls: panggilan
+    votes: vote
+    streak: hari streak
+  calls: Panggilan
+  votes: Vote
+  selectPeriod: Pilih periode waktu
+  selectType: Tampilkan…
   periods:
-    thisMonth: This Month
-    thisMonth.description: Current month statistics
-    lastMonth: Last Month
-    lastMonth.description: Previous month statistics
-    allTime: All Time
-    allTime.description: All-time statistics
+    thisMonth: Bulan Ini
+    thisMonth.description: Statistik bulan berjalan
+    lastMonth: Bulan Lalu
+    lastMonth.description: Statistik bulan sebelumnya
+    allTime: Sepanjang Masa
+    allTime.description: Statistik sepanjang masa
   buttons:
-    users: Users
-    servers: Servers
-    calls: Calls
-    votes: Vote
-    streaks: Streaks
+    users: Pengguna
+    servers: Server
   errors:
-    alreadyShowingUsers: Already showing users leaderboard.
-    alreadyShowingServers: Already showing servers leaderboard.
-    alreadyShowingPeriod: Already showing this time period.
-    alreadyShowingType: Already showing this leaderboard type.
+    alreadyShowingUsers: Papan peringkat pengguna sudah ditampilkan.
+    alreadyShowingServers: Papan peringkat server sudah ditampilkan.
+    alreadyShowingPeriod: Periode waktu ini sudah ditampilkan.
+    alreadyShowingType: Papan peringkat itu sudah ditampilkan.
+    unavailable: Papan peringkat sedang tidak tersedia. Coba lagi sebentar lagi.
+
 profile:
   achievements:
     placeholder: Pencapaian di sini
+
+passportCard:
+  suspended: Paspor ditangguhkan
+  active: Aktif hari ini
+  inactive: Tidak aktif hari ini
+  traveler: Pelancong {traveler}
+  remembered: diingat oleh {count} orang
+  milesTravelled: "{miles} mil ditempuh"
+  breakdown: "{stamps} stempel · {gold} emas · {silver} perak · {bronze} perunggu"
+  recent: "{shown} terbaru dari {total}"
+  noneTitle: Belum ada stempel terkumpul
+  noneBody: Selesaikan panggilan lintas server agar diingat.
+  nextAt: gelar berikutnya di {count} stempel
+  ladder: Tangga kampanye
+  tiers: Distribusi tingkat
+  total: "total {count}"
+  moreTo: "{count} lagi menuju {title}"
+  topReached: gelar tertinggi tercapai
+  calls: "{count} panggilan"
+  lastCall: "panggilan terakhir {when}"
+  tier:
+    gold: Emas
+    silver: Perak
+    bronze: Perunggu
+  field:
+    stamps: Stempel
+    miles: Mil
+    calls: Panggilan
+    gold: Emas
+    silver: Perak
+    bronze: Perunggu
+
 my:
   hubs:
-    title: Hub Anda
-    description: "Berikut adalah hub yang Anda miliki atau moderasi:"
+    title: Hubmu
+    description: "Ini hub yang kamu miliki atau moderasi:"
+    serverOne: server
+    servers: server
+    messagesOne: pesan
+    messages: pesan
+    visibility:
+      public: Publik
+      private: Privat
+      unlisted: Tidak Terdaftar
+    locked: Terkunci
+    nsfw: NSFW
+    unavailable: Hub ini sudah tidak tersedia.
+    filters:
+      all: Semua
+      owned: Dimiliki
+      staff: Staf
+    picker:
+      placeholder: Pilih hub untuk dikelola...
+    empty:
+      title: Belum Ada Hub
+      description: "Kamu tidak memiliki atau memoderasi hub apa pun. Gunakan `/hub create` untuk membuatnya, atau `/hub browse` untuk menemukan komunitas yang bisa dibantu."
+    filtered:
+      title: Tidak Ada Hub {filter}
+      description: "Tidak ada hubmu yang cocok dengan filter ini. Coba **Semua** untuk melihat semua yang kamu miliki dan moderasi."
+    loading: Memuat hubmu...
+  activity:
+    day: "{count} hari"
+    days: "{count} hari"
+    unranked: Belum berperingkat
+    closed: Dasbor aktivitas ditutup.
+    utcFooter: Streak harian menggunakan UTC.
+    tabs:
+      overview: Ringkasan
+      hubs: Hub
+      calls: Panggilan
+    timeline:
+      day: "HARI {count}"
+      today: HARI INI
+    overview:
+      title: JAGA KONEKSI TETAP JALAN
+      securedTitle: KONEKSI HARI INI SUDAH SELESAI
+      startTitle: MULAI KONEKSI BARU
+      securedSummary: "Streak-mu {streak}. Kembali besok untuk terus menjaganya."
+      activeSummary: "Streak-mu {streak}. Satu hari aktif lagi membuatnya tetap hidup."
+      freezeSummary: "Streak {streak}-mu masih bisa diselamatkan. Penuhi syarat hari ini untuk memakai satu freeze."
+      inactiveSummary: "Streak sebelumnya {streak}. Penuhi syarat hari ini untuk memulai lagi."
+      newSummary: Satu hari aktif memulai streak InterChat pertamamu.
+      stats: "❄️ {freezes} freeze · Streak terbaik: {best}\n:trophy_icon: Peringkat streak: {rank}"
+    path:
+      title: JALUR HARI INI
+      hubs: "Kirim pesan Hub  **{current}/{threshold}**"
+      call: Selesaikan Panggilan 60+ detik
+      unavailable: Progres pesan Hub sementara tidak tersedia
+      secured: Streak hari ini aman
+      tomorrow: Jendela streak berikutnya dimulai besok.
+      freeze: Memenuhi syarat hari ini akan memakai satu freeze dan menjaga streak-mu.
+      nextMessages: "Langkah berikutnya: kirim {count} pesan Hub lagi."
+      nextStart: "Kirim 5 pesan Hub atau selesaikan Panggilan 60+ detik."
+      nextUnavailable: Panggilan 60+ detik tetap memenuhi syarat hari ini.
+    hubs:
+      title: PASPOR HUB-MU
+      messages: "{count} pesan"
+      places: TEMPAT YANG PERNAH DIKUNJUNGI KATA-KATAMU
+      homeBase: BASIS UTAMAMU
+      homeStats: "{count} pesan · {share}% dari bulan ini"
+      otherPlaces: TEMPAT LAIN
+      empty: Kirim pesan Hub yang diterima dan tempat yang kamu kunjungi akan muncul di sini.
+      summary: "{count} Hub aktif bulan ini\n:trophy_icon: Peringkat pesan global: {rank}"
+      delay: Hitungan mungkin tertunda sekitar 30 detik.
+    calls:
+      title: JAGA PERCAKAPAN TETAP JALAN
+      completed: PANGGILAN SELESAI
+      status: STATUS KONEKSI
+      qualifies: Satu Panggilan yang memenuhi syarat mengamankan streak hari ini.
+      currentStreak: Streak saat ini
+      previousStreak: Streak sebelumnya
+      stats: ":trophy_icon: Peringkat panggilan: {rank}\n:fire_icon: {streakLabel}: {streak}\n❄️ Freeze tersedia: {freezes}"
+      shared: Panggilan dan pesan Hub berbagi satu streak.
+
 stats:
-  title: InterChat Statistics
-  fields:
-    bot: Bot
-    botValue: "> **Uptime:** <t:{uptime}:R>\n> **Servers:** {servers}\n> **Members:** {members}"
-    system: System
-    systemValue: "> **OS:** {os}\n> **Python:** {python}\n> **CPU Cores:** {cores}\n> **RAM Usage:** {ram}mb"
-  footer: InterChat | Version {version}
+  title: InterChat
+  description: Angka langsung dari seluruh jaringan.
+  network: Saat ini
+  networkValue: "> **Server** {servers}\n> **Anggota** {members}\n> **Hub** {hubs}"
+  bot: Bot ini
+  botValue: "> **Ping** {ping}ms · **Uptime** <t:{uptime}:R> · **v{version}**"
+  footer: InterChat • v{version}
   shard:
-    title: Informasi Shard
+    title: Informasi shard
+    row: "> **Shard #{id}**: {status}\n> **Ping** {ping}ms · **Server** {guilds}"
+    system: "> **OS** {os}\n> **Python** {python}\n> **Inti CPU** {cores}\n> **RAM** {ram}MB"
     statusReady: Siap
-    statusProvisioning: Provisioning
-    current: "Current Shard: {id}"
+    statusProvisioning: Sedang disiapkan
+    current: "Kamu berada di shard #{id}"
+
 invite:
-  title: Halo!
-  description: Thanks for choosing InterChat. Need help? Join our support server.
+  title: Tambahkan InterChat ke servermu
+  description: Gratis, dan butuh sekitar satu menit.
+  steps: |-
+    > **1.** Tekan **Tambahkan ke Server** di bawah
+    > **2.** Pilih servermu
+    > **3.** Jalankan `/setup` di kanal yang ingin kamu pakai
+  footer: Kamu memerlukan **Kelola Server** di server yang kamu pilih.
+
+rules:
+  title: Aturan InterChat
+  body: Aturan ini berlaku di mana pun kamu memakai InterChat, baik di hub maupun panggilan.
+  tabs:
+    short: Aturannya
+    full: Pedoman lengkap
+    moderation: Moderasi
+  short: |-
+    > **1.** Perlakukan orang dengan hormat. Jika seseorang bilang berhenti, berhentilah.
+    > **2.** Jangan menyerang orang karena jati dirinya. Tidak ada hinaan.
+    > **3.** Tidak ada ancaman, dan jangan bagikan informasi pribadi.
+    > **4.** Tidak ada konten seksual. Tidak pernah melibatkan anak di bawah umur.
+    > **5.** Tidak ada spam, dan jangan rusak percakapan.
+    > **6.** Jangan menghindari ban atau mengirim laporan palsu.
+    > **7.** Nama juga harus mengikuti aturan ini.
+  rules:
+    title: Aturannya
+    commonSense: |
+      ## Gunakan akal sehat
+      Aturan ini tidak bisa mencakup setiap situasi yang mungkin.
+
+      Jika sesuatu jelas dilakukan untuk menyakiti, mengancam, melecehkan, menyeksualisasi, atau mengganggu orang lain secara serius, jangan anggap itu diperbolehkan hanya karena kamu tidak menemukan kata-kata persisnya di aturan ini.
+    body: |
+      ### 1. Perlakukan orang dengan hormat
+      **Bercanda boleh. Pelecehan tidak.**
+      - Bercanda dan saling ledek tidak masalah, tetapi jangan mengubahnya menjadi hinaan berulang, pelecehan, atau upaya sengaja membuat seseorang kesal.
+      - Jika seseorang memintamu berhenti, **berhentilah**.
+      - Jangan berulang kali memprovokasi, mengejek, atau menyerang seseorang, terutama setelah dia memintamu berhenti.
+      ### 2. Jangan menyerang orang karena jati dirinya
+      **Fanatisme tidak diperbolehkan.**
+      - Jangan menyerang, menghina, atau merendahkan seseorang karena ras, etnis, kebangsaan, agama, gender, seksualitas, disabilitas, atau ciri serupa.
+      - Hinaan tidak diperbolehkan, bahkan jika kamu mengaku boleh memakainya karena berlaku untukmu.
+      ### 3. Jaga keselamatan orang
+      **Tidak ada ancaman atau perilaku berbahaya.**
+      - Jangan mengancam akan melukai, membunuh, atau menyerang seseorang secara seksual.
+      - Jangan mendorong seseorang untuk menyakiti dirinya sendiri.
+      - Jangan mendorong atau membantu seseorang melakukan doxing, swatting, menyerang, atau mencelakai orang lain dengan cara apa pun.
+
+      **Jangan bagikan informasi pribadi.**
+      - Jangan memposting atau mengancam akan memposting alamat, nomor telepon, nama asli, lokasi, alamat IP, atau informasi pribadi lain milik seseorang.
+      ### 4. Jaga konten seksual tetap pantas
+      **Jangan menyeksualisasi anak di bawah umur.**
+      - Lelucon, cerita, komentar, atau percakapan seksual yang melibatkan anak di bawah umur tidak diperbolehkan.
+      - Grooming, upaya mendapatkan konten seksual dari anak di bawah umur, atau perilaku seksual lain yang ditujukan kepada anak di bawah umur ditangani dengan sangat serius.
+
+      **Jauhkan konten seksual eksplisit dari InterChat.**
+      - Tidak ada sexting, roleplay seksual, pesan seksual vulgar, atau konten serupa.
+      - Flirting boleh jika diterima. Jika seseorang tidak tertarik, **berhentilah**.
+      ### 5. Jangan rusak percakapan
+      **Tidak ada spam atau gangguan yang disengaja.**
+      - Jangan membanjiri obrolan, mengirim tembok teks yang sangat panjang, men-spam pesan atau emoji, atau sengaja membuat percakapan tidak bisa dipakai.
+      ### 6. Jangan menghalangi moderasi
+      **Jangan menghindari moderasi.**
+      - Jangan memakai akun lain atau cara lain untuk menghindari ban atau pembatasan yang sedang berlaku.
+
+      **Jangan menyalahgunakan sistem laporan.**
+      - Laporan harus jujur dan dibuat dengan itikad baik.
+      - Jangan membuat laporan palsu agar seseorang dihukum.
+      ### 7. Jaga identitasmu tetap pantas
+      **Nama juga harus mengikuti aturan.**
+      - Nama pengguna, nama panggilan, nama server, dan nama lain yang ditampilkan lewat InterChat harus mengikuti aturan ini.
+
+  enforcement: |
+    ## Cara kerja moderasi
+    Moderator melihat **apa yang terjadi, seberapa serius, apakah disengaja, siapa yang menjadi sasaran, apakah orangnya berhenti saat diminta, dan riwayat terbarunya.**
+    ### Tangga hukumannya adalah:
+    ```Peringatan → 6h → 24h → 7d → 14d → 30d → Permanen```
+    *Hukuman tidak selalu berurutan dan sering bergantung pada tingkat keparahan dan konteks pelanggaran. Pelanggaran biasa yang lebih dari 90 hari umumnya akan kedaluwarsa otomatis dan tidak menambah hukuman.*
+
+startHere:
+  nav:
+    help: Bantuan
+    invite: Undang
+    dashboard: Dasbor
+    stats: Statistik
+    about: Tentang
+  descriptions:
+    help: Jelajahi semua perintah InterChat.
+    about: Apa itu InterChat dan cara kerjanya.
+    invite: Tambahkan InterChat ke servermu.
+    rules: Baca aturan untuk hub dan panggilan.
+    stats: Lihat angka langsung InterChat.
+    feedback: Kirim saran atau laporan bug.
+    report: Pelajari cara melaporkan pesan.
+    dashboard: Buka dasbor web.
+    leaderboard: Lihat penelepon dan server teratas.
+    prefix: Ubah prefiks perintah server ini.
+    vote: Vote untuk InterChat, dapatkan lencana, dan pilih apakah mau dicocokkan ulang setelah skip atau tutup telepon.
+
+dashboard:
+  description: Kelola hub, server, dan panggilanmu dari browser. Tidak perlu perintah.
+
+prefix:
+  updatedTitle: Prefiks diperbarui
+  updated: Server ini sekarang memakai `{prefix}`. Coba `/help`.
+  resetTitle: Prefiks direset
+  reset: Server ini kembali ke prefiks default `{prefix}`.
+  error:
+    guildOnly: Prefiks berlaku per server, jadi ini hanya bekerja di dalam server.
+    tooLong: Prefiks maksimal 10 karakter.
+
+vote:
+  title: Vote untuk InterChat
+  description: Hanya 10 detik, dan membantu lebih banyak server menemukan kami.
+  rewards: |-
+    ## Yang kamu dapat selama 12 jam
+    > **Emoji server**: pakai emoji apa pun di pesanmu
+    > **Lencana voter**: tampil di profil InterChat-mu
+    > **Auto-match pribadi**: pilih apakah kamu dicocokkan ulang setelah partnermu skip atau menutup telepon
+  alreadyVoted: |-
+    ## :party_popper: Terima kasih sudah vote!
+    Kamu bisa vote lagi **{next}**.
+    Atur pilihan auto-match pribadimu untuk saat partnermu skip atau menutup telepon di `/my settings`.
+  thanks:
+    title: Terima kasih sudah vote!
+    intro: Votemu membantu lebih banyak server menemukan InterChat. Terima kasih sudah meluangkan 10 detik. Vote ini juga membuatmu bisa memilih selama 12 jam apakah dicocokkan ulang setelah partnermu skip atau menutup telepon; atur di `/my settings`.
+    activeHeading: Aktif selama 12 jam ke depan
+    emojiTitle: Emoji server
+    emojiBody: Pakai emoji dari server mana pun di pesanmu.
+    roleTitle: Role voter
+    roleBody: Diberikan di server dukungan dan dicabut saat votemu berakhir, jadi vote lagi untuk mempertahankannya.
+    keepHeading: Jadi milikmu
+    badgeTitle: Lencana voter
+    badgeBody: Sekarang ada di profil InterChat-mu.
+    freezeTitle: Satu freeze streak
+    freezeBody: Disimpan untuk hari yang terlewat, maksimal 2.
+    supportButton: Server dukungan
+    footer: "Vote #{count} · vote berikutnya tersedia {next}"
+
 services:
   hub:
     validation:
-      invalidName: The provided hub name is invalid.
-      nameTaken: That hub name is already taken.
+      invalidName: Nama hub yang diberikan tidak valid.
+      nameTaken: Nama hub itu sudah dipakai.
     defaults:
-      noDescription: No description provided.
+      noDescription: Tidak ada deskripsi.
   moderation:
     defaults:
-      noReason: No Reason
+      noReason: *no_reason
+
 support:
   priority:
-    standard: Standard
+    standard: Standar
+
 badges:
   developer:
-    title: InterChat Developer
-    description: Core developer of InterChat
+    title: Developer InterChat
+    description: Developer inti InterChat
   staff:
-    title: InterChat Staff
-    description: InterChat staff member
+    title: Staf InterChat
+    description: Anggota staf InterChat
   owner:
-    title: Hub Owner
-    description: Owner of the hub "{hubName}"
+    title: Pemilik Hub
+    description: Pemilik hub "{hubName}"
   moderator:
-    title: Hub Moderator
-    description: Moderator of the hub "{hubName}"
+    title: Moderator Hub
+    description: Moderator hub "{hubName}"
   manager:
-    title: Hub Manager
-    description: Manager of the hub "{hubName}"
+    title: Manajer Hub
+    description: Manajer hub "{hubName}"
+
 broadcast:
   spam:
-    mutedMessage: You have been temporarily muted for {minutes} minutes due to spam.
-    warningMessage: '⚠️ You are sending messages too quickly!'
-    autoMuteReason: "Auto-Mute: Spam detected"
-    autoWarnReason: "Auto-Warn: Spam detected"
+    mutedMessage: Kamu dibisukan sementara selama {minutes} menit karena spam.
+    warningMessage: ':alert_icon: Kamu mengirim pesan terlalu cepat!'
+    autoMuteReason: "Bisu otomatis: spam terdeteksi"
+    autoWarnReason: "Peringatan otomatis: spam terdeteksi"
   validation:
     accountAge:
-      message: Your account is too new to send messages through InterChat.
-      reason: Account too new
+      message: Akunmu terlalu baru untuk mengirim pesan lewat InterChat.
+      reason: Akun terlalu baru
     hubLock:
-      message: This hub is currently locked.
-      reason: Hub is currently locked
+      message: Hub ini sedang dikunci.
+      reason: Hub sedang dikunci
     invites:
-      message: "🚫 Discord invite links are not allowed in this hub."
+      message: ':ban: Tautan undangan Discord tidak diperbolehkan di hub ini.'
     nsfw:
-      message: "🚫 Your message was blocked by InterChat filters (Reason: NSFW detection)"
+      message: ':ban: Pesanmu diblokir oleh filter InterChat (Alasan: deteksi NSFW)'
     profanity:
-      message: '🚫 Your message was blocked by the hub''s profanity filter.'
-      reason: Profanity filter blocked message
+      message: ':ban: Pesanmu diblokir oleh filter kata kasar hub.'
+      reason: Filter kata kasar memblokir pesan
     videos:
-      message: '🚫 Video attachments are not allowed in this hub.'
+      message: ':ban: Lampiran video tidak diperbolehkan di hub ini.'
     messageLength:
-      reason: Message Length
-      message: Your message length is too long. Please shorten it.
+      reason: Panjang pesan
+      message: Pesanmu terlalu panjang. Mohon persingkat.
     spam:
-      reason: Spam detected
+      reason: Spam terdeteksi
     accessRestriction:
-      prefix: "Access restricted: "
-      reason: Active restriction
+      prefix: "Akses dibatasi:"
+      reason: Pembatasan aktif
+
 blacklist:
   add:
-    title: Add to Blocklist
+    title: Tambahkan ke Daftar Blokir
     type:
-      label: Type
-      description: Specify whether you are blocking a User or a Server.
+      label: Jenis
+      description: Tentukan apakah kamu memblokir Pengguna atau Server.
       options:
-        userDesc: Block a specific user.
-        serverDesc: Block an entire server.
+        userDesc: Blokir pengguna tertentu.
+        serverDesc: Blokir seluruh server.
     id:
-      label: User or Server ID to Block
-      placeholder: Enter the User ID or Server ID
+      label: ID Pengguna atau Server yang Diblokir
+      placeholder: Masukkan ID Pengguna atau ID Server
     reason:
-      label: Note (optional)
-      description: A small note helps you remember why you've blocked.
-      placeholder: E.g., Spammer, Annoying, Toxic etc.
+      label: Catatan (opsional)
+      description: Catatan singkat membantumu mengingat kenapa kamu memblokir.
+      placeholder: Mis., Spammer, Mengganggu, Toksik, dll.
     messages:
-      success: "Blocked {id} with reason: {reason}"
+      success: "{id} diblokir dengan alasan: {reason}"
     errors:
-      selfBlock: "{cross} You cannot block this server itself."
-      selfUserBlock: "{cross} You cannot block yourself."
-      failed: "Failed to block {id}."
+      selfBlock: "{cross} Kamu tidak bisa memblokir server ini sendiri."
+      selfUserBlock: "{cross} Kamu tidak bisa memblokir dirimu sendiri."
+      failed: "Gagal memblokir {id}."
   list:
     filters:
-      all: "All ({count})"
-      users: Users
-      servers: Servers
+      all: "Semua ({count})"
+      users: Pengguna
+      servers: Server
     empty:
-      all: "You're too nice! Block some servers/users to see them here."
-      users: "No blocked users found."
-      servers: "No blocked servers found."
-    instructions: 'You can add servers or users to the blocklist using the "Add to Blocklist" button.'
+      all: "Kamu terlalu baik! Blokir beberapa server/pengguna untuk melihatnya di sini."
+      users: "Tidak ada pengguna yang diblokir."
+      servers: "Tidak ada server yang diblokir."
+    instructions: 'Kamu bisa menambahkan server atau pengguna ke daftar blokir lewat tombol "Tambahkan ke Daftar Blokir".'
     errors:
-      notFound: "{cross} Item not found or already removed."
-      removeFailed: "{cross} Error removing item: {error}"
+      notFound: "{cross} Item tidak ditemukan atau sudah dihapus."
+      removeFailed: "{cross} Terjadi kesalahan saat menghapus item: {error}"
+
 commands:
   suggestion:
-    title: Suggestion / Bug Report
+    title: Kirim masukan
     overview:
-      label: Overview
-      placeholder: Briefly describe your suggestion or bug...
+      label: Ringkasan
+      placeholder: "Satu baris: apa yang salah, atau apa yang kamu inginkan"
     description:
-      label: Deskripsi
-      placeholder: Provide full details of your suggestion or bug...
+      label: *label_description
+      placeholder: "Ceritakan apa yang terjadi, langkah demi langkah"
     category:
-      label: Category
+      label: "Tentang apa ini?"
       options:
-        bug: Bug Report
-        bugDesc: Report an issue you've found
-        suggestion: Suggestion
-        suggestionDesc: Suggest a new feature or improvement
+        bug: Ada yang rusak
+        bugDesc: Laporkan masalah yang kamu temui
+        suggestion: Aku punya ide
+        suggestionDesc: Sarankan fitur atau perbaikan
     errorId:
-      label: Error ID (if applicable)
-      placeholder: Paste the error ID here...
+      label: ID Error (opsional)
+      placeholder: Tempel ID error dari pesan error
     messages:
-      submitted: Your feedback has been received and will be reviewed.
-      success: "{tick} Thank you for your feedback! It has been submitted successfully."
-    errors:
-      internal: An error occurred while submitting your feedback. Please try again.
+      success: "{tick} Terima kasih! Masukanmu sudah dikirim ke tim InterChat."
   report:
-    title: Cara Melapor
-    description: "Right-click on a message and select **Apps → Report**."
-    loadingGif: The GIF above may take a moment to load.
+    title: Cara melaporkan pesan
+    description: |-
+      > **1.** Klik kanan pesan
+      > **2.** Buka **Aplikasi → Laporkan**
+      > **3.** Pilih alasan. Kami akan meneruskannya ke tim yang tepat
+    footer: Laporan dikirim ke moderator hub, atau ke staf InterChat.
+    loadingGif: GIF di atas mungkin butuh waktu sebentar untuk dimuat.
+
 userphone:
   commands:
     start:
-      description: Start a userphone call and connect to another server
+      description: Mulai panggilan Userphone dan terhubung ke server lain
     end:
-      description: End the current userphone call
+      description: Akhiri panggilan Userphone saat ini
     skip:
-      description: Skip the current call and look for a new partner
+      description: Lewati panggilan saat ini dan cari partner baru
     block:
-      description: Block a user from connecting to you via userphone
+      description: Blokir pengguna agar tidak bisa terhubung denganmu lewat Userphone
     unblock:
-      description: Unblock a user from userphone
+      description: Buka blokir pengguna dari Userphone
     report:
-      description: Report the user you are connected with
+      description: Laporkan pengguna yang terhubung denganmu
     stats:
-      description: View your userphone statistics
+      description: Lihat statistik Userphone-mu
   status:
-    alreadyInCall: "{cross} This channel is already in a userphone call. Use `/userphone end` to disconnect first."
-    alreadyInCallDuration: "{cross} This channel is already in a userphone call. Current duration: **{duration}**."
-    connected: "{tick} **Connected!** You're now chatting with another server. Say hi! 👋"
-    searching: "**Searching...** Looking for someone to connect with. Hang tight!"
-    notInCall: "{cross} This channel is not in a userphone call."
-    notInCallHint: "{cross} You're not in a call. Use `/call` to start one!"
-    ended: "{tick} Call ended. Thanks for chatting!"
-    disconnected: You've been disconnected from the call.
-    hungUp: "{info} **They hung up.** The call has ended."
-    partnerDisconnected: "{info} **Your partner disconnected.** They're no longer available."
-    skipped: "{info} **Skipped!** Your partner moved on to a new call."
-    searchingAfterSkip: "{loading} **Searching again...** Looking for a new partner now!"
-    waitingInQueue: Waiting in queue for a match...
+    alreadyInCall: "{cross} Kanal ini sudah dalam panggilan Userphone. Gunakan `/userphone end` untuk memutus koneksi dulu."
+    alreadyInCallDuration: "{cross} Kanal ini sudah dalam panggilan Userphone. Durasi saat ini: **{duration}**."
+    connected: "{tick} **Terhubung!** Kamu sekarang mengobrol dengan server lain. Sapa mereka! 👋"
+    searching: "**Mencari...** Sedang mencari seseorang untuk dihubungkan. Tunggu sebentar!"
+    notInCall: "{cross} Kanal ini tidak sedang dalam panggilan Userphone."
+    notInCallHint: "{cross} Kamu tidak sedang dalam panggilan. Gunakan `/call` untuk memulainya!"
+    ended: "{tick} Panggilan berakhir. Terima kasih sudah mengobrol!"
+    disconnected: Kamu telah terputus dari panggilan.
+    hungUp: "{info} **Mereka menutup telepon.** Panggilan telah berakhir."
+    partnerDisconnected: "{info} **Partnermu terputus.** Mereka sudah tidak tersedia."
+    skipped: "{info} **Dilewati!** Partnermu pindah ke panggilan baru."
+    searchingAfterSkip: "{loading} **Mencari lagi...** Sedang mencari partner baru!"
+    waitingInQueue: Mengantre untuk mendapatkan pasangan...
   embed:
-    skippedTitle: Call Skipped
+    skippedTitle: Panggilan dilewati
     duration: Durasi
-    startNewCall: Want to chat more? Use `/call` to start another!
-    searchingTitle: Searching for a Call
-    matchNotification: We will notify you as soon as a match is found.
-    cancelHint: Use `/hangup` to stop searching.
-    connectedTitle: Userphone Connected
-    howItWorks: How it works
-    sendMessages: Send messages here to chat with the other server.
-    imagesSupported: Images are supported during userphone calls.
-    hangupHint: Use `/hangup` to end the call.
-    skipHint: Use `/skip` to move to a new partner.
-    endedTitle: Call Ended
-    statsTitle: Your Userphone Stats
-    totalCalls: Total Calls
-    totalTalkTime: Total Talk Time
-    averageCall: Average Call Length
+    startNewCall: Mau ngobrol lagi? Gunakan `/call` untuk memulai yang lain!
+    searchingTitle: Mencari panggilan
+    matchNotification: Kami akan memberitahumu begitu pasangan ditemukan.
+    cancelHint: Gunakan `/hangup` untuk berhenti mencari.
+    connectedTitle: Userphone terhubung
+    howItWorks: Cara kerjanya
+    sendMessages: Kirim pesan di sini untuk mengobrol dengan server lain.
+    imagesSupported: Gambar didukung selama panggilan Userphone.
+    hangupHint: Gunakan `/hangup` untuk mengakhiri panggilan.
+    skipHint: Gunakan `/skip` untuk pindah ke partner baru.
+    endedTitle: Panggilan berakhir
+    statsTitle: Statistik Userphone-mu
+    totalCalls: Total panggilan
+    totalTalkTime: Total waktu bicara
+    averageCall: Rata-rata durasi panggilan
+  errors:
+    wrongChannel:
+      title: Gunakan kanal yang ditentukan
+      intro: Perintah lobi seperti `/call`, `/skip`, dan `/hangup` hanya berfungsi di kanal lobi server ini.
+      hereLabel: Kamu di sini
+      allowedLabel: "**Gunakan salah satu kanal ini:**"
+      moreChannels: "-# …dan {count} lainnya."
+      modHint: "Moderator: ubah ini di `/server manage` → Pengaturan Userphone → Kanal Lobi yang Diizinkan."
   block:
-    selfBlock: "{cross} You cannot block yourself."
-    alreadyBlocked: "{cross} You have already blocked {user}."
-    success: "{tick} Successfully blocked {user} from userphone calls."
-    unblockSuccess: "{tick} Successfully unblocked {user}."
-    notBlocked: "{cross} {user} is not blocked."
+    selfBlock: "{cross} Kamu tidak bisa memblokir dirimu sendiri."
+    alreadyBlocked: "{cross} Kamu sudah memblokir {user}."
+    success: "{tick} Berhasil memblokir {user} dari panggilan Userphone."
+    unblockSuccess: "{tick} Berhasil membuka blokir {user}."
+    notBlocked: "{cross} {user} tidak diblokir."
   report:
-    transcriptTitle: "Userphone transcript | Server: {server} | Channel: #{channel}"
-    transcriptAttachments: "Attachments:"
-    transcriptNoMessages: No recent user messages were available.
-    modalTitle: Report Userphone Call
-    reasonLabel: Alasan Pelaporan
-    reasonPlaceholder: Describe what happened during the call...
-    callEnded: The call has been ended automatically.
-    buttonLabel: Report User
-    success: "{tick} Your report has been submitted. Our staff will review it shortly."
-    noRecentCall: "{cross} No recent userphone call found to report. You can only report during or shortly after a call."
+    transcriptTitle: "Transkrip Userphone | Server: {server} | Kanal: #{channel}"
+    transcriptAttachments: "Lampiran:"
+    transcriptNoMessages: Tidak ada pesan pengguna terbaru yang tersedia.
+    modalTitle: Laporkan panggilan Userphone
+    reasonLabel: Alasan Laporan
+    reasonPlaceholder: Jelaskan apa yang terjadi selama panggilan...
+    callEnded: Panggilan telah diakhiri secara otomatis.
+    buttonLabel: Laporkan pengguna
+    success: "{tick} Laporanmu sudah dikirim. Staf kami akan segera meninjaunya."
+    noRecentCall: "{cross} Tidak ada panggilan Userphone terbaru untuk dilaporkan. Kamu hanya bisa melapor selama atau sesaat setelah panggilan."
   staff:
     reports:
-      staffDescription: Review pending userphone reports
-      title: Pending Userphone Reports
-      empty: "{tick} No pending userphone reports at this time."
-      entry: "**Reporter:** <@{reporter}>\n**Reported:** <@{reported}>\n**Reason:** {reason}\n**Call ID:** {call_id}"
-      footer: "Showing {count} pending report(s)"
-      resolveSuccess: "{tick} Report `{id}` has been marked as resolved."
+      staffDescription: Tinjau laporan Userphone yang tertunda
+      title: Laporan Userphone tertunda
+      empty: "{tick} Tidak ada laporan Userphone tertunda saat ini."
+      entry: "**Pelapor:** <@{reporter}>\n**Dilaporkan:** <@{reported}>\n**Alasan:** {reason}\n**ID Panggilan:** {call_id}"
+      footer: "Menampilkan {count} laporan tertunda"
+      resolveSuccess: "{tick} Laporan `{id}` telah ditandai selesai."
+
 server:
   settings:
-    title: Server Settings
-    comingSoon: Advanced server settings (language, default filters, fallback channel) will be available in a future update.
+    title: Pengaturan server
+    comingSoon: Pengaturan server lanjutan (bahasa, filter default, kanal cadangan) akan tersedia di pembaruan mendatang.
   automod:
-    title: "Server Profanity Filter"
-    sectionDescription: "Configure bad word filters specifically for this server in calls."
-    buttonLabel: "Profanity Filter"
+    title: "Filter kata kasar server"
+    sectionDescription: "Atur filter kata kasar khusus untuk server ini dalam panggilan."
+    buttonLabel: "Filter kata kasar"
   userphone:
-    title: Userphone Settings
-    sectionDescription: Configure how your server behaves in calls.
-    buttonLabel: Userphone Settings
+    title: Pengaturan Userphone
+    sectionDescription: Atur perilaku servermu dalam panggilan.
+    buttonLabel: Pengaturan Userphone
     hideServerName:
-      title: Hide Server Name
-      description: Hides other servers' names from the webhook username in **group calls**. (Always hidden in 1v1 calls).
+      title: Sembunyikan Nama Server
+      description: Menyembunyikan nama server lain dari nama pengguna webhook di **panggilan grup**. (Selalu disembunyikan di panggilan 1v1).
     pingOnMatch:
-      title: Ping on Match
-      description: Send a ping in your channel when a 1v1 call match is found.
+      title: Ping saat Cocok
+      description: Kirim ping di kanalmu saat pasangan panggilan 1v1 ditemukan.
     autoRequeueOnSkip:
-      title: Auto Requeue on Skip
-      description: Automatically start a new call when the other side skips. Only works if you were recently active in the call.
+      title: Antre Ulang Otomatis saat Skip
+      description: Otomatis memulai panggilan baru saat pihak lain skip. Hanya berfungsi jika kamu aktif di panggilan belakangan ini.
     autoRequeueOnHangup:
-      title: Auto Requeue on Hangup
-      description: Automatically start a new call when the other side hangs up. Only works if you were recently active in the call.
-      ignoreSuccess: "{tick} Report `{id}` has been marked as ignored."
+      title: Antre Ulang Otomatis saat Menutup Telepon
+      description: Otomatis memulai panggilan baru saat pihak lain menutup telepon. Hanya berfungsi jika kamu aktif di panggilan belakangan ini.
+      ignoreSuccess: "{tick} Laporan `{id}` telah ditandai diabaikan."
+    lobbyChannels:
+      title: Kanal Lobi yang Diizinkan
+      description: Batasi call, skip, dan hangup ke kanal teks tertentu. Jika tidak ada kanal yang dipilih, perintah ini berfungsi di mana saja.
+      selectPlaceholder: Pilih kanal teks
+      currentlyAllowed: Perintah saat ini diizinkan di
+      everywhere: Perintah lobi berfungsi di setiap kanal teks jika tidak ada kanal yang dipilih.
+      unsaved: Perubahan belum disimpan - tekan Simpan Perubahan untuk menerapkannya.
+      saved: Pembatasan kanal lobi disimpan.
+      manageChannelsRequired: Kamu memerlukan izin Kelola Kanal untuk mengedit kanal lobi.
+
+achievementsCard:
+  title: Pencapaian
+  handle: "@{name}"
+  summary: "{unlocked} dari {total} terbuka"
+  page: "Halaman {page} dari {total}"
+  unlocked: Terbuka
+  progress: "{current} dari {threshold} {unit}"
+  closest: Tonggak terdekat
+  toGo: "{name} — {n} {unit} lagi"
+  allDone: Semua tonggak sudah diraih
+  noneTitle: Belum ada tonggak
+  noneBody: Selesaikan satu panggilan lintas server untuk mendapatkan yang pertama.
+  track:
+    calls: Panggilan
+    messages: Pesan
+    hubs: Hub
+    stamps: Stempel
+  unit:
+    calls: panggilan
+    messages: pesan
+    hubs: hub
+    stamps: stempel
+  one:
+    calls: panggilan
+    messages: pesan
+    hubs: hub
+    stamps: stempel
+
+profileCard:
+  messages: Pesan terkirim di seluruh hub
+  calls: Panggilan
+  hubs: Hub yang diikuti
+  rank: Papan Peringkat
+  votes: Total vote
+  streak: Streak terpanjang
+  achievements: Pencapaian
+  days: "{count} hari"
+  dayOne: "{count} hari"
+  achievementsDone: "{done} / {total} selesai"
+  memberSince: "Anggota sejak {when}"
+  voter: Voter
+  rankTitle: "Peringkat {rank}"
+  resonanceNext: "{done} / {total} mil menuju peringkat {next}"
+  resonanceTier: "{tier} di peringkat {rank}"
+  resonanceTop: Tingkat tertinggi tercapai
+  role:
+    hubOwner: Pemilik hub
+    hubModerator: Moderator hub
+    hubManager: Manajer hub
+    staff: Staf
+    developer: Developer
+    betaTester: Penguji beta
+    bugHunter: Pemburu bug
+    goldBugHunter: Pemburu bug emas
+    topChatter: Pengobrol teratas
+    translator: Penerjemah
+    voter: Voter
+    supporter: Pendukung
+calls:
+  searching:
+    first: "{icon} Mencari seseorang…"
+    afterSkip: "{icon} Mencari orang baru…"
+    partnerSkipped: "{icon} Mereka skip. Mencari orang baru…"
+    partnerLeft: "{icon} Mereka menutup telepon. Mencari orang baru…"
+  connected:
+    title: "{icon} Terhubung dengan **{name}**. Sapa mereka!"
+    body: Ini obrolan teks. Pesan di sini dibagikan dengan mereka sampai seseorang memakai `/hangup`.
+    someone: seseorang
+  hint: "`/topic` menyarankan bahan obrolan, `/skip` mencari orang baru, `/hangup` keluar."
+  ended:
+    byYou: "{icon} **Panggilan berakhir** · {duration}"
+    byPartner: "{icon} **Mereka menutup telepon** · {duration}"
+    byNamedPartner: "{icon} **{name}** menutup telepon dari sisi lain · {duration}"
+    partnerSkipped: "{icon} **Mereka skip** · {duration}"
+    inactivity: "{icon} Panggilan berakhir karena salah satu pihak tidak aktif selama 2 menit. Mulai yang baru saat kamu siap."
+  # Spoken duration units used in postCall.summary.
+  # Each unit has a form for exactly one and a form for every other count.
+  duration:
+    secondsOne: 1 detik
+    secondsOther: "{count} detik"
+    minutesOne: 1 menit
+    minutesOther: "{count} menit"
+    hoursOne: 1 jam
+    hoursOther: "{count} jam"
+    hoursAndMinutes: "{hours} dan {minutes}"
+  timeout: "{icon} Tidak ada pasangan ditemukan. Pencarian dihentikan."
+  # Shown in place of the Call again button when a closing message can only go out as plain text.
+  startAnother: "{command} untuk terhubung kembali."
+  buttons:
+    callAgain: Telepon lagi
+    searchAgain: Cari lagi
+    findGroup: Cari grup lain
+  group:
+    waiting: "{icon} Menunggu lebih banyak server… **{count}/{max}**"
+    connected: "{icon} Panggilan grup terhubung · **{count} server**"
+    joined: "{icon} **{name}** bergabung · {count} server dalam panggilan ini"
+    someoneJoined: "{icon} Seseorang yang baru bergabung · {count} server dalam panggilan ini"
+    youLeft: "{icon} Keluar dari panggilan grup · {count} server tersisa"
+  errors:
+    serverTextOnly: Panggilan hanya berfungsi di kanal teks server.
+    wrongChannel: "Panggilan di server ini dilakukan di {channel}."
+    notInCall: Tidak ada panggilan di kanal ini. Mulai satu dengan `/call`.
+    alreadyInCall: Kanal ini sudah dalam panggilan. Gunakan `/hangup` untuk mengakhirinya dulu.
+    hubChannel: Kanal ini terhubung ke hub, jadi tidak bisa menjadi tempat panggilan. Gunakan kanal lain, atau lepaskan dengan `/hub disconnect`.
+    accountAge: "Panggilan terbuka untuk akun Discord setelah {days} hari. Akunmu memenuhi syarat pada {date}."
+    restricted: "Kamu tidak bisa memakai panggilan saat ini karena ada pembatasan aktif. Jika menurutmu itu salah, hubungi dukungan: {support}"
+    unavailable: Panggilan sedang tidak tersedia sebentar. Coba lagi dalam semenit.
+    cooldown: Kamu bisa memulai panggilan lagi dalam {seconds}d.
+    profileRequired: Pilih profil panggilanmu di `/my settings` sebelum memulai panggilan.
+    profileTimedOut: Tidak ada profil panggilan yang dipilih, jadi aku tidak memulai panggilan. Gunakan `/call` lagi saat kamu siap.
+    skipGroup: Skip untuk panggilan 1-lawan-1. Untuk keluar dari panggilan grup, gunakan `/hangup`.
+    skipWaiting: Kamu masih menunggu pasangan, jadi belum ada yang bisa di-skip.
+    skipTooSoon: "Tunggu sebentar: kamu bisa skip dalam {seconds}d, atau setelah {messages} pesan lagi."
+    skipPermissions: Aku butuh **Lihat Kanal**, **Kirim Pesan**, dan **Kelola Webhook** di kanal ini untuk mencarikan pasangan baru.
+    noOneElse: Tidak ada orang lain di panggilan ini sekarang.
+  friendRequest:
+    broadcast: "{icon} **{name}** ingin berteman di Discord. Nama penggunanya `{username}`."
+    sent: "{icon} Nama pengguna Discord-mu dibagikan ke panggilan."
+    cooldown: Kamu bisa membagikan nama penggunamu lagi dalam {seconds}d.
+  actions:
+    cooldown: Kamu bisa mengirim aksi lain dalam {seconds}d.
+    gifUnavailable: Aku tidak bisa memuat GIF saat ini. Coba lagi sebentar lagi.
+    sent: "{icon} Dikirim ke semua orang di panggilanmu."
+    unknown: "Tidak ada aksi bernama `{name}`. Coba salah satu: {options}"
+  media:
+    attachments: "Pesanmu tidak terkirim: unggahan file tidak didukung dalam panggilan. GIF Tenor, Giphy, dan Klipy serta stiker bawaan berfungsi."
+    imageLinks: "Pesanmu tidak terkirim: tautan gambar tidak didukung dalam panggilan."
+    links: "Pesanmu tidak terkirim: tautan tidak didukung dalam panggilan."
+    gifProvider: "Pesanmu tidak terkirim: hanya GIF Tenor, Giphy, dan Klipy yang berfungsi dalam panggilan."
+    customStickers: "Pesanmu tidak terkirim: stiker kustom tidak didukung dalam panggilan. Stiker bawaan Discord berfungsi."
+    voteRequired: "{icon} Pesanmu tidak terkirim: emoji server dalam panggilan adalah keuntungan voter. Vote untuk membukanya selama 12 jam, atau kirim ulang tanpa emoji tersebut."
+  postCall:
+    summary: "{icon} **Panggilan berakhir · {duration} · {messages} pesan**"
+    question: Ada yang membuatnya jadi obrolan seru?
+    highlightButton: Beri sorotan
+    pickTitle: "## 🌟 Beri sorotan"
+    pickDescription: Siapa yang membuat percakapan ini seru?
+    rankLine: "-# {icon}Resonansi {rank} · {done}/{total} menuju peringkat {next}"
+    skipButton: Tidak kali ini
+    skipped: Tidak ada sorotan kali ini.
+    recorded: "{icon} **Sorotan terkirim.** Terima kasih sudah mengapresiasi **{name}**. Stempel dan paspor mereka sudah diperbarui."
+    notSpeaker: Sorotan untuk orang yang ikut dalam percakapan. Kirim beberapa pesan di panggilan berikutnya untuk membukanya.
+    noCandidates: Tidak ada orang lain yang cukup banyak bicara di panggilan ini untuk diberi sorotan.
+    failed: Aku tidak bisa menyimpan sorotanmu. Silakan coba lagi.
+    fallbackName: pelancong
