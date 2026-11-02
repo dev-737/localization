@@ -2567,7 +2567,7 @@ calls:
     byPartner: "{icon} **อีกฝ่ายวางสาย** · {duration}"
     byNamedPartner: "{icon} **{name}** วางสายจากอีกฝั่ง · {duration}"
     partnerSkipped: "{icon} **อีกฝ่ายข้าม** · {duration}"
-    inactivity: "{icon} สายจบลงเพราะฝ่ายหนึ่งไม่มีกิจกรรม 2 นาที เริ่มสายใหม่เมื่อคุณพร้อม"
+    inactivity: "{icon} สายจบลงเพราะฝ่ายหนึ่งไม่มีกิจกรรม 10 นาที เริ่มสายใหม่เมื่อคุณพร้อม"
   # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:

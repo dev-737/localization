@@ -2567,7 +2567,7 @@ calls:
     byPartner: "{icon} **അവർ ഹാങ്ങപ്പ് ചെയ്തു** · {duration}"
     byNamedPartner: "{icon} **{name}** മറുഭാഗത്ത് നിന്ന് ഹാങ്ങപ്പ് ചെയ്തു · {duration}"
     partnerSkipped: "{icon} **അവർ സ്കിപ്പ് ചെയ്തു** · {duration}"
-    inactivity: "{icon} ഒരു ഭാഗം 2 മിനിറ്റ് നിഷ്ക്രിയമായിരുന്നതിനാൽ കോൾ അവസാനിച്ചു. തയ്യാറാകുമ്പോൾ മറ്റൊന്ന് തുടങ്ങുക."
+    inactivity: "{icon} ഒരു ഭാഗം 10 മിനിറ്റ് നിഷ്ക്രിയമായിരുന്നതിനാൽ കോൾ അവസാനിച്ചു. തയ്യാറാകുമ്പോൾ മറ്റൊന്ന് തുടങ്ങുക."
   # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:

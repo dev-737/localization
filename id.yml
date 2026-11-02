@@ -2567,7 +2567,7 @@ calls:
     byPartner: "{icon} **Mereka menutup telepon** · {duration}"
     byNamedPartner: "{icon} **{name}** menutup telepon dari sisi lain · {duration}"
     partnerSkipped: "{icon} **Mereka skip** · {duration}"
-    inactivity: "{icon} Panggilan berakhir karena salah satu pihak tidak aktif selama 2 menit. Mulai yang baru saat kamu siap."
+    inactivity: "{icon} Panggilan berakhir karena salah satu pihak tidak aktif selama 10 menit. Mulai yang baru saat kamu siap."
   # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:
