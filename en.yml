@@ -2631,6 +2631,8 @@ calls:
     links: "Your message wasn't sent: links aren't supported in calls."
     gifProvider: "Your message wasn't sent: only Tenor, Giphy and Klipy GIFs work in calls."
     customStickers: "Your message wasn't sent: custom stickers aren't supported in calls. Default Discord stickers work."
+    stickerTier: "Your message wasn't sent: server stickers in calls unlock at the Gale Resonance tier. Default Discord stickers work."
+    linkTier: "Your message wasn't sent: links to YouTube, Spotify, Apple Music and Wikipedia unlock at the Bloom Resonance tier. Other links aren't supported in calls."
     voteRequired: "{icon} Your message wasn't sent: server emojis in calls are a voter perk. Vote to unlock them for 12 hours, or resend without them."
   postCall:
     summary: "{icon} **Call ended · {duration} · {messages} messages**"
