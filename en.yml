@@ -2573,6 +2573,7 @@ calls:
   ended:
     byYou: "{icon} **Call ended** · {duration}"
     byPartner: "{icon} **They hung up** · {duration}"
+    byNamedPartner: "{icon} **{name}** hung up from the other side · {duration}"
     partnerSkipped: "{icon} **They skipped** · {duration}"
     inactivity: "{icon} Call ended because one side was inactive for 2 minutes. Start another when you're ready."
   # Spoken duration units used in postCall.summary.
