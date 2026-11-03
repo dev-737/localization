@@ -2645,6 +2645,6 @@ calls:
     skipped: No highlight this time.
     recorded: "{icon} **Highlight sent.** Thanks for recognising **{name}**. Their stamps and passport are updated."
     notSpeaker: Highlights are for people who joined the conversation. Send a few messages next call to unlock them.
-    noCandidates: No one else spoke enough in this call to be highlighted.
+    noCandidates: Nobody on the other side qualified for a highlight. A person needs at least 2 messages of 3+ characters, and GIFs, stickers and rapid-fire messages don't count.
     failed: I couldn't save your highlight. Please try again.
     fallbackName: traveler
