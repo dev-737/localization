@@ -575,7 +575,7 @@ automod:
   newRule: New rule
   newRuleModalTitle: New rule
   newRuleName: Name
-  noRules: No rules yet. Create the first rule to begin.
+  noRules: No rules yet. Press **New rule**, then name it, list the words and choose what happens.
   page: Page {current}/{total}
   parameters: Action settings
   pause: Pause Automod
