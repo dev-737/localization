@@ -519,7 +519,7 @@ automod:
   addWords: Dodaj słowa
   applyDraft: Zastosuj mój szkic
   changeApplied: ':tick_icon: Twoja zmiana została zastosowana.'
-  changeApplying: ⏳ Zapisywanie…
+  changeApplying: ":refresh_icon: Zapisywanie…"
   changeBlocked: ':alert_icon: Wcześniejsza zmiana czeka na przegląd, więc nowe zmiany są na razie wstrzymane.'
   changeFailedConflict: Automod został zmieniony przez kogoś innego, gdy Twoja zmiana była stosowana, więc nie została zastosowana. Użyj opcji Porównaj moje zmiany, aby zastosować szkic na najnowszej wersji.
   changeFailedGeneric: Ta zmiana nie została potwierdzona. Sprawdź wyświetlone tutaj reguły i spróbuj ponownie.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: Usługa bezpieczeństwa odmówiła przyjęcia tej zmiany, co wygląda na problem z usługą. Nic nie zastosowano; zgłoś to, proszę.
   changeFailedUnknown: Nie udało się potwierdzić, czy ta zmiana została zastosowana, więc wymaga przeglądu. Sprawdź wyświetlone tutaj reguły i w razie potrzeby zapisz ponownie.
   changeFailedUnreadable: Nie udało się odczytać zapisanej zmiany, więc nigdy nie została wysłana. Zapisz ją ponownie.
-  changeStillApplying: ⏳ Nadal stosowanie. Za chwilę naciśnij Odśwież, aby zobaczyć wynik.
+  changeStillApplying: ":refresh_icon: Nadal stosowanie. Za chwilę naciśnij Odśwież, aby zobaczyć wynik."
   confirmChange: Potwierdź zmianę
   confirmEffect: 'Zmiana zaczyna obowiązywać natychmiast dla wszystkich w: {scope}.'
   confirmOff: Na razie zostaw wyłączoną
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: Nic nie zostałoby wykryte.'
   testDisclaimer: Tylko podgląd. Ostateczną decyzję podejmuje usługa egzekwowania.
   testEmpty: Żadne reguły nie są jeszcze włączone, więc nic nie zostałoby wykryte.
-  testFor: 🧪 Wynik testu dla „{message}”
+  testFor: ":search_icon: Wynik testu dla „{message}”"
   testLabel: Wpisz wiadomość tak, jak wysłałby ją użytkownik
   testModalTitle: Testuj Automoda
   testNoSurface: Ta reguła nie sprawdza treści wiadomości, więc test wiadomości nie ma czego sprawdzać.

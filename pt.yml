@@ -519,7 +519,7 @@ automod:
   addWords: Adicionar palavras
   applyDraft: Aplicar meu rascunho
   changeApplied: ':tick_icon: Sua alteração foi aplicada.'
-  changeApplying: ⏳ Salvando…
+  changeApplying: ":refresh_icon: Salvando…"
   changeBlocked: ':alert_icon: Uma alteração anterior está aguardando revisão, então novas alterações estão pausadas por enquanto.'
   changeFailedConflict: O Automod foi alterado por outra pessoa enquanto sua alteração estava sendo aplicada, então ela não foi aplicada. Use Comparar minhas alterações para aplicar seu rascunho sobre a versão mais recente.
   changeFailedGeneric: Esta alteração não foi confirmada. Confira as regras mostradas aqui e tente novamente.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: O serviço de segurança recusou esta alteração, o que parece um problema do serviço. Nada foi aplicado; por favor, reporte.
   changeFailedUnknown: Não conseguimos confirmar se esta alteração foi aplicada, então ela precisa de revisão. Confira as regras mostradas aqui e salve novamente se for preciso.
   changeFailedUnreadable: Não foi possível ler de volta a alteração salva, então ela nunca foi enviada. Salve-a novamente.
-  changeStillApplying: ⏳ Ainda aplicando. Clique em Atualizar daqui a pouco para ver o resultado.
+  changeStillApplying: ":refresh_icon: Ainda aplicando. Clique em Atualizar daqui a pouco para ver o resultado."
   confirmChange: Confirmar alteração
   confirmEffect: Isso entra em vigor imediatamente para todos em {scope}.
   confirmOff: Manter desativado por enquanto
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: Nada seria detectado.'
   testDisclaimer: Apenas prévia. A decisão final é tomada pelo serviço de aplicação.
   testEmpty: Ainda não há regras ativadas, então nada seria detectado.
-  testFor: 🧪 Resultado do teste para "{message}"
+  testFor: ":search_icon: Resultado do teste para \"{message}\""
   testLabel: Digite uma mensagem como um usuário enviaria
   testModalTitle: Testar Automod
   testNoSurface: Esta regra não verifica o conteúdo das mensagens, então um teste de mensagem não tem o que analisar.

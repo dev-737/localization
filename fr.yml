@@ -519,7 +519,7 @@ automod:
   addWords: Ajouter des mots
   applyDraft: Appliquer mon brouillon
   changeApplied: ':tick_icon: Ta modification a été appliquée.'
-  changeApplying: ⏳ Enregistrement…
+  changeApplying: ":refresh_icon: Enregistrement…"
   changeBlocked: ':alert_icon: Une modification précédente attend une vérification, donc les nouvelles modifications sont suspendues pour le moment.'
   changeFailedConflict: Automod a été modifié par quelqu'un d'autre pendant l'application de ta modification, elle n'a donc pas été appliquée. Utilise Comparer mes modifications pour appliquer ton brouillon par-dessus la dernière version.
   changeFailedGeneric: Cette modification n'a pas été confirmée. Vérifie les règles affichées ici, puis réessaie.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: Le service de sécurité a refusé cette modification, ce qui ressemble à un problème de service. Rien n'a été appliqué ; merci de le signaler.
   changeFailedUnknown: Nous n'avons pas pu confirmer si cette modification a été appliquée, une vérification est donc nécessaire. Vérifie les règles affichées ici, puis enregistre à nouveau si besoin.
   changeFailedUnreadable: La modification enregistrée n'a pas pu être relue, elle n'a donc jamais été envoyée. Enregistre-la à nouveau.
-  changeStillApplying: ⏳ Application en cours. Appuie sur Actualiser dans un instant pour voir le résultat.
+  changeStillApplying: ":refresh_icon: Application en cours. Appuie sur Actualiser dans un instant pour voir le résultat."
   confirmChange: Confirmer la modification
   confirmEffect: Cela prend effet immédiatement pour tout le monde dans {scope}.
   confirmOff: Le laisser désactivé pour l'instant
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: Rien ne serait détecté.'
   testDisclaimer: Aperçu uniquement. La décision finale est prise par le service d'application.
   testEmpty: Aucune règle n'est activée pour l'instant, donc rien ne serait détecté.
-  testFor: 🧪 Résultat du test pour « {message} »
+  testFor: ":search_icon: Résultat du test pour « {message} »"
   testLabel: Écris un message comme le ferait un utilisateur
   testModalTitle: Tester Automod
   testNoSurface: Cette règle ne vérifie pas le contenu des messages, donc un test de message n'a rien à examiner.

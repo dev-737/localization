@@ -519,7 +519,7 @@ automod:
   addWords: Add words
   applyDraft: Apply my draft
   changeApplied: ':tick_icon: Your change was applied.'
-  changeApplying: ⏳ Saving…
+  changeApplying: ":refresh_icon: Saving…"
   changeBlocked: ':alert_icon: An earlier change is waiting for a review, so new changes are paused for now.'
   changeFailedConflict: Automod was changed by someone else while your change was being applied, so it was not applied. Use Compare my changes to apply your draft on top of the latest version.
   changeFailedGeneric: This change was not confirmed. Check the rules shown here, then try again.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: The safety service refused this change, which looks like a service problem. Nothing was applied; please report it.
   changeFailedUnknown: We could not confirm whether this change was applied, so it needs a review. Check the rules shown here, then save again if needed.
   changeFailedUnreadable: The saved change could not be read back, so it was never sent. Save it again.
-  changeStillApplying: ⏳ Still applying. Press Refresh in a moment to see the result.
+  changeStillApplying: ":refresh_icon: Still applying. Press Refresh in a moment to see the result."
   confirmChange: Confirm change
   confirmEffect: This takes effect immediately for everyone in {scope}.
   confirmOff: Keep it off for now
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: Nothing would be caught.'
   testDisclaimer: Preview only. The final decision is made by the enforcement service.
   testEmpty: No rules are on yet, so nothing would be caught.
-  testFor: 🧪 Test result for "{message}"
+  testFor: ":search_icon: Test result for \"{message}\""
   testLabel: Type a message like a user would send
   testModalTitle: Test Automod
   testNoSurface: This rule does not check message content, so a message test has nothing to look at.

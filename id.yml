@@ -519,7 +519,7 @@ automod:
   addWords: Tambah kata
   applyDraft: Terapkan draf saya
   changeApplied: ':tick_icon: Perubahanmu telah diterapkan.'
-  changeApplying: ⏳ Menyimpan…
+  changeApplying: ":refresh_icon: Menyimpan…"
   changeBlocked: ':alert_icon: Perubahan sebelumnya sedang menunggu peninjauan, jadi perubahan baru dijeda untuk sementara.'
   changeFailedConflict: Automod diubah orang lain saat perubahanmu sedang diterapkan, jadi perubahanmu tidak diterapkan. Gunakan Bandingkan perubahan saya untuk menerapkan drafmu di atas versi terbaru.
   changeFailedGeneric: Perubahan ini tidak terkonfirmasi. Periksa aturan yang ditampilkan di sini, lalu coba lagi.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: Layanan keamanan menolak perubahan ini, yang tampaknya masalah layanan. Tidak ada yang diterapkan; mohon laporkan.
   changeFailedUnknown: Kami tidak dapat memastikan apakah perubahan ini diterapkan, jadi perlu ditinjau. Periksa aturan yang ditampilkan di sini, lalu simpan lagi jika perlu.
   changeFailedUnreadable: Perubahan yang disimpan tidak dapat dibaca kembali, jadi tidak pernah dikirim. Simpan lagi.
-  changeStillApplying: ⏳ Masih diterapkan. Tekan Segarkan sebentar lagi untuk melihat hasilnya.
+  changeStillApplying: ":refresh_icon: Masih diterapkan. Tekan Segarkan sebentar lagi untuk melihat hasilnya."
   confirmChange: Konfirmasi perubahan
   confirmEffect: Ini berlaku segera untuk semua orang di {scope}.
   confirmOff: Biarkan nonaktif dulu
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: Tidak ada yang akan terdeteksi.'
   testDisclaimer: Hanya pratinjau. Keputusan akhir dibuat oleh layanan penegakan.
   testEmpty: Belum ada aturan yang aktif, jadi tidak ada yang akan terdeteksi.
-  testFor: 🧪 Hasil uji untuk "{message}"
+  testFor: ":search_icon: Hasil uji untuk \"{message}\""
   testLabel: Ketik pesan seperti yang akan dikirim pengguna
   testModalTitle: Uji Automod
   testNoSurface: Aturan ini tidak memeriksa isi pesan, jadi uji pesan tidak punya apa pun untuk diperiksa.

@@ -519,7 +519,7 @@ automod:
   addWords: Añadir palabras
   applyDraft: Aplicar mi borrador
   changeApplied: ':tick_icon: Se aplicó tu cambio.'
-  changeApplying: ⏳ Guardando…
+  changeApplying: ":refresh_icon: Guardando…"
   changeBlocked: ':alert_icon: Un cambio anterior está esperando revisión, así que los cambios nuevos están en pausa por ahora.'
   changeFailedConflict: Alguien más modificó Automod mientras se aplicaba tu cambio, por lo que no se aplicó. Usa Comparar mis cambios para aplicar tu borrador sobre la versión más reciente.
   changeFailedGeneric: Este cambio no se confirmó. Revisa las reglas que se muestran aquí e inténtalo de nuevo.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: El servicio de seguridad rechazó este cambio, lo que parece un problema del servicio. No se aplicó nada; por favor, repórtalo.
   changeFailedUnknown: No pudimos confirmar si este cambio se aplicó, así que requiere revisión. Revisa las reglas que se muestran aquí y vuelve a guardar si hace falta.
   changeFailedUnreadable: No se pudo leer el cambio guardado, así que nunca se envió. Guárdalo de nuevo.
-  changeStillApplying: ⏳ Todavía se está aplicando. Pulsa Actualizar en un momento para ver el resultado.
+  changeStillApplying: ":refresh_icon: Todavía se está aplicando. Pulsa Actualizar en un momento para ver el resultado."
   confirmChange: Confirmar cambio
   confirmEffect: Esto surte efecto de inmediato para todos en {scope}.
   confirmOff: Mantenerlo desactivado por ahora
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: No se detectaría nada.'
   testDisclaimer: Solo vista previa. La decisión final la toma el servicio de aplicación.
   testEmpty: Aún no hay reglas activadas, así que no se detectaría nada.
-  testFor: 🧪 Resultado de la prueba para «{message}»
+  testFor: ":search_icon: Resultado de la prueba para «{message}»"
   testLabel: Escribe un mensaje como lo enviaría un usuario
   testModalTitle: Probar Automod
   testNoSurface: Esta regla no comprueba el contenido de los mensajes, así que una prueba de mensaje no tiene nada que revisar.

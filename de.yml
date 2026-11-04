@@ -519,7 +519,7 @@ automod:
   addWords: Wörter hinzufügen
   applyDraft: Meinen Entwurf übernehmen
   changeApplied: ':tick_icon: Deine Änderung wurde übernommen.'
-  changeApplying: ⏳ Wird gespeichert…
+  changeApplying: ":refresh_icon: Wird gespeichert…"
   changeBlocked: ':alert_icon: Eine frühere Änderung wartet auf eine Prüfung, daher sind neue Änderungen vorerst pausiert.'
   changeFailedConflict: Automod wurde von jemand anderem geändert, während deine Änderung angewendet wurde, deshalb wurde sie nicht übernommen. Nutze „Meine Änderungen vergleichen“, um deinen Entwurf auf die neueste Version anzuwenden.
   changeFailedGeneric: Diese Änderung wurde nicht bestätigt. Prüfe die hier angezeigten Regeln und versuche es erneut.
@@ -531,7 +531,7 @@ automod:
   changeFailedService: Der Sicherheitsdienst hat diese Änderung verweigert, was nach einem Dienstproblem aussieht. Es wurde nichts übernommen; bitte melde das.
   changeFailedUnknown: Wir konnten nicht bestätigen, ob diese Änderung übernommen wurde, daher ist eine Prüfung nötig. Prüfe die hier angezeigten Regeln und speichere bei Bedarf erneut.
   changeFailedUnreadable: Die gespeicherte Änderung konnte nicht zurückgelesen werden und wurde deshalb nie gesendet. Speichere sie erneut.
-  changeStillApplying: ⏳ Wird noch angewendet. Drücke gleich auf „Aktualisieren“, um das Ergebnis zu sehen.
+  changeStillApplying: ":refresh_icon: Wird noch angewendet. Drücke gleich auf „Aktualisieren“, um das Ergebnis zu sehen."
   confirmChange: Änderung bestätigen
   confirmEffect: Das gilt sofort für alle in {scope}.
   confirmOff: Vorerst aus lassen
@@ -609,7 +609,7 @@ automod:
   testClean: ':tick_icon: Es würde nichts erwischt.'
   testDisclaimer: Nur Vorschau. Die endgültige Entscheidung trifft der Durchsetzungsdienst.
   testEmpty: Noch keine Regeln aktiv, daher würde nichts erwischt.
-  testFor: 🧪 Testergebnis für „{message}“
+  testFor: ":search_icon: Testergebnis für „{message}“"
   testLabel: Tippe eine Nachricht, wie ein Nutzer sie senden würde
   testModalTitle: Automod testen
   testNoSurface: Diese Regel prüft keine Nachrichteninhalte, daher gibt es für einen Nachrichtentest nichts zu prüfen.
