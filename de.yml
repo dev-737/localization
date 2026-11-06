@@ -2567,7 +2567,7 @@ calls:
     byPartner: "{icon} **Die Gegenseite hat aufgelegt** · {duration}"
     byNamedPartner: "{icon} **{name}** hat auf der anderen Seite aufgelegt · {duration}"
     partnerSkipped: "{icon} **Die Gegenseite hat übersprungen** · {duration}"
-    inactivity: "{icon} Der Anruf wurde beendet, weil eine Seite 10 Minuten lang inaktiv war. Starte einen neuen, wenn du bereit bist."
+    inactivity: "{icon} Der Anruf wurde beendet, weil eine Seite 2 Minuten lang inaktiv war. Starte einen neuen, wenn du bereit bist."
   # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:

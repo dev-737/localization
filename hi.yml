@@ -2567,7 +2567,7 @@ calls:
     byPartner: "{icon} **उन्होंने हैंगअप किया** · {duration}"
     byNamedPartner: "{icon} **{name}** ने दूसरी तरफ़ से हैंगअप किया · {duration}"
     partnerSkipped: "{icon} **उन्होंने स्किप किया** · {duration}"
-    inactivity: "{icon} कॉल इसलिए खत्म हुई क्योंकि एक पक्ष 10 मिनट तक निष्क्रिय रहा। तैयार हों तो दूसरी शुरू करें।"
+    inactivity: "{icon} कॉल इसलिए खत्म हुई क्योंकि एक पक्ष 2 मिनट तक निष्क्रिय रहा। तैयार हों तो दूसरी शुरू करें।"
   # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:

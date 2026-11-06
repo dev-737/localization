@@ -2567,7 +2567,7 @@ calls:
     byPartner: "{icon} **Han colgado** · {duration}"
     byNamedPartner: "{icon} **{name}** colgó desde el otro lado · {duration}"
     partnerSkipped: "{icon} **Han saltado** · {duration}"
-    inactivity: "{icon} La llamada terminó porque un lado estuvo inactivo durante 10 minutos. Empieza otra cuando quieras."
+    inactivity: "{icon} La llamada terminó porque un lado estuvo inactivo durante 2 minutos. Empieza otra cuando quieras."
   # Spoken duration units used in postCall.summary.
   # Each unit has a form for exactly one and a form for every other count.
   duration:
