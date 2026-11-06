@@ -125,6 +125,7 @@ common:
     notYourMenu: This isn't your menu.
     cannotControlPagination: You cannot control this pagination.
     generic: &err_generic Oops! Something went wrong while processing your request.
+    serviceUnavailable: "InterChat can't reach its services right now. Please try again in a minute."
     processing: &err_processing An error occurred while processing your request. Please try again.
     invalidSelection: Invalid selection.
     interactionCheck: You may not use this interaction, as you did not invoke it.
@@ -594,6 +595,7 @@ automod:
   ruleDescription: '{status} · {count} words'
   ruleTitle: ':pencil_line: {name} · {status}'
   rulesOn: '{enabled} of {total} rules on'
+  statusPaused: Automod paused
   saveBusy: Another Automod change is already being applied. Wait for it to finish, then save again.
   saveDenied: You no longer have permission to change this Automod.
   saveFailed: 'This change could not be saved: {reason}'
@@ -857,6 +859,7 @@ hubConfig:
     appealsChannel: Appeals Channel
     reportsChannel: Reports Channel
     networkAlerts: Network Alerts
+    safetyAlerts: Safety Alerts
     messageModeration: Message Moderation
     title: Hub Logging Configuration
     description: Configure logging channels and notification roles.
@@ -876,6 +879,7 @@ hubConfig:
       appeals: Channel for appeal notifications
       reports: Channel for user reports
       networkAlerts: Channel for network-wide alerts and issues
+      safetyAlerts: Channel for content-safety alerts such as NSFW and policy matches
       messageModeration: Channel for message edit/delete logs
     success:
       updated: "{type} configuration updated!"
@@ -884,11 +888,12 @@ hubConfig:
       clearedDesc: "Logging for **{type}** has been cleared."
     errors:
       selectFirst: Please select a logging type first.
+      nothingSelected: Pick a channel or a role first, then press Apply.
       updateFailed: Failed to update logging configuration.
       clearFailed: Failed to clear logging configuration.
   invites:
     create:
-      title: Input Required
+      title: New invite
       customCode:
         label: Custom Code
         placeholder: abc123

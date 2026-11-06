@@ -125,6 +125,7 @@ common:
     notYourMenu: Ce n'est pas ton menu.
     cannotControlPagination: Tu ne peux pas contrôler cette pagination.
     generic: &err_generic Oups ! Un problème est survenu pendant le traitement de ta demande.
+    serviceUnavailable: InterChat ne parvient pas à joindre ses services pour le moment. Réessaie dans une minute.
     processing: &err_processing Une erreur est survenue pendant le traitement de ta demande. Réessaie.
     invalidSelection: Sélection invalide.
     interactionCheck: Tu ne peux pas utiliser cette interaction, car tu ne l'as pas lancée.
@@ -594,6 +595,7 @@ automod:
   ruleDescription: '{status} · {count} mots'
   ruleTitle: ':pencil_line: {name} · {status}'
   rulesOn: '{enabled} règles activées sur {total}'
+  statusPaused: Automod en pause
   saveBusy: Une autre modification d'Automod est déjà en cours d'application. Attends qu'elle se termine, puis enregistre à nouveau.
   saveDenied: Tu n'as plus la permission de modifier cet Automod.
   saveFailed: 'Impossible d''enregistrer cette modification : {reason}'
@@ -857,6 +859,7 @@ hubConfig:
     appealsChannel: Salon des recours
     reportsChannel: Salon des signalements
     networkAlerts: Alertes réseau
+    safetyAlerts: Alertes de sécurité
     messageModeration: Modération des messages
     title: Configuration des journaux du hub
     description: Configure les salons de journalisation et les rôles de notification.
@@ -876,6 +879,7 @@ hubConfig:
       appeals: Salon des notifications de recours
       reports: Salon des signalements d'utilisateurs
       networkAlerts: Salon des alertes et problèmes à l'échelle du réseau
+      safetyAlerts: Salon des alertes de sécurité du contenu, comme le NSFW et les règles de contenu
       messageModeration: Salon des journaux de modification/suppression de messages
     success:
       updated: "Configuration de {type} mise à jour !"
@@ -884,11 +888,12 @@ hubConfig:
       clearedDesc: "La journalisation de **{type}** a été effacée."
     errors:
       selectFirst: Choisis d'abord un type de journal.
+      nothingSelected: Choisis d'abord un salon ou un rôle, puis appuie sur Appliquer.
       updateFailed: Impossible de mettre à jour la configuration de journalisation.
       clearFailed: Impossible d'effacer la configuration de journalisation.
   invites:
     create:
-      title: Saisie requise
+      title: Nouvelle invitation
       customCode:
         label: Code personnalisé
         placeholder: abc123
