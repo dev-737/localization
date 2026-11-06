@@ -2598,6 +2598,7 @@ calls:
     connected: "{icon} Group call connected · **{count} servers**"
     joined: "{icon} **{name}** joined · {count} servers in this call"
     someoneJoined: "{icon} Someone new joined · {count} servers in this call"
+    someoneLeft: "{icon} A server left the call · {count} servers remain"
     youLeft: "{icon} Left the group call · {count} servers remain"
   errors:
     serverTextOnly: Calls only work in server text channels.
