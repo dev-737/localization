@@ -663,8 +663,8 @@ report:
       other: Lainnya
   success:
     title: Laporan Terkirim
-    toStaff: "{tick} Laporanmu telah dikirim ke staf InterChat."
-    toHub: "{tick} Laporanmu telah dikirim ke moderator hub."
+    toStaff: "Laporanmu telah dikirim ke staf InterChat."
+    toHub: "Laporanmu telah dikirim ke moderator hub."
   errors:
     hubMessageOnly: "{x_icon} Kamu hanya bisa melaporkan pesan yang dikirim lewat hub InterChat."
     cannotReportSelf: "{x_icon} Kamu tidak bisa melaporkan pesanmu sendiri."

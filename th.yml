@@ -663,8 +663,8 @@ report:
       other: อื่นๆ
   success:
     title: ส่งรายงานแล้ว
-    toStaff: "{tick} ส่งรายงานของคุณถึงทีมงาน InterChat แล้ว"
-    toHub: "{tick} ส่งรายงานของคุณถึงผู้ดูแล Hub แล้ว"
+    toStaff: "ส่งรายงานของคุณถึงทีมงาน InterChat แล้ว"
+    toHub: "ส่งรายงานของคุณถึงผู้ดูแล Hub แล้ว"
   errors:
     hubMessageOnly: "{x_icon} คุณรายงานได้เฉพาะข้อความที่ส่งผ่าน Hub ของ InterChat"
     cannotReportSelf: "{x_icon} คุณรายงานข้อความของตัวเองไม่ได้"

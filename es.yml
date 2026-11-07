@@ -663,8 +663,8 @@ report:
       other: Otros
   success:
     title: Reporte enviado
-    toStaff: "{tick} Tu reporte se envió al personal de InterChat."
-    toHub: "{tick} Tu reporte se envió a los moderadores del hub."
+    toStaff: "Tu reporte se envió al personal de InterChat."
+    toHub: "Tu reporte se envió a los moderadores del hub."
   errors:
     hubMessageOnly: "{x_icon} Solo puedes reportar mensajes enviados a través de hubs de InterChat."
     cannotReportSelf: "{x_icon} No puedes reportar tus propios mensajes."

@@ -663,8 +663,8 @@ report:
       other: Inne
   success:
     title: Zgłoszenie wysłane
-    toStaff: "{tick} Twoje zgłoszenie zostało wysłane do zespołu InterChat."
-    toHub: "{tick} Twoje zgłoszenie zostało wysłane do moderatorów huba."
+    toStaff: "Twoje zgłoszenie zostało wysłane do zespołu InterChat."
+    toHub: "Twoje zgłoszenie zostało wysłane do moderatorów huba."
   errors:
     hubMessageOnly: "{x_icon} Możesz zgłaszać tylko wiadomości wysłane przez huby InterChat."
     cannotReportSelf: "{x_icon} Nie możesz zgłaszać własnych wiadomości."

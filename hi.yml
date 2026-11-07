@@ -663,8 +663,8 @@ report:
       other: अन्य
   success:
     title: रिपोर्ट सबमिट हुई
-    toStaff: "{tick} आपकी रिपोर्ट InterChat स्टाफ़ को भेज दी गई है।"
-    toHub: "{tick} आपकी रिपोर्ट Hub मॉडरेटरों को भेज दी गई है।"
+    toStaff: "आपकी रिपोर्ट InterChat स्टाफ़ को भेज दी गई है।"
+    toHub: "आपकी रिपोर्ट Hub मॉडरेटरों को भेज दी गई है।"
   errors:
     hubMessageOnly: "{x_icon} आप केवल InterChat Hub के ज़रिए भेजे गए संदेशों की रिपोर्ट कर सकते हैं।"
     cannotReportSelf: "{x_icon} आप अपने ही संदेशों की रिपोर्ट नहीं कर सकते।"

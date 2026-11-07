@@ -663,8 +663,8 @@ report:
       other: Sonstiges
   success:
     title: Meldung gesendet
-    toStaff: "{tick} Deine Meldung wurde an das InterChat-Team gesendet."
-    toHub: "{tick} Deine Meldung wurde an die Hub-Moderatoren gesendet."
+    toStaff: "Deine Meldung wurde an das InterChat-Team gesendet."
+    toHub: "Deine Meldung wurde an die Hub-Moderatoren gesendet."
   errors:
     hubMessageOnly: "{x_icon} Du kannst nur Nachrichten melden, die über InterChat-Hubs gesendet wurden."
     cannotReportSelf: "{x_icon} Du kannst deine eigenen Nachrichten nicht melden."

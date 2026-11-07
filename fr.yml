@@ -665,8 +665,8 @@ report:
       other: Autres
   success:
     title: Signalement envoyé
-    toStaff: "{tick} Ton signalement a été envoyé à l'équipe d'InterChat."
-    toHub: "{tick} Ton signalement a été envoyé aux modérateurs du hub."
+    toStaff: "Ton signalement a été envoyé à l'équipe d'InterChat."
+    toHub: "Ton signalement a été envoyé aux modérateurs du hub."
   errors:
     hubMessageOnly: "{x_icon} Tu ne peux signaler que les messages envoyés via les hubs InterChat."
     cannotReportSelf: "{x_icon} Tu ne peux pas signaler tes propres messages."

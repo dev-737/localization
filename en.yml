@@ -665,8 +665,8 @@ report:
       other: Other
   success:
     title: Report Submitted
-    toStaff: "{tick} Your report has been sent to InterChat staff."
-    toHub: "{tick} Your report has been sent to hub moderators."
+    toStaff: "Your report has been sent to InterChat staff."
+    toHub: "Your report has been sent to hub moderators."
   errors:
     hubMessageOnly: "{x_icon} You can only report messages sent through InterChat hubs."
     cannotReportSelf: "{x_icon} You cannot report your own messages."

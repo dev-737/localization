@@ -663,8 +663,8 @@ report:
       other: Outros
   success:
     title: Denúncia enviada
-    toStaff: "{tick} Sua denúncia foi enviada à equipe do InterChat."
-    toHub: "{tick} Sua denúncia foi enviada aos moderadores do hub."
+    toStaff: "Sua denúncia foi enviada à equipe do InterChat."
+    toHub: "Sua denúncia foi enviada aos moderadores do hub."
   errors:
     hubMessageOnly: "{x_icon} Você só pode denunciar mensagens enviadas por hubs do InterChat."
     cannotReportSelf: "{x_icon} Você não pode denunciar suas próprias mensagens."
