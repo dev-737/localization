@@ -242,6 +242,7 @@ setup:
       topic: Messages here are shared with other servers through InterChat.
       auditReason: "Created with /setup by {user}"
       createFailed: I couldn’t create a channel. Give the InterChat role **Manage Channels** in this server and try again, or pick a channel you already have.
+      createFailedCategory: "I couldn’t create a channel in **{category}**. Give the InterChat role **Manage Channels** in that category (or run /setup from a channel outside it) and try again, or pick a channel you already have."
       createdNote: "Created {channel} and gave myself the permissions I need there."
     hub:
       title: "Choose a hub for {channel}"
