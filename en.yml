@@ -2566,6 +2566,7 @@ profileCard:
     voter: Voter
     supporter: Supporter
 calls:
+  earlyEndWait: "You ended your last call early, so your next call starts in **{seconds}s**… It's a short pause that keeps calls good for everyone."
   profileAutoSet: "You'll appear as **{name}** in calls. Change it anytime in `/my settings`."
   searching:
     first: "{icon} Looking for someone…"
