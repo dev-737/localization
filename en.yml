@@ -2218,7 +2218,7 @@ startHere:
     report: Learn how to report a message.
     dashboard: Open the web dashboard.
     leaderboard: See the top callers and servers.
-    prefix: Change this server's command prefix.
+    prefix: See or change this server's command prefix.
     vote: Vote for InterChat, earn a badge, and choose whether to re-match after a skip or hangup.
 
 dashboard:
@@ -2229,9 +2229,15 @@ prefix:
   updated: This server now uses `{prefix}`. Try `/help`.
   resetTitle: Prefix reset
   reset: This server is back to the default prefix `{prefix}`.
+  currentTitle: Command prefix
+  currentCustom: This server uses `{prefix}`. The default is `{default}`.
+  currentDefault: This server uses the default prefix `{prefix}`.
+  changeHint: To change it, use `/prefix new_prefix:<prefix>`.
+  resetButton: Reset to default
   error:
     guildOnly: Prefixes are per-server, so this only works inside a server.
     tooLong: A prefix can be at most 10 characters long.
+    resetPermission: You need the Manage Server permission to reset the prefix.
 
 vote:
   title: Vote for InterChat
