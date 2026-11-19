@@ -2566,6 +2566,7 @@ profileCard:
     voter: Voter
     supporter: Supporter
 calls:
+  profileAutoSet: "You'll appear as **{name}** in calls. Change it anytime in `/my settings`."
   searching:
     first: "{icon} Looking for someone…"
     afterSkip: "{icon} Finding someone new…"
@@ -2615,7 +2616,7 @@ calls:
     accountAge: "Calls open to Discord accounts after {days} days. Yours qualifies {date}."
     restricted: "You can't use calls right now because of an active restriction. If you think that's wrong, contact support: {support}"
     unavailable: Calls are briefly unavailable. Please try again in a minute.
-    cooldown: You can start another call in {seconds}s.
+    cooldown: "Almost ready, try `/call` again in {seconds}s."
     profileRequired: Choose your call profile in `/my settings` before starting a call.
     profileTimedOut: No call profile was chosen, so I didn't start the call. Use `/call` again when you're ready.
     skipGroup: Skip is for 1-on-1 calls. To leave a group call, use `/hangup`.
