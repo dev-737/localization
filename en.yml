@@ -1737,6 +1737,8 @@ hub:
     title: This Command Moved
     description: "`{old}` now lives in `{new}` ({section})."
     button: Run it now
+    dashboardDescription: Hub settings now live on the dashboard. Open it to manage rules, logging, your team, invites and more.
+    dashboardButton: Open dashboard
   manage:
     sections:
       delete: Delete hub
